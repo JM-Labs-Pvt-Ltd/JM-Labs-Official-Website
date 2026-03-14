@@ -1,0 +1,69 @@
+<svg width="880" height="880" viewBox="72 72 880 880" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="112" y1="120" x2="918" y2="918" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0A2040"/>
+      <stop offset="1" stop-color="#15467D"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="230" y1="220" x2="800" y2="820" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#78C9FF"/>
+      <stop offset="1" stop-color="#3A6EA8"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="422" y1="365" x2="610" y2="615" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFE9AA"/>
+      <stop offset="1" stop-color="#D29A22"/>
+    </linearGradient>
+    <linearGradient id="buy" x1="236" y1="512" x2="350" y2="512" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#30D98B"/>
+      <stop offset="1" stop-color="#1BAA67"/>
+    </linearGradient>
+    <linearGradient id="sell" x1="788" y1="512" x2="674" y2="512" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF7979"/>
+      <stop offset="1" stop-color="#D63B3B"/>
+    </linearGradient>
+    <linearGradient id="pay" x1="512" y1="788" x2="512" y2="674" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7AF47"/>
+      <stop offset="1" stop-color="#D9851A"/>
+    </linearGradient>
+    <linearGradient id="rec" x1="512" y1="236" x2="512" y2="350" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#68D0FF"/>
+      <stop offset="1" stop-color="#2E8BCE"/>
+    </linearGradient>
+    <filter id="shadow" x="90" y="90" width="844" height="844" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#06172F" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <rect x="72" y="72" width="880" height="880" rx="220" fill="url(#bg)"/>
+
+  <g filter="url(#shadow)">
+    <circle cx="512" cy="512" r="296" fill="#0A2A53" stroke="url(#ring)" stroke-width="18"/>
+    <circle cx="512" cy="512" r="250" stroke="#5E86B5" stroke-width="8" stroke-dasharray="16 18" opacity="0.75"/>
+
+    <path d="M338 512H236" stroke="url(#buy)" stroke-width="30" stroke-linecap="round"/>
+    <path d="M236 512L288 460" stroke="url(#buy)" stroke-width="30" stroke-linecap="round"/>
+    <path d="M236 512L288 564" stroke="url(#buy)" stroke-width="30" stroke-linecap="round"/>
+
+    <path d="M686 512H788" stroke="url(#sell)" stroke-width="30" stroke-linecap="round"/>
+    <path d="M788 512L736 460" stroke="url(#sell)" stroke-width="30" stroke-linecap="round"/>
+    <path d="M788 512L736 564" stroke="url(#sell)" stroke-width="30" stroke-linecap="round"/>
+
+    <path d="M512 338V236" stroke="url(#rec)" stroke-width="30" stroke-linecap="round"/>
+    <path d="M512 236L460 288" stroke="url(#rec)" stroke-width="30" stroke-linecap="round"/>
+    <path d="M512 236L564 288" stroke="url(#rec)" stroke-width="30" stroke-linecap="round"/>
+
+    <path d="M512 686V788" stroke="url(#pay)" stroke-width="30" stroke-linecap="round"/>
+    <path d="M512 788L460 736" stroke="url(#pay)" stroke-width="30" stroke-linecap="round"/>
+    <path d="M512 788L564 736" stroke="url(#pay)" stroke-width="30" stroke-linecap="round"/>
+
+    <rect x="424" y="378" width="176" height="238" rx="34" fill="url(#gold)"/>
+    <rect x="450" y="410" width="124" height="172" rx="24" fill="#E8B64F" opacity="0.4"/>
+    <path d="M444 446H580" stroke="#C78616" stroke-width="8" stroke-linecap="round"/>
+    <path d="M444 490H580" stroke="#C78616" stroke-width="8" stroke-linecap="round"/>
+    <path d="M444 534H544" stroke="#C78616" stroke-width="8" stroke-linecap="round"/>
+
+    <circle cx="388" cy="512" r="10" fill="#2ED787"/>
+    <circle cx="636" cy="512" r="10" fill="#FF7272"/>
+    <circle cx="512" cy="388" r="10" fill="#63CAFF"/>
+    <circle cx="512" cy="636" r="10" fill="#F4A43B"/>
+  </g>
+</svg>
