@@ -66,6 +66,11 @@ Add these in the **private source repo**:
 - `PUBLIC_DEPLOY_SSH_KEY`
   The private SSH key for the deploy key you add to `JM-Labs-Pvt-Ltd/JM-Labs-Website`
 
+Preferred alternative:
+
+- `PUBLIC_DEPLOY_SSH_KEY_B64`
+  A base64-encoded version of the same private key. This is the most reliable option because it avoids multiline secret formatting issues.
+
 This workflow is already configured to publish to:
 
 ```text
@@ -114,6 +119,20 @@ Important:
   and
   `-----END OPENSSH PRIVATE KEY-----`
 - If the secret was copied from a Windows editor, hidden `CRLF` characters can break parsing. The workflow strips those now, but the cleanest option is still to paste the key directly from terminal output.
+
+### Recommended: base64 secret instead of raw multiline key
+
+Create a base64 version locally:
+
+```bash
+base64 < ~/.ssh/jm-labs-website-deploy | tr -d '\n'
+```
+
+Then:
+
+1. Copy that single-line output.
+2. Add it as the repository secret `PUBLIC_DEPLOY_SSH_KEY_B64`.
+3. You can keep or remove `PUBLIC_DEPLOY_SSH_KEY`; the workflow will prefer the base64 secret when present.
 
 ## Manual one-time local publish
 

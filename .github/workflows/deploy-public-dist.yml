@@ -21,6 +21,7 @@ jobs:
       NODE_VERSION: "20"
       PUBLIC_DEPLOY_BRANCH: ${{ vars.PUBLIC_DEPLOY_BRANCH || 'main' }}
       PUBLIC_DEPLOY_REPO: JM-Labs-Pvt-Ltd/JM-Labs-Website
+      PUBLIC_DEPLOY_SSH_KEY_B64: ${{ secrets.PUBLIC_DEPLOY_SSH_KEY_B64 }}
       PUBLIC_DEPLOY_SSH_KEY: ${{ secrets.PUBLIC_DEPLOY_SSH_KEY }}
 
     steps:
@@ -29,8 +30,8 @@ jobs:
 
       - name: Validate deploy secrets
         run: |
-          if [ -z "${PUBLIC_DEPLOY_SSH_KEY}" ]; then
-            echo "Missing required secret: PUBLIC_DEPLOY_SSH_KEY"
+          if [ -z "${PUBLIC_DEPLOY_SSH_KEY}" ] && [ -z "${PUBLIC_DEPLOY_SSH_KEY_B64}" ]; then
+            echo "Missing required secret: PUBLIC_DEPLOY_SSH_KEY or PUBLIC_DEPLOY_SSH_KEY_B64"
             exit 1
           fi
 
@@ -49,7 +50,11 @@ jobs:
         run: |
           mkdir -p "${HOME}/.ssh"
           chmod 700 "${HOME}/.ssh"
-          printf '%s' "${PUBLIC_DEPLOY_SSH_KEY}" | tr -d '\r' > "${HOME}/.ssh/public_deploy_key"
+          if [ -n "${PUBLIC_DEPLOY_SSH_KEY_B64}" ]; then
+            printf '%s' "${PUBLIC_DEPLOY_SSH_KEY_B64}" | tr -d '\r\n ' | base64 --decode > "${HOME}/.ssh/public_deploy_key"
+          else
+            printf '%s' "${PUBLIC_DEPLOY_SSH_KEY}" | tr -d '\r' > "${HOME}/.ssh/public_deploy_key"
+          fi
           chmod 600 "${HOME}/.ssh/public_deploy_key"
           ssh-keygen -y -f "${HOME}/.ssh/public_deploy_key" > /dev/null
           ssh-keyscan github.com >> "${HOME}/.ssh/known_hosts"
