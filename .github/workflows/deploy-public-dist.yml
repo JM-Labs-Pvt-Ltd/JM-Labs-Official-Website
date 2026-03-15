@@ -49,8 +49,9 @@ jobs:
         run: |
           mkdir -p "${HOME}/.ssh"
           chmod 700 "${HOME}/.ssh"
-          printf '%s\n' "${PUBLIC_DEPLOY_SSH_KEY}" > "${HOME}/.ssh/public_deploy_key"
+          printf '%s' "${PUBLIC_DEPLOY_SSH_KEY}" | tr -d '\r' > "${HOME}/.ssh/public_deploy_key"
           chmod 600 "${HOME}/.ssh/public_deploy_key"
+          ssh-keygen -y -f "${HOME}/.ssh/public_deploy_key" > /dev/null
           ssh-keyscan github.com >> "${HOME}/.ssh/known_hosts"
           chmod 644 "${HOME}/.ssh/known_hosts"
           cat <<'EOF' > "${HOME}/.ssh/config"
@@ -62,9 +63,15 @@ jobs:
           EOF
           chmod 600 "${HOME}/.ssh/config"
 
-      - name: Clone public deploy repository
+      - name: Clone or initialize public deploy repository
         run: |
-          git clone --branch "${PUBLIC_DEPLOY_BRANCH}" "git@github.com:${PUBLIC_DEPLOY_REPO}.git" public-dist
+          if git ls-remote --exit-code --heads "git@github.com:${PUBLIC_DEPLOY_REPO}.git" "${PUBLIC_DEPLOY_BRANCH}" >/dev/null 2>&1; then
+            git clone --branch "${PUBLIC_DEPLOY_BRANCH}" "git@github.com:${PUBLIC_DEPLOY_REPO}.git" public-dist
+          else
+            git clone "git@github.com:${PUBLIC_DEPLOY_REPO}.git" public-dist
+            cd public-dist
+            git checkout --orphan "${PUBLIC_DEPLOY_BRANCH}"
+          fi
 
       - name: Sync dist into public repository
         run: |

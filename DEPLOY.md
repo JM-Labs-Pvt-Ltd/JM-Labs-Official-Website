@@ -80,9 +80,10 @@ JM-Labs-Pvt-Ltd/JM-Labs-Website
 ### Recommended repo setup
 
 1. Create the public deploy repo first.
-2. Give it an initial commit on the branch you want to deploy to.
-3. Add the `PUBLIC_DEPLOY_SSH_KEY` secret in the private source repo.
-4. Push to `main` or run the workflow manually.
+2. Add the `PUBLIC_DEPLOY_SSH_KEY` secret in the private source repo.
+3. Push to `main` or run the workflow manually.
+
+The workflow can initialize the target branch automatically on first deploy if it does not exist yet.
 
 ### Deploy key setup
 
@@ -104,6 +105,15 @@ Then:
 8. Paste the contents of `~/.ssh/jm-labs-website-deploy` into that secret.
 
 This is safer than using a personal token because the key only applies to that single repository.
+
+Important:
+
+- The secret must contain the **private** key, not the `.pub` key.
+- Paste the raw key exactly as-is, including:
+  `-----BEGIN OPENSSH PRIVATE KEY-----`
+  and
+  `-----END OPENSSH PRIVATE KEY-----`
+- If the secret was copied from a Windows editor, hidden `CRLF` characters can break parsing. The workflow strips those now, but the cleanest option is still to paste the key directly from terminal output.
 
 ## Manual one-time local publish
 
