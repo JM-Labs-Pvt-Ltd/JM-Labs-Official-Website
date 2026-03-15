@@ -6,13 +6,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const favicon = document.querySelector("link[rel='icon']");
   const themeAssets = {
     dark: {
-      icon: "./assets/jm-labs-icon-final.svg",
+      icon: "./jm-labs-icon-final.svg",
       label: "Light",
       ariaLabel: "Switch to light mode",
       pressed: "false",
     },
     light: {
-      icon: "./assets/jm-labs-icon-final-light.svg",
+      icon: "./jm-labs-icon-final-light.svg",
       label: "Dark",
       ariaLabel: "Switch to dark mode",
       pressed: "true",
