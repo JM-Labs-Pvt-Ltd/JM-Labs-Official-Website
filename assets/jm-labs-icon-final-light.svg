@@ -1,0 +1,30 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <defs>
+    <linearGradient id="bgLight" x1="116" y1="98" x2="914" y2="930" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF9EE"/>
+      <stop offset="1" stop-color="#EFE6D4"/>
+    </linearGradient>
+    <linearGradient id="meshLight" x1="236" y1="230" x2="776" y2="794" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#59A9FF"/>
+      <stop offset="0.56" stop-color="#3E63D8"/>
+      <stop offset="1" stop-color="#CC8F2E"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="72" y="72" width="880" height="880" rx="252" fill="url(#bgLight)"/>
+  <circle cx="512" cy="512" r="308" stroke="#152034" stroke-opacity="0.08" stroke-width="2"/>
+
+  <g stroke="url(#meshLight)" stroke-width="34" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M274 306H360V682C360 734 334 770 284 770"/>
+    <path d="M474 736V324L624 516L730 392V736"/>
+  </g>
+
+  <g fill="#D39839">
+    <circle cx="360" cy="306" r="21"/>
+    <circle cx="284" cy="770" r="21"/>
+    <circle cx="474" cy="324" r="21"/>
+    <circle cx="624" cy="516" r="21"/>
+    <circle cx="730" cy="392" r="21"/>
+    <circle cx="730" cy="736" r="21"/>
+  </g>
+</svg>

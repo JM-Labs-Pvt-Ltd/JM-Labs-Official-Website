@@ -8,6 +8,18 @@
       name="description"
       content="Read the JM Labs privacy policy for website visitors and product users, including Bullion Master."
     />
+    <script>
+      (() => {
+        try {
+          const savedTheme = localStorage.getItem("jmlabs-theme");
+          const systemTheme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+          document.documentElement.dataset.theme = savedTheme || systemTheme;
+        } catch {
+          document.documentElement.dataset.theme = "dark";
+        }
+      })();
+    </script>
+    <link rel="icon" type="image/svg+xml" href="./assets/jm-labs-icon-final.svg" />
     <link rel="stylesheet" href="./styles.css" />
     <script src="./script.js" defer></script>
   </head>
@@ -15,103 +27,205 @@
     <div class="site-chrome">
       <header class="site-header">
         <a class="brand-mark" href="./index.html" aria-label="JM Labs home">
-          <span class="brand-badge">JM</span>
+          <img class="brand-icon" src="./assets/jm-labs-icon-final.svg" alt="JM Labs logo" />
           <span class="brand-lockup">
             <span class="brand-wordmark">JM Labs</span>
             <span class="brand-caption">Focused software for serious operators</span>
           </span>
         </a>
 
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-          Menu
-        </button>
+        <div class="header-controls">
+          <nav class="site-nav" id="site-nav">
+            <a href="./index.html">Home</a>
+            <a href="./product-details.html">Products</a>
+            <a class="is-active" href="./privacy-policy.html">Privacy</a>
+            <a href="./terms-and-conditions.html">Terms</a>
+          </nav>
 
-        <nav class="site-nav" id="site-nav">
-          <a href="./index.html">Home</a>
-          <a href="./product-details.html">Products</a>
-          <a class="is-active" href="./privacy-policy.html">Privacy</a>
-          <a href="./terms-and-conditions.html">Terms</a>
-        </nav>
+          <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+            <span class="theme-toggle-track" aria-hidden="true">
+              <span class="theme-toggle-thumb"></span>
+            </span>
+            <span class="theme-toggle-label">Light</span>
+          </button>
+
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+            Menu
+          </button>
+        </div>
       </header>
 
       <main class="content-page legal-page">
         <section class="page-hero reveal">
           <p class="eyebrow">Legal</p>
           <h1>Privacy Policy</h1>
-          <p class="page-intro">Last updated: March 15, 2026</p>
+          <p class="page-intro">Last updated: March 7, 2026</p>
         </section>
 
         <section class="legal-card reveal">
-          <h2>1. Scope</h2>
+          <h2>1. Overview</h2>
           <p>
-            This Privacy Policy applies to the JM Labs website and to software products
-            published by JM Labs, including Bullion Master. Some products may have additional
-            product-specific workflows or disclosures depending on how they operate.
+            Bullion Master is designed with a local-first approach. Most business
+            records are stored on your device, and cloud features are used only
+            for specific account, backup, restore, sync, and subscription
+            workflows. This Privacy Policy explains what information may be
+            processed when you use the app, how it is used, and what control
+            remains with you.
           </p>
 
-          <h2>2. Website information</h2>
-          <p>
-            When you visit the JM Labs website, standard technical information such as browser,
-            device, and usage context may be processed for site delivery, security, and basic
-            performance monitoring.
-          </p>
-
-          <h2>3. Product information</h2>
-          <p>
-            JM Labs products may process business and account information needed to operate
-            their workflows. In Bullion Master, this can include local records such as ledger
-            data, stock context, reports, settings, attachments, account identifiers, and
-            related operational metadata required for the product to function.
-          </p>
-
-          <h2>4. Local-first handling</h2>
-          <p>
-            Bullion Master is designed around local-first business operation. Most day-to-day
-            working records are expected to remain on the user device unless the user chooses
-            features such as authentication, backup, restore, sync, subscription validation,
-            export, or sharing.
-          </p>
-
-          <h2>5. Why data may be used</h2>
+          <h2>2. Data Stored Locally</h2>
+          <p>Depending on features you use, local storage may include:</p>
           <ul class="detail-list">
-            <li>To operate product features requested by the user.</li>
-            <li>To support authentication, device integrity, and subscription state.</li>
-            <li>To provide backup, restore, export, sync, or sharing flows.</li>
-            <li>To maintain security, service reliability, and abuse prevention.</li>
+            <li>
+              Ledger/business records: parties, items, transactions, expenses,
+              income, stock/opening balances, reports context.
+            </li>
+            <li>
+              Staff and payroll data: staff profile details and salary payment
+              history.
+            </li>
+            <li>
+              App settings and security preferences: units, categories, PIN
+              protection settings, device-linked preferences, and backup
+              configuration references.
+            </li>
+            <li>
+              Attachments added by you (for example bill/record images) through
+              app attachment workflows.
+            </li>
+            <li>
+              Operational state generated by the app, such as archive reports,
+              startup progress metadata, opening stock context, and other internal
+              app records required for feature continuity.
+            </li>
           </ul>
 
-          <h2>6. Permissions and access</h2>
+          <h2>3. Account and Authentication Data</h2>
+          <p>
+            To use authenticated features, account data such as email and auth
+            identifiers are processed via authentication services. This supports
+            sign in, verification, profile access, device registration,
+            subscription entitlement checks, and account recovery flows.
+          </p>
+          <p>
+            Depending on the feature, we may also process limited device or
+            installation identifiers to help with account security, device
+            management, session integrity, or feature enforcement.
+          </p>
+
+          <h2>4. Cloud Backup and Sync Data</h2>
+          <p>
+            If you enable cloud backup/sync features, your backup package and
+            backup metadata (for example backup identifier/timestamp) are used to
+            support restore and multi-device continuity.
+          </p>
           <ul class="detail-list">
-            <li>Internet access may be used for sign-in, backup, restore, sync, and validation flows.</li>
-            <li>Camera, image, or file access may be used when a user attaches records or exports files.</li>
-            <li>Storage access may be used for local backups, local records, and user-initiated exports.</li>
+            <li>
+              Backups may be handled in encrypted format based on your configured
+              backup/password workflow.
+            </li>
+            <li>
+              Access to backup contents depends on valid credentials/password where
+              encryption is enabled.
+            </li>
+            <li>
+              Cloud features require active network connectivity and supported
+              account state.
+            </li>
+            <li>
+              Backup content can include the business records and configuration
+              data you choose to store in the app, subject to the backup flow you
+              use.
+            </li>
           </ul>
 
-          <h2>7. Sharing and disclosure</h2>
+          <h2>5. Security and Integrity Events</h2>
           <p>
-            JM Labs does not sell business data. Information may be shared only where necessary
-            for service operation, user-requested actions, legal compliance, fraud prevention,
-            or protection of platform integrity.
+            The app may process local security events to protect data access, such
+            as PIN checks, failed-attempt counters, auto-wipe configuration, and
+            emergency/duress-triggered protection flows.
+          </p>
+          <p>
+            These protections are intended to reduce unauthorized access risk, but
+            no device, software, storage, or transmission method can be guaranteed
+            fully secure in every case.
           </p>
 
-          <h2>8. Retention</h2>
+          <h2>6. How We Use Information</h2>
+          <ul class="detail-list">
+            <li>To operate core ledger, inventory, reporting, archive, and workflow features.</li>
+            <li>To authenticate users and maintain account access.</li>
+            <li>To provide backup, restore, sync, export, and sharing flows requested by you.</li>
+            <li>To protect access through security checks, PIN workflows, and device-related safeguards.</li>
+            <li>To validate subscription, trial, and feature entitlement state.</li>
+          </ul>
+
+          <h2>7. Permissions We Use</h2>
+          <ul class="detail-list">
+            <li>
+              Internet/Network: required for login/auth, cloud backup/restore,
+              and subscription checks.
+            </li>
+            <li>
+              Camera/Photos: used only when you capture or select images for
+              record attachments.
+            </li>
+            <li>
+              Filesystem/Cache/Share: used for exports, local backup files, open
+              file actions, and user-initiated sharing.
+            </li>
+          </ul>
+
+          <h2>8. Data Sharing and Disclosure</h2>
           <p>
-            Retention depends on the product workflow and user action. Local records may remain
-            on the device until edited, deleted, overwritten, wiped, or reset by the user.
-            Cloud-related data retention may depend on the enabled feature and service state.
+            We do not sell your business data. Data may be shared only as required
+            for service operation (for example authentication/cloud infrastructure)
+            or when you explicitly trigger actions like export/share/restore.
+          </p>
+          <p>
+            We may also disclose information where required by applicable law,
+            lawful process, or to protect rights, security, fraud prevention, or
+            service integrity.
           </p>
 
-          <h2>9. User responsibility</h2>
+          <h2>9. Retention and Deletion</h2>
+          <ul class="detail-list">
+            <li>
+              Local app data stays on your device until you edit, delete, wipe, or
+              reinstall/reset app data.
+            </li>
+            <li>
+              Restore operations can overwrite current local records with backup
+              contents.
+            </li>
+            <li>
+              Security wipe flows may permanently remove local records.
+            </li>
+            <li>
+              Cloud backup retention may depend on the storage service, account
+              state, overwrite actions, or deletion actions initiated by you.
+            </li>
+          </ul>
+
+          <h2>10. Your Controls and Responsibilities</h2>
           <p>
-            Users remain responsible for the information they enter, for verifying their own
-            outputs, and for maintaining secure access to their device, credentials, PINs, and
-            any backup or recovery details tied to product use.
+            You can manage your information using built-in tools such as edit
+            screens, export/backup, restore, and account/security settings.
+            Because backup security depends on your credentials, keep your PIN and
+            backup password confidential.
+          </p>
+          <p>
+            You are responsible for verifying what information you enter,
+            choosing whether to use cloud or attachment features, maintaining
+            secure access to your device and account, and testing your own backup
+            and recovery process.
           </p>
 
-          <h2>10. Updates</h2>
+          <h2>11. Policy Updates</h2>
           <p>
-            This Privacy Policy may change as the JM Labs website or products evolve. The latest
-            published version on this site will be the governing version.
+            We may update this Privacy Policy to reflect feature, legal, or
+            operational changes. The latest version and date shown in the app are
+            the governing version.
           </p>
         </section>
       </main>

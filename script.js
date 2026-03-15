@@ -1,4 +1,61 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const root = document.documentElement;
+  const themeToggle = document.querySelector("[data-theme-toggle]");
+  const themeLabel = themeToggle?.querySelector(".theme-toggle-label");
+  const brandIcons = document.querySelectorAll(".brand-icon");
+  const favicon = document.querySelector("link[rel='icon']");
+  const themeAssets = {
+    dark: {
+      icon: "./assets/jm-labs-icon-final.svg",
+      label: "Light",
+      ariaLabel: "Switch to light mode",
+      pressed: "false",
+    },
+    light: {
+      icon: "./assets/jm-labs-icon-final-light.svg",
+      label: "Dark",
+      ariaLabel: "Switch to dark mode",
+      pressed: "true",
+    },
+  };
+
+  const applyTheme = (theme, persist = false) => {
+    const nextTheme = theme === "light" ? "light" : "dark";
+    const assets = themeAssets[nextTheme];
+
+    root.dataset.theme = nextTheme;
+
+    if (persist) {
+      try {
+        localStorage.setItem("jmlabs-theme", nextTheme);
+      } catch {
+        // Ignore storage failures in restricted contexts.
+      }
+    }
+
+    if (themeToggle && themeLabel) {
+      themeLabel.textContent = assets.label;
+      themeToggle.setAttribute("aria-label", assets.ariaLabel);
+      themeToggle.setAttribute("aria-pressed", assets.pressed);
+    }
+
+    brandIcons.forEach((icon) => {
+      icon.setAttribute("src", assets.icon);
+    });
+
+    if (favicon) {
+      favicon.setAttribute("href", assets.icon);
+    }
+  };
+
+  const initialTheme = root.dataset.theme || "dark";
+  applyTheme(initialTheme);
+
+  themeToggle?.addEventListener("click", () => {
+    const nextTheme = root.dataset.theme === "light" ? "dark" : "light";
+    applyTheme(nextTheme, true);
+  });
+
   const menuToggle = document.querySelector(".menu-toggle");
   const siteNav = document.querySelector(".site-nav");
 

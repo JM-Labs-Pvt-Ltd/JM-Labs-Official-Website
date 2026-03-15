@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bullion Master | JM Labs</title>
+    <meta
+      name="description"
+      content="Explore Bullion Master by JM Labs, including workflows, key screens, and product details for bullion businesses."
+    />
+    <script>
+      (() => {
+        try {
+          const savedTheme = localStorage.getItem("jmlabs-theme");
+          const systemTheme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+          document.documentElement.dataset.theme = savedTheme || systemTheme;
+        } catch {
+          document.documentElement.dataset.theme = "dark";
+        }
+      })();
+    </script>
+    <link rel="icon" type="image/svg+xml" href="./assets/jm-labs-icon-final.svg" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./script.js" defer></script>
+  </head>
+  <body data-page="products">
+    <div class="site-chrome">
+      <header class="site-header">
+        <a class="brand-mark" href="./index.html" aria-label="JM Labs home">
+          <img class="brand-icon" src="./assets/jm-labs-icon-final.svg" alt="JM Labs logo" />
+          <span class="brand-lockup">
+            <span class="brand-wordmark">JM Labs</span>
+            <span class="brand-caption">Focused software for serious operators</span>
+          </span>
+        </a>
+
+        <div class="header-controls">
+          <nav class="site-nav" id="site-nav">
+            <a href="./index.html">Home</a>
+            <a class="is-active" href="./product-details.html">Products</a>
+            <a href="./privacy-policy.html">Privacy</a>
+            <a href="./terms-and-conditions.html">Terms</a>
+          </nav>
+
+          <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+            <span class="theme-toggle-track" aria-hidden="true">
+              <span class="theme-toggle-thumb"></span>
+            </span>
+            <span class="theme-toggle-label">Light</span>
+          </button>
+
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+            Menu
+          </button>
+        </div>
+      </header>
+
+      <main class="content-page">
+        <section class="product-hero reveal">
+          <div class="product-hero-copy">
+            <p class="eyebrow">Flagship Product</p>
+            <div class="portfolio-brand product-hero-brand">
+              <img class="product-logo" src="./assets/logo-story.svg" alt="Bullion Master logo" />
+              <div>
+                <h1>Bullion Master</h1>
+                <p class="page-intro">
+                  A business operating system for bullion dealers who need live stock control,
+                  ledger precision, settlement speed, and clean day-to-day visibility.
+                </p>
+              </div>
+            </div>
+
+            <div class="hero-badges">
+              <span>Live position tracking</span>
+              <span>Daily ledger flow</span>
+              <span>Refinery and settlement support</span>
+            </div>
+
+            <div class="hero-actions">
+              <a class="button button-primary" href="./product-details.html">Back to Products</a>
+              <a class="button button-secondary" href="#bm-details">Explore Details</a>
+            </div>
+          </div>
+
+          <div class="product-hero-media">
+            <div class="video-frame video-frame-large">
+              <video autoplay loop muted playsinline poster="./assets/logo-story.svg">
+                <source src="./video_2026-03-14_19-19-00.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </section>
+
+        <section class="product-summary-section reveal">
+          <article class="product-summary-card product-summary-card-lead">
+            <p class="eyebrow">What It Does</p>
+            <h2>Built for the pressure, pace, and precision of bullion operations.</h2>
+            <p>
+              Bullion Master is designed for businesses where a slow workflow creates friction and
+              a small error can become expensive. It brings position awareness, ledger discipline,
+              reporting, and operational support into one coherent system.
+            </p>
+          </article>
+
+          <article class="product-summary-card">
+            <p class="summary-kicker">01</p>
+            <h3>Live awareness</h3>
+            <p>Keep stock, balances, and exposure visible while the market is moving.</p>
+          </article>
+
+          <article class="product-summary-card">
+            <p class="summary-kicker">02</p>
+            <h3>Fast handling</h3>
+            <p>Move through ledger and settlement workflows without spreadsheet-style drag.</p>
+          </article>
+
+          <article class="product-summary-card">
+            <p class="summary-kicker">03</p>
+            <h3>Operational depth</h3>
+            <p>Cover the workflows bullion businesses actually use instead of forcing generic tools.</p>
+          </article>
+        </section>
+
+        <section class="product-proof-section reveal">
+          <div class="proof-grid">
+            <article class="proof-card">
+              <p class="eyebrow">Why It Feels Professional</p>
+              <h2>Software shaped around real operating behavior.</h2>
+              <p>
+                Bullion Master feels more credible when the page focuses on product depth,
+                clarity, and workflow fit. That is why this page now reads more like a flagship
+                product presentation and less like a media gallery.
+              </p>
+            </article>
+
+            <article class="proof-card proof-card-highlight">
+              <p class="eyebrow">Product Standard</p>
+              <h2>Fast to read. Easy to trust. Built for repeat use.</h2>
+              <p>
+                The best product pages do not overload visitors with noise. They establish
+                confidence quickly, show the right screens, and explain exactly why the software
+                matters in day-to-day business use.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="detail-grid" id="bm-details">
+          <article class="detail-card reveal" data-accent="gold">
+            <h2>Live Position Awareness</h2>
+            <ul class="detail-list">
+              <li>Track stock and market exposure in real time.</li>
+              <li>See overbought and oversold status clearly.</li>
+              <li>Work faster when the market is moving.</li>
+            </ul>
+          </article>
+
+          <article class="detail-card reveal" data-accent="ink">
+            <h2>Ledger Clarity</h2>
+            <ul class="detail-list">
+              <li>Maintain precise party balances and transaction records.</li>
+              <li>Capture buys, sells, payments, and deliveries with speed.</li>
+              <li>Reduce reconciliation pain at the end of the day.</li>
+            </ul>
+          </article>
+
+          <article class="detail-card reveal" data-accent="copper">
+            <h2>Refinery and Settlement</h2>
+            <ul class="detail-list">
+              <li>Support old gold and refinery workflows in one product.</li>
+              <li>Track charges, batch movement, and settlement position.</li>
+              <li>Handle business-specific operations without spreadsheet chaos.</li>
+            </ul>
+          </article>
+
+          <article class="detail-card reveal" data-accent="gold">
+            <h2>Reports and Control</h2>
+            <ul class="detail-list">
+              <li>Generate exports and business summaries with less manual work.</li>
+              <li>Include staff management and related internal operations.</li>
+              <li>Keep important business logic in one coherent system.</li>
+            </ul>
+          </article>
+        </section>
+
+        <section class="screens-section">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Key Screens</p>
+            <h2>Important moments from inside the product.</h2>
+          </div>
+
+          <div class="screens-grid">
+            <article class="screen-mockup-wrapper reveal">
+              <div class="screen-mockup">
+                <div class="screen-mockup-inner">
+                  <img src="./assets/photo_2026-03-14_19-44-32.jpg" alt="Bullion Master live metal position screen" />
+                </div>
+              </div>
+              <div class="screen-description">
+                <h3>Position dashboard</h3>
+                <p>At-a-glance visibility into the numbers that actually matter through the day.</p>
+              </div>
+            </article>
+
+            <article class="screen-mockup-wrapper reveal">
+              <div class="screen-mockup">
+                <div class="screen-mockup-inner">
+                  <img src="./assets/photo_2026-03-14_19-44-14.jpg" alt="Bullion Master digital ledger screen" />
+                </div>
+              </div>
+              <div class="screen-description">
+                <h3>Ledger flow</h3>
+                <p>Cleaner transactions, faster filtering, and less friction in the daily ledger.</p>
+              </div>
+            </article>
+
+            <article class="screen-mockup-wrapper reveal">
+              <div class="screen-mockup">
+                <div class="screen-mockup-inner">
+                  <img src="./assets/photo_2026-03-14_19-44-38.jpg" alt="Bullion Master staff management screen" />
+                </div>
+              </div>
+              <div class="screen-description">
+                <h3>Staff operations</h3>
+                <p>Important business workflows stay inside the same system instead of branching out.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p>&copy; <span data-current-year></span> JM Labs. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="./index.html">Home</a>
+          <a href="./product-details.html">Products</a>
+          <a href="./privacy-policy.html">Privacy</a>
+          <a href="./terms-and-conditions.html">Terms</a>
+        </div>
+      </footer>
+
+      <div id="screen-lightbox" class="lightbox" aria-hidden="true">
+        <div class="lightbox-backdrop"></div>
+        <button class="lightbox-close" type="button" aria-label="Close">&times;</button>
+        <div class="lightbox-content"></div>
+      </div>
+    </div>
+  </body>
+</html>

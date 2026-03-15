@@ -8,6 +8,18 @@
       name="description"
       content="JM Labs builds focused software products for operational businesses. Explore Bullion Master and the next wave of apps now in development."
     />
+    <script>
+      (() => {
+        try {
+          const savedTheme = localStorage.getItem("jmlabs-theme");
+          const systemTheme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+          document.documentElement.dataset.theme = savedTheme || systemTheme;
+        } catch {
+          document.documentElement.dataset.theme = "dark";
+        }
+      })();
+    </script>
+    <link rel="icon" type="image/svg+xml" href="./assets/jm-labs-icon-final.svg" />
     <link rel="stylesheet" href="./styles.css" />
     <script src="./script.js" defer></script>
   </head>
@@ -15,34 +27,43 @@
     <div class="site-chrome">
       <header class="site-header">
         <a class="brand-mark" href="./index.html" aria-label="JM Labs home">
-          <span class="brand-badge">JM</span>
+          <img class="brand-icon" src="./assets/jm-labs-icon-final.svg" alt="JM Labs logo" />
           <span class="brand-lockup">
             <span class="brand-wordmark">JM Labs</span>
             <span class="brand-caption">Focused software for serious operators</span>
           </span>
         </a>
 
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-          Menu
-        </button>
+        <div class="header-controls">
+          <nav class="site-nav" id="site-nav">
+            <a class="is-active" href="./index.html">Home</a>
+            <a href="./product-details.html">Products</a>
+            <a href="./privacy-policy.html">Privacy</a>
+            <a href="./terms-and-conditions.html">Terms</a>
+          </nav>
 
-        <nav class="site-nav" id="site-nav">
-          <a class="is-active" href="./index.html">Home</a>
-          <a href="./product-details.html">Products</a>
-          <a href="./privacy-policy.html">Privacy</a>
-          <a href="./terms-and-conditions.html">Terms</a>
-        </nav>
+          <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+            <span class="theme-toggle-track" aria-hidden="true">
+              <span class="theme-toggle-thumb"></span>
+            </span>
+            <span class="theme-toggle-label">Light</span>
+          </button>
+
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+            Menu
+          </button>
+        </div>
       </header>
 
       <main>
         <section class="hero-section reveal">
           <div class="hero-copy">
             <p class="eyebrow">JM Labs</p>
-            <h1>One master website for the apps your business grows into.</h1>
+            <h1>Purpose-built business software, shaped into one strong brand.</h1>
             <p class="hero-text">
-              JM Labs is the parent brand behind a growing portfolio of business software.
-              We build focused products for niche operators, starting with
-              <strong>Bullion Master</strong> and expanding into more category-specific tools.
+              JM Labs builds sharp, operational software for businesses that run on precision.
+              <strong>Bullion Master</strong> is the first flagship in the lineup, with more
+              focused apps set to follow as the portfolio expands.
             </p>
 
             <div class="hero-badges">
@@ -53,7 +74,7 @@
 
             <div class="hero-actions">
               <a class="button button-primary" href="./product-details.html">Explore Products</a>
-              <a class="button button-secondary" href="#featured-product">See Bullion Master</a>
+              <a class="button button-secondary" href="./bullion-master.html">See Bullion Master</a>
             </div>
           </div>
 
@@ -89,11 +110,11 @@
         <section class="section-grid intro-grid">
           <article class="info-card reveal">
             <p class="eyebrow">Why JM Labs</p>
-            <h2>Each app gets its own job. The brand ties them together.</h2>
+            <h2>Every product is specialized. The brand stays consistent.</h2>
             <p>
-              Instead of a single-product site, this website now gives you a clean parent
-              identity for current and future launches. Bullion Master gets strong visibility
-              today, while new apps can slot into the same products system later.
+              JM Labs gives each product room to solve one business problem deeply. The company
+              brand carries the trust, while every app keeps its own clear use case, language,
+              and product identity.
             </p>
           </article>
 
@@ -101,9 +122,9 @@
             <p class="eyebrow">Product Strategy</p>
             <h2>Launch one deeply useful app at a time.</h2>
             <p>
-              The JM Labs approach is to solve specific operational problems for real businesses.
-              That means sharper workflows, simpler messaging, and a portfolio that can grow
-              without rebuilding the company website each time.
+              We start where workflow complexity is high and mistakes are expensive. That is why
+              Bullion Master comes first, and why the next JM Labs products will follow the same
+              standard: tight scope, fast usage, and real daily utility.
             </p>
           </article>
         </section>
@@ -113,8 +134,9 @@
             <p class="eyebrow">Products Snapshot</p>
             <h2>A growing product portfolio under one roof.</h2>
             <p class="section-copy">
-              Bullion Master leads the lineup today. The next products can be introduced here
-              as they move from concept to release without changing the site structure.
+              Bullion Master is already setting the tone: serious workflow depth, clean
+              decision-making, and software that earns daily use. The next JM Labs products
+              will extend that same thinking into other operational categories.
             </p>
           </div>
 
@@ -136,7 +158,7 @@
                 <li>Designed for fast bazaar-style working where accuracy cannot slip.</li>
                 <li>Already positioned as the flagship operational product for JM Labs.</li>
               </ul>
-              <a class="inline-link" href="./product-details.html">View product page</a>
+              <a class="inline-link" href="./bullion-master.html">View product page</a>
             </article>
 
             <article class="portfolio-card reveal">
@@ -144,10 +166,10 @@
                 <span class="status-chip status-roadmap">In Planning</span>
                 <span class="product-index">02</span>
               </div>
-              <h3>Next Product Slot</h3>
+              <h3>Product 02</h3>
               <p>
-                Reserved for the next JM Labs app. This card gives you a stable place to add
-                launch messaging, screenshots, and positioning later.
+                The next JM Labs release is being shaped around the same principle as Bullion
+                Master: one category, one operational problem set, one clean software answer.
               </p>
             </article>
 
@@ -156,10 +178,10 @@
                 <span class="status-chip status-roadmap">Coming After</span>
                 <span class="product-index">03</span>
               </div>
-              <h3>Future Product Slot</h3>
+              <h3>Product 03</h3>
               <p>
-                Keep the brand portfolio visible early. Even before launch, the site shows that
-                JM Labs is building a broader software company, not a one-app landing page.
+                As the portfolio grows, each launch will sit under the same JM Labs standard:
+                focused workflows, fast handling, and a clear operational edge for the end user.
               </p>
             </article>
           </div>
@@ -180,7 +202,7 @@
               <span>Refinery workflow support</span>
             </div>
             <div class="hero-actions">
-              <a class="button button-primary" href="./product-details.html">Read Product Details</a>
+              <a class="button button-primary" href="./bullion-master.html">Read Product Details</a>
             </div>
           </div>
 
@@ -194,10 +216,11 @@
         <section class="screens-section">
           <div class="section-heading reveal">
             <p class="eyebrow">Bullion Master Preview</p>
-            <h2>Key screens from the flagship product.</h2>
+            <h2>Inside the flagship product.</h2>
             <p class="section-copy">
-              The homepage keeps a small but meaningful showcase of Bullion Master so visitors
-              immediately see that JM Labs already has a real product in market.
+              Bullion Master proves the JM Labs approach in practice: fast interface flow,
+              high-clarity information design, and business logic that matches how operators
+              actually work.
             </p>
           </div>
 
@@ -245,7 +268,7 @@
         <section class="cta-section reveal">
           <div>
             <p class="eyebrow">Next Step</p>
-            <h2>Use JM Labs as the company website and keep adding products here.</h2>
+            <h2>Build the JM Labs brand once, then let every new product strengthen it.</h2>
           </div>
           <div class="cta-actions">
             <a class="button button-primary" href="./product-details.html">Open Products</a>

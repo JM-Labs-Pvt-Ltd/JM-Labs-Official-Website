@@ -8,6 +8,18 @@
       name="description"
       content="Read the JM Labs terms and conditions for website visitors and product users, including Bullion Master."
     />
+    <script>
+      (() => {
+        try {
+          const savedTheme = localStorage.getItem("jmlabs-theme");
+          const systemTheme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+          document.documentElement.dataset.theme = savedTheme || systemTheme;
+        } catch {
+          document.documentElement.dataset.theme = "dark";
+        }
+      })();
+    </script>
+    <link rel="icon" type="image/svg+xml" href="./assets/jm-labs-icon-final.svg" />
     <link rel="stylesheet" href="./styles.css" />
     <script src="./script.js" defer></script>
   </head>
@@ -15,98 +27,213 @@
     <div class="site-chrome">
       <header class="site-header">
         <a class="brand-mark" href="./index.html" aria-label="JM Labs home">
-          <span class="brand-badge">JM</span>
+          <img class="brand-icon" src="./assets/jm-labs-icon-final.svg" alt="JM Labs logo" />
           <span class="brand-lockup">
             <span class="brand-wordmark">JM Labs</span>
             <span class="brand-caption">Focused software for serious operators</span>
           </span>
         </a>
 
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-          Menu
-        </button>
+        <div class="header-controls">
+          <nav class="site-nav" id="site-nav">
+            <a href="./index.html">Home</a>
+            <a href="./product-details.html">Products</a>
+            <a href="./privacy-policy.html">Privacy</a>
+            <a class="is-active" href="./terms-and-conditions.html">Terms</a>
+          </nav>
 
-        <nav class="site-nav" id="site-nav">
-          <a href="./index.html">Home</a>
-          <a href="./product-details.html">Products</a>
-          <a href="./privacy-policy.html">Privacy</a>
-          <a class="is-active" href="./terms-and-conditions.html">Terms</a>
-        </nav>
+          <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+            <span class="theme-toggle-track" aria-hidden="true">
+              <span class="theme-toggle-thumb"></span>
+            </span>
+            <span class="theme-toggle-label">Light</span>
+          </button>
+
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+            Menu
+          </button>
+        </div>
       </header>
 
       <main class="content-page legal-page">
         <section class="page-hero reveal">
           <p class="eyebrow">Legal</p>
           <h1>Terms and Conditions</h1>
-          <p class="page-intro">Last updated: March 15, 2026</p>
+          <p class="page-intro">Last updated: March 7, 2026</p>
         </section>
 
         <section class="legal-card reveal">
-          <h2>1. Acceptance</h2>
+          <h2>1. Acceptance and Eligibility</h2>
           <p>
-            By accessing the JM Labs website or using any JM Labs product, including Bullion
-            Master, you agree to these Terms and Conditions. If you do not agree, you must not
-            use the website or the relevant product.
+            By downloading, installing, accessing, activating a subscription or
+            trial, or otherwise using Bullion Master, you acknowledge that you
+            have read, understood, and agreed to be legally bound by these Terms.
+            If you do not agree, you must not use the app. You must use the app
+            only for lawful business operations and be authorized to manage the
+            data entered in your account.
           </p>
 
-          <h2>2. Product purpose</h2>
+          <h2>2. Intended Use and User Responsibility</h2>
           <p>
-            JM Labs products are workflow and operational software tools. Bullion Master, for
-            example, is intended to help bullion businesses record, review, and manage ledgers,
-            stock, reports, settlements, and related workflows more efficiently.
+            Bullion Master is a workflow-assistance tool intended to help you
+            record, organize, review, and operate ledger, stock, reporting,
+            archive, and related business processes more efficiently. It is not a
+            substitute for your own review, supervision, reconciliation, internal
+            controls, accounting judgment, tax advice, legal advice, or business
+            decision-making. You remain solely responsible for:
           </p>
-
-          <h2>3. No substitute for professional judgment</h2>
           <ul class="detail-list">
-            <li>Users remain responsible for accuracy of inputs such as rates, weights, balances, and dates.</li>
-            <li>Outputs should be independently verified before accounting, legal, tax, or settlement use.</li>
-            <li>JM Labs products do not provide accounting, audit, valuation, legal, or tax advice.</li>
+            <li>Accuracy of entries such as rates, weight, purity, and dates.</li>
+            <li>
+              Verifying outputs before using them for accounting, tax, settlement,
+              or legal purposes.
+            </li>
+            <li>
+              Maintaining internal controls for who can access and operate your
+              device/account.
+            </li>
+            <li>
+              Reviewing any discrepancy, mismatch, drift, rounding difference,
+              sync issue, backup/restore issue, reporting variance, or other
+              operational exception before acting on app output.
+            </li>
           </ul>
 
-          <h2>4. Data and account responsibility</h2>
+          <h2>3. Data Ownership and Account Control</h2>
           <p>
-            Users remain responsible for the data they enter, the accounts they control, and the
-            credentials, PINs, passwords, and recovery information connected to their use of the
-            software.
+            You retain ownership of business data entered in the app. You are
+            responsible for account credentials, PIN, backup password, and any
+            recovery details such as backup email.
           </p>
 
-          <h2>5. Security and irreversible actions</h2>
+          <h2>4. Security Features and Irreversible Actions</h2>
           <p>
-            Some products may include security features such as device checks, auto-wipe logic,
-            or backup and restore flows. Certain actions may be irreversible, including data
-            deletion or restoration over existing records.
+            The app may provide security features such as PIN lock, auto-wipe
+            controls, and emergency/duress-triggered wipe flows.
+          </p>
+          <ul class="detail-list">
+            <li>
+              Wipe actions can permanently remove local data and may be
+              irreversible.
+            </li>
+            <li>
+              You must keep secure copies of backup credentials and test your
+              recovery process periodically.
+            </li>
+            <li>
+              We are not responsible for losses caused by forgotten credentials,
+              accidental wipe triggers, or untested backup practices.
+            </li>
+          </ul>
+
+          <h2>5. Cloud Features and Connectivity</h2>
+          <p>
+            Cloud backup, sync, restore, subscription checks, and authentication
+            require internet/network availability and third-party platform
+            services. Availability or response time may vary.
           </p>
 
-          <h2>6. Service dependency</h2>
+          <h2>6. Permissions Used by Features</h2>
+          <ul class="detail-list">
+            <li>
+              Internet/Network: used for authentication, cloud backup/restore,
+              and subscription validation.
+            </li>
+            <li>
+              Camera/Photos: used only when you add image attachments to records.
+            </li>
+            <li>
+              Files/Storage/Share: used for export, backup files, file open, and
+              user-initiated sharing.
+            </li>
+          </ul>
           <p>
-            Some features depend on connectivity, third-party infrastructure, device state, or
-            supported account configuration. Availability and performance are not guaranteed to be
-            uninterrupted or error free.
+            If you do not use a feature, related access may not be invoked.
           </p>
 
-          <h2>7. Payments and refunds</h2>
+          <h2>7. Employee and Third-Party Data</h2>
           <p>
-            Unless otherwise required by applicable law, payments for JM Labs products,
-            subscriptions, upgrades, or related fees are final and non-refundable.
+            If you store staff, customer, or supplier details (for example mobile
+            number, ID details, salary records), you must ensure lawful
+            collection, use, and retention under applicable laws and internal
+            policy.
           </p>
 
-          <h2>8. Limitation of liability</h2>
+          <h2>8. Output Verification and No Professional Advice</h2>
           <p>
-            To the maximum extent permitted by law, JM Labs provides its website and products on
-            an as-is and as-available basis and will not be liable for losses arising from use of,
-            inability to use, or reliance on the website or any product output.
+            Information, calculations, previews, summaries, analytics, archive
+            results, settlement outputs, stock views, profit and loss figures,
+            balances, reports, exports, and other app-generated results are
+            provided only as operational assistance. They may depend on user
+            input, device state, configuration, third-party services, backup
+            state, connectivity, timing, or software limitations.
+          </p>
+          <ul class="detail-list">
+            <li>
+              We do not represent or warrant that every result will always be
+              complete, accurate, current, error-free, or fit for your specific
+              business, accounting, tax, audit, settlement, or legal needs.
+            </li>
+            <li>
+              Any mistake, discrepancy, omission, mismatch, delay, duplicate,
+              drift, rounding variance, sync conflict, restore inconsistency, or
+              interpretation issue must be independently checked by you before use.
+            </li>
+            <li>
+              Bullion Master does not provide accounting, audit, tax, valuation,
+              compliance, or legal advice, and you must obtain professional advice
+              where required.
+            </li>
+          </ul>
+
+          <h2>9. Refund Policy</h2>
+          <p>
+            All payments, subscription charges, upgrade fees, and other amounts
+            paid for Bullion Master are final and non-refundable to the maximum
+            extent permitted by applicable law. We do not provide refunds,
+            credits, partial refunds, pro-rated refunds, or exchanges for any
+            reason, including unused time, reduced usage, mistaken purchase,
+            device change, account change, business closure, feature preference,
+            dissatisfaction, or service discontinuation by you.
+          </p>
+          <p>
+            By purchasing, activating, renewing, or continuing to use the app,
+            you expressly agree to this no-refund policy and waive any request or
+            claim for refund except where such waiver is prohibited by applicable
+            law.
           </p>
 
-          <h2>9. Product evolution</h2>
+          <h2>10. Limitation of Liability</h2>
           <p>
-            JM Labs may update, improve, replace, discontinue, or expand products over time. The
-            master website may also change as more products are added to the portfolio.
+            To the extent permitted by law, the app is provided on an as-is and
+            as-available basis. We do not guarantee uninterrupted operation, error
+            free computation, or suitability for every workflow. You are
+            responsible for operational checks and independent reconciliation.
+          </p>
+          <p>
+            To the maximum extent permitted by law, we will not be liable for any
+            direct, indirect, incidental, special, exemplary, punitive, or
+            consequential loss or damage arising from or related to use of the
+            app, including loss of profit, business interruption, data loss,
+            incorrect entries, reporting mistakes, reconciliation differences,
+            missed settlements, tax issues, regulatory issues, backup failure,
+            restore failure, security incidents, or actions taken based on app
+            output.
           </p>
 
-          <h2>10. Updates to terms</h2>
+          <h2>11. Indemnity</h2>
           <p>
-            These Terms and Conditions may be revised from time to time. The latest published
-            version on this site will govern ongoing use from its stated effective date.
+            You agree to be responsible for claims, losses, or liabilities arising
+            from unlawful use of the app, unauthorized data usage, or violation of
+            these Terms by your account activity.
+          </p>
+
+          <h2>12. Updates to Terms</h2>
+          <p>
+            We may revise these Terms from time to time. The version shown in the
+            app will govern from its stated effective date. Your continued use of
+            Bullion Master after any update constitutes your acceptance of the
+            revised Terms.
           </p>
         </section>
       </main>
