@@ -50,10 +50,14 @@ jobs:
         run: |
           mkdir -p "${HOME}/.ssh"
           chmod 700 "${HOME}/.ssh"
-          if [ -n "${PUBLIC_DEPLOY_SSH_KEY_B64}" ]; then
-            printf '%s' "${PUBLIC_DEPLOY_SSH_KEY_B64}" | tr -d '\r\n ' | base64 --decode > "${HOME}/.ssh/public_deploy_key"
-          else
+          if [ -n "${PUBLIC_DEPLOY_SSH_KEY_B64}" ] && printf '%s' "${PUBLIC_DEPLOY_SSH_KEY_B64}" | tr -d '\r\n ' | base64 --decode > "${HOME}/.ssh/public_deploy_key" 2>/dev/null; then
+            echo "Using base64-encoded deploy key secret."
+          elif [ -n "${PUBLIC_DEPLOY_SSH_KEY}" ]; then
             printf '%s' "${PUBLIC_DEPLOY_SSH_KEY}" | tr -d '\r' > "${HOME}/.ssh/public_deploy_key"
+            echo "Using raw deploy key secret."
+          else
+            echo "No usable deploy key secret found."
+            exit 1
           fi
           chmod 600 "${HOME}/.ssh/public_deploy_key"
           ssh-keygen -y -f "${HOME}/.ssh/public_deploy_key" > /dev/null
