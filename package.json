@@ -1,0 +1,16 @@
+{
+  "name": "jm-labs-official-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "preview:host": "vite preview --host"
+  },
+  "devDependencies": {
+    "javascript-obfuscator": "^4.1.1",
+    "vite": "^5.4.14"
+  }
+}

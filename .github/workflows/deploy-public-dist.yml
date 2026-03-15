@@ -1,0 +1,87 @@
+name: Deploy Public Dist
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-public-dist
+  cancel-in-progress: true
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    env:
+      NODE_VERSION: "20"
+      PUBLIC_DEPLOY_BRANCH: ${{ vars.PUBLIC_DEPLOY_BRANCH || 'main' }}
+      PUBLIC_DEPLOY_REPO: JM-Labs-Pvt-Ltd/JM-Labs-Website
+      PUBLIC_DEPLOY_SSH_KEY: ${{ secrets.PUBLIC_DEPLOY_SSH_KEY }}
+
+    steps:
+      - name: Checkout source repository
+        uses: actions/checkout@v4
+
+      - name: Validate deploy secrets
+        run: |
+          if [ -z "${PUBLIC_DEPLOY_SSH_KEY}" ]; then
+            echo "Missing required secret: PUBLIC_DEPLOY_SSH_KEY"
+            exit 1
+          fi
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install dependencies
+        run: npm install --no-fund --no-audit
+
+      - name: Build dist output
+        run: npm run build
+
+      - name: Configure deploy SSH key
+        run: |
+          mkdir -p "${HOME}/.ssh"
+          chmod 700 "${HOME}/.ssh"
+          printf '%s\n' "${PUBLIC_DEPLOY_SSH_KEY}" > "${HOME}/.ssh/public_deploy_key"
+          chmod 600 "${HOME}/.ssh/public_deploy_key"
+          ssh-keyscan github.com >> "${HOME}/.ssh/known_hosts"
+          chmod 644 "${HOME}/.ssh/known_hosts"
+          cat <<'EOF' > "${HOME}/.ssh/config"
+          Host github.com
+            HostName github.com
+            User git
+            IdentityFile ~/.ssh/public_deploy_key
+            IdentitiesOnly yes
+          EOF
+          chmod 600 "${HOME}/.ssh/config"
+
+      - name: Clone public deploy repository
+        run: |
+          git clone --branch "${PUBLIC_DEPLOY_BRANCH}" "git@github.com:${PUBLIC_DEPLOY_REPO}.git" public-dist
+
+      - name: Sync dist into public repository
+        run: |
+          rsync -a --delete --exclude='.git/' dist/ public-dist/
+
+      - name: Commit and push public dist
+        working-directory: public-dist
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add -A
+
+          if git diff --cached --quiet; then
+            echo "No deploy changes to publish."
+            exit 0
+          fi
+
+          git commit -m "Deploy site from ${GITHUB_REPOSITORY}@${GITHUB_SHA}"
+          git push origin "HEAD:${PUBLIC_DEPLOY_BRANCH}"
