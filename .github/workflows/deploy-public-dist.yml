@@ -50,17 +50,54 @@ jobs:
         run: |
           mkdir -p "${HOME}/.ssh"
           chmod 700 "${HOME}/.ssh"
-          if [ -n "${PUBLIC_DEPLOY_SSH_KEY_B64}" ] && printf '%s' "${PUBLIC_DEPLOY_SSH_KEY_B64}" | tr -d '\r\n ' | base64 --decode > "${HOME}/.ssh/public_deploy_key" 2>/dev/null; then
-            echo "Using base64-encoded deploy key secret."
-          elif [ -n "${PUBLIC_DEPLOY_SSH_KEY}" ]; then
-            printf '%s' "${PUBLIC_DEPLOY_SSH_KEY}" | tr -d '\r' > "${HOME}/.ssh/public_deploy_key"
-            echo "Using raw deploy key secret."
-          else
-            echo "No usable deploy key secret found."
+          KEY_PATH="${HOME}/.ssh/public_deploy_key"
+          TMP_DIR="$(mktemp -d)"
+
+          validate_key() {
+            local candidate="$1"
+            chmod 600 "${candidate}"
+            ssh-keygen -y -f "${candidate}" > /dev/null 2>&1
+          }
+
+          if [ -n "${PUBLIC_DEPLOY_SSH_KEY_B64}" ]; then
+            printf '%s' "${PUBLIC_DEPLOY_SSH_KEY_B64}" | tr -d '\r\n ' | base64 --decode > "${TMP_DIR}/from_b64" 2>/dev/null || true
+            if [ -s "${TMP_DIR}/from_b64" ] && validate_key "${TMP_DIR}/from_b64"; then
+              cp "${TMP_DIR}/from_b64" "${KEY_PATH}"
+              echo "Using base64-encoded deploy key secret."
+            fi
+          fi
+
+          if [ ! -f "${KEY_PATH}" ] && [ -n "${PUBLIC_DEPLOY_SSH_KEY}" ]; then
+            printf '%s\n' "${PUBLIC_DEPLOY_SSH_KEY}" | tr -d '\r' > "${TMP_DIR}/raw_multiline"
+            if validate_key "${TMP_DIR}/raw_multiline"; then
+              cp "${TMP_DIR}/raw_multiline" "${KEY_PATH}"
+              echo "Using raw multiline deploy key secret."
+            fi
+          fi
+
+          if [ ! -f "${KEY_PATH}" ] && [ -n "${PUBLIC_DEPLOY_SSH_KEY}" ]; then
+            printf '%s' "${PUBLIC_DEPLOY_SSH_KEY}" | perl -0pe 's/\r//g; s/\\n/\n/g;' > "${TMP_DIR}/raw_escaped_newlines"
+            if validate_key "${TMP_DIR}/raw_escaped_newlines"; then
+              cp "${TMP_DIR}/raw_escaped_newlines" "${KEY_PATH}"
+              echo "Using deploy key secret with escaped newlines."
+            fi
+          fi
+
+          if [ ! -f "${KEY_PATH}" ] && [ -n "${PUBLIC_DEPLOY_SSH_KEY}" ]; then
+            printf '%s' "${PUBLIC_DEPLOY_SSH_KEY}" | perl -0pe "s/\r//g; s/^['\\\"]//; s/['\\\"]\$//; s/\\\\n/\n/g;" > "${TMP_DIR}/raw_quoted"
+            if validate_key "${TMP_DIR}/raw_quoted"; then
+              cp "${TMP_DIR}/raw_quoted" "${KEY_PATH}"
+              echo "Using quoted deploy key secret after normalization."
+            fi
+          fi
+
+          if [ ! -f "${KEY_PATH}" ]; then
+            echo "Could not parse deploy key from PUBLIC_DEPLOY_SSH_KEY or PUBLIC_DEPLOY_SSH_KEY_B64."
+            echo "Store the full private key including BEGIN/END lines, or use a valid base64-encoded key."
             exit 1
           fi
+
           chmod 600 "${HOME}/.ssh/public_deploy_key"
-          ssh-keygen -y -f "${HOME}/.ssh/public_deploy_key" > /dev/null
           ssh-keyscan github.com >> "${HOME}/.ssh/known_hosts"
           chmod 644 "${HOME}/.ssh/known_hosts"
           cat <<'EOF' > "${HOME}/.ssh/config"
