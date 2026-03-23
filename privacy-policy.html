@@ -97,17 +97,24 @@
 <!-- TopNavBar -->
 <nav class="fixed top-0 w-full z-50 bg-[#111317]/80 backdrop-blur-xl border-b border-[#d0cdcd]/10 shadow-2xl shadow-black/50">
 <div class="flex justify-between items-center h-20 px-8 max-w-full mx-auto font-['Inter'] antialiased tracking-tight">
-<a href="./index.html" class="flex items-center gap-3">
-<img src="./jm-labs-icon-final.svg" alt="JM Labs" class="h-8 w-8" />
-<div class="text-xl font-bold tracking-tighter text-[#f2ca50]">JM Labs</div>
+<a href="./index.html" class="flex items-center gap-3 group">
+    <img src="./jm-labs-icon-final.svg" alt="JM Labs Logo" class="h-8 w-auto group-hover:opacity-80 transition-opacity" />
+    <div class="text-xl font-bold tracking-tighter text-[#f2ca50] group-hover:text-white transition-colors">
+        JM Labs
+    </div>
 </a>
 <div class="hidden md:flex items-center space-x-8">
-<a class="text-[#d0cdcd] hover:text-[#f2ca50] transition-colors pb-1" href="./index.html">Home</a>
-<a class="text-[#d0cdcd] hover:text-[#f2ca50] transition-colors pb-1" href="./bullion-master.html">Products</a>
-<a class="text-[#d0cdcd] hover:text-[#f2ca50] transition-colors pb-1" href="./privacy-policy.html">Privacy</a>
-<a class="text-[#d0cdcd] hover:text-[#f2ca50] transition-colors pb-1" href="./terms-and-conditions.html">Terms</a>
+<a class="text-[#d0cdcd] hover:text-[#f2ca50] transition-colors" href="./index.html">Home</a>
+<a class="text-[#d0cdcd] hover:text-[#f2ca50] transition-colors" href="./index.html#solutions">Solutions</a>
+<a class="text-[#d0cdcd] hover:text-[#f2ca50] transition-colors" href="./bullion-master.html">Bullion Master</a>
+<a class="text-[#d0cdcd] hover:text-[#f2ca50] transition-colors" href="./index.html#studio">Studio</a>
+<a class="text-[#d0cdcd] hover:text-[#f2ca50] transition-colors" href="./index.html#about">About</a>
 </div>
-<div class="flex items-center gap-4"></div>
+<div class="flex items-center gap-4">
+<button class="bg-primary-container text-on-primary-container px-6 py-2.5 rounded-md font-bold text-sm tracking-tight active:scale-95 duration-200 ease-in-out hover:brightness-110">
+                    Get a Demo
+                </button>
+</div>
 </div>
 </nav>
 <main class="max-w-7xl mx-auto px-8 pt-32 pb-12">
