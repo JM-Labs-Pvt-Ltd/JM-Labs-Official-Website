@@ -1,251 +1,304 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JM Labs | Terms and Conditions</title>
-    <meta
-      name="description"
-      content="Read the JM Labs terms and conditions for website visitors and product users, including Bullion Master."
-    />
-    <script>
-      (() => {
-        try {
-          const savedTheme = localStorage.getItem("jmlabs-theme");
-          const systemTheme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
-          document.documentElement.dataset.theme = savedTheme || systemTheme;
-        } catch {
-          document.documentElement.dataset.theme = "dark";
-        }
-      })();
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Terms of Service | Bullion Master</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-variant": "#333539",
+              "on-primary": "#3c2f00",
+              "surface-container-low": "#1a1c20",
+              "surface-bright": "#37393e",
+              "primary-fixed-dim": "#e9c349",
+              "secondary": "#b0c6ff",
+              "primary-fixed": "#ffe088",
+              "on-surface": "#e2e2e8",
+              "surface-dim": "#111317",
+              "outline": "#99907c",
+              "on-primary-fixed": "#241a00",
+              "on-primary-container": "#554300",
+              "on-background": "#e2e2e8",
+              "primary-container": "#d4af37",
+              "on-secondary": "#002d6f",
+              "inverse-on-surface": "#2f3035",
+              "background": "#111317",
+              "surface-container-lowest": "#0c0e12",
+              "secondary-fixed-dim": "#b0c6ff",
+              "secondary-fixed": "#d9e2ff",
+              "primary": "#f2ca50",
+              "on-secondary-fixed-variant": "#00429c",
+              "tertiary-fixed": "#e5e2e1",
+              "on-tertiary-container": "#454544",
+              "tertiary": "#d0cdcd",
+              "inverse-primary": "#735c00",
+              "surface": "#111317",
+              "tertiary-container": "#b4b2b2",
+              "on-surface-variant": "#d0c5af",
+              "on-error": "#690005",
+              "on-tertiary-fixed": "#1c1b1b",
+              "on-error-container": "#ffdad6",
+              "surface-container-highest": "#333539",
+              "error-container": "#93000a",
+              "tertiary-fixed-dim": "#c8c6c5",
+              "surface-container-high": "#282a2e",
+              "surface-container": "#1e2024",
+              "error": "#ffb4ab",
+              "on-tertiary-fixed-variant": "#474746",
+              "on-primary-fixed-variant": "#574500",
+              "outline-variant": "#4d4635",
+              "on-secondary-fixed": "#001945",
+              "surface-tint": "#e9c349",
+              "on-tertiary": "#313030",
+              "on-secondary-container": "#002661",
+              "inverse-surface": "#e2e2e8",
+              "secondary-container": "#568dff"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
     </script>
-    <link rel="icon" type="image/svg+xml" href="./jm-labs-icon-final.svg" />
-    <link rel="stylesheet" href="./styles.css" />
-    <script type="module" src="./script.js"></script>
-  </head>
-  <body data-page="terms">
-    <div class="site-chrome">
-      <header class="site-header">
-        <a class="brand-mark" href="./index.html" aria-label="JM Labs home">
-          <img class="brand-icon" src="./jm-labs-icon-final.svg" alt="JM Labs logo" />
-          <span class="brand-lockup">
-            <span class="brand-wordmark">JM Labs</span>
-            <span class="brand-caption">Focused software for serious operators</span>
-          </span>
-        </a>
-
-        <div class="header-controls">
-          <nav class="site-nav" id="site-nav">
-            <a href="./index.html">Home</a>
-            <a href="./product-details.html">Products</a>
-            <a href="./privacy-policy.html">Privacy</a>
-            <a class="is-active" href="./terms-and-conditions.html">Terms</a>
-          </nav>
-
-          <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
-            <span class="theme-toggle-track" aria-hidden="true">
-              <span class="theme-toggle-thumb"></span>
-            </span>
-            <span class="theme-toggle-label">Light</span>
-          </button>
-
-          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-            Menu
-          </button>
-        </div>
-      </header>
-
-      <main class="content-page legal-page">
-        <section class="page-hero reveal">
-          <p class="eyebrow">Legal</p>
-          <h1>Terms and Conditions</h1>
-          <p class="page-intro">Last updated: March 7, 2026</p>
-        </section>
-
-        <section class="legal-card reveal">
-          <h2>1. Acceptance and Eligibility</h2>
-          <p>
-            By downloading, installing, accessing, activating a subscription or
-            trial, or otherwise using Bullion Master, you acknowledge that you
-            have read, understood, and agreed to be legally bound by these Terms.
-            If you do not agree, you must not use the app. You must use the app
-            only for lawful business operations and be authorized to manage the
-            data entered in your account.
-          </p>
-
-          <h2>2. Intended Use and User Responsibility</h2>
-          <p>
-            Bullion Master is a workflow-assistance tool intended to help you
-            record, organize, review, and operate ledger, stock, reporting,
-            archive, and related business processes more efficiently. It is not a
-            substitute for your own review, supervision, reconciliation, internal
-            controls, accounting judgment, tax advice, legal advice, or business
-            decision-making. You remain solely responsible for:
-          </p>
-          <ul class="detail-list">
-            <li>Accuracy of entries such as rates, weight, purity, and dates.</li>
-            <li>
-              Verifying outputs before using them for accounting, tax, settlement,
-              or legal purposes.
-            </li>
-            <li>
-              Maintaining internal controls for who can access and operate your
-              device/account.
-            </li>
-            <li>
-              Reviewing any discrepancy, mismatch, drift, rounding difference,
-              sync issue, backup/restore issue, reporting variance, or other
-              operational exception before acting on app output.
-            </li>
-          </ul>
-
-          <h2>3. Data Ownership and Account Control</h2>
-          <p>
-            You retain ownership of business data entered in the app. You are
-            responsible for account credentials, PIN, backup password, and any
-            recovery details such as backup email.
-          </p>
-
-          <h2>4. Security Features and Irreversible Actions</h2>
-          <p>
-            The app may provide security features such as PIN lock, auto-wipe
-            controls, and emergency/duress-triggered wipe flows.
-          </p>
-          <ul class="detail-list">
-            <li>
-              Wipe actions can permanently remove local data and may be
-              irreversible.
-            </li>
-            <li>
-              You must keep secure copies of backup credentials and test your
-              recovery process periodically.
-            </li>
-            <li>
-              We are not responsible for losses caused by forgotten credentials,
-              accidental wipe triggers, or untested backup practices.
-            </li>
-          </ul>
-
-          <h2>5. Cloud Features and Connectivity</h2>
-          <p>
-            Cloud backup, sync, restore, subscription checks, and authentication
-            require internet/network availability and third-party platform
-            services. Availability or response time may vary.
-          </p>
-
-          <h2>6. Permissions Used by Features</h2>
-          <ul class="detail-list">
-            <li>
-              Internet/Network: used for authentication, cloud backup/restore,
-              and subscription validation.
-            </li>
-            <li>
-              Camera/Photos: used only when you add image attachments to records.
-            </li>
-            <li>
-              Files/Storage/Share: used for export, backup files, file open, and
-              user-initiated sharing.
-            </li>
-          </ul>
-          <p>
-            If you do not use a feature, related access may not be invoked.
-          </p>
-
-          <h2>7. Employee and Third-Party Data</h2>
-          <p>
-            If you store staff, customer, or supplier details (for example mobile
-            number, ID details, salary records), you must ensure lawful
-            collection, use, and retention under applicable laws and internal
-            policy.
-          </p>
-
-          <h2>8. Output Verification and No Professional Advice</h2>
-          <p>
-            Information, calculations, previews, summaries, analytics, archive
-            results, settlement outputs, stock views, profit and loss figures,
-            balances, reports, exports, and other app-generated results are
-            provided only as operational assistance. They may depend on user
-            input, device state, configuration, third-party services, backup
-            state, connectivity, timing, or software limitations.
-          </p>
-          <ul class="detail-list">
-            <li>
-              We do not represent or warrant that every result will always be
-              complete, accurate, current, error-free, or fit for your specific
-              business, accounting, tax, audit, settlement, or legal needs.
-            </li>
-            <li>
-              Any mistake, discrepancy, omission, mismatch, delay, duplicate,
-              drift, rounding variance, sync conflict, restore inconsistency, or
-              interpretation issue must be independently checked by you before use.
-            </li>
-            <li>
-              Bullion Master does not provide accounting, audit, tax, valuation,
-              compliance, or legal advice, and you must obtain professional advice
-              where required.
-            </li>
-          </ul>
-
-          <h2>9. Refund Policy</h2>
-          <p>
-            All payments, subscription charges, upgrade fees, and other amounts
-            paid for Bullion Master are final and non-refundable to the maximum
-            extent permitted by applicable law. We do not provide refunds,
-            credits, partial refunds, pro-rated refunds, or exchanges for any
-            reason, including unused time, reduced usage, mistaken purchase,
-            device change, account change, business closure, feature preference,
-            dissatisfaction, or service discontinuation by you.
-          </p>
-          <p>
-            By purchasing, activating, renewing, or continuing to use the app,
-            you expressly agree to this no-refund policy and waive any request or
-            claim for refund except where such waiver is prohibited by applicable
-            law.
-          </p>
-
-          <h2>10. Limitation of Liability</h2>
-          <p>
-            To the extent permitted by law, the app is provided on an as-is and
-            as-available basis. We do not guarantee uninterrupted operation, error
-            free computation, or suitability for every workflow. You are
-            responsible for operational checks and independent reconciliation.
-          </p>
-          <p>
-            To the maximum extent permitted by law, we will not be liable for any
-            direct, indirect, incidental, special, exemplary, punitive, or
-            consequential loss or damage arising from or related to use of the
-            app, including loss of profit, business interruption, data loss,
-            incorrect entries, reporting mistakes, reconciliation differences,
-            missed settlements, tax issues, regulatory issues, backup failure,
-            restore failure, security incidents, or actions taken based on app
-            output.
-          </p>
-
-          <h2>11. Indemnity</h2>
-          <p>
-            You agree to be responsible for claims, losses, or liabilities arising
-            from unlawful use of the app, unauthorized data usage, or violation of
-            these Terms by your account activity.
-          </p>
-
-          <h2>12. Updates to Terms</h2>
-          <p>
-            We may revise these Terms from time to time. The version shown in the
-            app will govern from its stated effective date. Your continued use of
-            Bullion Master after any update constitutes your acceptance of the
-            revised Terms.
-          </p>
-        </section>
-      </main>
-
-      <footer class="site-footer">
-        <p>&copy; <span data-current-year></span> JM Labs. All rights reserved.</p>
-        <div class="footer-links">
-          <a href="./index.html">Home</a>
-          <a href="./product-details.html">Products</a>
-          <a href="./privacy-policy.html">Privacy</a>
-        </div>
-      </footer>
-    </div>
-  </body>
-</html>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .kinetic-gradient {
+            background: linear-gradient(135deg, #f2ca50 0%, #d4af37 100%);
+        }
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111317;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333539;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f2ca50;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<nav class="fixed top-0 w-full z-50 bg-[#111317]/80 backdrop-blur-xl border-b border-[#d0cdcd]/10 shadow-2xl shadow-black/50">
+<div class="flex justify-between items-center h-20 px-8 max-w-full mx-auto font-['Inter'] antialiased tracking-tight">
+<a href="./index.html" class="flex items-center gap-3">
+<img src="./jm-labs-icon-final.svg" alt="JM Labs" class="h-8 w-8" />
+<div class="text-xl font-bold tracking-tighter text-[#f2ca50]">JM Labs</div>
+</a>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-[#d0cdcd] hover:text-[#f2ca50] transition-colors pb-1" href="./index.html">Home</a>
+<a class="text-[#d0cdcd] hover:text-[#f2ca50] transition-colors pb-1" href="./bullion-master.html">Products</a>
+<a class="text-[#d0cdcd] hover:text-[#f2ca50] transition-colors pb-1" href="./privacy-policy.html">Privacy</a>
+<a class="text-[#d0cdcd] hover:text-[#f2ca50] transition-colors pb-1" href="./terms-and-conditions.html">Terms</a>
+</div>
+<div class="flex items-center gap-4"></div>
+</div>
+</nav>
+<main class="pt-32 pb-24 px-6 md:px-12 max-w-5xl mx-auto">
+<header class="mb-16 text-center">
+<span class="text-primary font-mono text-xs uppercase tracking-[0.4em] mb-4 block">Official Documentation</span>
+<h1 class="text-5xl md:text-7xl font-black tracking-tighter text-on-surface leading-none uppercase">
+            Terms of <span class="text-primary">Service</span>
+</h1>
+<div class="mt-8 flex justify-center gap-8 text-[10px] text-tertiary opacity-60 uppercase tracking-widest">
+<p>Version: v4.2.0-STABLE</p>
+<p></p>
+</div>
+</header>
+<div class="space-y-12">
+<!-- 1. Acceptance and Eligibility -->
+<section class="group">
+<div class="flex gap-6">
+<div class="text-primary font-mono text-lg shrink-0 pt-1">01.</div>
+<div class="space-y-4">
+<h2 class="text-xl font-bold uppercase tracking-tight">Acceptance and Eligibility</h2>
+<p class="text-tertiary leading-relaxed text-sm opacity-80">
+                        By accessing or using Bullion Master infrastructure, you agree to be bound by these Terms. You must be of legal age and possess the technical capacity to operate automated workflow systems within your jurisdiction.
+                    </p>
+</div>
+</div>
+</section>
+<!-- 2. Intended Use -->
+<section class="group border-t border-surface-container-highest pt-12">
+<div class="flex gap-6">
+<div class="text-primary font-mono text-lg shrink-0 pt-1">02.</div>
+<div class="space-y-4">
+<h2 class="text-xl font-bold uppercase tracking-tight">Intended Use</h2>
+<p class="text-tertiary leading-relaxed text-sm opacity-80 italic">
+                        Workflow-assistance only, no advice.
+                    </p>
+<p class="text-tertiary leading-relaxed text-sm opacity-80">
+                        The Platform is designed strictly for high-frequency infrastructure management and workflow automation. JM Labs does not provide financial, legal, or professional advice. All operational decisions are made autonomously by the Operator.
+                    </p>
+</div>
+</div>
+</section>
+<!-- 3. Data Ownership -->
+<section class="group border-t border-surface-container-highest pt-12">
+<div class="flex gap-6">
+<div class="text-primary font-mono text-lg shrink-0 pt-1">03.</div>
+<div class="space-y-4">
+<h2 class="text-xl font-bold uppercase tracking-tight">Data Ownership</h2>
+<p class="text-tertiary leading-relaxed text-sm opacity-80">
+                        You retain all rights, title, and interest in and to any data or credentials you input into the Vault. JM Labs claims no ownership over your encrypted session data or proprietary workflow logic.
+                    </p>
+</div>
+</div>
+</section>
+<!-- 4. Security Features -->
+<section class="group border-t border-surface-container-highest pt-12">
+<div class="flex gap-6">
+<div class="text-primary font-mono text-lg shrink-0 pt-1">04.</div>
+<div class="space-y-4">
+<h2 class="text-xl font-bold uppercase tracking-tight">Security Features</h2>
+<div class="bg-error/10 border-l-2 border-error p-4 my-2">
+<p class="text-error text-xs font-bold uppercase tracking-widest mb-1">Critical Disclosure</p>
+<p class="text-on-surface text-sm opacity-80">Wipes can be irreversible.</p>
+</div>
+<p class="text-tertiary leading-relaxed text-sm opacity-80">
+                        Security protocols including emergency wipes are final. Once a data purge is initiated by the system or the user, JM Labs cannot recover any lost credentials or operational history.
+                    </p>
+</div>
+</div>
+</section>
+<!-- 5. Cloud Features -->
+<section class="group border-t border-surface-container-highest pt-12">
+<div class="flex gap-6">
+<div class="text-primary font-mono text-lg shrink-0 pt-1">05.</div>
+<div class="space-y-4">
+<h2 class="text-xl font-bold uppercase tracking-tight">Cloud Features</h2>
+<p class="text-tertiary leading-relaxed text-sm opacity-80">
+                        Cloud-based synchronization and remote execution features require a persistent internet connection. JM Labs is not responsible for execution failures caused by local or transit network latency.
+                    </p>
+</div>
+</div>
+</section>
+<!-- 6. Permissions -->
+<section class="group border-t border-surface-container-highest pt-12">
+<div class="flex gap-6">
+<div class="text-primary font-mono text-lg shrink-0 pt-1">06.</div>
+<div class="space-y-4">
+<h2 class="text-xl font-bold uppercase tracking-tight">Permissions</h2>
+<p class="text-tertiary leading-relaxed text-sm opacity-80">
+                        You grant JM Labs the necessary limited permissions to facilitate automated requests on your behalf through the provided API keys and session tokens.
+                    </p>
+</div>
+</div>
+</section>
+<!-- 7. Employee/Third-Party Data -->
+<section class="group border-t border-surface-container-highest pt-12">
+<div class="flex gap-6">
+<div class="text-primary font-mono text-lg shrink-0 pt-1">07.</div>
+<div class="space-y-4">
+<h2 class="text-xl font-bold uppercase tracking-tight">Employee/Third-Party Data</h2>
+<p class="text-tertiary leading-relaxed text-sm opacity-80">
+                        The User is solely responsible for ensuring that all data related to their employees or third parties uploaded to the Vault complies with relevant privacy laws.
+                    </p>
+</div>
+</div>
+</section>
+<!-- 8. Output Verification -->
+<section class="group border-t border-surface-container-highest pt-12">
+<div class="flex gap-6">
+<div class="text-primary font-mono text-lg shrink-0 pt-1">08.</div>
+<div class="space-y-4">
+<h2 class="text-xl font-bold uppercase tracking-tight">Output Verification</h2>
+<p class="text-tertiary leading-relaxed text-sm opacity-80 italic">
+                        No professional advice.
+                    </p>
+<p class="text-tertiary leading-relaxed text-sm opacity-80">
+                        All outputs generated by the Vault must be verified by the Operator. JM Labs does not guarantee the accuracy of automated calculations or the success of programmatically initiated events.
+                    </p>
+</div>
+</div>
+</section>
+<!-- 9. Refund Policy -->
+<section class="group border-t border-surface-container-highest pt-12">
+<div class="flex gap-6">
+<div class="text-primary font-mono text-lg shrink-0 pt-1">09.</div>
+<div class="space-y-4">
+<h2 class="text-xl font-bold uppercase tracking-tight">Refund Policy</h2>
+<p class="text-tertiary leading-relaxed text-sm opacity-80 font-bold">
+                        All payments final and non-refundable.
+                    </p>
+<p class="text-tertiary leading-relaxed text-sm opacity-80">
+                        Subscription fees and usage-based billing are processed instantly upon allocation of infrastructure resources.
+                    </p>
+</div>
+</div>
+</section>
+<!-- 10. Limitation of Liability -->
+<section class="group border-t border-surface-container-highest pt-12">
+<div class="flex gap-6">
+<div class="text-primary font-mono text-lg shrink-0 pt-1">10.</div>
+<div class="space-y-4">
+<h2 class="text-xl font-bold uppercase tracking-tight">Limitation of Liability</h2>
+<p class="text-tertiary leading-relaxed text-sm opacity-80">
+                        To the maximum extent permitted by law, JM Labs shall not be liable for any indirect, incidental, or consequential damages, including loss of profits or capital resulting from system downtime or execution errors.
+                    </p>
+</div>
+</div>
+</section>
+<!-- 11. Indemnity -->
+<section class="group border-t border-surface-container-highest pt-12">
+<div class="flex gap-6">
+<div class="text-primary font-mono text-lg shrink-0 pt-1">11.</div>
+<div class="space-y-4">
+<h2 class="text-xl font-bold uppercase tracking-tight">Indemnity</h2>
+<p class="text-tertiary leading-relaxed text-sm opacity-80">
+                        You agree to indemnify and hold JM Labs harmless from any claims, losses, or damages arising out of your misuse of the platform or violation of these terms.
+                    </p>
+</div>
+</div>
+</section>
+<!-- 12. Updates -->
+<section class="group border-t border-surface-container-highest pt-12">
+<div class="flex gap-6">
+<div class="text-primary font-mono text-lg shrink-0 pt-1">12.</div>
+<div class="space-y-4">
+<h2 class="text-xl font-bold uppercase tracking-tight">Updates</h2>
+<p class="text-tertiary leading-relaxed text-sm opacity-80">
+                        JM Labs reserves the right to update these terms at any time. Continued use of the platform following the posting of changes constitutes acceptance of the revised Terms of Service.
+                    </p>
+</div>
+</div>
+</section>
+</div>
+<!-- Final Acknowledgement -->
+<div class="mt-24 pt-12 border-t border-surface-container-highest text-center space-y-8">
+<p class="text-xs text-tertiary max-w-lg mx-auto italic opacity-60">
+            By proceeding, you affirm you have read and understood the technical obligations and risks associated with Bullion Master infrastructure.
+        </p>
+</div>
+</main>
+<footer class="w-full py-12 px-8 border-t border-[#d0cdcd]/5 bg-[#111317]">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:flex lg:justify-between items-center gap-8 w-full max-w-7xl mx-auto">
+<div class="space-y-4">
+<div class="text-lg font-black text-[#d0cdcd]">JM Labs</div>
+<div class="font-['Inter'] text-sm uppercase tracking-widest font-medium text-[#d0cdcd]/60">
+                    © 2026 JM Labs. All rights reserved.
+                </div>
+</div>
+<div class="flex flex-wrap gap-x-8 gap-y-4">
+<a class="font-['Inter'] text-sm uppercase tracking-widest font-medium text-[#d0cdcd]/60 hover:text-[#568dff] transition-colors duration-300" href="./index.html">Home</a>
+<a class="font-['Inter'] text-sm uppercase tracking-widest font-medium text-[#d0cdcd]/60 hover:text-[#568dff] transition-colors duration-300" href="./bullion-master.html">Products</a>
+<a class="font-['Inter'] text-sm uppercase tracking-widest font-medium text-[#d0cdcd]/60 hover:text-[#568dff] transition-colors duration-300" href="./privacy-policy.html">Privacy Policy</a>
+<a class="font-['Inter'] text-sm uppercase tracking-widest font-medium text-[#d0cdcd]/60 hover:text-[#568dff] transition-colors duration-300" href="./terms-and-conditions.html">Terms of Service</a>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,243 +1,354 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JM Labs | Privacy Policy</title>
-    <meta
-      name="description"
-      content="Read the JM Labs privacy policy for website visitors and product users, including Bullion Master."
-    />
-    <script>
-      (() => {
-        try {
-          const savedTheme = localStorage.getItem("jmlabs-theme");
-          const systemTheme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
-          document.documentElement.dataset.theme = savedTheme || systemTheme;
-        } catch {
-          document.documentElement.dataset.theme = "dark";
-        }
-      })();
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Privacy Policy | Bullion Master</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "error-container": "#93000a",
+              "outline": "#99907c",
+              "on-tertiary-container": "#454544",
+              "on-tertiary": "#313030",
+              "on-surface-variant": "#d0c5af",
+              "surface-container-highest": "#333539",
+              "surface-dim": "#111317",
+              "on-secondary-fixed-variant": "#00429c",
+              "error": "#ffb4ab",
+              "on-background": "#e2e2e8",
+              "on-tertiary-fixed-variant": "#474746",
+              "secondary-fixed-dim": "#b0c6ff",
+              "on-secondary": "#002d6f",
+              "surface-container": "#1e2024",
+              "tertiary": "#d0cdcd",
+              "on-surface": "#e2e2e8",
+              "surface-container-high": "#282a2e",
+              "tertiary-fixed": "#e5e2e1",
+              "surface-container-lowest": "#0c0e12",
+              "on-error": "#690005",
+              "surface-tint": "#e9c349",
+              "primary-container": "#d4af37",
+              "on-primary-fixed": "#241a00",
+              "on-secondary-container": "#002661",
+              "on-tertiary-fixed": "#1c1b1b",
+              "on-secondary-fixed": "#001945",
+              "on-primary-container": "#554300",
+              "primary": "#f2ca50",
+              "tertiary-fixed-dim": "#c8c6c5",
+              "surface-bright": "#37393e",
+              "background": "#111317",
+              "on-primary": "#3c2f00",
+              "surface-container-low": "#1a1c20",
+              "inverse-on-surface": "#2f3035",
+              "tertiary-container": "#b4b2b2",
+              "on-error-container": "#ffdad6",
+              "outline-variant": "#4d4635",
+              "secondary-container": "#568dff",
+              "secondary": "#b0c6ff",
+              "primary-fixed": "#ffe088",
+              "surface-variant": "#333539",
+              "secondary-fixed": "#d9e2ff",
+              "surface": "#111317",
+              "inverse-surface": "#e2e2e8",
+              "primary-fixed-dim": "#e9c349",
+              "on-primary-fixed-variant": "#574500",
+              "inverse-primary": "#735c00"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
     </script>
-    <link rel="icon" type="image/svg+xml" href="./jm-labs-icon-final.svg" />
-    <link rel="stylesheet" href="./styles.css" />
-    <script type="module" src="./script.js"></script>
-  </head>
-  <body data-page="privacy">
-    <div class="site-chrome">
-      <header class="site-header">
-        <a class="brand-mark" href="./index.html" aria-label="JM Labs home">
-          <img class="brand-icon" src="./jm-labs-icon-final.svg" alt="JM Labs logo" />
-          <span class="brand-lockup">
-            <span class="brand-wordmark">JM Labs</span>
-            <span class="brand-caption">Focused software for serious operators</span>
-          </span>
-        </a>
-
-        <div class="header-controls">
-          <nav class="site-nav" id="site-nav">
-            <a href="./index.html">Home</a>
-            <a href="./product-details.html">Products</a>
-            <a class="is-active" href="./privacy-policy.html">Privacy</a>
-            <a href="./terms-and-conditions.html">Terms</a>
-          </nav>
-
-          <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
-            <span class="theme-toggle-track" aria-hidden="true">
-              <span class="theme-toggle-thumb"></span>
-            </span>
-            <span class="theme-toggle-label">Light</span>
-          </button>
-
-          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-            Menu
-          </button>
-        </div>
-      </header>
-
-      <main class="content-page legal-page">
-        <section class="page-hero reveal">
-          <p class="eyebrow">Legal</p>
-          <h1>Privacy Policy</h1>
-          <p class="page-intro">Last updated: March 7, 2026</p>
-        </section>
-
-        <section class="legal-card reveal">
-          <h2>1. Overview</h2>
-          <p>
-            Bullion Master is designed with a local-first approach. Most business
-            records are stored on your device, and cloud features are used only
-            for specific account, backup, restore, sync, and subscription
-            workflows. This Privacy Policy explains what information may be
-            processed when you use the app, how it is used, and what control
-            remains with you.
-          </p>
-
-          <h2>2. Data Stored Locally</h2>
-          <p>Depending on features you use, local storage may include:</p>
-          <ul class="detail-list">
-            <li>
-              Ledger/business records: parties, items, transactions, expenses,
-              income, stock/opening balances, reports context.
-            </li>
-            <li>
-              Staff and payroll data: staff profile details and salary payment
-              history.
-            </li>
-            <li>
-              App settings and security preferences: units, categories, PIN
-              protection settings, device-linked preferences, and backup
-              configuration references.
-            </li>
-            <li>
-              Attachments added by you (for example bill/record images) through
-              app attachment workflows.
-            </li>
-            <li>
-              Operational state generated by the app, such as archive reports,
-              startup progress metadata, opening stock context, and other internal
-              app records required for feature continuity.
-            </li>
-          </ul>
-
-          <h2>3. Account and Authentication Data</h2>
-          <p>
-            To use authenticated features, account data such as email and auth
-            identifiers are processed via authentication services. This supports
-            sign in, verification, profile access, device registration,
-            subscription entitlement checks, and account recovery flows.
-          </p>
-          <p>
-            Depending on the feature, we may also process limited device or
-            installation identifiers to help with account security, device
-            management, session integrity, or feature enforcement.
-          </p>
-
-          <h2>4. Cloud Backup and Sync Data</h2>
-          <p>
-            If you enable cloud backup/sync features, your backup package and
-            backup metadata (for example backup identifier/timestamp) are used to
-            support restore and multi-device continuity.
-          </p>
-          <ul class="detail-list">
-            <li>
-              Backups may be handled in encrypted format based on your configured
-              backup/password workflow.
-            </li>
-            <li>
-              Access to backup contents depends on valid credentials/password where
-              encryption is enabled.
-            </li>
-            <li>
-              Cloud features require active network connectivity and supported
-              account state.
-            </li>
-            <li>
-              Backup content can include the business records and configuration
-              data you choose to store in the app, subject to the backup flow you
-              use.
-            </li>
-          </ul>
-
-          <h2>5. Security and Integrity Events</h2>
-          <p>
-            The app may process local security events to protect data access, such
-            as PIN checks, failed-attempt counters, auto-wipe configuration, and
-            emergency/duress-triggered protection flows.
-          </p>
-          <p>
-            These protections are intended to reduce unauthorized access risk, but
-            no device, software, storage, or transmission method can be guaranteed
-            fully secure in every case.
-          </p>
-
-          <h2>6. How We Use Information</h2>
-          <ul class="detail-list">
-            <li>To operate core ledger, inventory, reporting, archive, and workflow features.</li>
-            <li>To authenticate users and maintain account access.</li>
-            <li>To provide backup, restore, sync, export, and sharing flows requested by you.</li>
-            <li>To protect access through security checks, PIN workflows, and device-related safeguards.</li>
-            <li>To validate subscription, trial, and feature entitlement state.</li>
-          </ul>
-
-          <h2>7. Permissions We Use</h2>
-          <ul class="detail-list">
-            <li>
-              Internet/Network: required for login/auth, cloud backup/restore,
-              and subscription checks.
-            </li>
-            <li>
-              Camera/Photos: used only when you capture or select images for
-              record attachments.
-            </li>
-            <li>
-              Filesystem/Cache/Share: used for exports, local backup files, open
-              file actions, and user-initiated sharing.
-            </li>
-          </ul>
-
-          <h2>8. Data Sharing and Disclosure</h2>
-          <p>
-            We do not sell your business data. Data may be shared only as required
-            for service operation (for example authentication/cloud infrastructure)
-            or when you explicitly trigger actions like export/share/restore.
-          </p>
-          <p>
-            We may also disclose information where required by applicable law,
-            lawful process, or to protect rights, security, fraud prevention, or
-            service integrity.
-          </p>
-
-          <h2>9. Retention and Deletion</h2>
-          <ul class="detail-list">
-            <li>
-              Local app data stays on your device until you edit, delete, wipe, or
-              reinstall/reset app data.
-            </li>
-            <li>
-              Restore operations can overwrite current local records with backup
-              contents.
-            </li>
-            <li>
-              Security wipe flows may permanently remove local records.
-            </li>
-            <li>
-              Cloud backup retention may depend on the storage service, account
-              state, overwrite actions, or deletion actions initiated by you.
-            </li>
-          </ul>
-
-          <h2>10. Your Controls and Responsibilities</h2>
-          <p>
-            You can manage your information using built-in tools such as edit
-            screens, export/backup, restore, and account/security settings.
-            Because backup security depends on your credentials, keep your PIN and
-            backup password confidential.
-          </p>
-          <p>
-            You are responsible for verifying what information you enter,
-            choosing whether to use cloud or attachment features, maintaining
-            secure access to your device and account, and testing your own backup
-            and recovery process.
-          </p>
-
-          <h2>11. Policy Updates</h2>
-          <p>
-            We may update this Privacy Policy to reflect feature, legal, or
-            operational changes. The latest version and date shown in the app are
-            the governing version.
-          </p>
-        </section>
-      </main>
-
-      <footer class="site-footer">
-        <p>&copy; <span data-current-year></span> JM Labs. All rights reserved.</p>
-        <div class="footer-links">
-          <a href="./index.html">Home</a>
-          <a href="./product-details.html">Products</a>
-          <a href="./terms-and-conditions.html">Terms</a>
-        </div>
-      </footer>
-    </div>
-  </body>
-</html>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        body {
+            background-color: #111317;
+            color: #e2e2e8;
+            scrollbar-width: thin;
+            scrollbar-color: #333539 #111317;
+        }
+        .glass-panel {
+            background: rgba(51, 53, 57, 0.6);
+            backdrop-filter: blur(20px);
+        }
+        .kinetic-gradient {
+            background: linear-gradient(135deg, #f2ca50 0%, #d4af37 100%);
+        }
+    </style>
+</head>
+<body class="font-body selection:bg-primary selection:text-on-primary">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#111317]/80 backdrop-blur-xl border-b border-[#d0cdcd]/10 shadow-2xl shadow-black/50">
+<div class="flex justify-between items-center h-20 px-8 max-w-full mx-auto font-['Inter'] antialiased tracking-tight">
+<a href="./index.html" class="flex items-center gap-3">
+<img src="./jm-labs-icon-final.svg" alt="JM Labs" class="h-8 w-8" />
+<div class="text-xl font-bold tracking-tighter text-[#f2ca50]">JM Labs</div>
+</a>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-[#d0cdcd] hover:text-[#f2ca50] transition-colors pb-1" href="./index.html">Home</a>
+<a class="text-[#d0cdcd] hover:text-[#f2ca50] transition-colors pb-1" href="./bullion-master.html">Products</a>
+<a class="text-[#d0cdcd] hover:text-[#f2ca50] transition-colors pb-1" href="./privacy-policy.html">Privacy</a>
+<a class="text-[#d0cdcd] hover:text-[#f2ca50] transition-colors pb-1" href="./terms-and-conditions.html">Terms</a>
+</div>
+<div class="flex items-center gap-4"></div>
+</div>
+</nav>
+<main class="max-w-7xl mx-auto px-8 pt-32 pb-12">
+<!-- Hero Header -->
+<header class="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="max-w-2xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-highest text-primary text-[10px] font-bold tracking-[0.2em] uppercase rounded mb-4 border border-outline-variant/20">
+<span class="material-symbols-outlined text-[14px]">verified_user</span>
+                    System Protocol 74-B
+                </div>
+<h1 class="text-5xl md:text-7xl font-black tracking-tighter text-on-background mb-4 uppercase">
+                    Privacy <span class="text-primary">Policy</span>
+</h1>
+<p class="text-on-surface-variant text-lg leading-relaxed max-w-xl">
+                    Our commitment to data sovereignty. Bullion Master operates on a local-first architecture, ensuring your financial intelligence remains under your direct control.
+                </p>
+</div>
+<div class="flex flex-col items-end text-right">
+<span class="text-[10px] uppercase tracking-widest text-tertiary mb-1">Version Control</span>
+<span class="font-mono text-primary text-sm tracking-tighter"></span>
+</div>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Sidebar Navigation -->
+<aside class="lg:col-span-3">
+<div class="sticky top-28 space-y-1">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-4 ml-2">Navigation Clusters</p>
+<a class="group flex items-center gap-3 px-4 py-3 bg-surface-container-high rounded-md border-l-4 border-primary" href="#overview">
+<span class="text-xs font-bold tracking-tight text-primary">01</span>
+<span class="text-sm font-medium text-on-surface">Overview</span>
+</a>
+<a class="group flex items-center gap-3 px-4 py-3 hover:bg-surface-container-low transition-all duration-200" href="#storage">
+<span class="text-xs font-bold tracking-tight text-tertiary group-hover:text-primary">02</span>
+<span class="text-sm font-medium text-on-surface-variant group-hover:text-on-surface">Data Storage</span>
+</a>
+<a class="group flex items-center gap-3 px-4 py-3 hover:bg-surface-container-low transition-all duration-200" href="#auth">
+<span class="text-xs font-bold tracking-tight text-tertiary group-hover:text-primary">03</span>
+<span class="text-sm font-medium text-on-surface-variant group-hover:text-on-surface">Authentication</span>
+</a>
+<a class="group flex items-center gap-3 px-4 py-3 hover:bg-surface-container-low transition-all duration-200" href="#backup">
+<span class="text-xs font-bold tracking-tight text-tertiary group-hover:text-primary">04</span>
+<span class="text-sm font-medium text-on-surface-variant group-hover:text-on-surface">Cloud Systems</span>
+</a>
+<a class="group flex items-center gap-3 px-4 py-3 hover:bg-surface-container-low transition-all duration-200" href="#security">
+<span class="text-xs font-bold tracking-tight text-tertiary group-hover:text-primary">05</span>
+<span class="text-sm font-medium text-on-surface-variant group-hover:text-on-surface">Security Events</span>
+</a>
+<a class="group flex items-center gap-3 px-4 py-3 hover:bg-surface-container-low transition-all duration-200" href="#usage">
+<span class="text-xs font-bold tracking-tight text-tertiary group-hover:text-primary">06</span>
+<span class="text-sm font-medium text-on-surface-variant group-hover:text-on-surface">Information Usage</span>
+</a>
+<a class="group flex items-center gap-3 px-4 py-3 hover:bg-surface-container-low transition-all duration-200" href="#permissions">
+<span class="text-xs font-bold tracking-tight text-tertiary group-hover:text-primary">07</span>
+<span class="text-sm font-medium text-on-surface-variant group-hover:text-on-surface">Permissions</span>
+</a>
+</div>
+</aside>
+<!-- Policy Content -->
+<article class="lg:col-span-9 space-y-16">
+<!-- 01 Overview -->
+<section class="scroll-mt-28" id="overview">
+<div class="flex items-start gap-6">
+<div class="text-5xl font-black text-surface-container-highest">01</div>
+<div>
+<h2 class="text-2xl font-bold tracking-tight text-on-background mb-6 uppercase">System Overview</h2>
+<div class="p-8 bg-surface-container-low rounded-xl border-l-4 border-secondary-container">
+<p class="text-on-surface leading-relaxed mb-4">
+                                    Bullion Master is engineered as a <span class="text-secondary font-bold">local-first</span> application. This means the primary source of truth for your data resides exclusively on your device hardware.
+                                </p>
+<p class="text-on-surface-variant leading-relaxed">
+                                    Cloud infrastructure is utilized only as a secondary utility for synchronization across authorized devices and secure off-site backup. We do not maintain unencrypted access to your vault contents on our servers.
+                                </p>
+</div>
+</div>
+</div>
+</section>
+<!-- 02 Local Data -->
+<section class="scroll-mt-28" id="storage">
+<div class="flex items-start gap-6">
+<div class="text-5xl font-black text-surface-container-highest">02</div>
+<div class="flex-1">
+<h2 class="text-2xl font-bold tracking-tight text-on-background mb-6 uppercase">Data Stored Locally</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="p-6 bg-surface-container-lowest rounded-md border border-outline-variant/10">
+<div class="text-primary mb-3"><span class="material-symbols-outlined">account_balance_wallet</span></div>
+<h4 class="font-bold text-on-surface mb-2">Ledger Data</h4>
+<p class="text-sm text-on-surface-variant">All transaction history, balances, and asset allocations are stored in a local SQLite-encrypted database.</p>
+</div>
+<div class="p-6 bg-surface-container-lowest rounded-md border border-outline-variant/10">
+<div class="text-primary mb-3"><span class="material-symbols-outlined">group</span></div>
+<h4 class="font-bold text-on-surface mb-2">Staff &amp; Personnel</h4>
+<p class="text-sm text-on-surface-variant">Profiles, access levels, and identification details of staff associated with the vault vault.</p>
+</div>
+<div class="p-6 bg-surface-container-lowest rounded-md border border-outline-variant/10">
+<div class="text-primary mb-3"><span class="material-symbols-outlined">settings_suggest</span></div>
+<h4 class="font-bold text-on-surface mb-2">System Settings</h4>
+<p class="text-sm text-on-surface-variant">Your interface preferences, notification triggers, and kinetic UI configurations.</p>
+</div>
+<div class="p-6 bg-surface-container-lowest rounded-md border border-outline-variant/10">
+<div class="text-primary mb-3"><span class="material-symbols-outlined">attachment</span></div>
+<h4 class="font-bold text-on-surface mb-2">Attachments</h4>
+<p class="text-sm text-on-surface-variant">Invoice scans, PDF receipts, and contractual documents cached for offline performance.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 03 Account Data -->
+<section class="scroll-mt-28" id="auth">
+<div class="flex items-start gap-6">
+<div class="text-5xl font-black text-surface-container-highest">03</div>
+<div>
+<h2 class="text-2xl font-bold tracking-tight text-on-background mb-6 uppercase">Account &amp; Authentication</h2>
+<p class="text-on-surface leading-relaxed mb-6">
+                                To facilitate secure access and cross-device identification, we collect minimal operational data:
+                            </p>
+<ul class="space-y-4">
+<li class="flex gap-4 items-center p-4 bg-surface-container rounded-lg">
+<span class="material-symbols-outlined text-secondary">mail</span>
+<span class="text-on-surface">Registered email address for account recovery.</span>
+</li>
+<li class="flex gap-4 items-center p-4 bg-surface-container rounded-lg">
+<span class="material-symbols-outlined text-secondary">fingerprint</span>
+<span class="text-on-surface">Unique hardware identifiers for multi-factor authentication.</span>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- 04 Cloud Backup -->
+<section class="scroll-mt-28" id="backup">
+<div class="flex items-start gap-6">
+<div class="text-5xl font-black text-surface-container-highest">04</div>
+<div>
+<h2 class="text-2xl font-bold tracking-tight text-on-background mb-6 uppercase">Cloud Backup Architecture</h2>
+<div class="relative p-1 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-xl">
+<div class="p-8 bg-surface-container-lowest rounded-lg">
+<h3 class="text-primary font-bold text-xl mb-4">Zero-Knowledge Encryption</h3>
+<p class="text-on-surface-variant leading-relaxed">
+                                        Backups are automatically encrypted before leaving the device. The encryption keys are derived directly from your <span class="text-on-surface underline decoration-primary underline-offset-4">master password</span> and biometric salts. JM Labs does not possess the keys required to decrypt your cloud backups. If you lose your master password, your cloud-stored data is unrecoverable.
+                                    </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 05 Security Events -->
+<section class="scroll-mt-28" id="security">
+<div class="flex items-start gap-6">
+<div class="text-5xl font-black text-surface-container-highest">05</div>
+<div>
+<h2 class="text-2xl font-bold tracking-tight text-on-background mb-6 uppercase">Security Events</h2>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-6 bg-surface-container-high rounded-md">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded bg-error/10 flex items-center justify-center text-error">
+<span class="material-symbols-outlined">lock_reset</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">PIN Integrity Checks</p>
+<p class="text-xs text-on-surface-variant">Verification requested for every session reactivation.</p>
+</div>
+</div>
+<span class="text-[10px] font-bold text-error tracking-widest uppercase">Active</span>
+</div>
+<div class="flex items-center justify-between p-6 bg-surface-container-high rounded-md">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded bg-error/10 flex items-center justify-center text-error">
+<span class="material-symbols-outlined">delete_sweep</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">Auto-Wipe Protocol</p>
+<p class="text-xs text-on-surface-variant">Local data purge after 10 failed authentication attempts.</p>
+</div>
+</div>
+<span class="text-[10px] font-bold text-error tracking-widest uppercase">Active</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 06-11 Remaining Sections Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
+<div class="scroll-mt-28" id="usage">
+<h3 class="text-[10px] font-bold text-primary uppercase tracking-[0.3em] mb-4">06. Information Usage</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                            Data is processed solely for delivering core features: executing transactions, authenticating user sessions, and facilitating automated encrypted backups. No behavioral tracking is implemented.
+                        </p>
+</div>
+<div class="scroll-mt-28" id="permissions">
+<h3 class="text-[10px] font-bold text-primary uppercase tracking-[0.3em] mb-4">07. Required Permissions</h3>
+<ul class="text-sm space-y-2 text-on-surface-variant">
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-secondary rounded-full"></span> Network: Cloud sync and backup operations.</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-secondary rounded-full"></span> Camera: QR code scanning and document capture.</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-secondary rounded-full"></span> Filesystem: Storing encrypted local databases.</li>
+</ul>
+</div>
+<div>
+<h3 class="text-[10px] font-bold text-primary uppercase tracking-[0.3em] mb-4">08. Data Sharing</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed font-bold">
+                            JM Labs does not sell, trade, or rent your data to any third party. We are a zero-monetization infrastructure for user data.
+                        </p>
+</div>
+<div>
+<h3 class="text-[10px] font-bold text-primary uppercase tracking-[0.3em] mb-4">09. Retention &amp; Erasure</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                            You may initiate a full "Nuclear Wipe" flow at any time, which purges all local data and instructs our servers to delete your associated encrypted backup shards.
+                        </p>
+</div>
+<div>
+<h3 class="text-[10px] font-bold text-primary uppercase tracking-[0.3em] mb-4">10. User Controls</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                            Full control over your data environment via the Settings terminal. Manage ledger edits, backup frequency, and local storage limits directly.
+                        </p>
+</div>
+<div>
+<h3 class="text-[10px] font-bold text-primary uppercase tracking-[0.3em] mb-4">11. Policy Updates</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                            Significant changes to this protocol will be communicated via in-app terminal broadcast. Continued use after such notification constitutes protocol acceptance.
+                        </p>
+</div>
+</section>
+<!-- Final Action Area -->
+</article>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 px-8 border-t border-[#d0cdcd]/5 bg-[#111317]">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:flex lg:justify-between items-center gap-8 w-full max-w-7xl mx-auto">
+<div class="space-y-4">
+<div class="text-lg font-black text-[#d0cdcd]">JM Labs</div>
+<div class="font-['Inter'] text-sm uppercase tracking-widest font-medium text-[#d0cdcd]/60">
+                    © 2026 JM Labs. All rights reserved.
+                </div>
+</div>
+<div class="flex flex-wrap gap-x-8 gap-y-4">
+<a class="font-['Inter'] text-sm uppercase tracking-widest font-medium text-[#d0cdcd]/60 hover:text-[#568dff] transition-colors duration-300" href="./index.html">Home</a>
+<a class="font-['Inter'] text-sm uppercase tracking-widest font-medium text-[#d0cdcd]/60 hover:text-[#568dff] transition-colors duration-300" href="./bullion-master.html">Products</a>
+<a class="font-['Inter'] text-sm uppercase tracking-widest font-medium text-[#d0cdcd]/60 hover:text-[#568dff] transition-colors duration-300" href="./privacy-policy.html">Privacy Policy</a>
+<a class="font-['Inter'] text-sm uppercase tracking-widest font-medium text-[#d0cdcd]/60 hover:text-[#568dff] transition-colors duration-300" href="./terms-and-conditions.html">Terms of Service</a>
+</div>
+</div>
+</footer>
+</body></html>

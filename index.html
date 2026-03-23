@@ -1,297 +1,499 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JM Labs | Product Studio for Purpose-Built Business Apps</title>
-    <meta
-      name="description"
-      content="JM Labs builds focused software products for operational businesses. Explore Bullion Master and the next wave of apps now in development."
-    />
-    <script>
-      (() => {
-        try {
-          const savedTheme = localStorage.getItem("jmlabs-theme");
-          const systemTheme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
-          document.documentElement.dataset.theme = savedTheme || systemTheme;
-        } catch {
-          document.documentElement.dataset.theme = "dark";
-        }
-      })();
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-on-surface": "#2f3035",
+              "outline": "#99907c",
+              "surface-container": "#1e2024",
+              "surface-bright": "#37393e",
+              "surface-dim": "#111317",
+              "on-primary-fixed-variant": "#574500",
+              "error-container": "#93000a",
+              "secondary": "#b0c6ff",
+              "secondary-container": "#568dff",
+              "on-primary-container": "#554300",
+              "tertiary-fixed-dim": "#c8c6c5",
+              "tertiary-container": "#b4b2b2",
+              "primary-fixed-dim": "#e9c349",
+              "tertiary": "#d0cdcd",
+              "surface-container-high": "#282a2e",
+              "on-tertiary-fixed": "#1c1b1b",
+              "tertiary-fixed": "#e5e2e1",
+              "primary": "#f2ca50",
+              "inverse-primary": "#735c00",
+              "secondary-fixed-dim": "#b0c6ff",
+              "error": "#ffb4ab",
+              "secondary-fixed": "#d9e2ff",
+              "on-primary": "#3c2f00",
+              "on-secondary": "#002d6f",
+              "on-error": "#690005",
+              "outline-variant": "#4d4635",
+              "primary-container": "#d4af37",
+              "on-surface-variant": "#d0c5af",
+              "surface-container-low": "#1a1c20",
+              "background": "#111317",
+              "on-tertiary-fixed-variant": "#474746",
+              "surface": "#111317",
+              "on-tertiary-container": "#454544",
+              "surface-container-highest": "#333539",
+              "on-background": "#e2e2e8",
+              "on-tertiary": "#313030",
+              "on-secondary-fixed": "#001945",
+              "inverse-surface": "#e2e2e8",
+              "surface-tint": "#e9c349",
+              "on-error-container": "#ffdad6",
+              "surface-container-lowest": "#0c0e12",
+              "on-primary-fixed": "#241a00",
+              "on-surface": "#e2e2e8",
+              "on-secondary-fixed-variant": "#00429c",
+              "surface-variant": "#333539",
+              "on-secondary-container": "#002661",
+              "primary-fixed": "#ffe088"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
     </script>
-    <link rel="icon" type="image/svg+xml" href="./jm-labs-icon-final.svg" />
-    <link rel="stylesheet" href="./styles.css" />
-    <script type="module" src="./script.js"></script>
-  </head>
-  <body data-page="home">
-    <div class="site-chrome">
-      <header class="site-header">
-        <a class="brand-mark" href="./index.html" aria-label="JM Labs home">
-          <img class="brand-icon" src="./jm-labs-icon-final.svg" alt="JM Labs logo" />
-          <span class="brand-lockup">
-            <span class="brand-wordmark">JM Labs</span>
-            <span class="brand-caption">Focused software for serious operators</span>
-          </span>
-        </a>
+<style>
+      body {
+        background-color: #111317;
+        color: #e2e2e8;
+        font-family: 'Inter', sans-serif;
+      }
+      .glass-panel {
+        background: rgba(51, 53, 57, 0.6);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+      .metallic-gradient {
+        background: linear-gradient(135deg, #f2ca50 0%, #d4af37 100%);
+      }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
 
-        <div class="header-controls">
-          <nav class="site-nav" id="site-nav">
-            <a class="is-active" href="./index.html">Home</a>
-            <a href="./product-details.html">Products</a>
-            <a href="./privacy-policy.html">Privacy</a>
-            <a href="./terms-and-conditions.html">Terms</a>
-          </nav>
-
-          <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
-            <span class="theme-toggle-track" aria-hidden="true">
-              <span class="theme-toggle-thumb"></span>
-            </span>
-            <span class="theme-toggle-label">Light</span>
-          </button>
-
-          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-            Menu
-          </button>
-        </div>
-      </header>
-
-      <main>
-        <section class="hero-section reveal">
-          <div class="hero-copy">
-            <p class="eyebrow">JM Labs</p>
-            <h1>Purpose-built business software, shaped into one strong brand.</h1>
-            <p class="hero-text">
-              JM Labs builds sharp, operational software for businesses that run on precision.
-              <strong>Bullion Master</strong> is the first flagship in the lineup, with more
-              focused apps set to follow as the portfolio expands.
-            </p>
-
-            <div class="hero-badges">
-              <span>Portfolio-first brand</span>
-              <span>Operational apps</span>
-              <span>More launches ahead</span>
+      /* Sophisticated CSS Animation for Network Graph */
+      @keyframes pulse-dot {
+        0%, 100% { transform: scale(1); opacity: 0.6; filter: blur(0px); }
+        50% { transform: scale(1.5); opacity: 1; filter: blur(2px); }
+      }
+      @keyframes float-node {
+        0%, 100% { transform: translate(0, 0); }
+        33% { transform: translate(5px, -8px); }
+        66% { transform: translate(-4px, 6px); }
+      }
+      @keyframes connection-glow {
+        0%, 100% { stroke-opacity: 0.1; stroke-width: 0.5; }
+        50% { stroke-opacity: 0.4; stroke-width: 1.2; }
+      }
+      .network-node {
+        animation: pulse-dot 4s infinite ease-in-out;
+      }
+      .network-node-group {
+        animation: float-node 8s infinite ease-in-out;
+      }
+      .network-line {
+        animation: connection-glow 5s infinite ease-in-out;
+        stroke: #f2ca50;
+      }
+    </style>
+</head>
+<body class="antialiased selection:bg-primary selection:text-on-primary">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#111317]/80 backdrop-blur-xl border-b border-[#d0cdcd]/10 shadow-2xl shadow-black/50">
+<div class="flex justify-between items-center h-20 px-8 max-w-full mx-auto font-['Inter'] antialiased tracking-tight">
+<div class="text-xl font-bold tracking-tighter text-[#f2ca50]">
+                JM Labs
             </div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-[#f2ca50] border-b-2 border-[#f2ca50] pb-1" href="#">Solutions</a>
+<a class="text-[#d0cdcd] hover:text-[#f2ca50] transition-colors" href="#">Studio</a>
+<a class="text-[#d0cdcd] hover:text-[#f2ca50] transition-colors" href="#">Bullion Master</a>
+<a class="text-[#d0cdcd] hover:text-[#f2ca50] transition-colors" href="#">About</a>
+</div>
+<div class="flex items-center gap-4">
 
-            <div class="hero-actions">
-              <a class="button button-primary" href="./product-details.html">Explore Products</a>
-              <a class="button button-secondary" href="./bullion-master.html">See Bullion Master</a>
-            </div>
-          </div>
+<button class="bg-primary-container text-on-primary-container px-6 py-2.5 rounded-md font-bold text-sm tracking-tight active:scale-95 duration-200 ease-in-out hover:brightness-110">
+                    Get a Demo
+                </button>
+</div>
+</div>
+</nav>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[921px] flex items-center px-8 overflow-hidden bg-surface">
+<div class="absolute inset-0 z-0">
+<div class="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-primary/10 blur-[120px] rounded-full"></div>
+<div class="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] bg-secondary-container/5 blur-[100px] rounded-full"></div>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-7 space-y-8">
+<div class="inline-flex items-center px-3 py-1 rounded-full bg-surface-container-high border border-outline-variant/20">
+<span class="text-[10px] uppercase tracking-[0.2em] font-bold text-primary">New: V4 Compute Engine</span>
+</div>
+<h1 class="text-6xl md:text-8xl font-extrabold tracking-tighter text-on-surface leading-[0.9]">
+                        Software Built for <br/>
+<span class="text-primary italic">Serious</span> Operators
+                    </h1>
+<p class="text-xl text-on-surface-variant max-w-xl font-medium leading-relaxed">
+                        JM Labs builds purpose-built business software with a focus on speed, control, and real daily utility.
+                    </p>
+<div class="flex flex-wrap gap-6 pt-4">
+<a href="#solutions" class="metallic-gradient text-on-primary-container px-10 py-4 rounded-md font-black uppercase tracking-widest text-sm shadow-xl shadow-primary/20 hover:scale-[1.02] transition-transform">
+                            Explore Solutions</a>
+<a href="#studio" class="bg-surface-container-highest/60 backdrop-blur-xl border border-outline-variant/10 text-secondary px-10 py-4 rounded-md font-black uppercase tracking-widest text-sm hover:bg-surface-container-highest transition-colors">
+                            The Studio</a>
+</div>
+</div>
+<div class="lg:col-span-5 hidden lg:block">
+<div class="relative aspect-square">
+<div class="absolute inset-0 bg-surface-container-low rounded-xl rotate-3 scale-95 border border-outline-variant/10"></div>
+<div class="absolute inset-0 bg-surface-container-high rounded-xl -rotate-2 border border-outline-variant/20 shadow-2xl flex items-center justify-center overflow-hidden">
+<!-- Animated 3D Node Sphere -->
+<canvas id="hero-node-canvas" class="absolute inset-0 w-full h-full opacity-80 mix-blend-screen"></canvas>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const canvas = document.getElementById('hero-node-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    
+    function resize() {
+        width = canvas.width = canvas.parentElement.clientWidth;
+        height = canvas.height = canvas.parentElement.clientHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
 
-          <div class="hero-panel">
-            <div class="hero-panel-card">
-              <p class="panel-label">Featured Product</p>
-              <div class="featured-product-head">
-                <img class="product-logo" src="./assets/logo-story.svg" alt="Bullion Master logo" />
-                <div>
-                  <h2>Bullion Master</h2>
-                  <p>Accounting and operations software for bullion businesses.</p>
+    const nodes = [];
+    const numNodes = 80;
+    
+    const phi = Math.PI * (3 - Math.sqrt(5));
+    for (let i = 0; i < numNodes; i++) {
+        const y = 1 - (i / (numNodes - 1)) * 2; 
+        const r = Math.sqrt(1 - y * y);
+        const theta = phi * i;
+        const x = Math.cos(theta) * r;
+        const z = Math.sin(theta) * r;
+        nodes.push({ x, y, z, originalX: x, originalY: y, originalZ: z });
+    }
+
+    let angle = 0;
+
+    function animate() {
+        ctx.clearRect(0, 0, width, height);
+        const radius = Math.min(width, height) * 0.4;
+        angle += 0.0015;
+        const cosA = Math.cos(angle);
+        const sinA = Math.sin(angle);
+        
+        const projectedNodes = nodes.map(node => {
+            const x = node.originalX * cosA - node.originalZ * sinA;
+            const z = node.originalX * sinA + node.originalZ * cosA;
+            const y = node.originalY;
+            
+            const scale = (radius + 200) / (radius + 200 + z * radius * 0.5);
+            const px = width / 2 + x * radius * scale;
+            const py = height / 2 + y * radius * scale;
+            return { px, py, z, scale };
+        });
+
+        ctx.lineWidth = 1;
+        for (let i = 0; i < numNodes; i++) {
+            for (let j = i + 1; j < numNodes; j++) {
+                const dx = nodes[i].originalX - nodes[j].originalX;
+                const dy = nodes[i].originalY - nodes[j].originalY;
+                const dz = nodes[i].originalZ - nodes[j].originalZ;
+                const distSq = dx*dx + dy*dy + dz*dz;
+                
+                if (distSq < 0.35) {
+                    const n1 = projectedNodes[i];
+                    const n2 = projectedNodes[j];
+                    const avgZ = (n1.z + n2.z) / 2;
+                    
+                    const timePulse = (Math.sin(Date.now() * 0.002 + i) + 1) * 0.5;
+                    const zOpacity = Math.max(0.05, 0.4 + avgZ * 0.3);
+                    const finalOpacity = zOpacity * (0.2 + timePulse * 0.6);
+                    
+                    ctx.strokeStyle = `rgba(212, 175, 55, ${finalOpacity})`;
+                    ctx.beginPath();
+                    ctx.moveTo(n1.px, n1.py);
+                    ctx.lineTo(n2.px, n2.py);
+                    ctx.stroke();
+                }
+            }
+        }
+
+        for (let i = 0; i < numNodes; i++) {
+            const node = projectedNodes[i];
+            const timePulse = (Math.sin(Date.now() * 0.003 + i * 2) + 1) * 0.5;
+            const zOpacity = Math.max(0.1, 0.6 + node.z * 0.4);
+            const glowRadius = 3.5 * node.scale * (1 + timePulse * 0.5);
+            
+            ctx.fillStyle = `rgba(242, 202, 80, ${zOpacity})`;
+            ctx.beginPath();
+            ctx.arc(node.px, node.py, glowRadius, 0, Math.PI * 2);
+            ctx.fill();
+            
+            ctx.fillStyle = `rgba(255, 255, 255, ${zOpacity * 1.5})`;
+            ctx.beginPath();
+            ctx.arc(node.px, node.py, glowRadius * 0.4, 0, Math.PI * 2);
+            ctx.fill();
+        }
+
+        requestAnimationFrame(animate);
+    }
+    
+    animate();
+});
+</script>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim via-transparent to-transparent"></div>
+<div class="absolute bottom-8 left-8 right-8 p-6 glass-panel rounded-lg border border-outline-variant/20">
+<div class="flex items-center justify-between mb-4">
+<span class="text-[10px] font-black tracking-widest text-primary uppercase">Active Node</span>
+<div class="relative w-3 h-3 flex items-center justify-center"><div class="active-node-badge w-full h-full rounded-full bg-secondary-container shadow-[0_0_15px_rgba(176,198,255,0.8)] animate-pulse-glow"></div></div>
+</div>
+<div class="h-1 w-full bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full w-2/3 metallic-gradient"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Portfolio Bento Grid -->
+<section class="py-32 px-8 bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<div class="space-y-4">
+<h2 class="text-[10px] font-black tracking-[0.4em] text-primary uppercase">Portfolio</h2>
+<h3 class="text-4xl font-bold tracking-tight text-on-surface">Precision-Engineered SaaS</h3>
+</div>
+<p class="text-on-surface-variant max-w-md text-sm uppercase tracking-widest font-medium">
+                        Our internal ecosystem of high-performance tools designed for modern digital commerce.
+                    </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Bullion Master -->
+<a class="group relative block bg-surface rounded-xl overflow-hidden p-10 border border-outline-variant/5 hover:border-primary/40 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5" href="./bullion-master.html">
+<div class="relative z-10 flex flex-col h-full justify-between">
+<div>
+<div class="flex justify-between items-start mb-8">
+<span class="material-symbols-outlined text-primary text-5xl" data-icon="account_balance">account_balance</span>
+<span class="px-3 py-1 rounded-full bg-green-500/10 text-green-400 text-[10px] font-black tracking-widest uppercase border border-green-500/20">Launched / Live</span>
+</div>
+<h4 class="text-4xl font-bold text-on-surface mb-4">Bullion Master</h4>
+<p class="text-on-surface-variant text-lg leading-relaxed max-w-md">Our flagship platform for precious metal assets and secure trading desk operations.</p>
+</div>
+<div class="pt-10 flex items-center gap-2 text-primary group-hover:gap-4 transition-all">
+<span class="text-xs font-bold tracking-widest uppercase">Explore Platform</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+</a>
+<!-- Next Project -->
+<div class="group relative bg-surface-container-low rounded-xl overflow-hidden p-10 border border-outline-variant/5 flex flex-col justify-between hover:bg-surface-container-high transition-all duration-500">
+<div>
+<div class="flex justify-between items-start mb-8">
+<span class="material-symbols-outlined text-secondary text-5xl" data-icon="biotech">biotech</span>
+<span class="px-3 py-1 rounded-full bg-secondary-container/10 text-secondary text-[10px] font-black tracking-widest uppercase border border-secondary-container/20">In Development</span>
+</div>
+<h4 class="text-4xl font-bold text-on-surface mb-4">Next Project</h4>
+<p class="text-on-surface-variant text-lg leading-relaxed max-w-md">Another high-performance tool is currently under development, expanding our ecosystem of utility-first software.</p>
+</div>
+<div class="pt-10 flex items-center gap-2 text-on-surface-variant/40">
+<span class="text-xs font-bold tracking-widest uppercase italic">Coming Soon</span>
+<span class="material-symbols-outlined text-sm" data-icon="lock">lock</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Product: Bullion Master -->
+<section class="py-32 px-8 bg-surface">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+<div class="lg:col-span-5 space-y-8">
+<div class="inline-flex items-center gap-2">
+<div class="w-10 h-0.5 bg-primary"></div>
+<span class="text-[10px] font-black tracking-[0.3em] uppercase text-primary">Featured Product</span>
+</div>
+<h2 class="text-5xl font-extrabold tracking-tighter text-on-surface leading-none">Bullion Master</h2>
+<p class="text-lg text-on-surface-variant leading-relaxed">
+                            The ultimate control center for precious metal operators. A high-frequency interface designed for speed, security, and absolute transparency in the vault.
+                        </p>
+<ul class="space-y-4">
+<li class="flex items-center gap-4 group">
+<span class="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all">
+<span class="material-symbols-outlined text-xs" data-icon="check">check</span>
+</span>
+<span class="text-sm font-bold tracking-tight text-on-surface">Real-time Spot Price Integration</span>
+</li>
+<li class="flex items-center gap-4 group">
+<span class="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all">
+<span class="material-symbols-outlined text-xs" data-icon="check">check</span>
+</span>
+<span class="text-sm font-bold tracking-tight text-on-surface">Secure Vault Ledger Protocol</span>
+</li>
+<li class="flex items-center gap-4 group">
+<span class="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all">
+<span class="material-symbols-outlined text-xs" data-icon="check">check</span>
+</span>
+<span class="text-sm font-bold tracking-tight text-on-surface">Multi-entity Inventory Management</span>
+</li>
+</ul>
+<div class="pt-6">
+<button class="bg-surface-container-high border border-outline-variant/20 px-8 py-4 rounded-md text-on-surface font-bold text-sm tracking-widest uppercase hover:bg-surface-container-highest transition-all flex items-center gap-3">
+                                Detailed Case Study
+                                <span class="material-symbols-outlined text-sm" data-icon="arrow_outward">arrow_outward</span>
+</button>
+</div>
+</div>
+<!-- Dashboard Snippet UI -->
+<div class="lg:col-span-7">
+<div class="glass-panel rounded-xl border border-outline-variant/10 shadow-2xl overflow-hidden">
+<!-- Dashboard Header -->
+<div class="bg-surface-container-highest/40 border-b border-outline-variant/10 px-6 py-4 flex justify-between items-center">
+<div class="flex items-center gap-4">
+<div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container text-sm" data-icon="token">token</span>
+</div>
+<span class="text-xs font-black tracking-widest uppercase">Terminal v2.4</span>
+</div>
+<div class="flex gap-2">
+<div class="w-2 h-2 rounded-full bg-red-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-yellow-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-green-500/50"></div>
+</div>
+</div>
+<!-- Dashboard Content -->
+<div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Price Chart Widget -->
+<div class="bg-surface-container-lowest p-5 rounded-lg border border-outline-variant/5">
+<div class="flex justify-between items-start mb-6">
+<div>
+<p class="text-[10px] uppercase font-bold text-on-surface-variant tracking-widest">AU Spot Price</p>
+<p class="text-2xl font-black text-on-surface">$2,412.80</p>
+</div>
+<span class="text-green-400 text-[10px] font-bold">+1.24%</span>
+</div>
+<div class="h-24 flex items-end gap-1">
+<div class="flex-1 bg-surface-container-high h-[40%] rounded-sm"></div>
+<div class="flex-1 bg-surface-container-high h-[60%] rounded-sm"></div>
+<div class="flex-1 bg-surface-container-high h-[55%] rounded-sm"></div>
+<div class="flex-1 bg-primary/40 h-[80%] rounded-sm"></div>
+<div class="flex-1 bg-primary h-[100%] rounded-sm"></div>
+<div class="flex-1 bg-primary/80 h-[90%] rounded-sm"></div>
+<div class="flex-1 bg-primary/40 h-[70%] rounded-sm"></div>
+</div>
+</div>
+<!-- Inventory Widget -->
+<div class="bg-surface-container-lowest p-5 rounded-lg border border-outline-variant/5">
+<p class="text-[10px] uppercase font-bold text-on-surface-variant tracking-widest mb-4">Inventory Metrics</p>
+<div class="space-y-4">
+<div class="flex justify-between text-xs">
+<span class="text-on-surface-variant">Gold Bullion</span>
+<span class="font-bold">428.5 oz</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full">
+<div class="h-full w-[85%] bg-primary rounded-full"></div>
+</div>
+<div class="flex justify-between text-xs">
+<span class="text-on-surface-variant">Silver Mint</span>
+<span class="font-bold">1,240 oz</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full">
+<div class="h-full w-[40%] bg-secondary-container rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Transaction Log -->
+<div class="md:col-span-2 bg-surface-container-lowest p-5 rounded-lg border border-outline-variant/5">
+<p class="text-[10px] uppercase font-bold text-on-surface-variant tracking-widest mb-4">Live Transaction Log</p>
+<div class="space-y-2">
+<div class="flex items-center justify-between p-2 hover:bg-surface-container-high transition-colors rounded">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="add_circle">add_circle</span>
+<span class="text-xs font-medium">Buy: 10oz AU Bar</span>
+</div>
+<span class="text-[10px] text-on-surface-variant font-mono">ID: JM-4812</span>
+<span class="text-xs font-bold text-primary">$24,128.00</span>
+</div>
+<div class="flex items-center justify-between p-2 hover:bg-surface-container-high transition-colors rounded">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-xs text-secondary" data-icon="sync">sync</span>
+<span class="text-xs font-medium">Vault Transfer</span>
+</div>
+<span class="text-[10px] text-on-surface-variant font-mono">ID: JM-4811</span>
+<span class="text-xs font-bold text-on-surface">LOC-B → LOC-A</span>
+</div>
+<div class="flex items-center justify-between p-2 hover:bg-surface-container-high transition-colors rounded">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-xs text-red-400" data-icon="remove_circle">remove_circle</span>
+<span class="text-xs font-medium">Sell: 50oz AG Mint</span>
+</div>
+<span class="text-[10px] text-on-surface-variant font-mono">ID: JM-4810</span>
+<span class="text-xs font-bold text-red-400">-$1,425.00</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-24 px-8 border-y border-outline-variant/5 bg-surface-container-lowest">
+<div class="max-w-4xl mx-auto text-center space-y-8">
+<h2 class="text-4xl md:text-5xl font-bold tracking-tight text-on-surface">Ready to upgrade your operations?</h2>
+<p class="text-on-surface-variant text-lg">Join the serious operators using JM Labs to power their daily business workflows.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-4 pt-4">
+<button class="bg-primary text-on-primary px-8 py-3 rounded-md font-bold text-sm tracking-tight active:scale-95 duration-200 flex items-center gap-3 shadow-lg shadow-primary/20">
+<svg class="w-6 h-6 fill-current" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L18.81,16.23C19.46,16.59 19.46,17.41 18.81,17.77L15.44,19.65L14.4,12.71L16.81,15.12M14.4,11.29L15.44,4.35L18.81,6.23C19.46,6.59 19.46,7.41 18.81,7.77L16.81,8.88L14.4,11.29M4.52,1.52C4.68,1.5 4.84,1.5 5,1.5C5.33,1.5 5.67,1.58 6,1.76L12.97,5.67L13.69,12L6,18.24L4.52,22.48L13.69,12L4.52,1.52Z"></path>
+</svg>
+<div class="text-left">
+<div class="text-[10px] uppercase tracking-widest leading-none mb-0.5">Get it on</div>
+<div class="text-lg leading-none">Google Play</div>
+</div>
+</button>
+<button class="bg-surface-container-high border border-outline-variant/10 text-on-surface px-10 py-4 rounded-md font-bold text-sm tracking-widest uppercase hover:bg-surface-container-highest transition-all">Contact Sales</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 px-8 border-t border-[#d0cdcd]/5 bg-[#111317]">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:flex lg:justify-between items-center gap-8 w-full max-w-7xl mx-auto">
+<div class="space-y-4">
+<div class="text-lg font-black text-[#d0cdcd]">JM Labs</div>
+<div class="font-['Inter'] text-sm uppercase tracking-widest font-medium text-[#d0cdcd]/60">
+                    © 2026 JM Labs. Built for serious operators.
                 </div>
-              </div>
-
-              <div class="signal-list">
-                <div>
-                  <strong>01</strong>
-                  <span>Live metal positions and stock visibility</span>
-                </div>
-                <div>
-                  <strong>02</strong>
-                  <span>Daily ledger, settlement, and refinery workflows</span>
-                </div>
-                <div>
-                  <strong>03</strong>
-                  <span>Built as the first product inside the JM Labs stack</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="section-grid intro-grid">
-          <article class="info-card reveal">
-            <p class="eyebrow">Why JM Labs</p>
-            <h2>Every product is specialized. The brand stays consistent.</h2>
-            <p>
-              JM Labs gives each product room to solve one business problem deeply. The company
-              brand carries the trust, while every app keeps its own clear use case, language,
-              and product identity.
-            </p>
-          </article>
-
-          <article class="info-card accent-card reveal">
-            <p class="eyebrow">Product Strategy</p>
-            <h2>Launch one deeply useful app at a time.</h2>
-            <p>
-              We start where workflow complexity is high and mistakes are expensive. That is why
-              Bullion Master comes first, and why the next JM Labs products will follow the same
-              standard: tight scope, fast usage, and real daily utility.
-            </p>
-          </article>
-        </section>
-
-        <section class="portfolio-section">
-          <div class="section-heading reveal">
-            <p class="eyebrow">Products Snapshot</p>
-            <h2>A growing product portfolio under one roof.</h2>
-            <p class="section-copy">
-              Bullion Master is already setting the tone: serious workflow depth, clean
-              decision-making, and software that earns daily use. The next JM Labs products
-              will extend that same thinking into other operational categories.
-            </p>
-          </div>
-
-          <div class="portfolio-grid">
-            <article class="portfolio-card portfolio-card-featured reveal">
-              <div class="portfolio-topline">
-                <span class="status-chip status-live">Live Product</span>
-                <span class="product-index">01</span>
-              </div>
-              <div class="portfolio-brand">
-                <img class="product-logo" src="./assets/logo-story.svg" alt="Bullion Master logo" />
-                <div>
-                  <h3>Bullion Master</h3>
-                  <p>Precision accounting and operations for bullion dealers.</p>
-                </div>
-              </div>
-              <ul class="detail-list">
-                <li>Tracks metal, cash, ledgers, staff, reports, and settlements in one flow.</li>
-                <li>Designed for fast bazaar-style working where accuracy cannot slip.</li>
-                <li>Already positioned as the flagship operational product for JM Labs.</li>
-              </ul>
-              <a class="inline-link" href="./bullion-master.html">View product page</a>
-            </article>
-
-            <article class="portfolio-card reveal">
-              <div class="portfolio-topline">
-                <span class="status-chip status-roadmap">In Planning</span>
-                <span class="product-index">02</span>
-              </div>
-              <h3>Product 02</h3>
-              <p>
-                The next JM Labs release is being shaped around the same principle as Bullion
-                Master: one category, one operational problem set, one clean software answer.
-              </p>
-            </article>
-
-            <article class="portfolio-card reveal">
-              <div class="portfolio-topline">
-                <span class="status-chip status-roadmap">Coming After</span>
-                <span class="product-index">03</span>
-              </div>
-              <h3>Product 03</h3>
-              <p>
-                As the portfolio grows, each launch will sit under the same JM Labs standard:
-                focused workflows, fast handling, and a clear operational edge for the end user.
-              </p>
-            </article>
-          </div>
-        </section>
-
-        <section class="featured-section reveal" id="featured-product">
-          <div class="featured-copy">
-            <p class="eyebrow">Featured on Home</p>
-            <h2>Bullion Master is the first proof of the JM Labs product standard.</h2>
-            <p>
-              Bullion Master is built for bullion businesses that need live position awareness,
-              fast entry speed, and reliable operational control. It stays prominent on the
-              homepage, but now as part of a larger brand story.
-            </p>
-            <div class="hero-badges-compact">
-              <span>Live stock monitoring</span>
-              <span>Digital daily ledger</span>
-              <span>Refinery workflow support</span>
-            </div>
-            <div class="hero-actions">
-              <a class="button button-primary" href="./bullion-master.html">Read Product Details</a>
-            </div>
-          </div>
-
-          <div class="screen-mockup reveal">
-            <div class="screen-mockup-inner">
-              <img src="./assets/photo_2026-03-14_19-44-32.jpg" alt="Bullion Master live metal position screen" />
-            </div>
-          </div>
-        </section>
-
-        <section class="screens-section">
-          <div class="section-heading reveal">
-            <p class="eyebrow">Bullion Master Preview</p>
-            <h2>Inside the flagship product.</h2>
-            <p class="section-copy">
-              Bullion Master proves the JM Labs approach in practice: fast interface flow,
-              high-clarity information design, and business logic that matches how operators
-              actually work.
-            </p>
-          </div>
-
-          <div class="screens-grid">
-            <article class="screen-mockup-wrapper reveal">
-              <div class="screen-mockup">
-                <div class="screen-mockup-inner">
-                  <img src="./assets/photo_2026-03-14_19-44-14.jpg" alt="Bullion Master digital ledger" />
-                </div>
-              </div>
-              <div class="screen-description">
-                <h3>Digital Ledger</h3>
-                <p>Fast transaction capture with clean reconciliation visibility.</p>
-              </div>
-            </article>
-
-            <article class="screen-mockup-wrapper reveal">
-              <div class="screen-mockup">
-                <div class="screen-mockup-inner">
-                  <img src="./assets/photo_2026-03-14_19-44-38.jpg" alt="Bullion Master staff management" />
-                </div>
-              </div>
-              <div class="screen-description">
-                <h3>Staff Workflows</h3>
-                <p>Salary, attendance, and team operations inside the same product.</p>
-              </div>
-            </article>
-
-            <article class="screen-mockup-wrapper reveal">
-              <div class="screen-mockup screen-slider" data-autoplay="true">
-                <div class="screen-mockup-inner">
-                  <img src="./assets/1.jpg" alt="Bullion Master settlement step 1" class="slide active" />
-                  <img src="./assets/2.jpg" alt="Bullion Master settlement step 2" class="slide" />
-                  <img src="./assets/3.jpg" alt="Bullion Master settlement step 3" class="slide" />
-                </div>
-              </div>
-              <div class="screen-description">
-                <h3>Settlement Flow</h3>
-                <p>Party balance and settlement movement in a guided sequence.</p>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="cta-section reveal">
-          <div>
-            <p class="eyebrow">Next Step</p>
-            <h2>Build the JM Labs brand once, then let every new product strengthen it.</h2>
-          </div>
-          <div class="cta-actions">
-            <a class="button button-primary" href="./product-details.html">Open Products</a>
-            <a class="button button-secondary" href="./terms-and-conditions.html">Legal Info</a>
-          </div>
-        </section>
-      </main>
-
-      <footer class="site-footer">
-        <p>&copy; <span data-current-year></span> JM Labs. All rights reserved.</p>
-        <div class="footer-links">
-          <a href="./index.html">Home</a>
-          <a href="./product-details.html">Products</a>
-          <a href="./privacy-policy.html">Privacy</a>
-          <a href="./terms-and-conditions.html">Terms</a>
-        </div>
-      </footer>
-
-      <div id="screen-lightbox" class="lightbox" aria-hidden="true">
-        <div class="lightbox-backdrop"></div>
-        <button class="lightbox-close" type="button" aria-label="Close">&times;</button>
-        <div class="lightbox-content"></div>
-      </div>
-    </div>
-  </body>
-</html>
+</div>
+<div class="flex flex-wrap gap-x-8 gap-y-4">
+<a class="font-['Inter'] text-sm uppercase tracking-widest font-medium text-[#d0cdcd]/60 hover:text-[#568dff] transition-colors duration-300" href="#">Privacy Policy</a>
+<a class="font-['Inter'] text-sm uppercase tracking-widest font-medium text-[#d0cdcd]/60 hover:text-[#568dff] transition-colors duration-300" href="#">Terms of Service</a>
+<a class="font-['Inter'] text-sm uppercase tracking-widest font-medium text-[#d0cdcd]/60 hover:text-[#568dff] transition-colors duration-300" href="#">Contact Support</a>
+</div>
+</div>
+</footer>
+</body></html>
