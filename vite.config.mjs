@@ -47,7 +47,6 @@ export default defineConfig({
     rollupOptions: {
       input: {
         home: resolve("index.html"),
-        products: resolve("product-details.html"),
         bullionMaster: resolve("bullion-master.html"),
         privacy: resolve("privacy-policy.html"),
         terms: resolve("terms-and-conditions.html"),
