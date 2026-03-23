@@ -72,6 +72,7 @@ export default defineConfig({
       input: {
         home: resolve("index.html"),
         bullionMaster: resolve("bullion-master.html"),
+        about: resolve("about.html"),
         privacy: resolve("privacy-policy.html"),
         terms: resolve("terms-and-conditions.html"),
       },
