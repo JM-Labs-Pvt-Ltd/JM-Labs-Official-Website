@@ -1,6 +1,7 @@
 import { resolve } from "node:path";
 import { defineConfig } from "vite";
 import JavaScriptObfuscator from "javascript-obfuscator";
+import { minify } from "html-minifier-terser";
 
 function obfuscateProductionJs() {
   return {
@@ -34,6 +35,29 @@ function obfuscateProductionJs() {
   };
 }
 
+function obfuscateProductionHtml() {
+  return {
+    name: "obfuscate-production-html",
+    enforce: "post",
+    apply: "build",
+    async generateBundle(_, bundle) {
+      for (const [fileName, asset] of Object.entries(bundle)) {
+        if (fileName.endsWith(".html") && asset.type === "asset" && typeof asset.source === "string") {
+          asset.source = await minify(asset.source, {
+            collapseWhitespace: true,
+            removeComments: true,
+            minifyCSS: true,
+            minifyJS: true,
+            removeAttributeQuotes: true,
+            removeOptionalTags: true,
+            collapseBooleanAttributes: true,
+          });
+        }
+      }
+    },
+  };
+}
+
 export default defineConfig({
   base: "./",
   build: {
@@ -53,5 +77,5 @@ export default defineConfig({
       },
     },
   },
-  plugins: [obfuscateProductionJs()],
+  plugins: [obfuscateProductionJs(), obfuscateProductionHtml()],
 });
