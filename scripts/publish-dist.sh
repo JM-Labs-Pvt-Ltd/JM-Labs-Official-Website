@@ -10,6 +10,8 @@ if [ ! -d "${DIST_DIR}" ]; then
   exit 1
 fi
 
+"$(dirname "$0")/obfuscate-dist.sh"
+
 TMP_DIR="$(mktemp -d)"
 cleanup() {
   rm -rf "${TMP_DIR}"

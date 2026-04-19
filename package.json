@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:deploy": "npm run build && ./scripts/obfuscate-dist.sh",
+    "deploy:public": "npm run build:deploy && ./scripts/publish-dist.sh",
     "preview": "vite preview",
     "preview:host": "vite preview --host"
   },
@@ -24,6 +26,7 @@
     "@types/react": "^19.1.12",
     "@types/react-dom": "^19.1.9",
     "@vitejs/plugin-react": "^4.3.4",
+    "javascript-obfuscator": "^5.4.1",
     "tailwindcss": "^4.1.12",
     "typescript": "^5.9.2",
     "vite": "^5.4.14"
