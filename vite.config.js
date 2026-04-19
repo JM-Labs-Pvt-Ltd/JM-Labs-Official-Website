@@ -14,6 +14,7 @@ export default defineConfig({
         outDir: "dist",
         emptyOutDir: true,
         assetsDir: "assets",
+        sourcemap: false,
         rollupOptions: {
             input: {
                 home: resolve(__dirname, "index.html"),
@@ -22,6 +23,20 @@ export default defineConfig({
                 about: resolve(__dirname, "about.html"),
                 privacy: resolve(__dirname, "privacy-policy.html"),
                 terms: resolve(__dirname, "terms-and-conditions.html"),
+            },
+            output: {
+                manualChunks: function (id) {
+                    if (!id.includes("node_modules")) {
+                        return undefined;
+                    }
+                    if (id.includes("framer-motion")) {
+                        return "framer-motion";
+                    }
+                    if (id.includes("react")) {
+                        return "react-vendor";
+                    }
+                    return "vendor";
+                },
             },
         },
     },

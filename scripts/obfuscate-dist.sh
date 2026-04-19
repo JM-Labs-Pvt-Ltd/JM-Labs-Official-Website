@@ -32,21 +32,28 @@ fi
 echo "Obfuscating ${JS_COUNT} JavaScript bundle(s)..."
 
 find "${ASSET_DIR}" -type f -name '*.js' -print0 | while IFS= read -r -d '' file; do
+  base_name="$(basename "${file}")"
+
+  case "${base_name}" in
+    vendor-*|react-vendor-*|framer-motion-*)
+      echo "  - skipping framework bundle ${file}"
+      continue
+      ;;
+  esac
+
   echo "  - ${file}"
   npx --yes javascript-obfuscator "${file}" \
     --output "${file}" \
     --compact true \
-    --control-flow-flattening true \
-    --control-flow-flattening-threshold 0.1 \
+    --control-flow-flattening false \
     --identifier-names-generator hexadecimal \
     --rename-globals false \
     --self-defending false \
     --simplify true \
-    --split-strings true \
-    --split-strings-chunk-length 8 \
+    --split-strings false \
     --string-array true \
-    --string-array-threshold 0.75 \
-    --transform-object-keys true \
+    --string-array-threshold 0.35 \
+    --transform-object-keys false \
     --unicode-escape-sequence false
 done
 
