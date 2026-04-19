@@ -4,12 +4,15 @@
 
 - Bundles the site with Vite as a multi-page app.
 - Minifies HTML/CSS/JS output into `dist/`.
-- Obfuscates shipped JavaScript to make casual inspection harder.
-- Produces a deployable static folder that can be pushed to a public repo or static host.
+- Supports direct deployment from this private repository to GitHub Pages when your GitHub plan allows it.
+- Supports a fallback deploy path that publishes only `dist/` into a separate public repository.
+- Can obfuscate shipped JavaScript to make casual inspection harder before publish.
 
 ## Important limit
 
 Bundling, minification, and obfuscation do **not** make a frontend site private. Anything shipped to the browser can still be downloaded, inspected, and reverse-engineered. This setup is useful for distribution hygiene, not for secrecy.
+
+GitHub Pages sites are still public on the internet even when the source repository is private. Use private-source deployment to protect the repository, not to make the deployed frontend secret.
 
 ## Local workflow
 
@@ -33,6 +36,39 @@ dist/
 
 ## Private source repo -> public deploy repo workflow
 
+## Recommended: direct deploy from the private source repo
+
+This repo now includes:
+
+```text
+.github/workflows/deploy-pages-private.yml
+```
+
+Use this when your GitHub plan supports Pages for private repositories.
+
+It does this:
+
+1. installs dependencies
+2. builds the website into `dist/`
+3. optionally obfuscates the built JavaScript if `OBFUSCATE_DIST=1`
+4. uploads `dist/` as a GitHub Pages artifact
+5. deploys the artifact with `actions/deploy-pages`
+
+### Required GitHub repository setting
+
+In the source repository:
+
+1. Open `Settings` -> `Pages`
+2. Under `Build and deployment`, set `Source` to `GitHub Actions`
+
+### Optional GitHub variable
+
+- `OBFUSCATE_DIST`
+  - `1` or unset: obfuscate JS bundles in `dist/assets/*.js` before deploy
+  - `0`: direct Pages deploy without extra obfuscation
+
+## Fallback: private source repo -> public deploy repo workflow
+
 Keep this source repo private, then publish only the `dist/` folder contents into a separate public repo or deploy branch.
 
 Example flow:
@@ -55,9 +91,10 @@ It does this:
 
 1. installs dependencies
 2. builds the website into `dist/`
-3. checks out a separate public repository
-4. replaces that repository contents with `dist/`
-5. commits and pushes the result
+3. obfuscates the built JavaScript by default
+4. checks out a separate public repository
+5. replaces that repository contents with `dist/`
+6. commits and pushes the result
 
 ### Required GitHub secrets
 
@@ -81,6 +118,9 @@ JM-Labs-Pvt-Ltd/JM-Labs-Website
 
 - `PUBLIC_DEPLOY_BRANCH`
   Defaults to `main` if not set
+
+- `OBFUSCATE_DIST`
+  Defaults to `1` for the public-dist workflow. Set it to `0` to publish plain Vite-minified output instead.
 
 ### Recommended repo setup
 
@@ -146,8 +186,9 @@ npm run build
 
 Important:
 
-- This script clones `JM-Labs-Pvt-Ltd/JM-Labs-Website`, replaces its contents with `dist/`, commits, and pushes.
+- This script obfuscates `dist/assets/*.js` by default, then clones `JM-Labs-Pvt-Ltd/JM-Labs-Website`, replaces its contents with `dist/`, commits, and pushes.
 - You can override the defaults with `TARGET_REPO` and `TARGET_BRANCH` if needed.
+- You can skip obfuscation with `OBFUSCATE_DIST=0 ./scripts/publish-dist.sh`.
 - Your original `git remote add origin ... && git push` commands would push the **current repository**, not just `dist/`.
 
 ## Hosting note

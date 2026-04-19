@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap");
+@import "tailwindcss";
+
+:root {
+  --background: #070b12;
+  --foreground: #f4f7fb;
+  --card: rgba(14, 20, 31, 0.78);
+  --card-foreground: #eef3f9;
+  --muted: rgba(255, 255, 255, 0.06);
+  --muted-foreground: #a5b1c3;
+  --border: rgba(255, 255, 255, 0.12);
+  --primary: #f7ba53;
+  --primary-foreground: #140f08;
+  --secondary: #7ea5ff;
+  --secondary-foreground: #07101d;
+  --radius: 1.5rem;
+}
+
+@theme inline {
+  --font-sans: "Manrope", sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --radius-sm: calc(var(--radius) - 8px);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 6px);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.cpu-architecture {
+  offset-anchor: 10px 0px;
+  animation: animation-path;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.75, -0.01, 0, 0.99);
+}
+
+.cpu-line-1 {
+  offset-path: path("M 10 20 h 79.5 q 5 0 5 5 v 30");
+  animation-duration: 5s;
+  animation-delay: 1s;
+}
+
+.cpu-line-2 {
+  offset-path: path("M 180 10 h -69.7 q -5 0 -5 5 v 40");
+  animation-delay: 6s;
+  animation-duration: 2s;
+}
+
+.cpu-line-3 {
+  offset-path: path("M 130 20 v 21.8 q 0 5 -5 5 h -25");
+  animation-delay: 4s;
+  animation-duration: 6s;
+}
+
+.cpu-line-4 {
+  offset-path: path("M 170 80 v -21.8 q 0 -5 -5 -5 h -65");
+  animation-delay: 3s;
+  animation-duration: 3s;
+}
+
+.cpu-line-5 {
+  offset-path: path(
+    "M 135 65 h 15 q 5 0 5 5 v 10 q 0 5 -5 5 h -39.8 q -5 0 -5 -5 v -35"
+  );
+  animation-delay: 9s;
+  animation-duration: 4s;
+}
+
+.cpu-line-6 {
+  offset-path: path("M 94.8 95 v -46");
+  animation-delay: 3s;
+  animation-duration: 7s;
+}
+
+.cpu-line-7 {
+  offset-path: path(
+    "M 88 88 v -15 q 0 -5 -5 -5 h -10 q -5 0 -5 -5 v -5 q 0 -5 5 -5 h 28"
+  );
+  animation-delay: 4s;
+  animation-duration: 4s;
+}
+
+.cpu-line-8 {
+  offset-path: path("M 30 30 h 25 q 5 0 5 5 v 6.5 q 0 5 5 5 h 35");
+  animation-delay: 3s;
+  animation-duration: 3s;
+}
+
+@keyframes animation-path {
+  0% {
+    offset-distance: 0%;
+  }
+  100% {
+    offset-distance: 100%;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply rounded-[30px] border border-border bg-card/90 p-6 shadow-[0_24px_80px_rgba(2,8,20,0.24)] backdrop-blur-xl;
+  }
+
+  .hero-shell {
+    background:
+      radial-gradient(circle at top left, rgba(247, 186, 83, 0.18), transparent 28%),
+      radial-gradient(circle at bottom right, rgba(84, 115, 255, 0.16), transparent 28%),
+      linear-gradient(180deg, rgba(15, 21, 33, 0.94), rgba(8, 12, 20, 0.98));
+    box-shadow: 0 36px 110px rgba(2, 8, 20, 0.35);
+  }
+
+  .cta-panel {
+    background:
+      radial-gradient(circle at top left, rgba(247, 186, 83, 0.18), transparent 24%),
+      radial-gradient(circle at bottom right, rgba(84, 115, 255, 0.18), transparent 24%),
+      linear-gradient(180deg, rgba(14, 20, 31, 0.92), rgba(8, 12, 20, 0.98));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 28px 90px rgba(2, 8, 20, 0.3);
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 font-display text-[0.68rem] uppercase tracking-[0.32em] text-primary/[0.8];
+  }
+
+  .hero-title {
+    @apply font-display text-5xl leading-[0.95] tracking-[-0.04em] text-foreground md:text-7xl;
+  }
+
+  .section-heading {
+    @apply font-display text-3xl leading-tight tracking-[-0.04em] text-foreground md:text-5xl;
+  }
+}

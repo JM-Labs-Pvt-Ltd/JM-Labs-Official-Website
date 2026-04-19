@@ -19,6 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       NODE_VERSION: "20"
+      OBFUSCATE_DIST: ${{ vars.OBFUSCATE_DIST || '1' }}
       PUBLIC_DEPLOY_BRANCH: ${{ vars.PUBLIC_DEPLOY_BRANCH || 'main' }}
       PUBLIC_DEPLOY_REPO: JM-Labs-Pvt-Ltd/JM-Labs-Website
       PUBLIC_DEPLOY_SSH_KEY_B64: ${{ secrets.PUBLIC_DEPLOY_SSH_KEY_B64 }}
@@ -39,12 +40,16 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
+          cache: npm
 
       - name: Install dependencies
-        run: npm install --no-fund --no-audit
+        run: npm ci --no-fund --no-audit
 
       - name: Build dist output
         run: npm run build
+
+      - name: Obfuscate dist output when enabled
+        run: ./scripts/obfuscate-dist.sh
 
       - name: Configure deploy SSH key
         run: |
