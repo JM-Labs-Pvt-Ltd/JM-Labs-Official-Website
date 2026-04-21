@@ -3,16 +3,21 @@ import {
   BadgeCheck,
   Building2,
   Coins,
+  FileCheck2,
+  LockKeyhole,
   Orbit,
+  Rocket,
   ShieldCheck,
   Sparkles,
+  TrendingUp,
   Workflow,
-  FileCheck2,
-  Rocket,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
 import { ArchitectureScrollSection } from "@/components/sections/architecture-scroll";
+import { DailyPnLChart } from "@/components/ui/daily-pnl-chart";
+import { MarketTicker } from "@/components/ui/market-ticker";
+import { StatCounter } from "@/components/ui/stat-counter";
 import type { BentoItem } from "@/components/ui/bento-grid";
 import { BentoGrid } from "@/components/ui/bento-grid";
 import { buttonVariants } from "@/components/ui/button";
@@ -93,29 +98,62 @@ const ecosystemBentoItems: BentoItem[] = [
   },
 ];
 
+const keyStats = [
+  {
+    value: 10,
+    suffix: "+",
+    label: "Core Modules",
+    sub: "Ledger, inventory, reports, staff, security",
+    icon: Workflow,
+  },
+  {
+    value: 100,
+    suffix: "%",
+    label: "Local-First",
+    sub: "Your data stays on your device",
+    icon: LockKeyhole,
+  },
+  {
+    value: 6,
+    suffix: "",
+    label: "Security Layers",
+    sub: "PIN, backup, restore, auto-wipe, duress",
+    icon: ShieldCheck,
+  },
+] as const;
+
 export function HomePage() {
   return (
-    <div className="space-y-24 pb-20 pt-10 md:space-y-32 md:pt-16">
-      <section className="px-4 md:px-6">
-        <div className="hero-shell mx-auto grid max-w-7xl items-center gap-10 overflow-hidden rounded-[40px] border border-border px-6 py-10 md:grid-cols-[1.1fr,0.9fr] md:px-10 md:py-12">
+    <div className="space-y-0 pb-20 pt-10 md:pt-16">
+
+      {/* ─── Hero ─── */}
+      <section className="px-4 pb-0 md:px-6">
+        <div className="hero-shell mx-auto grid max-w-7xl items-center gap-10 overflow-hidden rounded-[40px] border border-border px-6 py-10 md:grid-cols-[1.1fr,0.9fr] md:px-10 md:py-14">
+
+          {/* Left: text */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.72, ease: [0.22, 1, 0.36, 1] }}
             className="relative z-10 space-y-8"
           >
             <div className="eyebrow">
-              <Sparkles className="h-4 w-4" />
+              <Sparkles className="h-3.5 w-3.5" />
               JM Labs ecosystem
             </div>
 
             <div className="space-y-5">
               <h1 className="hero-title max-w-4xl">
-                JM Labs builds focused business software.
-                <span className="block text-primary">Bullion Master leads the first live product line.</span>
+                JM Labs builds focused{" "}
+                <em style={{ fontStyle: "italic" }} className="gradient-text">
+                  business software.
+                </em>
+                <span className="block text-primary mt-1">
+                  Bullion Master leads the first live product line.
+                </span>
               </h1>
               <p className="max-w-2xl text-lg leading-8 text-muted-foreground md:text-xl">
-                JM Labs is the parent company behind purpose-built business software. Bullion Master is live today with ledger, stock, reporting, and security workflows for bullion operations, and the next product is already being developed inside the same ecosystem.
+                JM Labs is the parent company behind purpose-built business software. Bullion Master is live today with ledger, stock, reporting, and security workflows for bullion operations.
               </p>
             </div>
 
@@ -135,64 +173,167 @@ export function HomePage() {
                   key={signal.title}
                   initial={{ opacity: 0, y: 24 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.15 + index * 0.1, duration: 0.55 }}
+                  transition={{ delay: 0.18 + index * 0.1, duration: 0.55 }}
                   className="panel"
                 >
                   <signal.icon className="h-5 w-5 text-primary" />
-                  <h2 className="mt-5 font-display text-lg text-foreground">{signal.title}</h2>
+                  <h2 className="mt-5 font-display text-[1.1rem] text-foreground" style={{ fontWeight: 600 }}>
+                    {signal.title}
+                  </h2>
                   <p className="mt-3 text-sm text-muted-foreground">{signal.body}</p>
                 </motion.div>
               ))}
             </div>
           </motion.div>
 
+          {/* Right: animated dashboard preview */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.94 }}
+            initial={{ opacity: 0, scale: 0.93 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.82, ease: [0.22, 1, 0.36, 1] }}
             className="relative"
           >
             <div className="image-glow absolute inset-0 rounded-[34px] blur-2xl" />
-            <div className="image-shell relative overflow-hidden rounded-[34px] border border-border p-4">
-              <img
-                src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80"
-                alt="High-end hardware workstation"
-                className="h-[420px] w-full rounded-[26px] object-cover"
-              />
-              <div className="glass-card-strong absolute inset-x-8 bottom-8 rounded-[28px] border border-border p-5 backdrop-blur-xl">
-                <p className="font-display text-xs uppercase tracking-[0.35em] text-primary/[0.75]">
-                  Ecosystem snapshot
-                </p>
-                <div className="mt-4 grid gap-3 md:grid-cols-2">
-                  <div className="glass-card rounded-[20px] border border-border p-4">
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-muted-foreground">Bullion Master</span>
-                      <BadgeCheck className="h-4 w-4 text-primary" />
-                    </div>
-                    <p className="mt-3 text-lg font-semibold text-foreground">Daily Ledger, Net Daily Position, and Reports Center live</p>
-                  </div>
-                  <div className="glass-card rounded-[20px] border border-border p-4">
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-muted-foreground">Product in development</span>
-                      <Coins className="h-4 w-4 text-primary" />
-                    </div>
-                    <p className="mt-3 text-lg font-semibold text-foreground">Dedicated JM Labs launch slot already prepared</p>
+            <div className="dashboard-preview relative overflow-hidden rounded-[34px] border border-border p-4 md:p-5">
+
+              {/* Dashboard header */}
+              <div className="mb-4 flex items-center justify-between">
+                <div>
+                  <span className="data-badge">Portfolio Overview</span>
+                  <p className="mt-0.5 font-display text-base font-semibold text-foreground">
+                    Bullion Master
+                  </p>
+                </div>
+                <div className="flex items-center gap-2 rounded-full border border-border px-3 py-1.5 text-xs" style={{ background: "var(--glass-background)" }}>
+                  <span className="live-dot" />
+                  <span className="text-emerald-500 font-medium" style={{ fontFamily: "var(--font-mono, monospace)", fontSize: "0.7rem" }}>
+                    Live
+                  </span>
+                </div>
+              </div>
+
+              {/* Chart area */}
+              <div className="chart-container rounded-[24px] p-3 md:p-4">
+                <div className="mb-2 flex items-center justify-between">
+                  <span className="data-badge">Daily Net Position — this week</span>
+                  <div className="flex items-center gap-1.5 text-emerald-500" style={{ fontFamily: "var(--font-mono, monospace)", fontSize: "0.7rem" }}>
+                    <TrendingUp className="h-3 w-3" />
+                    <span>↑ ₹27,300 today</span>
                   </div>
                 </div>
+                <DailyPnLChart className="w-full" />
+              </div>
+
+              {/* Floating stat cards */}
+              <div className="mt-3 grid grid-cols-2 gap-2.5">
+                <div className="stat-card floating rounded-[20px] border border-border p-4">
+                  <span className="data-badge">Today's P&amp;L</span>
+                  <p className="mt-1.5 font-display text-2xl font-semibold text-emerald-500" style={{ letterSpacing: "-0.02em" }}>
+                    ↑ ₹27,300
+                  </p>
+                  <p className="mt-1 text-xs text-muted-foreground">Net daily position</p>
+                </div>
+                <div className="stat-card floating-alt rounded-[20px] border border-border p-4">
+                  <span className="data-badge">Week Total</span>
+                  <p className="mt-1.5 font-display text-2xl font-semibold text-primary" style={{ letterSpacing: "-0.02em" }}>
+                    ₹1,51,100
+                  </p>
+                  <p className="mt-1 text-xs text-muted-foreground">7-day net P&amp;L</p>
+                </div>
+              </div>
+
+              {/* Metrics strip */}
+              <div className="mt-2.5 metrics-band flex items-center gap-4 rounded-[16px] border border-border px-4 py-2.5">
+                {[
+                  { label: "Entries", value: "1,284" },
+                  { label: "Parties", value: "48" },
+                  { label: "Security", value: "Protected", color: "text-emerald-500" },
+                  { label: "Backup", value: "Synced", color: "text-primary" },
+                ].map((item, i) => (
+                  <div key={item.label} className="flex items-center gap-4">
+                    {i > 0 && <span className="h-6 w-px bg-border" />}
+                    <div>
+                      <span className="data-badge">{item.label}</span>
+                      <p
+                        className={cn(
+                          "text-sm font-semibold",
+                          item.color ?? "text-foreground"
+                        )}
+                        style={{ fontFamily: "var(--font-mono, monospace)", fontSize: "0.78rem" }}
+                      >
+                        {item.value}
+                      </p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </motion.div>
         </div>
       </section>
 
+      {/* ─── Market Ticker ─── */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.6, duration: 0.6 }}
+        className="mt-6"
+      >
+        <MarketTicker />
+      </motion.div>
+
+      {/* ─── Key Stats ─── */}
+      <section className="px-4 py-16 md:px-6 md:py-20">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-4 md:grid-cols-3">
+            {keyStats.map((stat, i) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ delay: i * 0.1, duration: 0.55 }}
+                className="panel flex flex-col items-start gap-3"
+              >
+                <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-border" style={{ background: "var(--glass-background)" }}>
+                  <stat.icon className="h-4.5 w-4.5 text-primary" />
+                </div>
+                <div>
+                  <div
+                    className="gradient-text font-display text-5xl font-bold md:text-6xl"
+                    style={{ letterSpacing: "-0.03em", lineHeight: 1 }}
+                  >
+                    <StatCounter value={stat.value} suffix={stat.suffix} />
+                  </div>
+                  <p className="mt-2 font-display text-lg font-semibold text-foreground" style={{ fontWeight: 600 }}>
+                    {stat.label}
+                  </p>
+                  <p className="mt-1 text-sm text-muted-foreground">{stat.sub}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Gold divider ─── */}
+      <div className="mx-auto max-w-7xl px-4 md:px-6">
+        <div className="gold-line" />
+      </div>
+
+      {/* ─── Architecture scroll ─── */}
       <section id="overview">
         <ArchitectureScrollSection />
       </section>
 
+      {/* ─── Bento grid ─── */}
       <section className="px-4 md:px-6">
         <div className="mx-auto max-w-7xl space-y-5">
           <p className="eyebrow">System overview</p>
-          <h2 className="section-heading">The JM Labs ecosystem reads more clearly when the parent brand and Bullion Master modules are shown together.</h2>
+          <h2 className="section-heading max-w-4xl">
+            The JM Labs ecosystem reads more clearly when the parent brand and{" "}
+            <em style={{ fontStyle: "italic" }}>Bullion Master modules</em> are shown together.
+          </h2>
           <p className="max-w-3xl text-lg text-muted-foreground">
             This grid ties the company layer to the real Bullion Master product surface: ledger control, bullion workflows, security posture, and the next release path.
           </p>
@@ -200,7 +341,8 @@ export function HomePage() {
         <BentoGrid items={ecosystemBentoItems} />
       </section>
 
-      <section className="px-4 md:px-6" id="products">
+      {/* ─── Products ─── */}
+      <section className="px-4 py-16 md:px-6 md:py-20" id="products">
         <div className="mx-auto max-w-7xl space-y-10">
           <div className="space-y-5">
             <p className="eyebrow">Products under JM Labs</p>
@@ -245,14 +387,16 @@ export function HomePage() {
 
                 <div className="space-y-5 p-6">
                   <div>
-                    <h3 className="font-display text-3xl text-foreground">{product.name}</h3>
+                    <h3 className="font-display text-3xl text-foreground" style={{ fontWeight: 600 }}>
+                      {product.name}
+                    </h3>
                     <p className="mt-3 text-base text-muted-foreground">{product.description}</p>
                   </div>
 
                   <div className="grid gap-2">
                     {product.bullets.map((bullet) => (
                       <div key={bullet} className="flex items-center gap-3 text-sm text-muted-foreground">
-                        <span className="h-2 w-2 rounded-full bg-primary" />
+                        <span className="h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
                         {bullet}
                       </div>
                     ))}
@@ -269,37 +413,54 @@ export function HomePage() {
         </div>
       </section>
 
+      {/* ─── Built for growth ─── */}
       <section className="px-4 md:px-6">
         <div className="surface-shell mx-auto grid max-w-7xl gap-6 rounded-[36px] border border-border p-6 md:grid-cols-[0.95fr,1.05fr] md:p-10">
           <div className="space-y-5">
             <p className="eyebrow">Built for growth</p>
-            <h2 className="section-heading">The site now supports Bullion Master deeply and still leaves clean space for the next JM Labs product.</h2>
+            <h2 className="section-heading">
+              The site now supports Bullion Master deeply and still leaves clean space for the{" "}
+              <em style={{ fontStyle: "italic" }} className="gradient-text">next JM Labs product.</em>
+            </h2>
           </div>
           <div className="grid gap-4">
-            {studioNotes.map((note) => (
-              <div key={note} className="panel flex items-center gap-3">
-                <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-primary/15 text-primary">
+            {studioNotes.map((note, i) => (
+              <motion.div
+                key={note}
+                initial={{ opacity: 0, x: 24 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ delay: i * 0.08, duration: 0.5 }}
+                className="panel flex items-center gap-3"
+              >
+                <span className="inline-flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary">
                   <BadgeCheck className="h-4 w-4" />
                 </span>
                 <p className="text-sm text-muted-foreground md:text-base">{note}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="px-4 md:px-6" id="connect">
+      {/* ─── CTA ─── */}
+      <section className="px-4 py-16 md:px-6 md:py-20" id="connect">
         <div className="cta-panel mx-auto max-w-7xl rounded-[38px] px-6 py-10 md:px-10 md:py-14">
           <div className="grid gap-8 md:grid-cols-[1.15fr,0.85fr] md:items-end">
             <div className="space-y-5">
               <p className="eyebrow">Explore JM Labs</p>
-              <h2 className="section-heading">Discover the flagship product today and follow the next JM Labs release as it develops.</h2>
+              <h2 className="section-heading">
+                Discover the flagship product today and follow the{" "}
+                <em style={{ fontStyle: "italic" }} className="gradient-text">next JM Labs release</em>{" "}
+                as it develops.
+              </h2>
               <p className="max-w-2xl text-lg text-muted-foreground">
                 Bullion Master now sits inside a connected JM Labs experience with company context, product detail, privacy policy, and terms all linked together.
               </p>
             </div>
             <div className="flex flex-wrap gap-4 md:justify-end">
               <a className={buttonVariants({ size: "lg" })} href="./bullion-master.html">
+                <Coins className="h-4 w-4" />
                 Explore Bullion Master
               </a>
               <a className={buttonVariants({ variant: "secondary", size: "lg" })} href="./next-product.html">

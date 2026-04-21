@@ -24,67 +24,105 @@ export function SiteHeader({ currentPage, theme, onToggleTheme }: HeaderProps) {
 
   return (
     <header className="sticky top-4 z-50 px-4 md:px-6">
-      <div className="chrome-shell mx-auto flex max-w-7xl items-center justify-between rounded-full border border-border px-4 py-3 backdrop-blur-xl md:px-6">
+      <div className="chrome-shell mx-auto flex max-w-7xl items-center justify-between rounded-full border border-border px-4 py-2.5 backdrop-blur-xl md:px-6">
+
+        {/* Logo */}
         <a className="flex items-center gap-3" href="./index.html">
-          <span className="soft-pill inline-flex h-11 w-11 items-center justify-center rounded-full border border-border">
+          <span
+            className="soft-pill inline-flex h-10 w-10 items-center justify-center rounded-full border border-border"
+            style={{ background: "var(--glass-background)" }}
+          >
             <img
               src="./jm-labs-icon-final.svg"
               alt="JM Labs"
-              className="h-6 w-6 object-contain"
+              className="h-5.5 w-5.5 object-contain"
             />
           </span>
           <div>
-            <p className="font-display text-sm uppercase tracking-[0.35em] text-primary/70">
+            <p
+              className="font-display text-sm uppercase text-primary/80"
+              style={{
+                letterSpacing: "0.3em",
+                fontWeight: 600,
+                fontSize: "0.72rem",
+                fontFamily: "var(--font-mono, monospace)",
+              }}
+            >
               JM Labs
             </p>
-            <p className="text-sm text-muted-foreground">Focused software systems</p>
+            <p className="text-xs text-muted-foreground" style={{ marginTop: "1px" }}>
+              Focused software systems
+            </p>
           </div>
         </a>
 
-        <nav className="hidden items-center gap-1 md:flex">
+        {/* Desktop nav */}
+        <nav className="hidden items-center gap-0.5 md:flex">
           {navItems.map((item) => {
             const active =
-              currentPage === item.key || (currentPage === "bullion-master" && item.key === "products");
+              currentPage === item.key ||
+              (currentPage === "bullion-master" && item.key === "products");
 
             return (
               <a
                 key={item.label}
                 href={item.href}
                 className={cn(
-                  buttonVariants({ variant: "ghost", size: "sm" }),
-                  "rounded-full px-4",
-                  active && "bg-muted/80 text-foreground"
+                  "relative rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200",
+                  active
+                    ? "text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
                 )}
               >
-                {item.label}
+                {active && (
+                  <span
+                    className="absolute inset-0 rounded-full"
+                    style={{ background: "var(--muted)", opacity: 0.7 }}
+                  />
+                )}
+                <span className="relative">{item.label}</span>
+                {active && (
+                  <span
+                    className="absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 w-4 rounded-full"
+                    style={{ background: "var(--primary)", opacity: 0.8 }}
+                  />
+                )}
               </a>
             );
           })}
         </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
+        {/* Desktop actions */}
+        <div className="hidden items-center gap-2.5 md:flex">
           <button
-            className={buttonVariants({ variant: "secondary", size: "sm" })}
+            className={cn(buttonVariants({ variant: "ghost", size: "sm" }), "gap-1.5")}
             onClick={onToggleTheme}
             type="button"
             aria-pressed={isDark}
             aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
           >
-            {isDark ? <SunMedium className="h-4 w-4" /> : <MoonStar className="h-4 w-4" />}
-            {isDark ? "Light mode" : "Dark mode"}
+            {isDark ? <SunMedium className="h-3.5 w-3.5" /> : <MoonStar className="h-3.5 w-3.5" />}
+            {isDark ? "Light" : "Dark"}
           </button>
-          <a className={buttonVariants({ variant: "secondary", size: "sm" })} href="./bullion-master.html">
+          <a
+            className={cn(buttonVariants({ variant: "secondary", size: "sm" }))}
+            href="./bullion-master.html"
+          >
             View flagship
           </a>
-          <a className={buttonVariants({ size: "sm" })} href="./index.html#connect">
-            <Sparkles className="h-4 w-4" />
+          <a
+            className={buttonVariants({ size: "sm" })}
+            href="./index.html#connect"
+          >
+            <Sparkles className="h-3.5 w-3.5" />
             Request a demo
           </a>
         </div>
 
+        {/* Mobile menu toggle */}
         <button
           className={cn(buttonVariants({ variant: "secondary", size: "sm" }), "md:hidden")}
-          onClick={() => setIsOpen((value) => !value)}
+          onClick={() => setIsOpen((v) => !v)}
           aria-label="Toggle navigation"
           aria-expanded={isOpen}
           type="button"
@@ -93,33 +131,40 @@ export function SiteHeader({ currentPage, theme, onToggleTheme }: HeaderProps) {
         </button>
       </div>
 
+      {/* Mobile menu panel */}
       {isOpen ? (
-        <div className="chrome-shell mx-auto mt-3 max-w-7xl rounded-[28px] border border-border p-4 backdrop-blur-xl md:hidden">
+        <div className="chrome-shell mx-auto mt-2 max-w-7xl rounded-[28px] border border-border p-4 backdrop-blur-xl md:hidden">
           <nav className="grid gap-2">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className={cn(buttonVariants({ variant: "ghost" }), "justify-start rounded-2xl")}
+                onClick={() => setIsOpen(false)}
+                className={cn(
+                  buttonVariants({ variant: "ghost" }),
+                  "justify-start rounded-2xl"
+                )}
               >
                 {item.label}
               </a>
             ))}
-            <button
-              className={cn(buttonVariants({ variant: "secondary" }), "justify-start")}
-              onClick={onToggleTheme}
-              type="button"
-              aria-pressed={isDark}
-            >
-              {isDark ? <SunMedium className="h-4 w-4" /> : <MoonStar className="h-4 w-4" />}
-              {isDark ? "Light mode" : "Dark mode"}
-            </button>
-            <a className={buttonVariants({ variant: "secondary" })} href="./bullion-master.html">
-              View flagship
-            </a>
-            <a className={buttonVariants({ size: "default" })} href="./index.html#connect">
-              Request a demo
-            </a>
+            <div className="mt-1 border-t border-border pt-2 grid gap-2">
+              <button
+                className={cn(buttonVariants({ variant: "secondary" }), "justify-start")}
+                onClick={onToggleTheme}
+                type="button"
+              >
+                {isDark ? <SunMedium className="h-4 w-4" /> : <MoonStar className="h-4 w-4" />}
+                {isDark ? "Light mode" : "Dark mode"}
+              </button>
+              <a className={buttonVariants({ variant: "secondary" })} href="./bullion-master.html">
+                View flagship
+              </a>
+              <a className={buttonVariants({ size: "default" })} href="./index.html#connect">
+                <Sparkles className="h-4 w-4" />
+                Request a demo
+              </a>
+            </div>
           </nav>
         </div>
       ) : null}

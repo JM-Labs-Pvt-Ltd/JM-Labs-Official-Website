@@ -9,16 +9,21 @@ export function ArchitectureScrollSection() {
       titleComponent={
         <div className="space-y-5">
           <p className="eyebrow justify-center">Parent brand architecture</p>
-          <h2 className="section-heading max-w-4xl">
-            One parent company, one live product, and a structure ready for the next JM Labs release.
+          <h2 className="section-heading mx-auto max-w-4xl text-center">
+            One parent company, one live product, and a structure{" "}
+            <em style={{ fontStyle: "italic" }} className="gradient-text">
+              ready for the next JM Labs release.
+            </em>
           </h2>
-          <p className="mx-auto max-w-3xl text-base text-muted-foreground md:text-lg">
+          <p className="mx-auto max-w-3xl text-center text-base text-muted-foreground md:text-lg">
             JM Labs sits at the center, with Bullion Master already live and the next product already positioned inside the same company, legal, and navigation system.
           </p>
         </div>
       }
     >
       <div className="architecture-canvas grid h-full gap-4 p-4 text-foreground md:grid-cols-[1.2fr,0.8fr] md:p-6">
+
+        {/* Left main card */}
         <motion.div
           initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -28,50 +33,47 @@ export function ArchitectureScrollSection() {
         >
           <div className="flex items-center justify-between">
             <div>
-              <p className="font-display text-xs uppercase tracking-[0.35em] text-primary/80">
+              <p
+                className="text-primary/80"
+                style={{
+                  fontFamily: "var(--font-mono, monospace)",
+                  fontSize: "0.65rem",
+                  letterSpacing: "0.32em",
+                  textTransform: "uppercase",
+                }}
+              >
                 Parent system
               </p>
-              <h3 className="mt-3 text-3xl font-semibold text-foreground md:text-4xl">JM Labs</h3>
+              <h3 className="mt-3 font-display text-3xl text-foreground md:text-4xl" style={{ fontWeight: 600 }}>
+                JM Labs
+              </h3>
             </div>
-            <div className="soft-pill rounded-full border border-border px-4 py-2 text-xs uppercase tracking-[0.25em] text-foreground/65">
+            <div className="soft-pill rounded-full border border-border px-4 py-2" style={{ fontFamily: "var(--font-mono, monospace)", fontSize: "0.65rem", letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--foreground)", opacity: 0.65 }}>
               Live ecosystem
             </div>
           </div>
 
           <div className="grid gap-4 md:grid-cols-3">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ delay: 0.08, duration: 0.5 }}
-              className="architecture-card rounded-[26px] border border-border p-5"
-            >
-              <Layers3 className="h-5 w-5 text-primary" />
-              <p className="mt-6 text-sm text-muted-foreground">Company shell</p>
-              <p className="mt-2 text-lg font-semibold text-foreground">Shared navigation, footer, and parent-brand structure</p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ delay: 0.16, duration: 0.5 }}
-              className="architecture-card rounded-[26px] border border-border p-5"
-            >
-              <ShieldCheck className="h-5 w-5 text-secondary" />
-              <p className="mt-6 text-sm text-muted-foreground">Trust layer</p>
-              <p className="mt-2 text-lg font-semibold text-foreground">Privacy, terms, and product pages stay tied to the same company layer</p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ delay: 0.24, duration: 0.5 }}
-              className="architecture-card rounded-[26px] border border-border p-5"
-            >
-              <Rocket className="h-5 w-5 text-primary" />
-              <p className="mt-6 text-sm text-muted-foreground">Growth-ready structure</p>
-              <p className="mt-2 text-lg font-semibold text-foreground">Each new JM Labs product can launch without rebuilding the full site</p>
-            </motion.div>
+            {[
+              { icon: Layers3, delay: 0.08, label: "Company shell", body: "Shared navigation, footer, and parent-brand structure" },
+              { icon: ShieldCheck, delay: 0.16, label: "Trust layer", body: "Privacy, terms, and product pages stay tied to the same company layer" },
+              { icon: Rocket, delay: 0.24, label: "Growth-ready structure", body: "Each new JM Labs product can launch without rebuilding the full site" },
+            ].map(({ icon: Icon, delay, label, body }) => (
+              <motion.div
+                key={label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ delay, duration: 0.5 }}
+                className="architecture-card rounded-[26px] border border-border p-5"
+              >
+                <Icon className="h-5 w-5 text-primary" />
+                <p className="mt-6 text-sm text-muted-foreground">{label}</p>
+                <p className="mt-2 font-display text-lg text-foreground" style={{ fontWeight: 600, lineHeight: 1.3 }}>
+                  {body}
+                </p>
+              </motion.div>
+            ))}
           </div>
 
           <motion.div
@@ -83,18 +85,27 @@ export function ArchitectureScrollSection() {
           >
             <div className="flex items-center justify-between gap-4">
               <div>
-                <p className="font-display text-xs uppercase tracking-[0.35em] text-secondary/[0.7]">
+                <p
+                  className="text-secondary/70"
+                  style={{
+                    fontFamily: "var(--font-mono, monospace)",
+                    fontSize: "0.65rem",
+                    letterSpacing: "0.32em",
+                    textTransform: "uppercase",
+                  }}
+                >
                   Active product flow
                 </p>
                 <p className="mt-3 max-w-xl text-sm text-muted-foreground md:text-base">
                   Visitors meet JM Labs first, then move into Bullion Master pages that explain real modules like Daily Ledger, Inventory, Reports Center, and security workflows.
                 </p>
               </div>
-              <ArrowRight className="hidden h-6 w-6 text-foreground/40 md:block" />
+              <ArrowRight className="hidden h-6 w-6 flex-shrink-0 text-foreground/30 md:block" />
             </div>
           </motion.div>
         </motion.div>
 
+        {/* Right side cards */}
         <div className="grid gap-4">
           <motion.div
             initial={{ opacity: 0, x: 24 }}
@@ -105,10 +116,30 @@ export function ArchitectureScrollSection() {
           >
             <div className="flex items-start justify-between gap-4">
               <div>
-                <p className="text-xs uppercase tracking-[0.25em] text-primary/75">Product 01</p>
-                <h4 className="mt-3 text-2xl font-semibold text-foreground">Bullion Master</h4>
+                <p
+                  className="text-primary/75"
+                  style={{
+                    fontFamily: "var(--font-mono, monospace)",
+                    fontSize: "0.65rem",
+                    letterSpacing: "0.22em",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  Product 01
+                </p>
+                <h4 className="mt-3 font-display text-2xl text-foreground" style={{ fontWeight: 600 }}>
+                  Bullion Master
+                </h4>
               </div>
-              <span className="soft-pill rounded-full border border-border px-3 py-1 text-[0.65rem] uppercase tracking-[0.25em] text-primary/80">
+              <span
+                className="soft-pill rounded-full border border-border px-3 py-1 text-primary/80"
+                style={{
+                  fontFamily: "var(--font-mono, monospace)",
+                  fontSize: "0.65rem",
+                  letterSpacing: "0.22em",
+                  textTransform: "uppercase",
+                }}
+              >
                 Live
               </span>
             </div>
@@ -126,10 +157,30 @@ export function ArchitectureScrollSection() {
           >
             <div className="flex items-start justify-between gap-4">
               <div>
-                <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">Next release</p>
-                <h4 className="mt-3 text-2xl font-semibold text-foreground">Product in Development</h4>
+                <p
+                  className="text-muted-foreground"
+                  style={{
+                    fontFamily: "var(--font-mono, monospace)",
+                    fontSize: "0.65rem",
+                    letterSpacing: "0.22em",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  Next release
+                </p>
+                <h4 className="mt-3 font-display text-2xl text-foreground" style={{ fontWeight: 600 }}>
+                  Product in Development
+                </h4>
               </div>
-              <span className="soft-pill rounded-full border border-border px-3 py-1 text-[0.65rem] uppercase tracking-[0.25em] text-muted-foreground">
+              <span
+                className="soft-pill rounded-full border border-border px-3 py-1 text-muted-foreground"
+                style={{
+                  fontFamily: "var(--font-mono, monospace)",
+                  fontSize: "0.65rem",
+                  letterSpacing: "0.22em",
+                  textTransform: "uppercase",
+                }}
+              >
                 In build
               </span>
             </div>
