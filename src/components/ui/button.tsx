@@ -9,11 +9,11 @@ export const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground shadow-[0_18px_40px_rgba(242,178,78,0.22)] hover:-translate-y-0.5 hover:brightness-105",
+          "bg-primary text-primary-foreground shadow-[var(--button-primary-shadow)] hover:-translate-y-0.5 hover:brightness-105",
         secondary:
-          "bg-card/80 text-foreground ring-1 ring-border hover:bg-card hover:-translate-y-0.5",
-        ghost: "text-muted-foreground hover:text-foreground hover:bg-white/5",
-        outline: "ring-1 ring-border bg-transparent hover:bg-white/5 text-foreground",
+          "bg-[var(--button-secondary-bg)] text-foreground ring-1 ring-border hover:bg-[var(--button-secondary-hover)] hover:-translate-y-0.5",
+        ghost: "text-muted-foreground hover:text-foreground hover:bg-muted/70",
+        outline: "ring-1 ring-border bg-transparent hover:bg-muted/60 text-foreground",
       },
       size: {
         default: "h-11 px-5",

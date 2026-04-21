@@ -89,12 +89,10 @@ function Card({
       style={{
         rotateX: rotate,
         scale,
-        boxShadow:
-          "0 0 #0000004d, 0 9px 20px #0000004a, 0 37px 37px #00000042, 0 84px 50px #00000026, 0 149px 60px #0000000a, 0 233px 65px #00000003",
       }}
-      className="mx-auto -mt-10 h-[30rem] w-full max-w-6xl rounded-[34px] border border-white/15 bg-[#111827] p-2 shadow-2xl md:h-[40rem] md:p-4"
+      className="scroll-card-shell mx-auto -mt-10 h-[30rem] w-full max-w-6xl rounded-[34px] border border-border p-2 shadow-2xl md:h-[40rem] md:p-4"
     >
-      <div className="h-full w-full overflow-hidden rounded-[24px] bg-[#07111b] md:p-4">
+      <div className="scroll-card-canvas h-full w-full overflow-hidden rounded-[24px] md:p-4">
         {children}
       </div>
     </motion.div>

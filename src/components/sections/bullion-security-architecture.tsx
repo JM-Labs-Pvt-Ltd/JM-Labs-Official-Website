@@ -37,7 +37,7 @@ export function BullionSecurityArchitecture() {
 
           <div className="grid gap-4">
             {securityPoints.map((point) => (
-              <div key={point.title} className="rounded-[24px] border border-white/10 bg-white/5 p-4">
+              <div key={point.title} className="glass-card rounded-[24px] border border-border p-4">
                 <div className="flex items-start gap-3">
                   <div className="rounded-full bg-primary/15 p-2.5 text-primary">
                     <point.icon className="h-4.5 w-4.5" />
@@ -52,8 +52,8 @@ export function BullionSecurityArchitecture() {
           </div>
         </div>
 
-        <div className="panel overflow-hidden bg-[linear-gradient(180deg,rgba(16,23,35,0.96),rgba(7,11,19,0.98))]">
-          <div className="rounded-[28px] border border-white/10 bg-[radial-gradient(circle_at_top,rgba(84,115,255,0.18),transparent_30%),radial-gradient(circle_at_bottom_left,rgba(247,186,83,0.14),transparent_30%),linear-gradient(180deg,rgba(10,16,26,0.98),rgba(7,11,19,1))] p-4 md:p-6">
+        <div className="security-shell panel overflow-hidden">
+          <div className="security-canvas rounded-[28px] border border-border p-4 md:p-6">
             <div className="mb-4 flex items-center justify-between gap-4">
               <div>
                 <p className="font-display text-xs uppercase tracking-[0.35em] text-primary/[0.75]">
@@ -63,13 +63,13 @@ export function BullionSecurityArchitecture() {
                   A visual layer for Bullion Master's local-first storage and startup model.
                 </p>
               </div>
-              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[0.65rem] uppercase tracking-[0.28em] text-white/[0.72]">
+              <span className="soft-pill rounded-full border border-border px-3 py-1 text-[0.65rem] uppercase tracking-[0.28em] text-foreground/72">
                 Secure core
               </span>
             </div>
 
-            <div className="rounded-[24px] bg-accent/20 p-4">
-              <CpuArchitecture className="h-[16rem] w-full text-white/[0.55] md:h-[19rem]" text="BM" />
+            <div className="glass-card rounded-[24px] p-4">
+              <CpuArchitecture className="h-[16rem] w-full text-foreground/45 md:h-[19rem]" text="BM" />
             </div>
           </div>
         </div>

@@ -9,69 +9,71 @@ export function ArchitectureScrollSection() {
       titleComponent={
         <div className="space-y-5">
           <p className="eyebrow justify-center">Parent brand architecture</p>
-          <h2 className="section-heading max-w-4xl">
-            One parent company, one live product, and a structure ready for the next JM Labs release.
+          <h2 className="section-heading mx-auto max-w-4xl text-center">
+            One parent company, one live product, and a structure{" "}
+            <em style={{ fontStyle: "italic" }} className="gradient-text">
+              ready for the next JM Labs release.
+            </em>
           </h2>
-          <p className="mx-auto max-w-3xl text-base text-muted-foreground md:text-lg">
+          <p className="mx-auto max-w-3xl text-center text-base text-muted-foreground md:text-lg">
             JM Labs sits at the center, with Bullion Master already live and the next product already positioned inside the same company, legal, and navigation system.
           </p>
         </div>
       }
     >
-      <div className="grid h-full gap-4 bg-[radial-gradient(circle_at_top,rgba(83,114,255,0.18),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(247,186,83,0.16),transparent_28%),linear-gradient(180deg,#07111b,#08131f)] p-4 text-white md:grid-cols-[1.2fr,0.8fr] md:p-6">
+      <div className="architecture-canvas grid h-full gap-4 p-4 text-foreground md:grid-cols-[1.2fr,0.8fr] md:p-6">
+
+        {/* Left main card */}
         <motion.div
           initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}
           transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-          className="panel flex h-full flex-col justify-between border-white/10 bg-white/5"
+          className="architecture-card panel flex h-full flex-col justify-between"
         >
           <div className="flex items-center justify-between">
             <div>
-              <p className="font-display text-xs uppercase tracking-[0.35em] text-primary/80">
+              <p
+                className="text-primary/80"
+                style={{
+                  fontFamily: "var(--font-mono, monospace)",
+                  fontSize: "0.65rem",
+                  letterSpacing: "0.32em",
+                  textTransform: "uppercase",
+                }}
+              >
                 Parent system
               </p>
-              <h3 className="mt-3 text-3xl font-semibold text-white md:text-4xl">JM Labs</h3>
+              <h3 className="mt-3 font-display text-3xl text-foreground md:text-4xl" style={{ fontWeight: 600 }}>
+                JM Labs
+              </h3>
             </div>
-            <div className="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.25em] text-white/[0.7]">
+            <div className="soft-pill rounded-full border border-border px-4 py-2" style={{ fontFamily: "var(--font-mono, monospace)", fontSize: "0.65rem", letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--foreground)", opacity: 0.65 }}>
               Live ecosystem
             </div>
           </div>
 
           <div className="grid gap-4 md:grid-cols-3">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ delay: 0.08, duration: 0.5 }}
-              className="rounded-[26px] border border-white/10 bg-black/20 p-5"
-            >
-              <Layers3 className="h-5 w-5 text-primary" />
-              <p className="mt-6 text-sm text-white/[0.6]">Company shell</p>
-              <p className="mt-2 text-lg font-semibold text-white">Shared navigation, footer, and parent-brand structure</p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ delay: 0.16, duration: 0.5 }}
-              className="rounded-[26px] border border-white/10 bg-black/20 p-5"
-            >
-              <ShieldCheck className="h-5 w-5 text-secondary" />
-              <p className="mt-6 text-sm text-white/[0.6]">Trust layer</p>
-              <p className="mt-2 text-lg font-semibold text-white">Privacy, terms, and product pages stay tied to the same company layer</p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ delay: 0.24, duration: 0.5 }}
-              className="rounded-[26px] border border-white/10 bg-black/20 p-5"
-            >
-              <Rocket className="h-5 w-5 text-primary" />
-              <p className="mt-6 text-sm text-white/[0.6]">Growth-ready structure</p>
-              <p className="mt-2 text-lg font-semibold text-white">Each new JM Labs product can launch without rebuilding the full site</p>
-            </motion.div>
+            {[
+              { icon: Layers3, delay: 0.08, label: "Company shell", body: "Shared navigation, footer, and parent-brand structure" },
+              { icon: ShieldCheck, delay: 0.16, label: "Trust layer", body: "Privacy, terms, and product pages stay tied to the same company layer" },
+              { icon: Rocket, delay: 0.24, label: "Growth-ready structure", body: "Each new JM Labs product can launch without rebuilding the full site" },
+            ].map(({ icon: Icon, delay, label, body }) => (
+              <motion.div
+                key={label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ delay, duration: 0.5 }}
+                className="architecture-card rounded-[26px] border border-border p-5"
+              >
+                <Icon className="h-5 w-5 text-primary" />
+                <p className="mt-6 text-sm text-muted-foreground">{label}</p>
+                <p className="mt-2 font-display text-lg text-foreground" style={{ fontWeight: 600, lineHeight: 1.3 }}>
+                  {body}
+                </p>
+              </motion.div>
+            ))}
           </div>
 
           <motion.div
@@ -79,40 +81,69 @@ export function ArchitectureScrollSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.25 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="rounded-[30px] border border-white/10 bg-[linear-gradient(180deg,rgba(12,22,34,0.94),rgba(8,16,26,0.94))] p-6"
+            className="architecture-flow rounded-[30px] border border-border p-6"
           >
             <div className="flex items-center justify-between gap-4">
               <div>
-                <p className="font-display text-xs uppercase tracking-[0.35em] text-secondary/[0.7]">
+                <p
+                  className="text-secondary/70"
+                  style={{
+                    fontFamily: "var(--font-mono, monospace)",
+                    fontSize: "0.65rem",
+                    letterSpacing: "0.32em",
+                    textTransform: "uppercase",
+                  }}
+                >
                   Active product flow
                 </p>
-                <p className="mt-3 max-w-xl text-sm text-white/70 md:text-base">
+                <p className="mt-3 max-w-xl text-sm text-muted-foreground md:text-base">
                   Visitors meet JM Labs first, then move into Bullion Master pages that explain real modules like Daily Ledger, Inventory, Reports Center, and security workflows.
                 </p>
               </div>
-              <ArrowRight className="hidden h-6 w-6 text-white/50 md:block" />
+              <ArrowRight className="hidden h-6 w-6 flex-shrink-0 text-foreground/30 md:block" />
             </div>
           </motion.div>
         </motion.div>
 
+        {/* Right side cards */}
         <div className="grid gap-4">
           <motion.div
             initial={{ opacity: 0, x: 24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.25 }}
             transition={{ delay: 0.14, duration: 0.6 }}
-            className="panel h-full border-emerald-400/20 bg-[linear-gradient(180deg,rgba(6,24,18,0.88),rgba(6,16,13,0.96))]"
+            className="architecture-side panel h-full"
           >
             <div className="flex items-start justify-between gap-4">
               <div>
-                <p className="text-xs uppercase tracking-[0.25em] text-emerald-300/70">Product 01</p>
-                <h4 className="mt-3 text-2xl font-semibold text-white">Bullion Master</h4>
+                <p
+                  className="text-primary/75"
+                  style={{
+                    fontFamily: "var(--font-mono, monospace)",
+                    fontSize: "0.65rem",
+                    letterSpacing: "0.22em",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  Product 01
+                </p>
+                <h4 className="mt-3 font-display text-2xl text-foreground" style={{ fontWeight: 600 }}>
+                  Bullion Master
+                </h4>
               </div>
-              <span className="rounded-full border border-emerald-300/20 bg-emerald-300/10 px-3 py-1 text-[0.65rem] uppercase tracking-[0.25em] text-emerald-200">
+              <span
+                className="soft-pill rounded-full border border-border px-3 py-1 text-primary/80"
+                style={{
+                  fontFamily: "var(--font-mono, monospace)",
+                  fontSize: "0.65rem",
+                  letterSpacing: "0.22em",
+                  textTransform: "uppercase",
+                }}
+              >
                 Live
               </span>
             </div>
-            <p className="mt-5 text-sm text-white/[0.65]">
+            <p className="mt-5 text-sm text-muted-foreground">
               Daily Ledger, Net Daily Position, Inventory, Refinery Desk, Reports Center, and security-backed backup workflows for bullion operations.
             </p>
           </motion.div>
@@ -122,18 +153,38 @@ export function ArchitectureScrollSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.25 }}
             transition={{ delay: 0.22, duration: 0.6 }}
-            className="panel h-full border-white/10 bg-[linear-gradient(180deg,rgba(17,24,39,0.92),rgba(8,12,20,0.96))]"
+            className="architecture-side-alt panel h-full"
           >
             <div className="flex items-start justify-between gap-4">
               <div>
-                <p className="text-xs uppercase tracking-[0.25em] text-white/[0.45]">Next release</p>
-                <h4 className="mt-3 text-2xl font-semibold text-white">Product in Development</h4>
+                <p
+                  className="text-muted-foreground"
+                  style={{
+                    fontFamily: "var(--font-mono, monospace)",
+                    fontSize: "0.65rem",
+                    letterSpacing: "0.22em",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  Next release
+                </p>
+                <h4 className="mt-3 font-display text-2xl text-foreground" style={{ fontWeight: 600 }}>
+                  Product in Development
+                </h4>
               </div>
-              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[0.65rem] uppercase tracking-[0.25em] text-white/[0.6]">
+              <span
+                className="soft-pill rounded-full border border-border px-3 py-1 text-muted-foreground"
+                style={{
+                  fontFamily: "var(--font-mono, monospace)",
+                  fontSize: "0.65rem",
+                  letterSpacing: "0.22em",
+                  textTransform: "uppercase",
+                }}
+              >
                 In build
               </span>
             </div>
-            <p className="mt-5 text-sm text-white/[0.65]">
+            <p className="mt-5 text-sm text-muted-foreground">
               A second JM Labs system is in development and already has a dedicated destination inside the parent-site structure.
             </p>
           </motion.div>

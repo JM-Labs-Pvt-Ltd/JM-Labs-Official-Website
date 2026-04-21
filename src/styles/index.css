@@ -1,24 +1,226 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&display=swap");
 @import "tailwindcss";
 
 :root {
-  --background: #070b12;
-  --foreground: #f4f7fb;
-  --card: rgba(14, 20, 31, 0.78);
-  --card-foreground: #eef3f9;
-  --muted: rgba(255, 255, 255, 0.06);
-  --muted-foreground: #a5b1c3;
-  --border: rgba(255, 255, 255, 0.12);
-  --primary: #f7ba53;
-  --primary-foreground: #140f08;
-  --secondary: #7ea5ff;
-  --secondary-foreground: #07101d;
+  color-scheme: light;
+  --background: #f8f4ef;
+  --foreground: #180f06;
+  --card: rgba(255, 251, 245, 0.9);
+  --card-foreground: #180f06;
+  --muted: rgba(168, 130, 85, 0.1);
+  --muted-foreground: #7a6040;
+  --border: rgba(160, 116, 58, 0.2);
+  --primary: #8b5e1a;
+  --primary-foreground: #fdf7ee;
+  --secondary: #c29560;
+  --secondary-foreground: #180f06;
   --radius: 1.5rem;
+  --app-background:
+    radial-gradient(ellipse at 18% 0%, rgba(139, 94, 26, 0.1) 0%, transparent 40%),
+    radial-gradient(ellipse at 82% 6%, rgba(194, 149, 96, 0.14) 0%, transparent 36%),
+    linear-gradient(180deg, #faf7f2 0%, #f2ebe2 100%);
+  --app-overlay-background:
+    radial-gradient(circle at top, rgba(183, 134, 95, 0.16), transparent 24%),
+    radial-gradient(circle at 75% 18%, rgba(220, 194, 175, 0.46), transparent 28%),
+    linear-gradient(180deg, rgba(253, 249, 245, 0.98), rgba(245, 237, 228, 0.99));
+  --shell-background: linear-gradient(180deg, rgba(255, 251, 247, 0.84), rgba(247, 240, 233, 0.94));
+  --shell-background-strong: linear-gradient(180deg, rgba(255, 251, 247, 0.92), rgba(246, 238, 229, 0.98));
+  --footer-background:
+    radial-gradient(circle at top left, rgba(183, 134, 95, 0.14), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(220, 194, 175, 0.3), transparent 26%),
+    linear-gradient(180deg, rgba(255, 251, 247, 0.9), rgba(245, 236, 227, 0.98));
+  --panel-background: rgba(255, 250, 244, 0.94);
+  --panel-shadow: 0 20px 60px rgba(121, 92, 71, 0.12);
+  --shell-shadow: 0 18px 56px rgba(121, 92, 71, 0.12);
+  --hero-shell-background:
+    radial-gradient(ellipse at 12% 0%, rgba(139, 94, 26, 0.18) 0%, transparent 35%),
+    radial-gradient(ellipse at 88% 10%, rgba(194, 149, 96, 0.24) 0%, transparent 38%),
+    radial-gradient(ellipse at 50% 100%, rgba(194, 149, 96, 0.1) 0%, transparent 40%),
+    linear-gradient(160deg, rgba(255, 253, 249, 0.97) 0%, rgba(246, 238, 228, 0.97) 100%);
+  --cta-panel-background:
+    radial-gradient(circle at top left, rgba(183, 134, 95, 0.16), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(220, 194, 175, 0.32), transparent 24%),
+    linear-gradient(180deg, rgba(255, 250, 245, 0.94), rgba(245, 236, 227, 0.98));
+  --eyebrow-background: rgba(255, 255, 255, 0.72);
+  --eyebrow-border: rgba(169, 137, 112, 0.18);
+  --glass-background: rgba(255, 251, 247, 0.76);
+  --glass-background-strong: rgba(255, 255, 255, 0.8);
+  --pill-background: rgba(255, 255, 255, 0.76);
+  --image-shell-background: linear-gradient(180deg, rgba(255, 251, 247, 0.88), rgba(245, 236, 227, 0.98));
+  --image-glow-background:
+    radial-gradient(circle at top, rgba(183, 134, 95, 0.24), transparent 32%),
+    radial-gradient(circle at bottom right, rgba(220, 194, 175, 0.32), transparent 34%);
+  --image-fade-background: linear-gradient(180deg, transparent, rgba(245, 236, 227, 0.76));
+  --product-stage-background:
+    radial-gradient(circle at top, rgba(183, 134, 95, 0.14), transparent 30%),
+    linear-gradient(180deg, rgba(255, 251, 247, 0.94), rgba(244, 234, 224, 1));
+  --section-shell-background: linear-gradient(180deg, rgba(255, 251, 247, 0.9), rgba(245, 236, 227, 0.98));
+  --architecture-background:
+    radial-gradient(circle at top, rgba(183, 134, 95, 0.14), transparent 28%),
+    radial-gradient(circle at bottom left, rgba(220, 194, 175, 0.3), transparent 28%),
+    linear-gradient(180deg, #fcf8f4, #f4ece4);
+  --architecture-card-background: rgba(255, 255, 255, 0.72);
+  --architecture-flow-background: linear-gradient(180deg, rgba(255, 251, 247, 0.78), rgba(245, 236, 227, 0.94));
+  --architecture-side-background: linear-gradient(180deg, rgba(250, 242, 236, 0.96), rgba(248, 240, 233, 0.98));
+  --architecture-side-alt-background: linear-gradient(180deg, rgba(255, 250, 246, 0.9), rgba(245, 236, 227, 0.98));
+  --security-shell-background: linear-gradient(180deg, rgba(255, 251, 247, 0.86), rgba(245, 236, 227, 0.98));
+  --security-canvas-background:
+    radial-gradient(circle at top, rgba(183, 134, 95, 0.16), transparent 30%),
+    radial-gradient(circle at bottom left, rgba(220, 194, 175, 0.28), transparent 30%),
+    linear-gradient(180deg, rgba(255, 251, 247, 0.96), rgba(245, 236, 227, 1));
+  --scroll-card-background: rgba(255, 255, 255, 0.72);
+  --scroll-card-canvas: linear-gradient(180deg, #fffaf5, #f4ece4);
+  --scroll-card-shadow: 0 10px 24px rgba(121, 92, 71, 0.1), 0 28px 60px rgba(121, 92, 71, 0.12);
+  --button-primary-shadow: 0 14px 32px rgba(183, 134, 95, 0.2);
+  --button-secondary-bg: rgba(255, 255, 255, 0.8);
+  --button-secondary-hover: rgba(255, 255, 255, 0.94);
+  --bento-background: rgba(255, 250, 244, 0.9);
+  --bento-shadow: 0 12px 30px rgba(121, 92, 71, 0.08);
+  --bento-dot: rgba(169, 137, 112, 0.06);
+  --bento-border-glow: rgba(183, 134, 95, 0.12);
+  --spinner-outer-border: rgba(169, 137, 112, 0.16);
+  --spinner-outer-bg:
+    radial-gradient(circle at 32% 30%, rgba(255, 255, 255, 0.92), transparent 28%),
+    linear-gradient(145deg, rgba(255, 251, 247, 0.94), rgba(241, 230, 220, 0.88));
+  --spinner-outer-shadow:
+    inset 0 0.2em 0.35em rgba(255, 255, 255, 0.65),
+    inset 0 -0.35em 0.7em rgba(183, 134, 95, 0.08),
+    0 1.4em 3em rgba(121, 92, 71, 0.08);
+  --spinner-inner-border: rgba(169, 137, 112, 0.18);
+  --spinner-inner-bg:
+    radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.84), transparent 56%),
+    linear-gradient(180deg, rgba(247, 240, 233, 0.95), rgba(239, 228, 217, 0.92));
+  --spinner-inner-shadow:
+    inset 0 0.2em 0.4em rgba(255, 255, 255, 0.62),
+    inset 0 -0.4em 0.9em rgba(169, 137, 112, 0.08);
+  --spinner-track-top: rgba(183, 134, 95, 0.52);
+  --spinner-track-right: rgba(220, 194, 175, 0.6);
+  --spinner-ball-fill:
+    radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.95), transparent 30%),
+    radial-gradient(circle at 65% 70%, rgba(226, 202, 184, 0.7), transparent 38%),
+    linear-gradient(180deg, rgba(255, 252, 248, 1), rgba(233, 220, 208, 0.98));
+  --spinner-ball-shadow:
+    0 0.4em 0.8em rgba(121, 92, 71, 0.16),
+    inset 0 -0.18em 0.3em rgba(160, 130, 109, 0.18);
+  --spinner-ball-outer: inset 0.3em 0 0.35em rgba(255, 255, 255, 0.4);
+  --spinner-ball-inner: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(121, 92, 71, 0.12));
+  --spinner-ball-sides:
+    inset 0.35em 0 0.45em rgba(255, 255, 255, 0.28),
+    inset -0.35em 0 0.45em rgba(121, 92, 71, 0.1);
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #060810;
+  --foreground: #ede8e2;
+  --card: rgba(10, 13, 22, 0.9);
+  --card-foreground: #ede8e2;
+  --muted: rgba(130, 160, 200, 0.12);
+  --muted-foreground: #8a9fb8;
+  --border: rgba(212, 168, 67, 0.18);
+  --primary: #d4a843;
+  --primary-foreground: #060810;
+  --secondary: #6b9bd2;
+  --secondary-foreground: #060810;
+  --app-background:
+    radial-gradient(ellipse at 14% 0%, rgba(212, 168, 67, 0.14) 0%, transparent 44%),
+    radial-gradient(ellipse at 86% 5%, rgba(107, 155, 210, 0.14) 0%, transparent 40%),
+    radial-gradient(ellipse at 50% 100%, rgba(60, 90, 150, 0.08) 0%, transparent 44%),
+    linear-gradient(180deg, #060810 0%, #07090f 100%);
+  --app-overlay-background:
+    radial-gradient(circle at top, rgba(94, 133, 208, 0.22), transparent 24%),
+    radial-gradient(circle at 76% 18%, rgba(57, 88, 152, 0.4), transparent 30%),
+    linear-gradient(180deg, rgba(7, 15, 25, 0.98), rgba(9, 18, 29, 0.99));
+  --shell-background: linear-gradient(180deg, rgba(10, 19, 31, 0.86), rgba(13, 24, 38, 0.94));
+  --shell-background-strong: linear-gradient(180deg, rgba(10, 19, 31, 0.94), rgba(14, 24, 38, 0.98));
+  --footer-background:
+    radial-gradient(circle at top left, rgba(94, 133, 208, 0.16), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(57, 88, 152, 0.26), transparent 26%),
+    linear-gradient(180deg, rgba(10, 19, 31, 0.92), rgba(13, 23, 36, 0.98));
+  --panel-background: rgba(10, 19, 31, 0.9);
+  --panel-shadow: 0 20px 60px rgba(1, 6, 12, 0.34);
+  --shell-shadow: 0 18px 56px rgba(1, 6, 12, 0.34);
+  --hero-shell-background:
+    radial-gradient(ellipse at 12% 0%, rgba(212, 168, 67, 0.2) 0%, transparent 38%),
+    radial-gradient(ellipse at 88% 8%, rgba(107, 155, 210, 0.16) 0%, transparent 40%),
+    radial-gradient(ellipse at 50% 100%, rgba(60, 90, 150, 0.1) 0%, transparent 42%),
+    linear-gradient(160deg, rgba(12, 16, 26, 0.97) 0%, rgba(8, 11, 20, 0.98) 100%);
+  --cta-panel-background:
+    radial-gradient(circle at top left, rgba(94, 133, 208, 0.18), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(57, 88, 152, 0.28), transparent 24%),
+    linear-gradient(180deg, rgba(10, 18, 30, 0.94), rgba(13, 22, 35, 0.98));
+  --eyebrow-background: rgba(14, 18, 30, 0.8);
+  --eyebrow-border: rgba(212, 168, 67, 0.22);
+  --glass-background: rgba(12, 22, 36, 0.68);
+  --glass-background-strong: rgba(9, 19, 31, 0.78);
+  --pill-background: rgba(14, 24, 38, 0.76);
+  --image-shell-background: linear-gradient(180deg, rgba(10, 19, 31, 0.88), rgba(13, 23, 36, 0.98));
+  --image-glow-background:
+    radial-gradient(circle at top, rgba(94, 133, 208, 0.26), transparent 32%),
+    radial-gradient(circle at bottom right, rgba(57, 88, 152, 0.34), transparent 34%);
+  --image-fade-background: linear-gradient(180deg, transparent, rgba(8, 16, 26, 0.76));
+  --product-stage-background:
+    radial-gradient(circle at top, rgba(94, 133, 208, 0.18), transparent 30%),
+    linear-gradient(180deg, rgba(10, 19, 31, 0.94), rgba(13, 23, 36, 1));
+  --section-shell-background: linear-gradient(180deg, rgba(10, 19, 31, 0.9), rgba(13, 23, 36, 0.98));
+  --architecture-background:
+    radial-gradient(circle at top, rgba(94, 133, 208, 0.18), transparent 28%),
+    radial-gradient(circle at bottom left, rgba(57, 88, 152, 0.28), transparent 28%),
+    linear-gradient(180deg, #07111b, #0b1625);
+  --architecture-card-background: rgba(14, 24, 38, 0.72);
+  --architecture-flow-background: linear-gradient(180deg, rgba(11, 20, 33, 0.82), rgba(13, 23, 36, 0.94));
+  --architecture-side-background: linear-gradient(180deg, rgba(10, 19, 31, 0.96), rgba(13, 22, 35, 0.98));
+  --architecture-side-alt-background: linear-gradient(180deg, rgba(11, 20, 32, 0.92), rgba(13, 23, 36, 0.98));
+  --security-shell-background: linear-gradient(180deg, rgba(10, 19, 31, 0.86), rgba(13, 23, 36, 0.98));
+  --security-canvas-background:
+    radial-gradient(circle at top, rgba(94, 133, 208, 0.2), transparent 30%),
+    radial-gradient(circle at bottom left, rgba(57, 88, 152, 0.28), transparent 30%),
+    linear-gradient(180deg, rgba(10, 19, 31, 0.96), rgba(13, 23, 36, 1));
+  --scroll-card-background: rgba(12, 22, 36, 0.72);
+  --scroll-card-canvas: linear-gradient(180deg, rgba(10, 19, 31, 0.96), rgba(13, 23, 36, 1));
+  --scroll-card-shadow: 0 10px 24px rgba(0, 0, 0, 0.28), 0 28px 60px rgba(0, 0, 0, 0.34);
+  --button-primary-shadow: 0 14px 32px rgba(240, 187, 103, 0.2);
+  --button-secondary-bg: rgba(14, 24, 38, 0.8);
+  --button-secondary-hover: rgba(18, 30, 46, 0.94);
+  --bento-background: rgba(10, 13, 24, 0.92);
+  --bento-shadow: 0 12px 30px rgba(0, 0, 0, 0.32);
+  --bento-dot: rgba(212, 168, 67, 0.07);
+  --bento-border-glow: rgba(212, 168, 67, 0.18);
+  --spinner-outer-border: rgba(154, 181, 215, 0.14);
+  --spinner-outer-bg:
+    radial-gradient(circle at 32% 30%, rgba(255, 255, 255, 0.08), transparent 28%),
+    linear-gradient(145deg, rgba(16, 27, 42, 0.94), rgba(10, 19, 31, 0.9));
+  --spinner-outer-shadow:
+    inset 0 0.2em 0.35em rgba(255, 255, 255, 0.04),
+    inset 0 -0.35em 0.7em rgba(94, 133, 208, 0.08),
+    0 1.4em 3em rgba(0, 0, 0, 0.22);
+  --spinner-inner-border: rgba(154, 181, 215, 0.16);
+  --spinner-inner-bg:
+    radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.06), transparent 56%),
+    linear-gradient(180deg, rgba(14, 24, 38, 0.95), rgba(10, 19, 31, 0.92));
+  --spinner-inner-shadow:
+    inset 0 0.2em 0.4em rgba(255, 255, 255, 0.04),
+    inset 0 -0.4em 0.9em rgba(94, 133, 208, 0.06);
+  --spinner-track-top: rgba(212, 168, 67, 0.76);
+  --spinner-track-right: rgba(107, 155, 210, 0.58);
+  --spinner-ball-fill:
+    radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.78), transparent 28%),
+    radial-gradient(circle at 65% 70%, rgba(144, 174, 224, 0.35), transparent 40%),
+    linear-gradient(180deg, rgba(244, 248, 255, 0.98), rgba(214, 226, 245, 0.92));
+  --spinner-ball-shadow:
+    0 0.4em 0.8em rgba(0, 0, 0, 0.28),
+    inset 0 -0.18em 0.3em rgba(94, 133, 208, 0.18);
+  --spinner-ball-outer: inset 0.3em 0 0.35em rgba(255, 255, 255, 0.3);
+  --spinner-ball-inner: linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(57, 88, 152, 0.18));
+  --spinner-ball-sides:
+    inset 0.35em 0 0.45em rgba(255, 255, 255, 0.24),
+    inset -0.35em 0 0.45em rgba(57, 88, 152, 0.16);
 }
 
 @theme inline {
-  --font-sans: "Manrope", sans-serif;
-  --font-display: "Space Grotesk", sans-serif;
+  --font-sans: "DM Sans", sans-serif;
+  --font-display: "Cormorant Garamond", serif;
+  --font-mono: "DM Mono", monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -47,10 +249,11 @@ html {
 body {
   min-height: 100vh;
   margin: 0;
-  background: var(--background);
+  background: var(--app-background);
   color: var(--foreground);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  transition: background 320ms ease, color 320ms ease;
 }
 
 img {
@@ -61,6 +264,103 @@ img {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+.pl {
+  position: relative;
+  width: 13em;
+  height: 13em;
+  font-size: 1rem;
+}
+
+.pl,
+.pl * {
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.pl__outer-ring,
+.pl__inner-ring,
+.pl__track-cover,
+.pl__ball {
+  position: absolute;
+  inset: 0;
+}
+
+.pl__outer-ring {
+  border: 0.16em solid var(--spinner-outer-border);
+  background: var(--spinner-outer-bg);
+  box-shadow: var(--spinner-outer-shadow);
+}
+
+.pl__inner-ring {
+  inset: 1.35em;
+  border: 0.16em solid var(--spinner-inner-border);
+  background: var(--spinner-inner-bg);
+  box-shadow: var(--spinner-inner-shadow);
+}
+
+.pl__track-cover {
+  inset: 0.85em;
+  border: 0.14em solid transparent;
+  border-top-color: var(--spinner-track-top);
+  border-right-color: var(--spinner-track-right);
+  animation: trackCover 2.8s linear infinite;
+}
+
+.pl__ball {
+  inset: 50%;
+  width: 2.4em;
+  height: 2.4em;
+  margin: -1.2em;
+  animation: ball 2.8s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+.pl__ball::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--spinner-ball-fill);
+  box-shadow: var(--spinner-ball-shadow);
+}
+
+.pl__ball-texture,
+.pl__ball-outer-shadow,
+.pl__ball-inner-shadow,
+.pl__ball-side-shadows {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.pl__ball-texture {
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      transparent 36%,
+      rgba(255, 255, 255, 0.2) 37%,
+      rgba(255, 255, 255, 0.2) 41%,
+      transparent 42%,
+      transparent 100%
+    );
+  opacity: 0.7;
+  animation: ballTexture 1.7s linear infinite alternate;
+}
+
+.pl__ball-outer-shadow {
+  box-shadow: var(--spinner-ball-outer);
+  animation: ballOuterShadow 2.8s linear infinite;
+}
+
+.pl__ball-inner-shadow {
+  background: var(--spinner-ball-inner);
+  animation: ballInnerShadow 2.8s linear infinite;
+}
+
+.pl__ball-side-shadows {
+  box-shadow: var(--spinner-ball-sides);
 }
 
 .cpu-architecture {
@@ -122,6 +422,54 @@ a {
   animation-duration: 3s;
 }
 
+@keyframes ball {
+  from {
+    transform: rotate(0) translateY(-6.5em);
+  }
+  50% {
+    transform: rotate(180deg) translateY(-6em);
+  }
+  to {
+    transform: rotate(360deg) translateY(-6.5em);
+  }
+}
+
+@keyframes ballInnerShadow {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes ballOuterShadow {
+  from {
+    transform: rotate(20deg);
+  }
+  to {
+    transform: rotate(-340deg);
+  }
+}
+
+@keyframes ballTexture {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(50%);
+  }
+}
+
+@keyframes trackCover {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @keyframes animation-path {
   0% {
     offset-distance: 0%;
@@ -133,35 +481,274 @@ a {
 
 @layer components {
   .panel {
-    @apply rounded-[30px] border border-border bg-card/90 p-6 shadow-[0_24px_80px_rgba(2,8,20,0.24)] backdrop-blur-xl;
+    @apply rounded-[30px] border border-border p-6 backdrop-blur-xl;
+    background: var(--panel-background);
+    box-shadow: var(--panel-shadow);
+    transition: background 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
   }
 
   .hero-shell {
-    background:
-      radial-gradient(circle at top left, rgba(247, 186, 83, 0.18), transparent 28%),
-      radial-gradient(circle at bottom right, rgba(84, 115, 255, 0.16), transparent 28%),
-      linear-gradient(180deg, rgba(15, 21, 33, 0.94), rgba(8, 12, 20, 0.98));
-    box-shadow: 0 36px 110px rgba(2, 8, 20, 0.35);
+    background: var(--hero-shell-background);
+    box-shadow: 0 28px 90px color-mix(in srgb, var(--foreground) 8%, transparent);
+    transition: background 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
   }
 
   .cta-panel {
-    background:
-      radial-gradient(circle at top left, rgba(247, 186, 83, 0.18), transparent 24%),
-      radial-gradient(circle at bottom right, rgba(84, 115, 255, 0.18), transparent 24%),
-      linear-gradient(180deg, rgba(14, 20, 31, 0.92), rgba(8, 12, 20, 0.98));
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 28px 90px rgba(2, 8, 20, 0.3);
+    background: var(--cta-panel-background);
+    border: 1px solid var(--eyebrow-border);
+    box-shadow: 0 24px 80px color-mix(in srgb, var(--foreground) 8%, transparent);
+    transition: background 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
   }
 
   .eyebrow {
-    @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 font-display text-[0.68rem] uppercase tracking-[0.32em] text-primary/[0.8];
+    @apply inline-flex items-center gap-2 rounded-full border px-4 py-2 font-display text-[0.68rem] uppercase tracking-[0.32em] text-primary/90;
+    border-color: var(--eyebrow-border);
+    background: var(--eyebrow-background);
+    transition: background 260ms ease, border-color 260ms ease, color 260ms ease;
   }
 
   .hero-title {
-    @apply font-display text-5xl leading-[0.95] tracking-[-0.04em] text-foreground md:text-7xl;
+    @apply font-display text-5xl leading-[1.0] tracking-[-0.02em] text-foreground md:text-7xl;
+    font-weight: 600;
   }
 
   .section-heading {
-    @apply font-display text-3xl leading-tight tracking-[-0.04em] text-foreground md:text-5xl;
+    @apply font-display text-3xl leading-tight tracking-[-0.02em] text-foreground md:text-5xl;
+    font-weight: 600;
   }
+
+  .app-background {
+    background: var(--app-background);
+    transition: background 320ms ease;
+  }
+
+  .app-overlay {
+    background: var(--app-overlay-background);
+    transition: background 320ms ease;
+  }
+
+  .app-loading-card {
+    background: var(--shell-background-strong);
+    box-shadow: 0 24px 70px color-mix(in srgb, var(--foreground) 10%, transparent);
+    transition: background 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
+  }
+
+  .chrome-shell {
+    background: var(--shell-background);
+    box-shadow: var(--shell-shadow);
+    transition: background 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
+  }
+
+  .footer-shell {
+    background: var(--footer-background);
+    box-shadow: 0 22px 64px color-mix(in srgb, var(--foreground) 9%, transparent);
+    transition: background 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
+  }
+
+  .surface-shell {
+    background: var(--section-shell-background);
+    box-shadow: var(--panel-shadow);
+    transition: background 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
+  }
+
+  .image-shell {
+    background: var(--image-shell-background);
+    box-shadow: 0 24px 70px color-mix(in srgb, var(--foreground) 10%, transparent);
+    transition: background 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
+  }
+
+  .image-glow {
+    background: var(--image-glow-background);
+    transition: background 260ms ease;
+  }
+
+  .image-fade {
+    background: var(--image-fade-background);
+    transition: background 260ms ease;
+  }
+
+  .product-stage {
+    background: var(--product-stage-background);
+    transition: background 260ms ease;
+  }
+
+  .glass-card {
+    background: var(--glass-background);
+    transition: background 260ms ease, border-color 260ms ease;
+  }
+
+  .glass-card-strong {
+    background: var(--glass-background-strong);
+    transition: background 260ms ease, border-color 260ms ease;
+  }
+
+  .soft-pill {
+    background: var(--pill-background);
+    transition: background 260ms ease, border-color 260ms ease;
+  }
+
+  .architecture-canvas {
+    background: var(--architecture-background);
+    transition: background 260ms ease;
+  }
+
+  .architecture-card {
+    background: var(--architecture-card-background);
+    transition: background 260ms ease, border-color 260ms ease;
+  }
+
+  .architecture-flow {
+    background: var(--architecture-flow-background);
+    transition: background 260ms ease, border-color 260ms ease;
+  }
+
+  .architecture-side {
+    background: var(--architecture-side-background);
+    transition: background 260ms ease, border-color 260ms ease;
+  }
+
+  .architecture-side-alt {
+    background: var(--architecture-side-alt-background);
+    transition: background 260ms ease, border-color 260ms ease;
+  }
+
+  .security-shell {
+    background: var(--security-shell-background);
+    transition: background 260ms ease, border-color 260ms ease;
+  }
+
+  .security-canvas {
+    background: var(--security-canvas-background);
+    transition: background 260ms ease, border-color 260ms ease;
+  }
+
+  .scroll-card-shell {
+    background: var(--scroll-card-background);
+    box-shadow: var(--scroll-card-shadow);
+    transition: background 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
+  }
+
+  .scroll-card-canvas {
+    background: var(--scroll-card-canvas);
+    transition: background 260ms ease;
+  }
+
+  /* ── New premium utilities ── */
+
+  .gradient-text {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .data-badge {
+    font-family: var(--font-mono, monospace);
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--primary);
+    opacity: 0.8;
+    display: block;
+  }
+
+  .live-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5);
+    animation: pulse-ring 2.2s ease-out infinite;
+  }
+
+  .floating {
+    animation: float-card 4.5s ease-in-out infinite;
+  }
+
+  .floating-alt {
+    animation: float-card 4.5s ease-in-out infinite;
+    animation-delay: 0.8s;
+  }
+
+  .ticker-track {
+    display: inline-flex;
+    white-space: nowrap;
+    animation: ticker 50s linear infinite;
+    will-change: transform;
+  }
+
+  .dashboard-preview {
+    background: var(--hero-shell-background);
+    box-shadow: var(--shell-shadow);
+    transition: background 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
+  }
+
+  .chart-container {
+    background: color-mix(in srgb, var(--background) 80%, transparent);
+    border: 1px solid var(--border);
+    color: var(--muted-foreground);
+  }
+
+  .stat-card {
+    background: var(--panel-background);
+    box-shadow: 0 8px 24px color-mix(in srgb, var(--primary) 8%, transparent);
+    transition: background 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
+  }
+
+  .gold-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    opacity: 0.4;
+  }
+
+  .metrics-band {
+    background: color-mix(in srgb, var(--muted) 60%, transparent);
+    transition: background 260ms ease;
+  }
+}
+
+/* ── Keyframes ── */
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 7px rgba(34, 197, 94, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
+
+@keyframes float-card {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-5px); }
+}
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes shimmer-slide {
+  from { background-position: -200% center; }
+  to   { background-position: 200% center; }
+}
+
+@keyframes draw-in {
+  from { stroke-dashoffset: 1; }
+  to   { stroke-dashoffset: 0; }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
 }

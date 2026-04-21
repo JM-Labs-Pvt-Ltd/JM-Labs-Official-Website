@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Layers3, Shield, Workflow } from "lucide-react";
 
+import { StatCounter } from "@/components/ui/stat-counter";
+
 const values = [
   {
     icon: Layers3,
@@ -19,30 +21,52 @@ const values = [
   },
 ] as const;
 
+const companyStats = [
+  { value: 1, suffix: "", label: "Live Product", sub: "Bullion Master is live and active" },
+  { value: 1, suffix: "", label: "Next in Development", sub: "Second product already in progress" },
+  { value: 100, suffix: "%", label: "Focused", sub: "Every feature is purpose-built" },
+  { value: 2026, suffix: "", label: "Year Active", sub: "JM Labs is operational today" },
+] as const;
+
 export function AboutPage() {
   return (
     <div className="space-y-20 pb-20 pt-10 md:space-y-28 md:pt-16">
+
+      {/* ─── Hero ─── */}
       <section className="px-4 md:px-6">
         <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-[1.05fr,0.95fr] md:items-center">
           <div className="space-y-6">
             <p className="eyebrow">About the parent company</p>
             <h1 className="hero-title">
-              JM Labs builds focused business software with product pages grounded in real operations.
+              JM Labs builds focused business software with product pages{" "}
+              <em style={{ fontStyle: "italic" }} className="gradient-text">
+                grounded in real operations.
+              </em>
             </h1>
             <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
               JM Labs is the parent company behind a growing line of focused software products. Bullion Master is live today for bullion businesses, and future releases will sit in the same ecosystem with dedicated product pages, legal context, and company identity.
             </p>
           </div>
 
-          <div className="relative overflow-hidden rounded-[36px] border border-white/10 bg-[linear-gradient(180deg,rgba(15,21,32,0.96),rgba(8,12,20,0.98))] p-4 shadow-[0_30px_90px_rgba(2,8,20,0.4)]">
+          <div className="image-shell relative overflow-hidden rounded-[36px] border border-border p-4">
             <img
               src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80"
               alt="JM Labs collaborative design and product planning"
               className="h-[420px] w-full rounded-[26px] object-cover"
             />
-            <div className="absolute inset-x-8 bottom-8 rounded-[28px] border border-white/10 bg-[rgba(8,12,20,0.76)] p-5 backdrop-blur-xl">
-              <p className="font-display text-xs uppercase tracking-[0.35em] text-primary/[0.7]">Company posture</p>
-              <p className="mt-3 text-lg text-white/90">
+            <div className="glass-card-strong absolute inset-x-8 bottom-8 rounded-[28px] border border-border p-5 backdrop-blur-xl">
+              <p
+                className="text-primary/70"
+                style={{
+                  fontFamily: "var(--font-mono, monospace)",
+                  fontSize: "0.65rem",
+                  letterSpacing: "0.32em",
+                  textTransform: "uppercase",
+                }}
+              >
+                Company posture
+              </p>
+              <p className="mt-3 font-display text-lg text-foreground" style={{ fontWeight: 500 }}>
                 A parent-company site built to support live product detail, connected legal pages, and future JM Labs releases without another restructure.
               </p>
             </div>
@@ -50,6 +74,38 @@ export function AboutPage() {
         </div>
       </section>
 
+      {/* ─── Company stats ─── */}
+      <section className="px-4 md:px-6">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4">
+            {companyStats.map((stat, i) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ delay: i * 0.08, duration: 0.55 }}
+                className="panel flex flex-col gap-3"
+              >
+                <div
+                  className="gradient-text font-display text-4xl font-bold"
+                  style={{ letterSpacing: "-0.03em", lineHeight: 1 }}
+                >
+                  <StatCounter value={stat.value} suffix={stat.suffix} />
+                </div>
+                <div>
+                  <p className="font-display text-base font-semibold text-foreground" style={{ fontWeight: 600 }}>
+                    {stat.label}
+                  </p>
+                  <p className="mt-1 text-sm text-muted-foreground">{stat.sub}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Operating principles ─── */}
       <section className="px-4 md:px-6">
         <div className="mx-auto max-w-7xl space-y-8">
           <p className="eyebrow">Operating principles</p>
@@ -64,7 +120,9 @@ export function AboutPage() {
                 className="panel"
               >
                 <value.icon className="h-5 w-5 text-primary" />
-                <h2 className="mt-5 font-display text-xl text-foreground">{value.title}</h2>
+                <h2 className="mt-5 font-display text-xl text-foreground" style={{ fontWeight: 600 }}>
+                  {value.title}
+                </h2>
                 <p className="mt-3 text-sm leading-7 text-muted-foreground">{value.body}</p>
               </motion.div>
             ))}
@@ -72,11 +130,17 @@ export function AboutPage() {
         </div>
       </section>
 
+      {/* ─── Company structure ─── */}
       <section className="px-4 md:px-6">
-        <div className="mx-auto grid max-w-7xl gap-6 rounded-[36px] border border-white/10 bg-[linear-gradient(180deg,rgba(14,20,31,0.92),rgba(8,12,20,0.98))] p-6 md:grid-cols-2 md:p-10">
+        <div className="surface-shell mx-auto grid max-w-7xl gap-6 rounded-[36px] border border-border p-6 md:grid-cols-2 md:p-10">
           <div className="space-y-5">
             <p className="eyebrow">Company structure</p>
-            <h2 className="section-heading">JM Labs gives Bullion Master a company layer while keeping the product story specific.</h2>
+            <h2 className="section-heading">
+              JM Labs gives Bullion Master a company layer while keeping the{" "}
+              <em style={{ fontStyle: "italic" }} className="gradient-text">
+                product story specific.
+              </em>
+            </h2>
           </div>
           <div className="space-y-4 text-base leading-8 text-muted-foreground">
             <p>
