@@ -30,10 +30,10 @@ function BentoGrid({ items, className }: BentoGridProps) {
           key={`${item.title}-${index}`}
           href={item.href ?? "#"}
           className={cn(
-            "group relative overflow-hidden rounded-xl border border-gray-100/80 bg-white p-4 transition-all duration-300 will-change-transform hover:-translate-y-0.5 hover:shadow-[0_2px_12px_rgba(0,0,0,0.03)] dark:border-white/10 dark:bg-black dark:hover:shadow-[0_2px_12px_rgba(255,255,255,0.03)]",
+            "group relative overflow-hidden rounded-xl border border-border bg-[var(--bento-background)] p-4 transition-all duration-300 will-change-transform hover:-translate-y-0.5 hover:shadow-[var(--bento-shadow)]",
             item.colSpan === 2 ? "md:col-span-2" : "col-span-1",
             {
-              "-translate-y-0.5 shadow-[0_2px_12px_rgba(0,0,0,0.03)] dark:shadow-[0_2px_12px_rgba(255,255,255,0.03)]":
+              "-translate-y-0.5 shadow-[var(--bento-shadow)]":
                 item.hasPersistentHover,
               "cursor-pointer": Boolean(item.href),
             }
@@ -45,17 +45,17 @@ function BentoGrid({ items, className }: BentoGridProps) {
               item.hasPersistentHover ? "opacity-100" : "opacity-0 group-hover:opacity-100"
             )}
           >
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[length:4px_4px] dark:bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.02)_1px,transparent_1px)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--bento-dot)_1px,transparent_1px)] bg-[length:4px_4px]" />
           </div>
 
           <div className="relative flex flex-col space-y-3">
             <div className="flex items-center justify-between">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-black/5 transition-all duration-300 group-hover:bg-gradient-to-br dark:bg-white/10">
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-muted/80 transition-all duration-300 group-hover:bg-gradient-to-br">
                 {item.icon}
               </div>
               <span
                 className={cn(
-                  "rounded-lg bg-black/5 px-2 py-1 text-xs font-medium text-gray-600 backdrop-blur-sm transition-colors duration-300 group-hover:bg-black/10 dark:bg-white/10 dark:text-gray-300 dark:group-hover:bg-white/20"
+                  "rounded-lg bg-muted/80 px-2 py-1 text-xs font-medium text-muted-foreground backdrop-blur-sm transition-colors duration-300 group-hover:bg-muted"
                 )}
               >
                 {item.status || "Active"}
@@ -63,31 +63,31 @@ function BentoGrid({ items, className }: BentoGridProps) {
             </div>
 
             <div className="space-y-2">
-              <h3 className="text-[15px] font-medium tracking-tight text-gray-900 dark:text-gray-100">
+              <h3 className="text-[15px] font-medium tracking-tight text-foreground">
                 {item.title}
                 {item.meta ? (
-                  <span className="ml-2 text-xs font-normal text-gray-500 dark:text-gray-400">
+                  <span className="ml-2 text-xs font-normal text-muted-foreground">
                     {item.meta}
                   </span>
                 ) : null}
               </h3>
-              <p className="text-sm leading-snug font-[425] text-gray-600 dark:text-gray-300">
+              <p className="text-sm leading-snug font-[425] text-muted-foreground">
                 {item.description}
               </p>
             </div>
 
             <div className="mt-2 flex items-center justify-between">
-              <div className="flex flex-wrap items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
+              <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
                 {item.tags?.map((tag, i) => (
                   <span
                     key={`${tag}-${i}`}
-                    className="rounded-md bg-black/5 px-2 py-1 backdrop-blur-sm transition-all duration-200 hover:bg-black/10 dark:bg-white/10 dark:hover:bg-white/20"
+                    className="rounded-md bg-muted/80 px-2 py-1 backdrop-blur-sm transition-all duration-200 hover:bg-muted"
                   >
                     #{tag}
                   </span>
                 ))}
               </div>
-              <span className="text-xs text-gray-500 opacity-0 transition-opacity group-hover:opacity-100 dark:text-gray-400">
+              <span className="text-xs text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100">
                 {item.cta || "Explore →"}
               </span>
             </div>
@@ -95,7 +95,7 @@ function BentoGrid({ items, className }: BentoGridProps) {
 
           <div
             className={cn(
-              "absolute inset-0 -z-10 rounded-xl bg-gradient-to-br from-transparent via-gray-100/50 to-transparent p-px transition-opacity duration-300 dark:via-white/10",
+              "absolute inset-0 -z-10 rounded-xl bg-gradient-to-br from-transparent via-[var(--bento-border-glow)] to-transparent p-px transition-opacity duration-300",
               item.hasPersistentHover ? "opacity-100" : "opacity-0 group-hover:opacity-100"
             )}
           />

@@ -4,7 +4,7 @@ export function TermsPage() {
   return (
     <div className="space-y-16 pb-20 pt-10 md:space-y-20 md:pt-16">
       <section className="px-4 md:px-6">
-        <div className="mx-auto max-w-6xl rounded-[36px] border border-white/10 bg-[linear-gradient(180deg,rgba(15,21,32,0.96),rgba(8,12,20,0.98))] px-6 py-10 md:px-10 md:py-14">
+        <div className="surface-shell mx-auto max-w-6xl rounded-[36px] border border-border px-6 py-10 md:px-10 md:py-14">
           <p className="eyebrow">Terms and conditions</p>
           <h1 className="hero-title max-w-4xl">Terms and Conditions</h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-muted-foreground">

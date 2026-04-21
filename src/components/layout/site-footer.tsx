@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 export function SiteFooter() {
   return (
     <footer className="px-4 pb-10 pt-14 md:px-6">
-      <div className="mx-auto grid max-w-7xl gap-8 rounded-[32px] border border-white/10 bg-[linear-gradient(180deg,rgba(15,22,34,0.9),rgba(8,12,20,0.96))] p-8 shadow-[0_24px_80px_rgba(2,8,20,0.28)] md:grid-cols-2 md:p-10 lg:grid-cols-12 lg:gap-10">
+      <div className="footer-shell mx-auto grid max-w-7xl gap-8 rounded-[32px] border border-border p-8 md:grid-cols-2 md:p-10 lg:grid-cols-12 lg:gap-10">
         <div className="space-y-4 md:col-span-2 lg:col-span-5">
           <div className="flex items-center gap-3">
             <img src="./jm-labs-icon-final.svg" alt="JM Labs" className="h-8 w-8 object-contain" />

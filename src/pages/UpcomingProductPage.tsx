@@ -29,12 +29,12 @@ export function UpcomingProductPage() {
               alt="Upcoming product planning"
               className="h-[420px] w-full rounded-[28px] object-cover"
             />
-            <div className="absolute inset-x-8 bottom-8 rounded-[28px] border border-white/10 bg-[rgba(8,12,20,0.8)] p-5 backdrop-blur-xl">
+            <div className="glass-card-strong absolute inset-x-8 bottom-8 rounded-[28px] border border-border p-5 backdrop-blur-xl">
               <div className="flex items-center gap-3">
                 <Rocket className="h-5 w-5 text-primary" />
                 <p className="font-display text-xl text-foreground">Connected to the JM Labs product system</p>
               </div>
-              <p className="mt-3 text-sm text-white/[0.75]">
+              <p className="mt-3 text-sm text-muted-foreground">
                 Brand continuity, navigation, and page structure are already in place, so the next release can launch into a site that already feels established.
               </p>
             </div>
@@ -49,7 +49,7 @@ export function UpcomingProductPage() {
               <p className="eyebrow">Ready for launch</p>
               <h2 className="section-heading">When the new product is announced, its page can expand without changing the rest of the JM Labs website.</h2>
             </div>
-            <div className="panel flex items-start gap-4 border-white/10 bg-white/5">
+            <div className="glass-card panel flex items-start gap-4">
               <Sparkles className="mt-1 h-5 w-5 text-primary" />
               <p className="text-sm leading-7 text-muted-foreground">
                 This page marks an active product slot inside the JM Labs ecosystem, making space for the next release without breaking the parent-company structure.

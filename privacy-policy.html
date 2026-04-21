@@ -9,8 +9,31 @@
     />
     <link rel="icon" type="image/svg+xml" href="/jm-labs-icon-final.svg" />
     <title>Privacy Policy | JM Labs</title>
+    <script>
+      (() => {
+        try {
+          const savedTheme = window.localStorage.getItem("jm-labs-theme");
+          document.documentElement.dataset.theme = savedTheme === "dark" ? "dark" : "light";
+        } catch {
+          document.documentElement.dataset.theme = "light";
+        }
+      })();
+    </script>
+    <style>
+      :root { color-scheme: light; --boot-bg: radial-gradient(circle at top, rgba(183, 134, 95, 0.12), transparent 24%), radial-gradient(circle at 78% 10%, rgba(220, 194, 175, 0.4), transparent 28%), linear-gradient(180deg, #fcf8f4 0%, #f4ece4 100%); --boot-overlay: radial-gradient(circle at top, rgba(183, 134, 95, 0.16), transparent 24%), radial-gradient(circle at 75% 18%, rgba(220, 194, 175, 0.46), transparent 28%), linear-gradient(180deg, rgba(253, 249, 245, 0.98), rgba(245, 237, 228, 0.99)); --boot-shell-bg: linear-gradient(180deg, rgba(255, 251, 247, 0.92), rgba(246, 238, 229, 0.98)); --boot-shell-border: rgba(169, 137, 112, 0.22); --boot-shell-shadow: 0 24px 70px rgba(121, 92, 71, 0.14); --boot-chip-border: rgba(169, 137, 112, 0.18); --boot-chip-bg: rgba(255, 255, 255, 0.72); --boot-chip-text: #b7865f; --boot-spinner-border: rgba(169, 137, 112, 0.18); --boot-spinner-top: #b7865f; --boot-spinner-right: rgba(220, 194, 175, 0.92); --boot-spinner-core: rgba(255, 255, 255, 0.55); --boot-copy: #796658; }
+      html[data-theme="dark"] { color-scheme: dark; --boot-bg: radial-gradient(circle at top, rgba(94, 133, 208, 0.18), transparent 24%), radial-gradient(circle at 78% 10%, rgba(57, 88, 152, 0.34), transparent 28%), linear-gradient(180deg, #07111b 0%, #0a1624 100%); --boot-overlay: radial-gradient(circle at top, rgba(94, 133, 208, 0.22), transparent 24%), radial-gradient(circle at 75% 18%, rgba(57, 88, 152, 0.4), transparent 28%), linear-gradient(180deg, rgba(7, 15, 25, 0.98), rgba(9, 18, 29, 0.99)); --boot-shell-bg: linear-gradient(180deg, rgba(10, 19, 31, 0.94), rgba(14, 24, 38, 0.98)); --boot-shell-border: rgba(154, 181, 215, 0.16); --boot-shell-shadow: 0 24px 70px rgba(0, 0, 0, 0.3); --boot-chip-border: rgba(154, 181, 215, 0.14); --boot-chip-bg: rgba(14, 24, 38, 0.74); --boot-chip-text: #f0bb67; --boot-spinner-border: rgba(154, 181, 215, 0.16); --boot-spinner-top: #f0bb67; --boot-spinner-right: rgba(144, 174, 224, 0.72); --boot-spinner-core: rgba(255, 255, 255, 0.08); --boot-copy: #a4b6cd; }
+      html, body { margin: 0; min-height: 100%; background: var(--boot-bg); }
+      #boot-splash { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; background: var(--boot-overlay); transition: opacity 300ms ease; }
+      #boot-splash.boot-splash--hide { opacity: 0; pointer-events: none; }
+      .boot-shell { display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 36px 40px; border: 1px solid var(--boot-shell-border); border-radius: 32px; background: var(--boot-shell-bg); box-shadow: var(--boot-shell-shadow); backdrop-filter: blur(16px); }
+      .boot-chip { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 999px; border: 1px solid var(--boot-chip-border); background: var(--boot-chip-bg); color: var(--boot-chip-text); font: 600 11px/1 "Space Grotesk", sans-serif; letter-spacing: 0.32em; text-transform: uppercase; }
+      .boot-spinner { width: 68px; height: 68px; border-radius: 999px; border: 3px solid var(--boot-spinner-border); border-top-color: var(--boot-spinner-top); border-right-color: var(--boot-spinner-right); animation: boot-spin 1s linear infinite; box-shadow: inset 0 0 0 8px var(--boot-spinner-core); }
+      .boot-copy { max-width: 260px; color: var(--boot-copy); text-align: center; font: 500 14px/1.7 "Manrope", sans-serif; }
+      @keyframes boot-spin { to { transform: rotate(360deg); } }
+    </style>
   </head>
   <body>
+    <div id="boot-splash" aria-hidden="true"><div class="boot-shell"><div class="boot-chip">JM Labs loading</div><div class="boot-spinner"></div><div class="boot-copy">Preparing the JM Labs experience and loading the current product page.</div></div></div>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

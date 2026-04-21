@@ -34,15 +34,15 @@ export function AboutPage() {
             </p>
           </div>
 
-          <div className="relative overflow-hidden rounded-[36px] border border-white/10 bg-[linear-gradient(180deg,rgba(15,21,32,0.96),rgba(8,12,20,0.98))] p-4 shadow-[0_30px_90px_rgba(2,8,20,0.4)]">
+          <div className="image-shell relative overflow-hidden rounded-[36px] border border-border p-4">
             <img
               src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80"
               alt="JM Labs collaborative design and product planning"
               className="h-[420px] w-full rounded-[26px] object-cover"
             />
-            <div className="absolute inset-x-8 bottom-8 rounded-[28px] border border-white/10 bg-[rgba(8,12,20,0.76)] p-5 backdrop-blur-xl">
+            <div className="glass-card-strong absolute inset-x-8 bottom-8 rounded-[28px] border border-border p-5 backdrop-blur-xl">
               <p className="font-display text-xs uppercase tracking-[0.35em] text-primary/[0.7]">Company posture</p>
-              <p className="mt-3 text-lg text-white/90">
+              <p className="mt-3 text-lg text-foreground">
                 A parent-company site built to support live product detail, connected legal pages, and future JM Labs releases without another restructure.
               </p>
             </div>
@@ -73,7 +73,7 @@ export function AboutPage() {
       </section>
 
       <section className="px-4 md:px-6">
-        <div className="mx-auto grid max-w-7xl gap-6 rounded-[36px] border border-white/10 bg-[linear-gradient(180deg,rgba(14,20,31,0.92),rgba(8,12,20,0.98))] p-6 md:grid-cols-2 md:p-10">
+        <div className="surface-shell mx-auto grid max-w-7xl gap-6 rounded-[36px] border border-border p-6 md:grid-cols-2 md:p-10">
           <div className="space-y-5">
             <p className="eyebrow">Company structure</p>
             <h2 className="section-heading">JM Labs gives Bullion Master a company layer while keeping the product story specific.</h2>

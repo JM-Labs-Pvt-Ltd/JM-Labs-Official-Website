@@ -97,7 +97,7 @@ export function HomePage() {
   return (
     <div className="space-y-24 pb-20 pt-10 md:space-y-32 md:pt-16">
       <section className="px-4 md:px-6">
-        <div className="hero-shell mx-auto grid max-w-7xl items-center gap-10 overflow-hidden rounded-[40px] border border-white/10 px-6 py-10 md:grid-cols-[1.1fr,0.9fr] md:px-10 md:py-12">
+        <div className="hero-shell mx-auto grid max-w-7xl items-center gap-10 overflow-hidden rounded-[40px] border border-border px-6 py-10 md:grid-cols-[1.1fr,0.9fr] md:px-10 md:py-12">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -152,31 +152,31 @@ export function HomePage() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="relative"
           >
-            <div className="absolute inset-0 rounded-[34px] bg-[radial-gradient(circle_at_top,rgba(247,186,83,0.28),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(83,114,255,0.24),transparent_34%)] blur-2xl" />
-            <div className="relative overflow-hidden rounded-[34px] border border-white/10 bg-[linear-gradient(180deg,rgba(14,20,31,0.95),rgba(7,11,19,0.98))] p-4 shadow-[0_30px_90px_rgba(2,8,20,0.45)]">
+            <div className="image-glow absolute inset-0 rounded-[34px] blur-2xl" />
+            <div className="image-shell relative overflow-hidden rounded-[34px] border border-border p-4">
               <img
                 src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80"
                 alt="High-end hardware workstation"
                 className="h-[420px] w-full rounded-[26px] object-cover"
               />
-              <div className="absolute inset-x-8 bottom-8 rounded-[28px] border border-white/10 bg-[rgba(8,12,20,0.82)] p-5 backdrop-blur-xl">
+              <div className="glass-card-strong absolute inset-x-8 bottom-8 rounded-[28px] border border-border p-5 backdrop-blur-xl">
                 <p className="font-display text-xs uppercase tracking-[0.35em] text-primary/[0.75]">
                   Ecosystem snapshot
                 </p>
                 <div className="mt-4 grid gap-3 md:grid-cols-2">
-                  <div className="rounded-[20px] border border-white/10 bg-white/5 p-4">
+                  <div className="glass-card rounded-[20px] border border-border p-4">
                     <div className="flex items-center justify-between">
-                      <span className="text-sm text-white/[0.6]">Bullion Master</span>
-                      <BadgeCheck className="h-4 w-4 text-emerald-300" />
+                      <span className="text-sm text-muted-foreground">Bullion Master</span>
+                      <BadgeCheck className="h-4 w-4 text-primary" />
                     </div>
-                    <p className="mt-3 text-lg font-semibold text-white">Daily Ledger, Net Daily Position, and Reports Center live</p>
+                    <p className="mt-3 text-lg font-semibold text-foreground">Daily Ledger, Net Daily Position, and Reports Center live</p>
                   </div>
-                  <div className="rounded-[20px] border border-white/10 bg-white/5 p-4">
+                  <div className="glass-card rounded-[20px] border border-border p-4">
                     <div className="flex items-center justify-between">
-                      <span className="text-sm text-white/[0.6]">Product in development</span>
+                      <span className="text-sm text-muted-foreground">Product in development</span>
                       <Coins className="h-4 w-4 text-primary" />
                     </div>
-                    <p className="mt-3 text-lg font-semibold text-white">Dedicated JM Labs launch slot already prepared</p>
+                    <p className="mt-3 text-lg font-semibold text-foreground">Dedicated JM Labs launch slot already prepared</p>
                   </div>
                 </div>
               </div>
@@ -219,14 +219,12 @@ export function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.55, delay: index * 0.08 }}
-                className="group overflow-hidden rounded-[32px] border border-white/10 bg-[linear-gradient(180deg,rgba(16,23,35,0.94),rgba(7,11,19,0.98))] shadow-[0_26px_70px_rgba(2,8,20,0.28)]"
+                className="surface-shell group overflow-hidden rounded-[32px] border border-border"
               >
                 <div
                   className={cn(
                     "relative h-72 overflow-hidden",
-                    product.imageFit === "contain"
-                      ? "bg-[radial-gradient(circle_at_top,rgba(247,186,83,0.14),transparent_30%),linear-gradient(180deg,rgba(10,16,26,0.98),rgba(7,11,19,1))]"
-                      : ""
+                    product.imageFit === "contain" ? "product-stage" : ""
                   )}
                 >
                   <img
@@ -239,8 +237,8 @@ export function HomePage() {
                         : "object-cover group-hover:scale-105"
                     )}
                   />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(6,10,18,0.78))]" />
-                  <span className="absolute left-6 top-6 rounded-full border border-white/15 bg-black/20 px-3 py-1 text-[0.65rem] uppercase tracking-[0.28em] text-white/[0.8] backdrop-blur">
+                  <div className="image-fade absolute inset-0" />
+                  <span className="soft-pill absolute left-6 top-6 rounded-full border border-border px-3 py-1 text-[0.65rem] uppercase tracking-[0.28em] text-foreground/75 backdrop-blur">
                     {product.status}
                   </span>
                 </div>
@@ -272,7 +270,7 @@ export function HomePage() {
       </section>
 
       <section className="px-4 md:px-6">
-        <div className="mx-auto grid max-w-7xl gap-6 rounded-[36px] border border-white/10 bg-[linear-gradient(180deg,rgba(14,20,31,0.92),rgba(8,12,20,0.98))] p-6 md:grid-cols-[0.95fr,1.05fr] md:p-10">
+        <div className="surface-shell mx-auto grid max-w-7xl gap-6 rounded-[36px] border border-border p-6 md:grid-cols-[0.95fr,1.05fr] md:p-10">
           <div className="space-y-5">
             <p className="eyebrow">Built for growth</p>
             <h2 className="section-heading">The site now supports Bullion Master deeply and still leaves clean space for the next JM Labs product.</h2>

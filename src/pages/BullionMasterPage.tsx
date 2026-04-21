@@ -63,8 +63,8 @@ export function BullionMasterPage() {
             transition={{ duration: 0.75 }}
             className="relative"
           >
-            <div className="absolute inset-0 rounded-[38px] bg-[radial-gradient(circle_at_top,rgba(247,186,83,0.3),transparent_32%),radial-gradient(circle_at_bottom,rgba(58,112,255,0.2),transparent_36%)] blur-2xl" />
-            <div className="relative overflow-hidden rounded-[38px] border border-white/10 bg-[linear-gradient(180deg,rgba(15,20,31,0.95),rgba(8,12,20,0.98))] p-5 shadow-[0_30px_90px_rgba(2,8,20,0.45)]">
+            <div className="image-glow absolute inset-0 rounded-[38px] blur-2xl" />
+            <div className="image-shell relative overflow-hidden rounded-[38px] border border-border p-5">
               <img
                 src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80"
                 alt="Bullion Master product dashboard inspiration"
@@ -72,8 +72,8 @@ export function BullionMasterPage() {
               />
               <div className="absolute inset-x-10 bottom-10 grid gap-3 md:grid-cols-3">
                 {highlights.map((highlight) => (
-                  <div key={highlight} className="rounded-[20px] border border-white/10 bg-[rgba(8,12,20,0.76)] p-4 backdrop-blur-xl">
-                    <p className="text-sm text-white/[0.8]">{highlight}</p>
+                  <div key={highlight} className="glass-card-strong rounded-[20px] border border-border p-4 backdrop-blur-xl">
+                    <p className="text-sm text-foreground/85">{highlight}</p>
                   </div>
                 ))}
               </div>

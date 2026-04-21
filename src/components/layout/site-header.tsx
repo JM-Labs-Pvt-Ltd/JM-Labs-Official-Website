@@ -1,4 +1,4 @@
-import { Menu, Sparkles, X } from "lucide-react";
+import { Menu, MoonStar, Sparkles, SunMedium, X } from "lucide-react";
 import { useState } from "react";
 
 import { buttonVariants } from "@/components/ui/button";
@@ -6,6 +6,8 @@ import { cn } from "@/lib/utils";
 
 type HeaderProps = {
   currentPage: string;
+  theme: "light" | "dark";
+  onToggleTheme: () => void;
 };
 
 const navItems = [
@@ -16,14 +18,15 @@ const navItems = [
   { label: "Terms", href: "./terms-and-conditions.html", key: "terms" },
 ];
 
-export function SiteHeader({ currentPage }: HeaderProps) {
+export function SiteHeader({ currentPage, theme, onToggleTheme }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const isDark = theme === "dark";
 
   return (
     <header className="sticky top-4 z-50 px-4 md:px-6">
-      <div className="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-white/10 bg-[rgba(9,14,23,0.72)] px-4 py-3 shadow-[0_22px_70px_rgba(2,8,20,0.35)] backdrop-blur-xl md:px-6">
+      <div className="chrome-shell mx-auto flex max-w-7xl items-center justify-between rounded-full border border-border px-4 py-3 backdrop-blur-xl md:px-6">
         <a className="flex items-center gap-3" href="./index.html">
-          <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5">
+          <span className="soft-pill inline-flex h-11 w-11 items-center justify-center rounded-full border border-border">
             <img
               src="./jm-labs-icon-final.svg"
               alt="JM Labs"
@@ -50,7 +53,7 @@ export function SiteHeader({ currentPage }: HeaderProps) {
                 className={cn(
                   buttonVariants({ variant: "ghost", size: "sm" }),
                   "rounded-full px-4",
-                  active && "bg-white/10 text-foreground"
+                  active && "bg-muted/80 text-foreground"
                 )}
               >
                 {item.label}
@@ -60,6 +63,16 @@ export function SiteHeader({ currentPage }: HeaderProps) {
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
+          <button
+            className={buttonVariants({ variant: "secondary", size: "sm" })}
+            onClick={onToggleTheme}
+            type="button"
+            aria-pressed={isDark}
+            aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
+          >
+            {isDark ? <SunMedium className="h-4 w-4" /> : <MoonStar className="h-4 w-4" />}
+            {isDark ? "Light mode" : "Dark mode"}
+          </button>
           <a className={buttonVariants({ variant: "secondary", size: "sm" })} href="./bullion-master.html">
             View flagship
           </a>
@@ -81,7 +94,7 @@ export function SiteHeader({ currentPage }: HeaderProps) {
       </div>
 
       {isOpen ? (
-        <div className="mx-auto mt-3 max-w-7xl rounded-[28px] border border-white/10 bg-[rgba(9,14,23,0.92)] p-4 shadow-[0_22px_70px_rgba(2,8,20,0.35)] backdrop-blur-xl md:hidden">
+        <div className="chrome-shell mx-auto mt-3 max-w-7xl rounded-[28px] border border-border p-4 backdrop-blur-xl md:hidden">
           <nav className="grid gap-2">
             {navItems.map((item) => (
               <a
@@ -92,6 +105,15 @@ export function SiteHeader({ currentPage }: HeaderProps) {
                 {item.label}
               </a>
             ))}
+            <button
+              className={cn(buttonVariants({ variant: "secondary" }), "justify-start")}
+              onClick={onToggleTheme}
+              type="button"
+              aria-pressed={isDark}
+            >
+              {isDark ? <SunMedium className="h-4 w-4" /> : <MoonStar className="h-4 w-4" />}
+              {isDark ? "Light mode" : "Dark mode"}
+            </button>
             <a className={buttonVariants({ variant: "secondary" })} href="./bullion-master.html">
               View flagship
             </a>
