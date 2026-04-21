@@ -1,19 +1,19 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap");
 @import "tailwindcss";
 
 :root {
   color-scheme: light;
-  --background: #f8f4ef;
-  --foreground: #180f06;
-  --card: rgba(255, 251, 245, 0.9);
-  --card-foreground: #180f06;
-  --muted: rgba(168, 130, 85, 0.1);
-  --muted-foreground: #7a6040;
-  --border: rgba(160, 116, 58, 0.2);
-  --primary: #8b5e1a;
-  --primary-foreground: #fdf7ee;
-  --secondary: #c29560;
-  --secondary-foreground: #180f06;
+  --background: #fafaf9;
+  --foreground: #0c0a09;
+  --card: rgba(255, 255, 255, 0.97);
+  --card-foreground: #0c0a09;
+  --muted: rgba(120, 113, 108, 0.08);
+  --muted-foreground: #57534e;
+  --border: rgba(120, 90, 40, 0.15);
+  --primary: #b45309;
+  --primary-foreground: #fffbf5;
+  --secondary: #78716c;
+  --secondary-foreground: #fafaf9;
   --radius: 1.5rem;
   --app-background:
     radial-gradient(ellipse at 18% 0%, rgba(139, 94, 26, 0.1) 0%, transparent 40%),
@@ -111,115 +111,113 @@
 
 html[data-theme="dark"] {
   color-scheme: dark;
-  --background: #060810;
-  --foreground: #ede8e2;
-  --card: rgba(10, 13, 22, 0.9);
-  --card-foreground: #ede8e2;
-  --muted: rgba(130, 160, 200, 0.12);
-  --muted-foreground: #8a9fb8;
-  --border: rgba(212, 168, 67, 0.18);
-  --primary: #d4a843;
-  --primary-foreground: #060810;
-  --secondary: #6b9bd2;
-  --secondary-foreground: #060810;
+  --background: #09090b;
+  --foreground: #fafaf9;
+  --card: rgba(18, 16, 13, 0.95);
+  --card-foreground: #fafaf9;
+  --muted: rgba(120, 113, 108, 0.12);
+  --muted-foreground: #a8a29e;
+  --border: rgba(245, 158, 11, 0.14);
+  --primary: #f59e0b;
+  --primary-foreground: #09090b;
+  --secondary: #78716c;
+  --secondary-foreground: #fafaf9;
   --app-background:
-    radial-gradient(ellipse at 14% 0%, rgba(212, 168, 67, 0.14) 0%, transparent 44%),
-    radial-gradient(ellipse at 86% 5%, rgba(107, 155, 210, 0.14) 0%, transparent 40%),
-    radial-gradient(ellipse at 50% 100%, rgba(60, 90, 150, 0.08) 0%, transparent 44%),
-    linear-gradient(180deg, #060810 0%, #07090f 100%);
+    radial-gradient(ellipse at 20% 0%, rgba(245, 158, 11, 0.06) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 5%, rgba(245, 158, 11, 0.04) 0%, transparent 45%),
+    linear-gradient(180deg, #09090b 0%, #0a0a0d 100%);
   --app-overlay-background:
-    radial-gradient(circle at top, rgba(94, 133, 208, 0.22), transparent 24%),
-    radial-gradient(circle at 76% 18%, rgba(57, 88, 152, 0.4), transparent 30%),
-    linear-gradient(180deg, rgba(7, 15, 25, 0.98), rgba(9, 18, 29, 0.99));
-  --shell-background: linear-gradient(180deg, rgba(10, 19, 31, 0.86), rgba(13, 24, 38, 0.94));
-  --shell-background-strong: linear-gradient(180deg, rgba(10, 19, 31, 0.94), rgba(14, 24, 38, 0.98));
+    radial-gradient(circle at top, rgba(245, 158, 11, 0.08), transparent 30%),
+    radial-gradient(circle at 75% 15%, rgba(245, 158, 11, 0.04), transparent 35%),
+    linear-gradient(180deg, rgba(9, 9, 11, 0.98), rgba(10, 10, 13, 0.99));
+  --shell-background: linear-gradient(180deg, rgba(18, 16, 13, 0.88), rgba(14, 13, 11, 0.94));
+  --shell-background-strong: linear-gradient(180deg, rgba(20, 18, 14, 0.94), rgba(16, 14, 11, 0.98));
   --footer-background:
-    radial-gradient(circle at top left, rgba(94, 133, 208, 0.16), transparent 24%),
-    radial-gradient(circle at bottom right, rgba(57, 88, 152, 0.26), transparent 26%),
-    linear-gradient(180deg, rgba(10, 19, 31, 0.92), rgba(13, 23, 36, 0.98));
-  --panel-background: rgba(10, 19, 31, 0.9);
-  --panel-shadow: 0 20px 60px rgba(1, 6, 12, 0.34);
-  --shell-shadow: 0 18px 56px rgba(1, 6, 12, 0.34);
+    radial-gradient(circle at top left, rgba(245, 158, 11, 0.06), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(245, 158, 11, 0.04), transparent 30%),
+    linear-gradient(180deg, rgba(16, 14, 11, 0.92), rgba(12, 11, 9, 0.98));
+  --panel-background: rgba(16, 14, 11, 0.92);
+  --panel-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  --shell-shadow: 0 18px 56px rgba(0, 0, 0, 0.46);
   --hero-shell-background:
-    radial-gradient(ellipse at 12% 0%, rgba(212, 168, 67, 0.2) 0%, transparent 38%),
-    radial-gradient(ellipse at 88% 8%, rgba(107, 155, 210, 0.16) 0%, transparent 40%),
-    radial-gradient(ellipse at 50% 100%, rgba(60, 90, 150, 0.1) 0%, transparent 42%),
-    linear-gradient(160deg, rgba(12, 16, 26, 0.97) 0%, rgba(8, 11, 20, 0.98) 100%);
+    radial-gradient(ellipse at 0% 0%, rgba(245, 158, 11, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 100% 100%, rgba(245, 158, 11, 0.05) 0%, transparent 50%),
+    linear-gradient(135deg, rgba(18, 16, 12, 0.98) 0%, rgba(12, 11, 9, 0.99) 100%);
   --cta-panel-background:
-    radial-gradient(circle at top left, rgba(94, 133, 208, 0.18), transparent 24%),
-    radial-gradient(circle at bottom right, rgba(57, 88, 152, 0.28), transparent 24%),
-    linear-gradient(180deg, rgba(10, 18, 30, 0.94), rgba(13, 22, 35, 0.98));
-  --eyebrow-background: rgba(14, 18, 30, 0.8);
-  --eyebrow-border: rgba(212, 168, 67, 0.22);
-  --glass-background: rgba(12, 22, 36, 0.68);
-  --glass-background-strong: rgba(9, 19, 31, 0.78);
-  --pill-background: rgba(14, 24, 38, 0.76);
-  --image-shell-background: linear-gradient(180deg, rgba(10, 19, 31, 0.88), rgba(13, 23, 36, 0.98));
+    radial-gradient(circle at top left, rgba(245, 158, 11, 0.08), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(245, 158, 11, 0.05), transparent 28%),
+    linear-gradient(180deg, rgba(18, 15, 11, 0.94), rgba(13, 11, 9, 0.98));
+  --eyebrow-background: rgba(245, 158, 11, 0.08);
+  --eyebrow-border: rgba(245, 158, 11, 0.22);
+  --glass-background: rgba(20, 18, 14, 0.72);
+  --glass-background-strong: rgba(22, 20, 15, 0.82);
+  --pill-background: rgba(24, 21, 16, 0.78);
+  --image-shell-background: linear-gradient(180deg, rgba(18, 16, 12, 0.88), rgba(13, 11, 9, 0.98));
   --image-glow-background:
-    radial-gradient(circle at top, rgba(94, 133, 208, 0.26), transparent 32%),
-    radial-gradient(circle at bottom right, rgba(57, 88, 152, 0.34), transparent 34%);
-  --image-fade-background: linear-gradient(180deg, transparent, rgba(8, 16, 26, 0.76));
+    radial-gradient(circle at top, rgba(245, 158, 11, 0.16), transparent 36%),
+    radial-gradient(circle at bottom right, rgba(245, 158, 11, 0.08), transparent 38%);
+  --image-fade-background: linear-gradient(180deg, transparent, rgba(9, 9, 11, 0.8));
   --product-stage-background:
-    radial-gradient(circle at top, rgba(94, 133, 208, 0.18), transparent 30%),
-    linear-gradient(180deg, rgba(10, 19, 31, 0.94), rgba(13, 23, 36, 1));
-  --section-shell-background: linear-gradient(180deg, rgba(10, 19, 31, 0.9), rgba(13, 23, 36, 0.98));
+    radial-gradient(circle at top, rgba(245, 158, 11, 0.08), transparent 34%),
+    linear-gradient(180deg, rgba(16, 14, 11, 0.94), rgba(12, 11, 9, 1));
+  --section-shell-background: linear-gradient(180deg, rgba(16, 14, 11, 0.9), rgba(12, 11, 9, 0.98));
   --architecture-background:
-    radial-gradient(circle at top, rgba(94, 133, 208, 0.18), transparent 28%),
-    radial-gradient(circle at bottom left, rgba(57, 88, 152, 0.28), transparent 28%),
-    linear-gradient(180deg, #07111b, #0b1625);
-  --architecture-card-background: rgba(14, 24, 38, 0.72);
-  --architecture-flow-background: linear-gradient(180deg, rgba(11, 20, 33, 0.82), rgba(13, 23, 36, 0.94));
-  --architecture-side-background: linear-gradient(180deg, rgba(10, 19, 31, 0.96), rgba(13, 22, 35, 0.98));
-  --architecture-side-alt-background: linear-gradient(180deg, rgba(11, 20, 32, 0.92), rgba(13, 23, 36, 0.98));
-  --security-shell-background: linear-gradient(180deg, rgba(10, 19, 31, 0.86), rgba(13, 23, 36, 0.98));
+    radial-gradient(circle at top, rgba(245, 158, 11, 0.08), transparent 32%),
+    radial-gradient(circle at bottom left, rgba(245, 158, 11, 0.05), transparent 32%),
+    linear-gradient(180deg, #0e0c0a, #0b0a08);
+  --architecture-card-background: rgba(20, 18, 14, 0.78);
+  --architecture-flow-background: linear-gradient(180deg, rgba(16, 14, 11, 0.84), rgba(13, 11, 9, 0.96));
+  --architecture-side-background: linear-gradient(180deg, rgba(18, 16, 12, 0.96), rgba(14, 12, 10, 0.98));
+  --architecture-side-alt-background: linear-gradient(180deg, rgba(17, 15, 11, 0.92), rgba(13, 11, 9, 0.98));
+  --security-shell-background: linear-gradient(180deg, rgba(16, 14, 11, 0.88), rgba(12, 11, 9, 0.98));
   --security-canvas-background:
-    radial-gradient(circle at top, rgba(94, 133, 208, 0.2), transparent 30%),
-    radial-gradient(circle at bottom left, rgba(57, 88, 152, 0.28), transparent 30%),
-    linear-gradient(180deg, rgba(10, 19, 31, 0.96), rgba(13, 23, 36, 1));
-  --scroll-card-background: rgba(12, 22, 36, 0.72);
-  --scroll-card-canvas: linear-gradient(180deg, rgba(10, 19, 31, 0.96), rgba(13, 23, 36, 1));
-  --scroll-card-shadow: 0 10px 24px rgba(0, 0, 0, 0.28), 0 28px 60px rgba(0, 0, 0, 0.34);
-  --button-primary-shadow: 0 14px 32px rgba(240, 187, 103, 0.2);
-  --button-secondary-bg: rgba(14, 24, 38, 0.8);
-  --button-secondary-hover: rgba(18, 30, 46, 0.94);
-  --bento-background: rgba(10, 13, 24, 0.92);
-  --bento-shadow: 0 12px 30px rgba(0, 0, 0, 0.32);
-  --bento-dot: rgba(212, 168, 67, 0.07);
-  --bento-border-glow: rgba(212, 168, 67, 0.18);
-  --spinner-outer-border: rgba(154, 181, 215, 0.14);
+    radial-gradient(circle at top, rgba(245, 158, 11, 0.09), transparent 34%),
+    radial-gradient(circle at bottom left, rgba(245, 158, 11, 0.05), transparent 34%),
+    linear-gradient(180deg, rgba(16, 14, 11, 0.96), rgba(12, 11, 9, 1));
+  --scroll-card-background: rgba(18, 16, 13, 0.76);
+  --scroll-card-canvas: linear-gradient(180deg, rgba(16, 14, 11, 0.96), rgba(12, 11, 9, 1));
+  --scroll-card-shadow: 0 10px 24px rgba(0, 0, 0, 0.4), 0 28px 60px rgba(0, 0, 0, 0.5);
+  --button-primary-shadow: 0 14px 32px rgba(245, 158, 11, 0.22);
+  --button-secondary-bg: rgba(22, 20, 15, 0.82);
+  --button-secondary-hover: rgba(28, 25, 19, 0.94);
+  --bento-background: rgba(16, 14, 11, 0.95);
+  --bento-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  --bento-dot: rgba(245, 158, 11, 0.05);
+  --bento-border-glow: rgba(245, 158, 11, 0.18);
+  --spinner-outer-border: rgba(245, 158, 11, 0.12);
   --spinner-outer-bg:
-    radial-gradient(circle at 32% 30%, rgba(255, 255, 255, 0.08), transparent 28%),
-    linear-gradient(145deg, rgba(16, 27, 42, 0.94), rgba(10, 19, 31, 0.9));
+    radial-gradient(circle at 32% 30%, rgba(255, 255, 255, 0.06), transparent 28%),
+    linear-gradient(145deg, rgba(22, 19, 14, 0.94), rgba(16, 14, 11, 0.9));
   --spinner-outer-shadow:
     inset 0 0.2em 0.35em rgba(255, 255, 255, 0.04),
-    inset 0 -0.35em 0.7em rgba(94, 133, 208, 0.08),
-    0 1.4em 3em rgba(0, 0, 0, 0.22);
-  --spinner-inner-border: rgba(154, 181, 215, 0.16);
+    inset 0 -0.35em 0.7em rgba(245, 158, 11, 0.06),
+    0 1.4em 3em rgba(0, 0, 0, 0.3);
+  --spinner-inner-border: rgba(245, 158, 11, 0.14);
   --spinner-inner-bg:
-    radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.06), transparent 56%),
-    linear-gradient(180deg, rgba(14, 24, 38, 0.95), rgba(10, 19, 31, 0.92));
+    radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.05), transparent 56%),
+    linear-gradient(180deg, rgba(20, 18, 14, 0.95), rgba(15, 13, 10, 0.92));
   --spinner-inner-shadow:
-    inset 0 0.2em 0.4em rgba(255, 255, 255, 0.04),
-    inset 0 -0.4em 0.9em rgba(94, 133, 208, 0.06);
-  --spinner-track-top: rgba(212, 168, 67, 0.76);
-  --spinner-track-right: rgba(107, 155, 210, 0.58);
+    inset 0 0.2em 0.4em rgba(255, 255, 255, 0.03),
+    inset 0 -0.4em 0.9em rgba(245, 158, 11, 0.05);
+  --spinner-track-top: rgba(245, 158, 11, 0.8);
+  --spinner-track-right: rgba(245, 158, 11, 0.4);
   --spinner-ball-fill:
-    radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.78), transparent 28%),
-    radial-gradient(circle at 65% 70%, rgba(144, 174, 224, 0.35), transparent 40%),
-    linear-gradient(180deg, rgba(244, 248, 255, 0.98), rgba(214, 226, 245, 0.92));
+    radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.88), transparent 28%),
+    radial-gradient(circle at 65% 70%, rgba(245, 158, 11, 0.2), transparent 40%),
+    linear-gradient(180deg, rgba(255, 252, 240, 0.98), rgba(240, 220, 180, 0.92));
   --spinner-ball-shadow:
-    0 0.4em 0.8em rgba(0, 0, 0, 0.28),
-    inset 0 -0.18em 0.3em rgba(94, 133, 208, 0.18);
+    0 0.4em 0.8em rgba(0, 0, 0, 0.36),
+    inset 0 -0.18em 0.3em rgba(245, 158, 11, 0.14);
   --spinner-ball-outer: inset 0.3em 0 0.35em rgba(255, 255, 255, 0.3);
-  --spinner-ball-inner: linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(57, 88, 152, 0.18));
+  --spinner-ball-inner: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(184, 113, 10, 0.14));
   --spinner-ball-sides:
-    inset 0.35em 0 0.45em rgba(255, 255, 255, 0.24),
-    inset -0.35em 0 0.45em rgba(57, 88, 152, 0.16);
+    inset 0.35em 0 0.45em rgba(255, 255, 255, 0.22),
+    inset -0.35em 0 0.45em rgba(184, 113, 10, 0.12);
 }
 
 @theme inline {
-  --font-sans: "DM Sans", sans-serif;
-  --font-display: "Cormorant Garamond", serif;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --font-display: "Playfair Display", serif;
   --font-mono: "DM Mono", monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -481,10 +479,10 @@ a {
 
 @layer components {
   .panel {
-    @apply rounded-[30px] border border-border p-6 backdrop-blur-xl;
+    @apply rounded-2xl border border-border p-6;
     background: var(--panel-background);
     box-shadow: var(--panel-shadow);
-    transition: background 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
+    transition: background 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
   }
 
   .hero-shell {
@@ -501,20 +499,21 @@ a {
   }
 
   .eyebrow {
-    @apply inline-flex items-center gap-2 rounded-full border px-4 py-2 font-display text-[0.68rem] uppercase tracking-[0.32em] text-primary/90;
+    @apply inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-primary;
+    font-family: var(--font-mono, monospace);
     border-color: var(--eyebrow-border);
     background: var(--eyebrow-background);
-    transition: background 260ms ease, border-color 260ms ease, color 260ms ease;
+    transition: background 200ms ease, border-color 200ms ease, color 200ms ease;
   }
 
   .hero-title {
-    @apply font-display text-5xl leading-[1.0] tracking-[-0.02em] text-foreground md:text-7xl;
-    font-weight: 600;
+    @apply font-display text-5xl leading-[1.05] tracking-tight text-foreground md:text-[4.5rem] lg:text-[5.5rem];
+    font-weight: 700;
   }
 
   .section-heading {
-    @apply font-display text-3xl leading-tight tracking-[-0.02em] text-foreground md:text-5xl;
-    font-weight: 600;
+    @apply font-display text-3xl leading-[1.15] tracking-tight text-foreground md:text-5xl;
+    font-weight: 700;
   }
 
   .app-background {
@@ -636,10 +635,22 @@ a {
   /* ── New premium utilities ── */
 
   .gradient-text {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, color-mix(in srgb, var(--primary) 60%, #fcd34d) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  .feature-card {
+    @apply rounded-2xl border border-border p-6 cursor-pointer;
+    background: var(--panel-background);
+    transition: border-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+  }
+
+  .feature-card:hover {
+    border-color: color-mix(in srgb, var(--primary) 40%, transparent);
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px color-mix(in srgb, var(--primary) 8%, transparent);
   }
 
   .data-badge {
@@ -663,13 +674,10 @@ a {
     animation: pulse-ring 2.2s ease-out infinite;
   }
 
-  .floating {
-    animation: float-card 4.5s ease-in-out infinite;
-  }
-
+  /* floating removed — decorative infinite animation distracts per UX guideline */
+  .floating,
   .floating-alt {
-    animation: float-card 4.5s ease-in-out infinite;
-    animation-delay: 0.8s;
+    /* intentionally static — use hover states for interactivity instead */
   }
 
   .ticker-track {

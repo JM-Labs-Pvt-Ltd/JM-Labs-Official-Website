@@ -15,8 +15,16 @@ export function UpcomingProductPage() {
     <div className="space-y-20 pb-20 pt-10 md:space-y-28 md:pt-16">
 
       {/* ─── Hero ─── */}
-      <section className="px-4 md:px-6">
-        <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-[1fr,0.9fr] md:items-center">
+      <section className="hero-shell relative overflow-hidden px-4 py-14 md:px-6 md:py-20">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-20 -top-16 h-[420px] w-[420px] rounded-full opacity-20"
+          style={{
+            background: "radial-gradient(circle, var(--primary) 0%, transparent 70%)",
+            filter: "blur(72px)",
+          }}
+        />
+        <div className="relative mx-auto grid max-w-7xl gap-8 md:grid-cols-[1fr,0.9fr] md:items-center">
           <div className="space-y-6">
             <p className="eyebrow">Product in development</p>
             <h1 className="hero-title">
@@ -50,7 +58,7 @@ export function UpcomingProductPage() {
               alt="Upcoming product planning"
               className="h-[420px] w-full rounded-[28px] object-cover"
             />
-            <div className="glass-card-strong absolute inset-x-8 bottom-8 rounded-[28px] border border-border p-5 backdrop-blur-xl">
+            <div className="glass-card-strong absolute inset-x-6 bottom-6 rounded-2xl border border-border/60 p-5 backdrop-blur-xl">
               <div className="flex items-center gap-3">
                 <Rocket className="h-5 w-5 text-primary" />
                 <p className="font-display text-xl text-foreground" style={{ fontWeight: 600 }}>
@@ -99,7 +107,7 @@ export function UpcomingProductPage() {
 
       {/* ─── CTA ─── */}
       <section className="px-4 md:px-6">
-        <div className="cta-panel mx-auto max-w-7xl rounded-[36px] px-6 py-10 md:px-10 md:py-14">
+        <div className="cta-panel mx-auto max-w-7xl rounded-2xl px-6 py-10 md:px-10 md:py-14">
           <div className="grid gap-5 md:grid-cols-[1.1fr,0.9fr] md:items-center">
             <div className="space-y-5">
               <p className="eyebrow">Ready for launch</p>

@@ -16,7 +16,7 @@ export function SiteFooter() {
         />
       </div>
 
-      <div className="footer-shell mx-auto grid max-w-7xl gap-8 rounded-[32px] border border-border p-8 md:grid-cols-2 md:p-10 lg:grid-cols-12 lg:gap-10">
+      <div className="footer-shell mx-auto grid max-w-7xl gap-8 rounded-2xl border border-border p-8 md:grid-cols-2 md:p-10 lg:grid-cols-12 lg:gap-10">
         {/* Brand column */}
         <div className="space-y-5 md:col-span-2 lg:col-span-5">
           <div className="flex items-center gap-3">

@@ -89,8 +89,17 @@ export function BullionMasterPage() {
     <div className="space-y-20 pb-20 pt-10 md:space-y-28 md:pt-16">
 
       {/* ─── Hero ─── */}
-      <section className="px-4 md:px-6">
-        <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-[1fr,0.92fr] md:items-center">
+      <section className="hero-shell relative overflow-hidden px-4 py-14 md:px-6 md:py-20">
+        {/* Ambient glow */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-24 -top-24 h-[480px] w-[480px] rounded-full opacity-25"
+          style={{
+            background: "radial-gradient(circle, var(--primary) 0%, transparent 70%)",
+            filter: "blur(80px)",
+          }}
+        />
+        <div className="relative mx-auto grid max-w-7xl gap-8 md:grid-cols-[1fr,0.92fr] md:items-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -148,17 +157,17 @@ export function BullionMasterPage() {
             transition={{ duration: 0.75 }}
             className="relative"
           >
-            <div className="image-glow absolute inset-0 rounded-[38px] blur-2xl" />
-            <div className="image-shell relative overflow-hidden rounded-[38px] border border-border p-5">
+            <div className="image-glow absolute inset-0 rounded-2xl blur-2xl" />
+            <div className="image-shell relative overflow-hidden rounded-2xl border border-border p-4">
               <img
                 src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80"
                 alt="Bullion Master product dashboard inspiration"
-                className="h-[420px] w-full rounded-[28px] object-cover"
+                className="h-[400px] w-full rounded-xl object-cover"
               />
-              <div className="absolute inset-x-10 bottom-10 grid gap-3 md:grid-cols-3">
+              <div className="absolute inset-x-6 bottom-6 grid gap-2.5 md:grid-cols-3">
                 {highlights.map((highlight) => (
-                  <div key={highlight} className="glass-card-strong rounded-[20px] border border-border p-4 backdrop-blur-xl">
-                    <p className="text-sm text-foreground/85">{highlight}</p>
+                  <div key={highlight} className="glass-card-strong rounded-2xl border border-border/60 p-4 backdrop-blur-xl">
+                    <p className="text-xs leading-6 text-foreground/85">{highlight}</p>
                   </div>
                 ))}
               </div>
