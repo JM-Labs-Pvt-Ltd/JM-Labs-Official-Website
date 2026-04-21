@@ -133,7 +133,7 @@ export function SiteHeader({ currentPage, theme, onToggleTheme }: HeaderProps) {
 
       {/* Mobile menu panel */}
       {isOpen ? (
-        <div className="chrome-shell mx-auto mt-2 max-w-7xl rounded-[28px] border border-border p-4 backdrop-blur-xl md:hidden">
+        <div className="chrome-shell mx-auto mt-2 max-w-7xl rounded-2xl border border-border p-4 backdrop-blur-xl md:hidden">
           <nav className="grid gap-2">
             {navItems.map((item) => (
               <a

@@ -33,8 +33,16 @@ export function AboutPage() {
     <div className="space-y-20 pb-20 pt-10 md:space-y-28 md:pt-16">
 
       {/* ─── Hero ─── */}
-      <section className="px-4 md:px-6">
-        <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-[1.05fr,0.95fr] md:items-center">
+      <section className="hero-shell relative overflow-hidden px-4 py-14 md:px-6 md:py-20">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-20 -top-16 h-[400px] w-[400px] rounded-full opacity-20"
+          style={{
+            background: "radial-gradient(circle, var(--primary) 0%, transparent 70%)",
+            filter: "blur(72px)",
+          }}
+        />
+        <div className="relative mx-auto grid max-w-7xl gap-8 md:grid-cols-[1.05fr,0.95fr] md:items-center">
           <div className="space-y-6">
             <p className="eyebrow">About the parent company</p>
             <h1 className="hero-title">
@@ -48,13 +56,13 @@ export function AboutPage() {
             </p>
           </div>
 
-          <div className="image-shell relative overflow-hidden rounded-[36px] border border-border p-4">
+          <div className="image-shell relative overflow-hidden rounded-2xl border border-border p-4">
             <img
               src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80"
               alt="JM Labs collaborative design and product planning"
-              className="h-[420px] w-full rounded-[26px] object-cover"
+              className="h-[420px] w-full rounded-xl object-cover"
             />
-            <div className="glass-card-strong absolute inset-x-8 bottom-8 rounded-[28px] border border-border p-5 backdrop-blur-xl">
+            <div className="glass-card-strong absolute inset-x-6 bottom-6 rounded-2xl border border-border/60 p-5 backdrop-blur-xl">
               <p
                 className="text-primary/70"
                 style={{
@@ -132,7 +140,7 @@ export function AboutPage() {
 
       {/* ─── Company structure ─── */}
       <section className="px-4 md:px-6">
-        <div className="surface-shell mx-auto grid max-w-7xl gap-6 rounded-[36px] border border-border p-6 md:grid-cols-2 md:p-10">
+        <div className="surface-shell mx-auto grid max-w-7xl gap-6 rounded-2xl border border-border p-6 md:grid-cols-2 md:p-10">
           <div className="space-y-5">
             <p className="eyebrow">Company structure</p>
             <h2 className="section-heading">
