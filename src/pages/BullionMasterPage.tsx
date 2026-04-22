@@ -192,11 +192,11 @@ export function BullionMasterPage() {
           {/* Phone screenshot grid */}
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
             {[
-              { src: "/screenshots/daily-ledger.jpg",    label: "Daily Ledger",       desc: "Party-wise trades, BUY/SELL filters, and new entry in one screen" },
-              { src: "/screenshots/net-position.jpg",    label: "Net Daily Position",  desc: "Long/short position across items with date-range control" },
-              { src: "/screenshots/master-ledger.jpg",   label: "Master Ledger",       desc: "Full ledger and pending trades tab — party balances at a glance" },
-              { src: "/screenshots/reports.jpg",         label: "Reports Center",      desc: "15+ executive reports from day book to GST and refinery performance" },
-              { src: "/screenshots/staff-management.jpg",label: "Staff Management",    desc: "Pay cycle, salary, leave, and payment history per staff member" },
+              { src: "./screenshots/daily-ledger.jpg",    label: "Daily Ledger",       desc: "Party-wise trades, BUY/SELL filters, and new entry in one screen" },
+              { src: "./screenshots/net-position.jpg",    label: "Net Daily Position",  desc: "Long/short position across items with date-range control" },
+              { src: "./screenshots/master-ledger.jpg",   label: "Master Ledger",       desc: "Full ledger and pending trades tab — party balances at a glance" },
+              { src: "./screenshots/reports.jpg",         label: "Reports Center",      desc: "15+ executive reports from day book to GST and refinery performance" },
+              { src: "./screenshots/staff-management.jpg",label: "Staff Management",    desc: "Pay cycle, salary, leave, and payment history per staff member" },
             ].map((screen, i) => (
               <motion.div
                 key={screen.label}
@@ -256,8 +256,8 @@ export function BullionMasterPage() {
           </div>
           <div className="grid gap-6 md:grid-cols-2">
             {[
-              { src: "/videos/demo-1.mp4", label: "Workflow demo — clip 1" },
-              { src: "/videos/demo-2.mp4", label: "Workflow demo — clip 2" },
+              { src: "./videos/demo-1.mp4", label: "Workflow demo — clip 1" },
+              { src: "./videos/demo-2.mp4", label: "Workflow demo — clip 2" },
             ].map((video, i) => (
               <motion.div
                 key={video.src}
@@ -265,14 +265,15 @@ export function BullionMasterPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.15 }}
                 transition={{ delay: i * 0.12, duration: 0.6 }}
-                className="panel overflow-hidden p-0"
+                className="panel overflow-hidden p-3 flex justify-center"
               >
                 <video
                   src={video.src}
                   controls
                   playsInline
                   preload="metadata"
-                  className="w-full rounded-2xl"
+                  className="rounded-xl"
+                  style={{ width: "70%", height: "auto" }}
                   aria-label={video.label}
                 />
               </motion.div>
