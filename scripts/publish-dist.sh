@@ -10,6 +10,15 @@ if [ ! -d "${DIST_DIR}" ]; then
   exit 1
 fi
 
+# Sync any public/ assets that may have been added after the last build.
+# Vite copies public/ → dist/ during 'npm run build', but if new files were
+# added to public/ without a full rebuild this step ensures they land in dist/.
+PUBLIC_DIR="$(dirname "$0")/../public"
+if [ -d "${PUBLIC_DIR}" ]; then
+  echo "Syncing public/ → ${DIST_DIR}/ ..."
+  rsync -a --exclude='.nojekyll' "${PUBLIC_DIR}/" "${DIST_DIR}/"
+fi
+
 "$(dirname "$0")/obfuscate-dist.sh"
 
 TMP_DIR="$(mktemp -d)"
