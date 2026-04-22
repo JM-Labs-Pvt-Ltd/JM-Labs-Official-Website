@@ -50,7 +50,7 @@ const coreFeatures = [
   {
     icon: Workflow,
     title: "Bullion Workflows",
-    body: "Inventory, Refinery Desk, Badla Register, and Open Positions built for bullion desks.",
+    body: "Inventory, Refinery Desk, Badla Register, and Open Positions built for bullion traders.",
     color: "text-purple-500",
     bg: "bg-purple-500/10",
   },
@@ -181,7 +181,7 @@ export function HomePage() {
             The operating system
             <br />
             for{" "}
-            <span className="gradient-text italic">bullion desks.</span>
+            <span className="gradient-text italic">bullion traders.</span>
           </motion.h1>
 
           {/* Sub */}
@@ -408,7 +408,7 @@ export function HomePage() {
           <div className="space-y-4">
             <p className="eyebrow">What's inside</p>
             <h2 className="section-heading max-w-2xl">
-              Every module a bullion desk actually needs.
+              Every module a bullion trader actually needs.
             </h2>
             <p className="max-w-xl text-lg text-muted-foreground">
               Purpose-built for the way bullion operations run — not adapted from generic accounting software.

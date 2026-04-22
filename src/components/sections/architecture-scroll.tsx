@@ -53,7 +53,7 @@ export function ArchitectureScrollSection() {
             </div>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
             {[
               { icon: Layers3, delay: 0.08, label: "Company shell", body: "Shared navigation, footer, and parent-brand structure" },
               { icon: ShieldCheck, delay: 0.16, label: "Trust layer", body: "Privacy, terms, and product pages stay tied to the same company layer" },
@@ -81,7 +81,7 @@ export function ArchitectureScrollSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.25 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="architecture-flow rounded-[30px] border border-border p-6"
+            className="architecture-flow mt-6 rounded-[30px] border border-border p-6"
           >
             <div className="flex items-center justify-between gap-4">
               <div>

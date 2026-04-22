@@ -35,7 +35,7 @@ export function SiteFooter() {
           </div>
           <p className="max-w-xl text-sm leading-7 text-muted-foreground">
             JM Labs builds purpose-built business software. Bullion Master is live today — a
-            complete operating system for bullion desks with ledger control, stock management,
+            complete operating system for bullion traders with ledger control, stock management,
             and on-device security. The next product is already in development.
           </p>
           <p
