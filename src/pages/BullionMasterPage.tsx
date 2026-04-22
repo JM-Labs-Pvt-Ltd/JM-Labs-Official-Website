@@ -14,7 +14,7 @@ const features = [
   {
     icon: BarChart3,
     title: "Bullion-specific workflow modules",
-    body: "Inventory, Refinery Desk, Badla Register, Open Positions, expenses, and income workflows support the way bullion desks actually operate.",
+    body: "Inventory, Refinery Desk, Badla Register, Open Positions, expenses, and income workflows support the way bullion traders actually operate.",
   },
   {
     icon: LockKeyhole,
@@ -173,6 +173,111 @@ export function BullionMasterPage() {
               </div>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* ─── App Screenshots ─── */}
+      <section className="px-4 md:px-6">
+        <div className="mx-auto max-w-7xl space-y-10">
+          <div className="space-y-3">
+            <p className="eyebrow">See it in action</p>
+            <h2 className="section-heading max-w-2xl">
+              A purpose-built interface for{" "}
+              <em style={{ fontStyle: "italic" }} className="gradient-text">
+                bullion traders.
+              </em>
+            </h2>
+          </div>
+
+          {/* Phone screenshot grid */}
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
+            {[
+              { src: "/screenshots/daily-ledger.jpg",    label: "Daily Ledger",       desc: "Party-wise trades, BUY/SELL filters, and new entry in one screen" },
+              { src: "/screenshots/net-position.jpg",    label: "Net Daily Position",  desc: "Long/short position across items with date-range control" },
+              { src: "/screenshots/master-ledger.jpg",   label: "Master Ledger",       desc: "Full ledger and pending trades tab — party balances at a glance" },
+              { src: "/screenshots/reports.jpg",         label: "Reports Center",      desc: "15+ executive reports from day book to GST and refinery performance" },
+              { src: "/screenshots/staff-management.jpg",label: "Staff Management",    desc: "Pay cycle, salary, leave, and payment history per staff member" },
+            ].map((screen, i) => (
+              <motion.div
+                key={screen.label}
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ delay: i * 0.09, duration: 0.55 }}
+                className="flex flex-col items-center gap-4"
+              >
+                {/* Phone frame */}
+                <div className="relative w-full max-w-[180px] mx-auto">
+                  {/* Glow */}
+                  <div
+                    className="pointer-events-none absolute -inset-3 rounded-[40px] opacity-20"
+                    style={{
+                      background: "radial-gradient(circle at 50% 40%, var(--primary) 0%, transparent 70%)",
+                      filter: "blur(18px)",
+                    }}
+                  />
+                  {/* Frame shell */}
+                  <div
+                    className="relative rounded-[36px] border-[3px] border-border/70 bg-background shadow-xl overflow-hidden"
+                    style={{ aspectRatio: "9/19.5" }}
+                  >
+                    {/* Notch */}
+                    <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-14 h-3.5 rounded-full bg-border z-10" />
+                    {/* Screenshot */}
+                    <img
+                      src={screen.src}
+                      alt={screen.label}
+                      className="h-full w-full object-cover object-top"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+                <div className="text-center space-y-1 max-w-[180px]">
+                  <p className="font-display text-sm font-semibold text-foreground">{screen.label}</p>
+                  <p className="text-xs text-muted-foreground leading-5">{screen.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Demo Videos ─── */}
+      <section className="px-4 md:px-6">
+        <div className="mx-auto max-w-7xl space-y-8">
+          <div className="space-y-3">
+            <p className="eyebrow">Live demo clips</p>
+            <h2 className="section-heading max-w-xl">
+              Watch the workflows{" "}
+              <em style={{ fontStyle: "italic" }} className="gradient-text">
+                in motion.
+              </em>
+            </h2>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2">
+            {[
+              { src: "/videos/demo-1.mp4", label: "Workflow demo — clip 1" },
+              { src: "/videos/demo-2.mp4", label: "Workflow demo — clip 2" },
+            ].map((video, i) => (
+              <motion.div
+                key={video.src}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ delay: i * 0.12, duration: 0.6 }}
+                className="panel overflow-hidden p-0"
+              >
+                <video
+                  src={video.src}
+                  controls
+                  playsInline
+                  preload="metadata"
+                  className="w-full rounded-2xl"
+                  aria-label={video.label}
+                />
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 

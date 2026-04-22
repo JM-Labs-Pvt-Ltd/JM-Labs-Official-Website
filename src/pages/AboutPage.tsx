@@ -7,7 +7,7 @@ const values = [
   {
     icon: Layers3,
     title: "Operational software first",
-    body: "JM Labs builds around real desks and daily workflows. Bullion Master already reflects that with ledger control, stock tracking, reports, and backup-heavy operations.",
+    body: "JM Labs builds around real traders and daily workflows. Bullion Master already reflects that with ledger control, stock tracking, reports, and backup-heavy operations.",
   },
   {
     icon: Workflow,
