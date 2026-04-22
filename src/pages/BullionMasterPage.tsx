@@ -273,7 +273,7 @@ export function BullionMasterPage() {
                   playsInline
                   preload="metadata"
                   className="rounded-xl"
-                  style={{ maxHeight: "420px", width: "auto" }}
+                  style={{ width: "70%", height: "auto" }}
                   aria-label={video.label}
                 />
               </motion.div>
