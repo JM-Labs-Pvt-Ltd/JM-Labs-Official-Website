@@ -1,8 +1,9 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { ArrowRight, BarChart3, ChevronDown, LockKeyhole, Shield, Users, Wallet, X } from "lucide-react";
+import { ArrowRight, BarChart3, CalendarDays, CheckCircle2, ChevronDown, Layers, LockKeyhole, Shield, Tag, Users, Wallet, X } from "lucide-react";
 
 import { BullionSecurityArchitecture } from "@/components/sections/bullion-security-architecture";
+import { cn } from "@/lib/utils";
 import { StatCounter } from "@/components/ui/stat-counter";
 import { buttonVariants } from "@/components/ui/button";
 
@@ -185,15 +186,16 @@ export function BullionMasterPage() {
               for serious bullion operations.
             </h1>
             <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
-              Bullion Master brings Daily Ledger, Net Daily Position, Parties Directory, Master Ledger, Inventory, Reports Center, Staff Management, and security-backed backup workflows into one focused bullion system.
+              Daily Ledger, Net Daily Position, Parties Directory, Master Ledger, Inventory, Reports Center, Staff Management, and ironclad security — all in one focused bullion system. At a price that makes sense for your business.
             </p>
 
             <div className="flex flex-wrap gap-4">
-              <a className={buttonVariants({ size: "lg" })} href="./index.html">
-                Back to JM Labs
+              {/* Update href to Play Store link when live */}
+              <a className={buttonVariants({ size: "lg" })} href="#download">
+                Download Now
               </a>
               <a className={buttonVariants({ variant: "secondary", size: "lg" })} href="./privacy-policy.html">
-                Review privacy policy
+                Privacy &amp; Security
               </a>
             </div>
 
@@ -228,18 +230,98 @@ export function BullionMasterPage() {
             className="relative"
           >
             <div className="image-glow absolute inset-0 rounded-2xl blur-2xl" />
-            <div className="image-shell relative overflow-hidden rounded-2xl border border-border p-4">
-              <img
-                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80"
-                alt="Bullion Master product dashboard inspiration"
-                className="h-[400px] w-full rounded-xl object-cover"
+            <div
+              className="relative overflow-hidden rounded-2xl border"
+              style={{
+                background: "var(--panel-background)",
+                borderColor: "rgba(245,158,11,0.25)",
+              }}
+            >
+              {/* Amber top hairline */}
+              <div
+                className="absolute inset-x-0 top-0 h-px"
+                style={{ background: "linear-gradient(90deg, transparent, var(--primary), transparent)" }}
               />
-              <div className="absolute inset-x-6 bottom-6 grid gap-2.5 md:grid-cols-3">
-                {highlights.map((highlight) => (
-                  <div key={highlight} className="glass-card-strong rounded-2xl border border-border/60 p-4 backdrop-blur-xl">
-                    <p className="text-xs leading-6 text-foreground/85">{highlight}</p>
+
+              {/* Header */}
+              <div className="border-b border-border px-6 pb-5 pt-7">
+                <p className="eyebrow mb-3">Why Bullion Master</p>
+                <p
+                  className="font-display text-xl font-bold text-foreground"
+                  style={{ letterSpacing: "-0.02em", lineHeight: 1.3 }}
+                >
+                  More value. Better price.
+                  <br />
+                  Built for your operations.
+                </p>
+              </div>
+
+              {/* Value props */}
+              <div className="divide-y divide-border">
+                {[
+                  {
+                    icon: CalendarDays,
+                    color: "text-primary",
+                    bg: "bg-primary/10",
+                    title: "30-day free trial",
+                    body: "6× longer than the 3–5 day trials offered elsewhere — enough time to actually evaluate the product.",
+                  },
+                  {
+                    icon: Tag,
+                    color: "text-emerald-500",
+                    bg: "bg-emerald-500/10",
+                    title: "Fraction of the cost",
+                    body: "Priced for independent bullion operators — not enterprise licensing disguised as small-business software.",
+                  },
+                  {
+                    icon: Layers,
+                    color: "text-sky-500",
+                    bg: "bg-sky-500/10",
+                    title: "Built for bullion — not adapted",
+                    body: "Net Daily Position, Badla Register, Refinery Desk — modules that simply don't exist in generic tools.",
+                  },
+                  {
+                    icon: Shield,
+                    color: "text-rose-500",
+                    bg: "bg-rose-500/10",
+                    title: "Ironclad security",
+                    body: "On-device data, 6-digit PIN, duress wipe, encrypted backups. Your business data stays yours.",
+                  },
+                ].map(({ icon: Icon, color, bg, title, body }) => (
+                  <div key={title} className="flex items-start gap-4 px-6 py-4">
+                    <div className={cn("mt-0.5 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl", bg)}>
+                      <Icon className={cn("h-4 w-4", color)} />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-foreground" style={{ letterSpacing: "-0.01em" }}>
+                        {title}
+                      </p>
+                      <p className="mt-1 text-xs leading-5 text-muted-foreground">{body}</p>
+                    </div>
                   </div>
                 ))}
+              </div>
+
+              {/* Bottom strip */}
+              <div
+                className="flex items-center justify-between border-t border-border px-6 py-4"
+                style={{ background: "var(--shell-background)" }}
+              >
+                <p
+                  className="text-xs text-muted-foreground"
+                  style={{ fontFamily: "var(--font-mono, monospace)", letterSpacing: "0.08em" }}
+                >
+                  No commitment · Cancel anytime
+                </p>
+                <div className="flex items-center gap-1.5">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" />
+                  <span
+                    className="text-xs font-semibold text-emerald-500"
+                    style={{ fontFamily: "var(--font-mono, monospace)", letterSpacing: "0.06em" }}
+                  >
+                    30 days free
+                  </span>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -418,7 +500,10 @@ export function BullionMasterPage() {
               className="space-y-4"
             >
               <p className="eyebrow">FAQ</p>
-              <h2 className="section-heading max-w-xs">
+              <h2
+                className="font-display font-bold leading-tight tracking-tight text-foreground"
+                style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)" }}
+              >
                 Common questions about{" "}
                 <em style={{ fontStyle: "italic" }} className="gradient-text">
                   Bullion Master.

@@ -2,20 +2,22 @@ import {
   ArrowRight,
   BarChart3,
   BookOpen,
+  CheckCircle2,
   Cloud,
   Coins,
   LockKeyhole,
   RefreshCcw,
   ShieldCheck,
+  Smartphone,
   Sparkles,
   TrendingUp,
   Users,
   Workflow,
+  XCircle,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
 import { ArchitectureScrollSection } from "@/components/sections/architecture-scroll";
-import { DailyPnLChart } from "@/components/ui/daily-pnl-chart";
 import { MarketTicker } from "@/components/ui/market-ticker";
 import { StatCounter } from "@/components/ui/stat-counter";
 import type { BentoItem } from "@/components/ui/bento-grid";
@@ -75,6 +77,18 @@ const keyStats = [
   { value: 100, suffix: "%", label: "Local-First" },
   { value: 6,  suffix: "",  label: "Security Layers" },
   { value: 48, suffix: "+", label: "Supported Workflows" },
+] as const;
+
+const comparisonRows = [
+  "Net Daily Position tracking",
+  "Badla Register",
+  "Bullion-specific P&L reports",
+  "Refinery Desk workflow",
+  "Inventory with bullion items",
+  "PIN lock + duress wipe",
+  "100% local-first storage",
+  "Staff management & salary",
+  "Continuous new features",
 ] as const;
 
 const ecosystemBentoItems: BentoItem[] = [
@@ -225,6 +239,7 @@ export function HomePage() {
               { icon: Cloud, label: "Encrypted Backup" },
               { icon: ShieldCheck, label: "Local-First Storage" },
               { icon: Users, label: "Multi-Party Support" },
+              { icon: Sparkles, label: "30-Day Free Trial" },
             ].map(({ icon: Icon, label }) => (
               <div
                 key={label}
@@ -239,6 +254,27 @@ export function HomePage() {
                 <Icon className="h-3.5 w-3.5 text-primary/60" />
                 {label}
               </div>
+            ))}
+          </motion.div>
+          {/* User type pills */}
+          <motion.div
+            {...fadeUp(0.36)}
+            className="mt-8 flex flex-wrap items-center justify-center gap-2"
+          >
+            <span
+              className="text-muted-foreground"
+              style={{ fontSize: "0.7rem", fontFamily: "var(--font-mono, monospace)", letterSpacing: "0.14em", textTransform: "uppercase" }}
+            >
+              For:
+            </span>
+            {["Gold Traders", "Silver Dealers", "Refinery Operators", "Commodity Brokers", "Jewellery Houses"].map((t) => (
+              <span
+                key={t}
+                className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground"
+                style={{ background: "var(--pill-background)", fontFamily: "var(--font-mono, monospace)", letterSpacing: "0.04em" }}
+              >
+                {t}
+              </span>
             ))}
           </motion.div>
         </div>
@@ -285,7 +321,7 @@ export function HomePage() {
       </section>
 
       {/* ══════════════════════════════
-          DASHBOARD PREVIEW — full-width
+          DATA PRIVACY GUARANTEE
       ══════════════════════════════ */}
       <section className="px-4 pt-12 pb-0 md:px-6">
         <motion.div
@@ -298,96 +334,94 @@ export function HomePage() {
             className="overflow-hidden rounded-2xl border border-border"
             style={{ background: "var(--panel-background)" }}
           >
-            {/* Card chrome bar */}
+            {/* Header bar */}
             <div
-              className="flex items-center justify-between border-b border-border px-5 py-3"
+              className="flex flex-col gap-1 border-b border-border px-6 py-5 sm:flex-row sm:items-center sm:justify-between"
               style={{ background: "var(--shell-background)" }}
             >
-              <div className="flex items-center gap-2">
-                <span className="h-2.5 w-2.5 rounded-full bg-rose-500/70" />
-                <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/70" />
-                <span className="h-2.5 w-2.5 rounded-full bg-green-500/70" />
+              <div className="flex items-center gap-3">
+                <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl bg-primary/10">
+                  <ShieldCheck className="h-5 w-5 text-primary" />
+                </div>
+                <div>
+                  <p className="font-display text-base font-bold text-foreground" style={{ letterSpacing: "-0.01em" }}>
+                    Your data. Your device. Your control.
+                  </p>
+                  <p className="text-xs text-muted-foreground" style={{ fontFamily: "var(--font-mono, monospace)", letterSpacing: "0.07em" }}>
+                    No server ever sees your data — not ours, not anyone's
+                  </p>
+                </div>
               </div>
-              <span
-                className="text-muted-foreground"
-                style={{
-                  fontFamily: "var(--font-mono, monospace)",
-                  fontSize: "0.68rem",
-                  letterSpacing: "0.12em",
-                }}
+              <div
+                className="flex items-center gap-1.5 self-start rounded-full px-3 py-1 sm:self-auto"
+                style={{ background: "rgba(34,197,94,0.1)" }}
               >
-                BULLION MASTER — DAILY NET POSITION
-              </span>
-              <div className="flex items-center gap-1.5">
-                <span className="live-dot" />
+                <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" />
                 <span
-                  className="text-emerald-500"
-                  style={{
-                    fontFamily: "var(--font-mono, monospace)",
-                    fontSize: "0.68rem",
-                  }}
+                  className="text-[0.65rem] font-semibold text-emerald-500"
+                  style={{ fontFamily: "var(--font-mono, monospace)", letterSpacing: "0.1em", textTransform: "uppercase" }}
                 >
-                  LIVE SESSION
+                  Verified local-first
                 </span>
               </div>
             </div>
 
-            {/* Inner dashboard layout */}
-            <div className="grid md:grid-cols-[1fr,260px]">
-
-              {/* Chart area */}
-              <div className="border-b border-border p-5 md:border-b-0 md:border-r md:p-8">
-                <div className="mb-4 flex items-start justify-between gap-4">
-                  <div>
-                    <p className="data-badge">Daily Net Position</p>
-                    <p
-                      className="mt-2 font-display text-3xl font-bold text-emerald-500 md:text-4xl"
-                      style={{ letterSpacing: "-0.03em" }}
-                    >
-                      ↑ ₹27,300
-                    </p>
-                    <p className="mt-1 text-sm text-muted-foreground">Today vs yesterday</p>
+            {/* Three pillars */}
+            <div className="grid gap-px md:grid-cols-3" style={{ background: "var(--border)" }}>
+              {[
+                {
+                  icon: Smartphone,
+                  color: "text-amber-500",
+                  bg: "bg-amber-500/10",
+                  title: "Business data stays on-device",
+                  body: "Your trades, ledger entries, and party details are stored on your device. Your account handles subscription — your actual business data never passes through any server.",
+                  proof: "100% local-first data architecture",
+                },
+                {
+                  icon: LockKeyhole,
+                  color: "text-emerald-500",
+                  bg: "bg-emerald-500/10",
+                  title: "PIN-locked access",
+                  body: "A 6-digit PIN guards every session. Repeated failed attempts trigger an automatic wipe. A separate duress PIN silently clears all data on entry.",
+                  proof: "6 independent security layers",
+                },
+                {
+                  icon: Cloud,
+                  color: "text-sky-500",
+                  bg: "bg-sky-500/10",
+                  title: "Backup on your terms",
+                  body: "Data is encrypted before it ever leaves the device. Choose local backup, cloud backup, or both — only when you decide, and only where you choose.",
+                  proof: "Encrypted before leaving device",
+                },
+              ].map((pillar) => (
+                <div
+                  key={pillar.title}
+                  className="flex flex-col gap-5 p-6 md:p-8"
+                  style={{ background: "var(--panel-background)" }}
+                >
+                  <div className={cn("flex h-11 w-11 items-center justify-center rounded-xl", pillar.bg)}>
+                    <pillar.icon className={cn("h-5 w-5", pillar.color)} />
                   </div>
-                  <div className="text-right">
-                    <p className="data-badge">Week Total</p>
-                    <p
-                      className="mt-2 font-display text-2xl font-bold text-foreground"
-                      style={{ letterSpacing: "-0.02em" }}
+                  <div className="space-y-2">
+                    <h3
+                      className="font-display text-lg font-bold text-foreground"
+                      style={{ letterSpacing: "-0.01em" }}
                     >
-                      ₹1,51,100
-                    </p>
-                    <p className="mt-1 text-sm text-muted-foreground">7-day net P&L</p>
+                      {pillar.title}
+                    </h3>
+                    <p className="text-sm leading-7 text-muted-foreground">{pillar.body}</p>
+                  </div>
+                  <div className="mt-auto flex items-center gap-2 border-t border-border pt-4">
+                    <CheckCircle2 className="h-3.5 w-3.5 flex-shrink-0 text-emerald-500" />
+                    <span
+                      className="text-xs text-muted-foreground"
+                      style={{ fontFamily: "var(--font-mono, monospace)", letterSpacing: "0.06em" }}
+                    >
+                      {pillar.proof}
+                    </span>
                   </div>
                 </div>
-                <DailyPnLChart className="w-full" />
-              </div>
-
-              {/* Sidebar metrics */}
-              <div className="grid divide-y divide-border">
-                {[
-                  { label: "Ledger Entries", value: "1,284", icon: BookOpen, color: "text-amber-500" },
-                  { label: "Active Parties", value: "48", icon: Users, color: "text-blue-500" },
-                  { label: "Security",       value: "Protected",  icon: LockKeyhole, color: "text-emerald-500" },
-                  { label: "Backup Status",  value: "Synced",     icon: Cloud, color: "text-purple-500" },
-                ].map((item) => (
-                  <div key={item.label} className="flex items-center gap-4 p-5">
-                    <div
-                      className={cn(
-                        "flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl",
-                        item.color.replace("text-", "bg-").replace("500", "500/10")
-                      )}
-                    >
-                      <item.icon className={cn("h-4 w-4", item.color)} />
-                    </div>
-                    <div>
-                      <p className="data-badge">{item.label}</p>
-                      <p className="mt-0.5 text-sm font-semibold text-foreground">
-                        {item.value}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+              ))}
             </div>
           </div>
         </motion.div>
@@ -563,6 +597,114 @@ export function HomePage() {
       </section>
 
       {/* ══════════════════════════════
+          COMPARISON — vs generic tools
+      ══════════════════════════════ */}
+      <section className="px-4 py-20 md:px-6">
+        <div className="mx-auto max-w-5xl space-y-12">
+          <div className="space-y-4">
+            <p className="eyebrow">Why Bullion Master</p>
+            <h2 className="section-heading max-w-2xl">
+              Built for bullion.{" "}
+              <span className="gradient-text italic">Not adapted from generic software.</span>
+            </h2>
+            <p className="max-w-xl text-lg text-muted-foreground">
+              Generic accounting tools weren't designed for bullion operations — and it shows.
+              Bullion Master covers every workflow you actually need, at a fraction of what alternatives charge.
+            </p>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-2">
+            {/* Generic tools card */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5 }}
+              className="overflow-hidden rounded-2xl border border-border"
+              style={{ background: "var(--panel-background)" }}
+            >
+              <div className="border-b border-border px-6 py-4">
+                <p
+                  className="text-xs font-semibold uppercase tracking-widest text-muted-foreground"
+                  style={{ fontFamily: "var(--font-mono, monospace)" }}
+                >
+                  Generic accounting tools
+                </p>
+              </div>
+              <div className="divide-y divide-border">
+                {comparisonRows.map((row) => (
+                  <div key={row} className="flex items-center gap-3 px-6 py-3.5">
+                    <XCircle className="h-4 w-4 flex-shrink-0 text-muted-foreground/30" />
+                    <span className="text-sm text-muted-foreground/60 line-through decoration-muted-foreground/25">
+                      {row}
+                    </span>
+                  </div>
+                ))}
+                <div className="flex items-center gap-3 px-6 py-3.5">
+                  <XCircle className="h-4 w-4 flex-shrink-0 text-muted-foreground/30" />
+                  <span className="text-sm text-muted-foreground/60 line-through decoration-muted-foreground/25">Free trial: 3–5 days only</span>
+                </div>
+                <div className="flex items-center gap-3 px-6 py-4">
+                  <XCircle className="h-4 w-4 flex-shrink-0 text-rose-400/50" />
+                  <span className="text-sm font-medium text-rose-400/70">Expensive subscription costs</span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Bullion Master card */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="relative overflow-hidden rounded-2xl border"
+              style={{
+                background: "var(--panel-background)",
+                borderColor: "rgba(245,158,11,0.3)",
+                boxShadow: "0 0 0 1px rgba(245,158,11,0.08), 0 20px 50px rgba(245,158,11,0.06)",
+              }}
+            >
+              {/* Top amber hairline */}
+              <div
+                className="absolute inset-x-0 top-0 h-px"
+                style={{ background: "linear-gradient(90deg, transparent, var(--primary), transparent)" }}
+              />
+              <div className="flex items-center justify-between border-b px-6 py-4" style={{ borderColor: "rgba(245,158,11,0.2)" }}>
+                <p
+                  className="text-xs font-semibold uppercase tracking-widest text-primary"
+                  style={{ fontFamily: "var(--font-mono, monospace)" }}
+                >
+                  Bullion Master
+                </p>
+                <span
+                  className="flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[0.6rem] font-semibold uppercase tracking-wider text-emerald-500"
+                  style={{ background: "rgba(34,197,94,0.1)", fontFamily: "var(--font-mono, monospace)" }}
+                >
+                  Available now
+                </span>
+              </div>
+              <div className="divide-y" style={{ borderColor: "rgba(245,158,11,0.1)" }}>
+                {comparisonRows.map((row) => (
+                  <div key={row} className="flex items-center gap-3 px-6 py-3.5" style={{ borderColor: "rgba(245,158,11,0.1)" }}>
+                    <CheckCircle2 className="h-4 w-4 flex-shrink-0 text-emerald-500" />
+                    <span className="text-sm text-foreground">{row}</span>
+                  </div>
+                ))}
+                <div className="flex items-center gap-3 px-6 py-3.5" style={{ borderColor: "rgba(245,158,11,0.1)" }}>
+                  <CheckCircle2 className="h-4 w-4 flex-shrink-0 text-emerald-500" />
+                  <span className="text-sm font-semibold text-emerald-500">30-day free trial — 6× longer</span>
+                </div>
+                <div className="flex items-center gap-3 px-6 py-4" style={{ borderColor: "rgba(245,158,11,0.1)" }}>
+                  <CheckCircle2 className="h-4 w-4 flex-shrink-0 text-primary" />
+                  <span className="text-sm font-semibold text-primary">Fraction of the cost</span>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════
           ARCHITECTURE SCROLL
       ══════════════════════════════ */}
       <section id="overview">
@@ -706,13 +848,14 @@ export function HomePage() {
               <div className="space-y-5">
                 <p className="eyebrow">Get started</p>
                 <h2 className="section-heading leading-tight">
-                  Discover Bullion Master.{" "}
+                  Bullion Master is here.{" "}
                   <span className="gradient-text italic">
                     Built for the desk.
                   </span>
                 </h2>
                 <p className="max-w-lg text-base leading-8 text-muted-foreground">
-                  Explore the product, review the security model, and follow the next JM Labs release as it develops.
+                  Purpose-built for bullion traders. Ironclad security. Every module you actually need —
+                  at a fraction of what alternatives charge.
                 </p>
               </div>
               <div className="flex flex-col gap-3 md:items-end">
@@ -730,13 +873,13 @@ export function HomePage() {
                   )}
                   href="./next-product.html"
                 >
-                  View product in development
+                  View what's next
                 </a>
                 <p
                   className="text-center text-xs text-muted-foreground md:text-right"
                   style={{ fontFamily: "var(--font-mono, monospace)", letterSpacing: "0.08em" }}
                 >
-                  Local-first · PIN-secured · OLED-optimized
+                  Local-first · Ironclad security · Fraction of the cost
                 </p>
               </div>
             </div>
