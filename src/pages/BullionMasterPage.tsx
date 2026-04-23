@@ -1,7 +1,9 @@
-import { motion } from "framer-motion";
-import { ArrowRight, BarChart3, LockKeyhole, Shield, Users, Wallet } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import { ArrowRight, BarChart3, CalendarDays, CheckCircle2, ChevronDown, Layers, LockKeyhole, Shield, Tag, Users, Wallet, X } from "lucide-react";
 
 import { BullionSecurityArchitecture } from "@/components/sections/bullion-security-architecture";
+import { cn } from "@/lib/utils";
 import { StatCounter } from "@/components/ui/stat-counter";
 import { buttonVariants } from "@/components/ui/button";
 
@@ -28,6 +30,46 @@ const highlights = [
   "Inventory, Refinery Desk, Badla Register, and Open Positions",
   "PIN security, backup password, local or cloud backup, and restore",
 ] as const;
+
+// FAQ accordion item
+function FaqItem({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="border-b border-border last:border-b-0">
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        className="flex w-full cursor-pointer items-start justify-between gap-4 py-5 text-left"
+        aria-expanded={open}
+      >
+        <span className="font-display text-base font-semibold text-foreground" style={{ letterSpacing: "-0.01em" }}>
+          {q}
+        </span>
+        <motion.span
+          animate={{ rotate: open ? 180 : 0 }}
+          transition={{ duration: 0.25 }}
+          className="mt-0.5 flex-shrink-0 text-primary"
+        >
+          <ChevronDown className="h-5 w-5" />
+        </motion.span>
+      </button>
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            key="content"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+            style={{ overflow: "hidden" }}
+          >
+            <p className="pb-5 text-sm leading-7 text-muted-foreground">{a}</p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
 
 // Radial gauge SVG — rendered inline
 function SecurityGauge({ label, value, color = "var(--primary)" }: { label: string; value: number; color?: string }) {
@@ -78,6 +120,33 @@ function SecurityGauge({ label, value, color = "var(--primary)" }: { label: stri
   );
 }
 
+const faqs = [
+  {
+    q: "Where is my data stored?",
+    a: "All your data stays on your device. Bullion Master is local-first — trade records, ledger entries, and party details never leave your phone unless you explicitly trigger a backup.",
+  },
+  {
+    q: "What happens if I lose my phone?",
+    a: "You can restore from a cloud or local backup. Every backup is encrypted before it leaves the device, and only your backup password unlocks it during restore — no one else can access your data.",
+  },
+  {
+    q: "Is the PIN lock bypass-able?",
+    a: "No. After a configurable number of failed PIN attempts, the app triggers an auto-wipe. There is also a duress PIN option that silently clears data on entry without alerting anyone.",
+  },
+  {
+    q: "Does Bullion Master work without an internet connection?",
+    a: "Yes, completely. Since the platform is local-first, every module — Daily Ledger, Net Daily Position, Reports Center — works offline. Cloud backup syncs whenever connectivity is available.",
+  },
+  {
+    q: "Can I track multiple parties and items?",
+    a: "Yes. The Daily Ledger and Master Ledger both support multiple parties with individual running balances, trade history, and position breakdowns per counterparty and commodity.",
+  },
+  {
+    q: "What reports does Bullion Master generate?",
+    a: "Reports Center includes operational summaries, day books, settlement outputs, refinery performance, GST-ready records, and P&L views. All can be exported directly from the app.",
+  },
+] as const;
+
 const productStats = [
   { value: 10, suffix: "+", label: "Core Modules" },
   { value: 5, suffix: "+", label: "Report Types" },
@@ -85,6 +154,8 @@ const productStats = [
 ] as const;
 
 export function BullionMasterPage() {
+  const [lightbox, setLightbox] = useState<{ src: string; label: string } | null>(null);
+
   return (
     <div className="space-y-20 pb-20 pt-10 md:space-y-28 md:pt-16">
 
@@ -115,15 +186,16 @@ export function BullionMasterPage() {
               for serious bullion operations.
             </h1>
             <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
-              Bullion Master brings Daily Ledger, Net Daily Position, Parties Directory, Master Ledger, Inventory, Reports Center, Staff Management, and security-backed backup workflows into one focused bullion system.
+              Daily Ledger, Net Daily Position, Parties Directory, Master Ledger, Inventory, Reports Center, Staff Management, and ironclad security — all in one focused bullion system. At a price that makes sense for your business.
             </p>
 
             <div className="flex flex-wrap gap-4">
-              <a className={buttonVariants({ size: "lg" })} href="./index.html">
-                Back to JM Labs
+              {/* Update href to Play Store link when live */}
+              <a className={buttonVariants({ size: "lg" })} href="#download">
+                Download Now
               </a>
               <a className={buttonVariants({ variant: "secondary", size: "lg" })} href="./privacy-policy.html">
-                Review privacy policy
+                Privacy &amp; Security
               </a>
             </div>
 
@@ -158,18 +230,98 @@ export function BullionMasterPage() {
             className="relative"
           >
             <div className="image-glow absolute inset-0 rounded-2xl blur-2xl" />
-            <div className="image-shell relative overflow-hidden rounded-2xl border border-border p-4">
-              <img
-                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80"
-                alt="Bullion Master product dashboard inspiration"
-                className="h-[400px] w-full rounded-xl object-cover"
+            <div
+              className="relative overflow-hidden rounded-2xl border"
+              style={{
+                background: "var(--panel-background)",
+                borderColor: "rgba(245,158,11,0.25)",
+              }}
+            >
+              {/* Amber top hairline */}
+              <div
+                className="absolute inset-x-0 top-0 h-px"
+                style={{ background: "linear-gradient(90deg, transparent, var(--primary), transparent)" }}
               />
-              <div className="absolute inset-x-6 bottom-6 grid gap-2.5 md:grid-cols-3">
-                {highlights.map((highlight) => (
-                  <div key={highlight} className="glass-card-strong rounded-2xl border border-border/60 p-4 backdrop-blur-xl">
-                    <p className="text-xs leading-6 text-foreground/85">{highlight}</p>
+
+              {/* Header */}
+              <div className="border-b border-border px-6 pb-5 pt-7">
+                <p className="eyebrow mb-3">Why Bullion Master</p>
+                <p
+                  className="font-display text-xl font-bold text-foreground"
+                  style={{ letterSpacing: "-0.02em", lineHeight: 1.3 }}
+                >
+                  More value. Better price.
+                  <br />
+                  Built for your operations.
+                </p>
+              </div>
+
+              {/* Value props */}
+              <div className="divide-y divide-border">
+                {[
+                  {
+                    icon: CalendarDays,
+                    color: "text-primary",
+                    bg: "bg-primary/10",
+                    title: "30-day free trial",
+                    body: "6× longer than the 3–5 day trials offered elsewhere — enough time to actually evaluate the product.",
+                  },
+                  {
+                    icon: Tag,
+                    color: "text-emerald-500",
+                    bg: "bg-emerald-500/10",
+                    title: "Fraction of the cost",
+                    body: "Priced for independent bullion operators — not enterprise licensing disguised as small-business software.",
+                  },
+                  {
+                    icon: Layers,
+                    color: "text-sky-500",
+                    bg: "bg-sky-500/10",
+                    title: "Built for bullion — not adapted",
+                    body: "Net Daily Position, Badla Register, Refinery Desk — modules that simply don't exist in generic tools.",
+                  },
+                  {
+                    icon: Shield,
+                    color: "text-rose-500",
+                    bg: "bg-rose-500/10",
+                    title: "Ironclad security",
+                    body: "On-device data, 6-digit PIN, duress wipe, encrypted backups. Your business data stays yours.",
+                  },
+                ].map(({ icon: Icon, color, bg, title, body }) => (
+                  <div key={title} className="flex items-start gap-4 px-6 py-4">
+                    <div className={cn("mt-0.5 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl", bg)}>
+                      <Icon className={cn("h-4 w-4", color)} />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-foreground" style={{ letterSpacing: "-0.01em" }}>
+                        {title}
+                      </p>
+                      <p className="mt-1 text-xs leading-5 text-muted-foreground">{body}</p>
+                    </div>
                   </div>
                 ))}
+              </div>
+
+              {/* Bottom strip */}
+              <div
+                className="flex items-center justify-between border-t border-border px-6 py-4"
+                style={{ background: "var(--shell-background)" }}
+              >
+                <p
+                  className="text-xs text-muted-foreground"
+                  style={{ fontFamily: "var(--font-mono, monospace)", letterSpacing: "0.08em" }}
+                >
+                  No commitment · Cancel anytime
+                </p>
+                <div className="flex items-center gap-1.5">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" />
+                  <span
+                    className="text-xs font-semibold text-emerald-500"
+                    style={{ fontFamily: "var(--font-mono, monospace)", letterSpacing: "0.06em" }}
+                  >
+                    30 days free
+                  </span>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -218,8 +370,9 @@ export function BullionMasterPage() {
                   />
                   {/* Frame shell */}
                   <div
-                    className="relative rounded-[36px] border-[3px] border-border/70 bg-background shadow-xl overflow-hidden"
+                    className="group relative cursor-zoom-in rounded-[36px] border-[3px] border-border/70 bg-background shadow-xl overflow-hidden transition-transform duration-300 hover:scale-[1.03] hover:shadow-2xl"
                     style={{ aspectRatio: "9/19.5" }}
+                    onClick={() => setLightbox({ src: screen.src, label: screen.label })}
                   >
                     {/* Notch */}
                     <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-14 h-3.5 rounded-full bg-border z-10" />
@@ -334,6 +487,49 @@ export function BullionMasterPage() {
       {/* ─── Security architecture ─── */}
       <BullionSecurityArchitecture />
 
+      {/* ─── FAQ ─── */}
+      <section className="px-4 md:px-6">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-12 md:grid-cols-[0.9fr,1.1fr] md:items-start">
+            {/* Left: label + heading */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5 }}
+              className="space-y-4"
+            >
+              <p className="eyebrow">FAQ</p>
+              <h2
+                className="font-display font-bold leading-tight tracking-tight text-foreground"
+                style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)" }}
+              >
+                Common questions about{" "}
+                <em style={{ fontStyle: "italic" }} className="gradient-text">
+                  Bullion Master.
+                </em>
+              </h2>
+              <p className="text-sm leading-7 text-muted-foreground">
+                Questions about data, security, offline access, and how the product works in practice.
+              </p>
+            </motion.div>
+
+            {/* Right: accordion */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.55, delay: 0.08 }}
+              className="panel divide-y-0 px-6 py-2"
+            >
+              {faqs.map((item) => (
+                <FaqItem key={item.q} q={item.q} a={item.a} />
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* ─── Built for operators ─── */}
       <section className="px-4 md:px-6">
         <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-[0.92fr,1.08fr]">
@@ -391,6 +587,62 @@ export function BullionMasterPage() {
           </div>
         </div>
       </section>
+
+      {/* ─── Screenshot lightbox ─── */}
+      <AnimatePresence>
+        {lightbox && (
+          <motion.div
+            key="lightbox"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+            style={{ background: "rgba(0,0,0,0.82)", backdropFilter: "blur(6px)" }}
+            onClick={() => setLightbox(null)}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.88, y: 24 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.88, y: 24 }}
+              transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+              className="relative flex max-h-[90vh] max-w-sm flex-col items-center gap-4"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close button */}
+              <button
+                type="button"
+                onClick={() => setLightbox(null)}
+                className="absolute -right-3 -top-3 z-10 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border border-border bg-background text-muted-foreground transition-colors hover:text-foreground"
+                aria-label="Close"
+              >
+                <X className="h-4 w-4" />
+              </button>
+
+              {/* Phone frame */}
+              <div
+                className="relative w-96 overflow-hidden rounded-[36px] border-[3px] border-border/70 bg-background shadow-2xl"
+                style={{ aspectRatio: "9/19.5" }}
+              >
+                <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-14 h-3.5 rounded-full bg-border z-10" />
+                <img
+                  src={lightbox.src}
+                  alt={lightbox.label}
+                  className="h-full w-full object-cover object-top"
+                />
+              </div>
+
+              {/* Label */}
+              <p
+                className="text-center text-sm font-semibold text-white/90"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                {lightbox.label}
+              </p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
