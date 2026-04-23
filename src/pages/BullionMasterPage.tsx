@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
-import { ArrowRight, BarChart3, LockKeyhole, Shield, Users, Wallet } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import { ArrowRight, BarChart3, ChevronDown, LockKeyhole, Shield, Users, Wallet, X } from "lucide-react";
 
 import { BullionSecurityArchitecture } from "@/components/sections/bullion-security-architecture";
 import { StatCounter } from "@/components/ui/stat-counter";
@@ -28,6 +29,46 @@ const highlights = [
   "Inventory, Refinery Desk, Badla Register, and Open Positions",
   "PIN security, backup password, local or cloud backup, and restore",
 ] as const;
+
+// FAQ accordion item
+function FaqItem({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="border-b border-border last:border-b-0">
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        className="flex w-full cursor-pointer items-start justify-between gap-4 py-5 text-left"
+        aria-expanded={open}
+      >
+        <span className="font-display text-base font-semibold text-foreground" style={{ letterSpacing: "-0.01em" }}>
+          {q}
+        </span>
+        <motion.span
+          animate={{ rotate: open ? 180 : 0 }}
+          transition={{ duration: 0.25 }}
+          className="mt-0.5 flex-shrink-0 text-primary"
+        >
+          <ChevronDown className="h-5 w-5" />
+        </motion.span>
+      </button>
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            key="content"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+            style={{ overflow: "hidden" }}
+          >
+            <p className="pb-5 text-sm leading-7 text-muted-foreground">{a}</p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
 
 // Radial gauge SVG — rendered inline
 function SecurityGauge({ label, value, color = "var(--primary)" }: { label: string; value: number; color?: string }) {
@@ -78,6 +119,33 @@ function SecurityGauge({ label, value, color = "var(--primary)" }: { label: stri
   );
 }
 
+const faqs = [
+  {
+    q: "Where is my data stored?",
+    a: "All your data stays on your device. Bullion Master is local-first — trade records, ledger entries, and party details never leave your phone unless you explicitly trigger a backup.",
+  },
+  {
+    q: "What happens if I lose my phone?",
+    a: "You can restore from a cloud or local backup. Every backup is encrypted before it leaves the device, and only your backup password unlocks it during restore — no one else can access your data.",
+  },
+  {
+    q: "Is the PIN lock bypass-able?",
+    a: "No. After a configurable number of failed PIN attempts, the app triggers an auto-wipe. There is also a duress PIN option that silently clears data on entry without alerting anyone.",
+  },
+  {
+    q: "Does Bullion Master work without an internet connection?",
+    a: "Yes, completely. Since the platform is local-first, every module — Daily Ledger, Net Daily Position, Reports Center — works offline. Cloud backup syncs whenever connectivity is available.",
+  },
+  {
+    q: "Can I track multiple parties and items?",
+    a: "Yes. The Daily Ledger and Master Ledger both support multiple parties with individual running balances, trade history, and position breakdowns per counterparty and commodity.",
+  },
+  {
+    q: "What reports does Bullion Master generate?",
+    a: "Reports Center includes operational summaries, day books, settlement outputs, refinery performance, GST-ready records, and P&L views. All can be exported directly from the app.",
+  },
+] as const;
+
 const productStats = [
   { value: 10, suffix: "+", label: "Core Modules" },
   { value: 5, suffix: "+", label: "Report Types" },
@@ -85,6 +153,8 @@ const productStats = [
 ] as const;
 
 export function BullionMasterPage() {
+  const [lightbox, setLightbox] = useState<{ src: string; label: string } | null>(null);
+
   return (
     <div className="space-y-20 pb-20 pt-10 md:space-y-28 md:pt-16">
 
@@ -218,8 +288,9 @@ export function BullionMasterPage() {
                   />
                   {/* Frame shell */}
                   <div
-                    className="relative rounded-[36px] border-[3px] border-border/70 bg-background shadow-xl overflow-hidden"
+                    className="group relative cursor-zoom-in rounded-[36px] border-[3px] border-border/70 bg-background shadow-xl overflow-hidden transition-transform duration-300 hover:scale-[1.03] hover:shadow-2xl"
                     style={{ aspectRatio: "9/19.5" }}
+                    onClick={() => setLightbox({ src: screen.src, label: screen.label })}
                   >
                     {/* Notch */}
                     <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-14 h-3.5 rounded-full bg-border z-10" />
@@ -334,6 +405,46 @@ export function BullionMasterPage() {
       {/* ─── Security architecture ─── */}
       <BullionSecurityArchitecture />
 
+      {/* ─── FAQ ─── */}
+      <section className="px-4 md:px-6">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-12 md:grid-cols-[0.9fr,1.1fr] md:items-start">
+            {/* Left: label + heading */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5 }}
+              className="space-y-4"
+            >
+              <p className="eyebrow">FAQ</p>
+              <h2 className="section-heading max-w-xs">
+                Common questions about{" "}
+                <em style={{ fontStyle: "italic" }} className="gradient-text">
+                  Bullion Master.
+                </em>
+              </h2>
+              <p className="text-sm leading-7 text-muted-foreground">
+                Questions about data, security, offline access, and how the product works in practice.
+              </p>
+            </motion.div>
+
+            {/* Right: accordion */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.55, delay: 0.08 }}
+              className="panel divide-y-0 px-6 py-2"
+            >
+              {faqs.map((item) => (
+                <FaqItem key={item.q} q={item.q} a={item.a} />
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* ─── Built for operators ─── */}
       <section className="px-4 md:px-6">
         <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-[0.92fr,1.08fr]">
@@ -391,6 +502,62 @@ export function BullionMasterPage() {
           </div>
         </div>
       </section>
+
+      {/* ─── Screenshot lightbox ─── */}
+      <AnimatePresence>
+        {lightbox && (
+          <motion.div
+            key="lightbox"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+            style={{ background: "rgba(0,0,0,0.82)", backdropFilter: "blur(6px)" }}
+            onClick={() => setLightbox(null)}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.88, y: 24 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.88, y: 24 }}
+              transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+              className="relative flex max-h-[90vh] max-w-sm flex-col items-center gap-4"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close button */}
+              <button
+                type="button"
+                onClick={() => setLightbox(null)}
+                className="absolute -right-3 -top-3 z-10 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border border-border bg-background text-muted-foreground transition-colors hover:text-foreground"
+                aria-label="Close"
+              >
+                <X className="h-4 w-4" />
+              </button>
+
+              {/* Phone frame */}
+              <div
+                className="relative w-96 overflow-hidden rounded-[36px] border-[3px] border-border/70 bg-background shadow-2xl"
+                style={{ aspectRatio: "9/19.5" }}
+              >
+                <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-14 h-3.5 rounded-full bg-border z-10" />
+                <img
+                  src={lightbox.src}
+                  alt={lightbox.label}
+                  className="h-full w-full object-cover object-top"
+                />
+              </div>
+
+              {/* Label */}
+              <p
+                className="text-center text-sm font-semibold text-white/90"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                {lightbox.label}
+              </p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

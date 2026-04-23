@@ -449,6 +449,120 @@ export function HomePage() {
       </section>
 
       {/* ══════════════════════════════
+          HOW IT WORKS — 3-step flow
+      ══════════════════════════════ */}
+      <section className="px-4 py-20 md:px-6">
+        <div className="mx-auto max-w-5xl space-y-16">
+          <div className="space-y-4 text-center">
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45 }}
+              className="eyebrow mx-auto"
+            >
+              How it works
+            </motion.p>
+            <motion.h2
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.06 }}
+              className="section-heading mx-auto max-w-2xl"
+            >
+              From first trade to full report in minutes.
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: 0.12 }}
+              className="mx-auto max-w-xl text-base text-muted-foreground"
+            >
+              Three steps. No training required. Built around the way bullion operations actually run.
+            </motion.p>
+          </div>
+
+          <div className="relative grid gap-10 md:grid-cols-3 md:gap-6">
+            {/* Connector line — desktop */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute top-[1.9rem] left-[calc(16.67%+2rem)] right-[calc(16.67%+2rem)] hidden h-px md:block"
+              style={{
+                background:
+                  "linear-gradient(90deg, transparent 0%, var(--primary) 20%, var(--primary) 80%, transparent 100%)",
+                opacity: 0.18,
+              }}
+            />
+
+            {[
+              {
+                step: "01",
+                icon: BookOpen,
+                title: "Enter daily trades",
+                body: "Log every BUY and SELL with party, item, rate, and quantity. The Daily Ledger auto-computes running balances for every counterparty.",
+              },
+              {
+                step: "02",
+                icon: TrendingUp,
+                title: "Track live position",
+                body: "Net Daily Position calculates your overbought or oversold exposure across every commodity — updated the moment you save an entry.",
+              },
+              {
+                step: "03",
+                icon: BarChart3,
+                title: "Pull your reports",
+                body: "Generate settlement outputs, day books, refinery performance, and P&L summaries directly from Reports Center in one tap.",
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={item.step}
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ delay: i * 0.13, duration: 0.55, ease: EASE }}
+                className="relative flex flex-col items-center gap-5 text-center"
+              >
+                {/* Decorative step number */}
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute -top-6 left-1/2 -translate-x-1/2 select-none font-display font-bold leading-none text-primary"
+                  style={{ fontSize: "7rem", opacity: 0.055, letterSpacing: "-0.06em" }}
+                >
+                  {item.step}
+                </div>
+
+                {/* Icon */}
+                <div
+                  className="relative z-10 flex h-16 w-16 items-center justify-center rounded-2xl border border-border shadow-sm"
+                  style={{ background: "var(--panel-background)" }}
+                >
+                  <item.icon className="h-6 w-6 text-primary" />
+                </div>
+
+                {/* Text */}
+                <div className="relative z-10 max-w-xs space-y-2">
+                  <p
+                    className="font-display text-[0.65rem] font-semibold text-primary"
+                    style={{ fontFamily: "var(--font-mono, monospace)", letterSpacing: "0.18em", textTransform: "uppercase" }}
+                  >
+                    Step {item.step}
+                  </p>
+                  <h3
+                    className="font-display text-xl font-bold text-foreground"
+                    style={{ letterSpacing: "-0.015em" }}
+                  >
+                    {item.title}
+                  </h3>
+                  <p className="text-sm leading-7 text-muted-foreground">{item.body}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════
           ARCHITECTURE SCROLL
       ══════════════════════════════ */}
       <section id="overview">
