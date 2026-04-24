@@ -88,6 +88,14 @@
     /* Footer */
     .article-footer { border-top: 1px solid var(--border); padding-top: 32px; margin-top: 48px; display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; font-size: 0.8rem; color: var(--muted); font-family: var(--font-m); }
     .back-link { color: var(--primary); font-size: 0.85rem; font-weight: 500; }
+    .related-section { margin-top: 48px; padding-top: 40px; border-top: 1px solid var(--border); }
+    .related-label { font-family: var(--font-m); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .related-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px; text-decoration: none; display: block; transition: border-color 0.2s; }
+    .related-card:hover { border-color: var(--primary); text-decoration: none; }
+    .related-card-cat { font-family: var(--font-m); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+    .related-card-title { font-size: 0.85rem; font-weight: 600; color: var(--text); line-height: 1.4; }
+    @media (max-width: 580px) { .related-grid { grid-template-columns: 1fr; } }
   </style>
   <!-- Microsoft Clarity -->
   <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","wgv70stxxe");</script>
@@ -207,6 +215,24 @@
     <h3>See the Daily Ledger in action</h3>
     <p>Bullion Master includes a full Daily Ledger with party tracking, purity support, unit conversion, and real-time position updates. 30-day free trial on Android.</p>
     <a href="/bullion-master.html" class="cta-btn">Try Bullion Master Free</a>
+  </div>
+
+  <div class="related-section">
+    <div class="related-label">Related guides</div>
+    <div class="related-grid">
+      <a href="/blog/net-daily-position.html" class="related-card">
+        <div class="related-card-cat">Position Tracking</div>
+        <div class="related-card-title">What is Net Daily Position (NDP) in Bullion Trading?</div>
+      </a>
+      <a href="/blog/badla-register-guide.html" class="related-card">
+        <div class="related-card-cat">Carry Forward</div>
+        <div class="related-card-title">Badla in Bullion Trading: What It Is and How to Track It</div>
+      </a>
+      <a href="/blog/refinery-desk-guide.html" class="related-card">
+        <div class="related-card-cat">Refinery</div>
+        <div class="related-card-title">The Refinery Desk: Tracking Gold Refining from Inward to Outward</div>
+      </a>
+    </div>
   </div>
 
   <div class="article-footer">
