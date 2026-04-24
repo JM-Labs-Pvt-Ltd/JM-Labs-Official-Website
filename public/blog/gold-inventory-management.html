@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gold and Silver Inventory Management: Purity, Weight, and Stock Control | JM Labs Blog</title>
+  <meta name="description" content="How Indian bullion traders manage gold and silver inventory — tracking by purity, weight unit conversion, opening stock, receipts, deliveries, and physical reconciliation." />
+  <meta name="keywords" content="gold inventory management India, silver stock tracking, bullion inventory app, gold purity tracking 999 916, tola gram conversion, bullion stock reconciliation India" />
+  <link rel="canonical" href="https://jm-labs.vercel.app/blog/gold-inventory-management.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Gold and Silver Inventory Management: Purity, Weight, and Stock Control" />
+  <meta property="og:description" content="How Indian bullion traders manage inventory — purity tracking, unit conversion, opening stock, receipts, deliveries, and physical reconciliation." />
+  <meta property="og:url" content="https://jm-labs.vercel.app/blog/gold-inventory-management.html" />
+  <meta property="og:site_name" content="JM Labs" />
+  <meta property="og:image" content="https://jm-labs.vercel.app/screenshots/daily-ledger.jpg" />
+  <meta property="article:published_time" content="2026-04-24" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Gold and Silver Inventory Management: Purity, Weight, and Stock Control",
+    "description": "How Indian bullion traders manage gold and silver inventory across purities, weight units, and forms — with physical reconciliation.",
+    "datePublished": "2026-04-24",
+    "dateModified": "2026-04-24",
+    "author": { "@type": "Organization", "name": "JM Labs" },
+    "publisher": { "@type": "Organization", "name": "JM Labs", "url": "https://jm-labs.vercel.app" },
+    "url": "https://jm-labs.vercel.app/blog/gold-inventory-management.html",
+    "keywords": "gold inventory management India, bullion stock tracking, purity tracking gold silver"
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/jm-labs-icon-final.svg" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --primary: #b7865f; --bg: #fdfaf7; --surface: #f5ede3; --text: #1c1510; --muted: #7a6458; --border: rgba(169,137,112,0.2); --font-d: 'Playfair Display', Georgia, serif; --font-b: 'Plus Jakarta Sans', -apple-system, sans-serif; --font-m: 'DM Mono', monospace; }
+    @media (prefers-color-scheme: dark) { :root { --primary: #f59e0b; --bg: #0a0908; --surface: #151210; --text: #fafaf9; --muted: #a8a29e; --border: rgba(245,158,11,0.14); } }
+    body { font-family: var(--font-b); background: var(--bg); color: var(--text); line-height: 1.75; font-size: 16px; }
+    a { color: var(--primary); text-decoration: none; } a:hover { text-decoration: underline; }
+    .article-wrap { max-width: 720px; margin: 0 auto; padding: 48px 24px 80px; }
+    .category-badge { display: inline-block; font-family: var(--font-m); font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: #8b5cf6; border: 1px solid rgba(139,92,246,0.2); border-radius: 999px; padding: 4px 12px; margin-bottom: 20px; background: rgba(139,92,246,0.06); }
+    h1 { font-family: var(--font-d); font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 600; line-height: 1.2; margin-bottom: 16px; }
+    .meta { font-family: var(--font-m); font-size: 0.75rem; color: var(--muted); letter-spacing: 0.08em; margin-bottom: 40px; }
+    .divider { height: 1px; background: var(--border); margin: 40px 0; }
+    h2 { font-family: var(--font-d); font-size: 1.4rem; font-weight: 600; margin: 40px 0 16px; }
+    h3 { font-size: 1rem; font-weight: 600; margin: 28px 0 10px; }
+    p { margin-bottom: 18px; color: var(--muted); }
+    ul, ol { padding-left: 24px; margin-bottom: 18px; color: var(--muted); }
+    li { margin-bottom: 8px; line-height: 1.7; }
+    strong { color: var(--text); font-weight: 600; }
+    .callout { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--primary); border-radius: 12px; padding: 20px 24px; margin: 28px 0; }
+    .callout p { margin: 0; font-size: 0.9rem; }
+    .purity-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 24px 0; }
+    .purity-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
+    .purity-label { font-family: var(--font-m); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+    .purity-value { font-size: 1.1rem; font-weight: 600; color: var(--primary); font-family: var(--font-m); }
+    .purity-desc { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
+    .cta-section { margin-top: 56px; padding: 36px; background: var(--surface); border: 1px solid var(--border); border-radius: 20px; text-align: center; }
+    .cta-section h3 { font-family: var(--font-d); font-size: 1.3rem; margin-bottom: 10px; }
+    .cta-section p { font-size: 0.9rem; margin-bottom: 20px; }
+    .cta-btn { display: inline-block; background: var(--primary); color: #fff; padding: 12px 28px; border-radius: 12px; font-weight: 600; font-size: 0.9rem; text-decoration: none; }
+    .article-footer { border-top: 1px solid var(--border); padding-top: 32px; margin-top: 48px; display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; font-size: 0.8rem; color: var(--muted); font-family: var(--font-m); }
+    @media (max-width: 480px) { .purity-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<nav style="border-bottom: 1px solid var(--border); padding: 14px 24px;">
+  <div style="max-width: 860px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;">
+    <a href="/index.html" style="font-family: var(--font-m); font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--primary); font-weight: 600;">JM Labs</a>
+    <div style="display: flex; gap: 20px;">
+      <a href="/blog.html" style="font-size: 0.85rem; color: var(--muted); font-weight: 500;">← All guides</a>
+      <a href="/bullion-master.html" style="font-size: 0.85rem; color: var(--primary); font-weight: 600;">Bullion Master</a>
+    </div>
+  </div>
+</nav>
+
+<article class="article-wrap">
+  <span class="category-badge">Inventory</span>
+  <h1>Gold and Silver Inventory: Purity, Weight, and Stock Control</h1>
+  <p class="meta">April 24, 2026 &nbsp;·&nbsp; 6 min read &nbsp;·&nbsp; By JM Labs</p>
+  <div class="divider"></div>
+
+  <p>Tracking gold and silver inventory is fundamentally different from tracking any other kind of stock. The same metal can exist in multiple purities, multiple weight units, and multiple physical forms — and each of these dimensions changes the value of what you hold.</p>
+  <p>A generic stock management or accounting tool that works well for electronics or garments fails completely for bullion. This guide explains how Indian bullion traders manage inventory correctly — and what makes it complex enough to warrant a dedicated solution.</p>
+
+  <h2>The Three Dimensions of Bullion Inventory</h2>
+  <p>Every piece of gold or silver you hold can be described along three dimensions:</p>
+  <ol>
+    <li><strong>Metal</strong> — Gold or Silver</li>
+    <li><strong>Purity</strong> — The fineness of the metal, expressed as parts per thousand or as a karat value</li>
+    <li><strong>Form</strong> — The physical shape of the metal: bar, coin, loose metal, jewellery-grade, etc.</li>
+  </ol>
+  <p>Your inventory system must track all three separately. You cannot net 916 gold against 999 gold — they are different assets with different values. Mixing them in a single stock balance is a reporting error.</p>
+
+  <h2>Gold Purity Standards Used in Indian Bullion Markets</h2>
+
+  <div class="purity-grid">
+    <div class="purity-card">
+      <div class="purity-label">International Standard</div>
+      <div class="purity-value">999.9</div>
+      <div class="purity-desc">Four nines. Highest commercially available grade. Used in premium bars and MCX delivery.</div>
+    </div>
+    <div class="purity-card">
+      <div class="purity-label">Standard Bar Purity</div>
+      <div class="purity-value">999</div>
+      <div class="purity-desc">Three nines. Most common wholesale trading purity in Indian bullion markets.</div>
+    </div>
+    <div class="purity-card">
+      <div class="purity-label">Hallmark Standard</div>
+      <div class="purity-value">916 (22K)</div>
+      <div class="purity-desc">Standard for hallmarked jewellery in India. 91.6% pure gold.</div>
+    </div>
+    <div class="purity-card">
+      <div class="purity-label">Export Jewellery</div>
+      <div class="purity-value">750 (18K)</div>
+      <div class="purity-desc">Common in export jewellery and international markets. 75% pure gold.</div>
+    </div>
+  </div>
+
+  <p>For silver, the standard purity grades are 999, 999.9, and 925 (sterling silver). Industrial silver trades at lower purities. Your inventory system must track whichever grades your business handles.</p>
+
+  <h2>Weight Units and Conversion in Indian Bullion Trading</h2>
+  <p>Weight units are a major operational challenge for Indian bullion traders because different counterparties, markets, and historical records use different units:</p>
+  <ul>
+    <li><strong>Gram (g)</strong> — The standard modern unit. Most digital systems use grams.</li>
+    <li><strong>Tola</strong> — Traditional Indian unit equal to exactly 11.664 grams. Still widely used in Sarafa Bazaar, Zaveri Bazaar, and many wholesale markets. Gold rates are often quoted in tola by older traders.</li>
+    <li><strong>Troy Ounce (oz t)</strong> — International standard equal to 31.1035 grams. Used in MCX contracts, international trading, and imported bars.</li>
+    <li><strong>Kilogram (kg)</strong> — Used for large bar trades. 1 kg = 1000 grams = 85.735 tola.</li>
+  </ul>
+  <div class="callout">
+    <p><strong>Conversion reference:</strong><br>
+    1 Tola = 11.664 grams<br>
+    1 Troy Ounce = 31.1035 grams<br>
+    1 kg = 85.735 tola = 32.15 troy ounces<br><br>
+    These must be handled precisely — rounding errors across hundreds of transactions accumulate into significant discrepancies.</p>
+  </div>
+
+  <h2>The Inventory Ledger: What Gets Recorded</h2>
+  <p>A proper bullion inventory ledger tracks the following movements for each metal-purity combination:</p>
+  <ul>
+    <li><strong>Opening stock</strong> — Quantity on hand at start of day or period</li>
+    <li><strong>Receipts (inward)</strong> — Metal received through purchases, refinery outputs, transfers in</li>
+    <li><strong>Deliveries (outward)</strong> — Metal dispatched through sales, transfers out, refinery inward</li>
+    <li><strong>Closing stock</strong> — Opening + Receipts − Deliveries = Closing quantity</li>
+  </ul>
+  <p>Each receipt and delivery entry links back to the specific transaction in your Daily Ledger. This is how you reconcile book stock with physical stock — every movement has a source document.</p>
+
+  <h2>Physical vs Book Stock Reconciliation</h2>
+  <p>One of the most important — and most neglected — practices in bullion trading is periodic physical stock count. Your book stock (what the ledger says you hold) must match your physical stock (what is actually in the safe or vault).</p>
+  <p>Discrepancies arise from:</p>
+  <ul>
+    <li>Transactions recorded at incorrect weight</li>
+    <li>Purity grade recorded incorrectly (916 entered as 999)</li>
+    <li>Unrecorded inward receipts</li>
+    <li>Deliveries dispatched but not yet entered in the system</li>
+    <li>Assay or testing loss not recorded</li>
+    <li>Refinery processing loss (toofan/wastage) not accounted for</li>
+  </ul>
+  <p>Disciplined bullion businesses do a physical count at the end of every trading day. When physical and book match, the ledger is clean. Any discrepancy must be investigated and reconciled before the next trading session opens.</p>
+
+  <h2>Opening Stock for a New Business or New System</h2>
+  <p>When setting up a digital inventory system for the first time, you must enter your opening stock accurately. This means conducting a full physical count, purity by purity, and entering each holding:</p>
+  <ul>
+    <li>Gold 999: X grams / tola</li>
+    <li>Gold 916: Y grams / tola</li>
+    <li>Silver 999: Z kg</li>
+  </ul>
+  <p>This opening stock becomes the baseline. All subsequent receipts and deliveries build on top of it. An inaccurate opening stock means every closing balance from that point forward is wrong.</p>
+
+  <h2>How Bullion Master Handles Inventory</h2>
+  <p>Bullion Master's Inventory module tracks gold and silver stock by purity and form. Every sale and purchase entry from the Daily Ledger updates the inventory automatically — you do not enter the same transaction twice. At any time, you can see your current stock position in grams, tola, or kg, broken down by purity.</p>
+  <p>The module supports opening stock entry at setup and allows you to run a stock reconciliation report that compares your book stock against your manual physical count input — showing you any gaps that need investigation.</p>
+
+  <div class="cta-section">
+    <h3>Track your gold and silver stock with precision</h3>
+    <p>Bullion Master manages inventory by purity and weight unit — linked directly to your Daily Ledger entries so every sale and purchase updates stock automatically.</p>
+    <a href="/bullion-master.html" class="cta-btn">Try Bullion Master Free</a>
+  </div>
+
+  <div class="article-footer">
+    <a href="/blog.html" style="color: var(--primary); font-size: 0.85rem; font-weight: 500;">← All trading guides</a>
+    <span>© 2026 JM Labs · <a href="/privacy-policy.html">Privacy</a></span>
+  </div>
+</article>
+</body>
+</html>

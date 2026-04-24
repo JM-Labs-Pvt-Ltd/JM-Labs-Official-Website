@@ -113,6 +113,7 @@ export function SiteFooter() {
             <FooterLink href="./index.html">Home</FooterLink>
             <FooterLink href="./about.html">About JM Labs</FooterLink>
             <FooterLink href="./bullion-master.html">Bullion Master</FooterLink>
+            <FooterLink href="./blog.html">Trading Guides</FooterLink>
             <FooterLink href="./next-product.html">In Development</FooterLink>
           </div>
         </div>

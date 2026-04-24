@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What is Net Daily Position (NDP) in Bullion Trading? | JM Labs Blog</title>
+  <meta name="description" content="Net Daily Position (NDP) tells bullion traders their net long or short exposure across all trades for the day. Learn how Indian gold and silver traders calculate and manage NDP." />
+  <meta name="keywords" content="net daily position bullion, NDP gold trading India, daily position tracking gold silver, net open position bullion, gold trading risk management India" />
+  <link rel="canonical" href="https://jm-labs.vercel.app/blog/net-daily-position.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="What is Net Daily Position (NDP) in Bullion Trading?" />
+  <meta property="og:description" content="How Indian gold and silver traders calculate Net Daily Position — their net long or short exposure across all trades for the day." />
+  <meta property="og:url" content="https://jm-labs.vercel.app/blog/net-daily-position.html" />
+  <meta property="og:site_name" content="JM Labs" />
+  <meta property="og:image" content="https://jm-labs.vercel.app/screenshots/daily-ledger.jpg" />
+  <meta property="article:published_time" content="2026-04-24" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "What is Net Daily Position (NDP) in Bullion Trading?",
+    "description": "Net Daily Position (NDP) tells bullion traders their net long or short exposure across all trades for the day. How Indian gold and silver traders calculate and manage NDP.",
+    "datePublished": "2026-04-24",
+    "dateModified": "2026-04-24",
+    "author": { "@type": "Organization", "name": "JM Labs" },
+    "publisher": { "@type": "Organization", "name": "JM Labs", "url": "https://jm-labs.vercel.app" },
+    "url": "https://jm-labs.vercel.app/blog/net-daily-position.html",
+    "keywords": "net daily position, NDP bullion trading, gold position tracking India"
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/jm-labs-icon-final.svg" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --primary: #b7865f; --bg: #fdfaf7; --surface: #f5ede3; --text: #1c1510; --muted: #7a6458; --border: rgba(169,137,112,0.2); --font-d: 'Playfair Display', Georgia, serif; --font-b: 'Plus Jakarta Sans', -apple-system, sans-serif; --font-m: 'DM Mono', monospace; }
+    @media (prefers-color-scheme: dark) { :root { --primary: #f59e0b; --bg: #0a0908; --surface: #151210; --text: #fafaf9; --muted: #a8a29e; --border: rgba(245,158,11,0.14); } }
+    body { font-family: var(--font-b); background: var(--bg); color: var(--text); line-height: 1.75; font-size: 16px; }
+    a { color: var(--primary); text-decoration: none; } a:hover { text-decoration: underline; }
+    .article-wrap { max-width: 720px; margin: 0 auto; padding: 48px 24px 80px; }
+    .category-badge { display: inline-block; font-family: var(--font-m); font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: #3b82f6; border: 1px solid rgba(59,130,246,0.2); border-radius: 999px; padding: 4px 12px; margin-bottom: 20px; background: rgba(59,130,246,0.06); }
+    h1 { font-family: var(--font-d); font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 600; line-height: 1.2; margin-bottom: 16px; }
+    .meta { font-family: var(--font-m); font-size: 0.75rem; color: var(--muted); letter-spacing: 0.08em; margin-bottom: 40px; }
+    .divider { height: 1px; background: var(--border); margin: 40px 0; }
+    h2 { font-family: var(--font-d); font-size: 1.4rem; font-weight: 600; margin: 40px 0 16px; }
+    h3 { font-size: 1rem; font-weight: 600; margin: 28px 0 10px; }
+    p { margin-bottom: 18px; color: var(--muted); }
+    ul, ol { padding-left: 24px; margin-bottom: 18px; color: var(--muted); }
+    li { margin-bottom: 8px; line-height: 1.7; }
+    strong { color: var(--text); font-weight: 600; }
+    .callout { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--primary); border-radius: 12px; padding: 20px 24px; margin: 28px 0; }
+    .callout p { margin: 0; font-size: 0.9rem; }
+    .ndp-example { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 24px; margin: 28px 0; font-family: var(--font-m); font-size: 0.85rem; }
+    .ndp-example .label { color: var(--muted); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px; }
+    .ndp-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border); color: var(--muted); }
+    .ndp-row:last-child { border-bottom: none; font-weight: 600; color: var(--text); }
+    .ndp-row span:last-child { color: var(--text); }
+    .cta-section { margin-top: 56px; padding: 36px; background: var(--surface); border: 1px solid var(--border); border-radius: 20px; text-align: center; }
+    .cta-section h3 { font-family: var(--font-d); font-size: 1.3rem; margin-bottom: 10px; }
+    .cta-section p { font-size: 0.9rem; margin-bottom: 20px; }
+    .cta-btn { display: inline-block; background: var(--primary); color: #fff; padding: 12px 28px; border-radius: 12px; font-weight: 600; font-size: 0.9rem; text-decoration: none; }
+    .article-footer { border-top: 1px solid var(--border); padding-top: 32px; margin-top: 48px; display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; font-size: 0.8rem; color: var(--muted); font-family: var(--font-m); }
+  </style>
+</head>
+<body>
+<nav style="border-bottom: 1px solid var(--border); padding: 14px 24px;">
+  <div style="max-width: 860px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;">
+    <a href="/index.html" style="font-family: var(--font-m); font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--primary); font-weight: 600;">JM Labs</a>
+    <div style="display: flex; gap: 20px;">
+      <a href="/blog.html" style="font-size: 0.85rem; color: var(--muted); font-weight: 500;">← All guides</a>
+      <a href="/bullion-master.html" style="font-size: 0.85rem; color: var(--primary); font-weight: 600;">Bullion Master</a>
+    </div>
+  </div>
+</nav>
+
+<article class="article-wrap">
+  <span class="category-badge">Position Tracking</span>
+  <h1>What is Net Daily Position (NDP) in Bullion Trading?</h1>
+  <p class="meta">April 24, 2026 &nbsp;·&nbsp; 5 min read &nbsp;·&nbsp; By JM Labs</p>
+  <div class="divider"></div>
+
+  <p>At the end of every trading day, a bullion trader needs to answer one fundamental question: <strong>where do I stand?</strong> How much gold or silver am I net long or short across everything I bought and sold today? That answer is the Net Daily Position — and it is one of the most important numbers in your business.</p>
+
+  <h2>What Net Daily Position Means</h2>
+  <p>Net Daily Position (NDP) is the difference between your total buy quantity and your total sell quantity for a given metal on a given trading day. It represents your net open exposure — how much metal you still need to deliver or receive to be fully settled.</p>
+  <p>The formula is straightforward:</p>
+  <div class="callout">
+    <p><strong>NDP = Total Buy Quantity − Total Sell Quantity</strong><br><br>
+    Positive NDP → You are net long (bought more than sold, need to receive or hold)<br>
+    Negative NDP → You are net short (sold more than bought, need to deliver or procure)<br>
+    Zero NDP → Fully squared off for the day</p>
+  </div>
+
+  <h2>A Real Example from a Trading Day</h2>
+  <p>Suppose a gold trader in Sarafa Bazaar executes the following trades on a single day:</p>
+
+  <div class="ndp-example">
+    <div class="label">Gold Trades — April 24, 2026 (999 purity)</div>
+    <div class="ndp-row"><span>Buy from Sharma Bullion</span><span>500g</span></div>
+    <div class="ndp-row"><span>Buy from MCX delivery</span><span>1,000g</span></div>
+    <div class="ndp-row"><span>Sell to Patel Jewellers</span><span>−700g</span></div>
+    <div class="ndp-row"><span>Sell to Gupta Traders</span><span>−400g</span></div>
+    <div class="ndp-row"><span>Sell to walk-in retail</span><span>−200g</span></div>
+    <div class="ndp-row"><span>Total Bought</span><span>1,500g</span></div>
+    <div class="ndp-row"><span>Total Sold</span><span>1,300g</span></div>
+    <div class="ndp-row"><span><strong>Net Daily Position</strong></span><span><strong>+200g (Net Long)</strong></span></div>
+  </div>
+
+  <p>This trader ends the day with a net long position of 200 grams of 999 gold. They need to either hold this metal overnight, sell it before close, or arrange for it to carry forward as an open position.</p>
+
+  <h2>Why NDP is Tracked Separately Per Metal and Purity</h2>
+  <p>A bullion business typically trades both gold and silver, and often across multiple purities. The NDP must be calculated separately for each:</p>
+  <ul>
+    <li><strong>Gold 999 NDP</strong> and <strong>Gold 916 NDP</strong> are separate — you cannot net a 999 position against a 916 position without a purity adjustment</li>
+    <li><strong>Silver 999 NDP</strong> is tracked separately from gold entirely</li>
+    <li>Different forms (bars vs coins vs loose metal) may also need separate tracking depending on your business</li>
+  </ul>
+  <p>This is why generic accounting tools struggle — they track value, not metal quantity by purity. NDP requires quantity-based tracking at the purity level.</p>
+
+  <h2>How NDP Drives Settlement Decisions</h2>
+  <p>Knowing your NDP by end of business hours gives you enough time to act before markets close:</p>
+  <ol>
+    <li><strong>If NDP is positive (net long)</strong> — You are holding metal. You can sell to square off, or carry it as inventory/open position</li>
+    <li><strong>If NDP is negative (net short)</strong> — You owe metal. You need to procure from another trader, arrange delivery from your stock, or carry the short position as badla</li>
+    <li><strong>If NDP is zero</strong> — All trades are matched. Settlement can proceed without any new procurement or delivery</li>
+  </ol>
+
+  <div class="callout">
+    <p><strong>Time matters:</strong> In Sarafa Bazaar and Zaveri Bazaar, settlement windows are specific. Knowing your NDP by 3 PM gives you time to close any gap before the settlement cutoff. Discovering a short position at 5 PM means scrambling — or carrying badla charges.</p>
+  </div>
+
+  <h2>NDP vs Open Positions</h2>
+  <p>NDP is a day-level calculation. Open Positions are the cumulative carry-forward from multiple days. If your NDP was +200g on Monday, and you did not square it off, that 200g carries into your Open Position register for Tuesday.</p>
+  <p>Tracking both is essential:</p>
+  <ul>
+    <li><strong>Daily NDP</strong> → Tells you what happened today and what you need to do before close</li>
+    <li><strong>Open Positions</strong> → Tells you your total outstanding exposure across all days</li>
+  </ul>
+
+  <h2>How Bullion Master Calculates NDP</h2>
+  <p>In Bullion Master, every entry in the Daily Ledger feeds directly into the NDP calculation. As you add buy and sell transactions during the day, the Net Daily Position updates in real time — broken down by metal and purity. You can see at any moment whether you are long or short, by how much, and in which metal.</p>
+  <p>At day end, the NDP view gives you a single-screen summary to guide your settlement decisions. Positions that are not settled carry forward and appear in the Badla Register and Open Positions module automatically.</p>
+
+  <div class="cta-section">
+    <h3>Track NDP automatically with Bullion Master</h3>
+    <p>Every trade you record in the Daily Ledger feeds your Net Daily Position in real time. No manual calculations, no end-of-day scramble.</p>
+    <a href="/bullion-master.html" class="cta-btn">Try Bullion Master Free</a>
+  </div>
+
+  <div class="article-footer">
+    <a href="/blog.html" style="color: var(--primary); font-size: 0.85rem; font-weight: 500;">← All trading guides</a>
+    <span>© 2026 JM Labs · <a href="/privacy-policy.html">Privacy</a></span>
+  </div>
+</article>
+</body>
+</html>

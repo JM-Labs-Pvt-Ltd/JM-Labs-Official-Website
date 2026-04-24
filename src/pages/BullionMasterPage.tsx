@@ -132,7 +132,7 @@ const faqs = [
   },
   {
     q: "Is the PIN lock bypass-able?",
-    a: "No. After a configurable number of failed PIN attempts, the app triggers an auto-wipe. There is also a duress PIN option that silently clears data on entry without alerting anyone.",
+    a: "No. After a configurable number of failed PIN attempts, the app triggers an auto-wipe.",
   },
   {
     q: "Does Bullion Master work without an internet connection?",

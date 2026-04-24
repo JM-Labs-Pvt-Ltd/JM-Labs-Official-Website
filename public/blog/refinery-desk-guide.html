@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Refinery Desk: Tracking Gold Refining from Inward to Outward | JM Labs Blog</title>
+  <meta name="description" content="How bullion traders track gold and silver refinery operations — inward receipt of raw metal, processing, assaying, wastage, and outward delivery. The Refinery Desk module explained." />
+  <meta name="keywords" content="gold refinery tracking software India, silver refinery management, bullion refinery desk, gold refining operations tracking, kachcha sona tracking, refinery wastage gold" />
+  <link rel="canonical" href="https://jm-labs.vercel.app/blog/refinery-desk-guide.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="The Refinery Desk: Tracking Gold Refining from Inward to Outward" />
+  <meta property="og:description" content="How bullion traders track refinery operations — inward raw metal, processing, wastage tracking, and outward delivery for Indian gold and silver refiners." />
+  <meta property="og:url" content="https://jm-labs.vercel.app/blog/refinery-desk-guide.html" />
+  <meta property="og:site_name" content="JM Labs" />
+  <meta property="og:image" content="https://jm-labs.vercel.app/screenshots/daily-ledger.jpg" />
+  <meta property="article:published_time" content="2026-04-24" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Refinery Desk: Tracking Gold Refining from Inward to Outward",
+    "description": "How Indian bullion traders and refinery operators track gold and silver refining operations — inward receipt, processing, wastage, and outward delivery.",
+    "datePublished": "2026-04-24",
+    "dateModified": "2026-04-24",
+    "author": { "@type": "Organization", "name": "JM Labs" },
+    "publisher": { "@type": "Organization", "name": "JM Labs", "url": "https://jm-labs.vercel.app" },
+    "url": "https://jm-labs.vercel.app/blog/refinery-desk-guide.html",
+    "keywords": "gold refinery tracking, silver refinery software India, bullion refinery desk, kachcha sona"
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/jm-labs-icon-final.svg" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --primary: #b7865f; --bg: #fdfaf7; --surface: #f5ede3; --text: #1c1510; --muted: #7a6458; --border: rgba(169,137,112,0.2); --font-d: 'Playfair Display', Georgia, serif; --font-b: 'Plus Jakarta Sans', -apple-system, sans-serif; --font-m: 'DM Mono', monospace; }
+    @media (prefers-color-scheme: dark) { :root { --primary: #f59e0b; --bg: #0a0908; --surface: #151210; --text: #fafaf9; --muted: #a8a29e; --border: rgba(245,158,11,0.14); } }
+    body { font-family: var(--font-b); background: var(--bg); color: var(--text); line-height: 1.75; font-size: 16px; }
+    a { color: var(--primary); text-decoration: none; } a:hover { text-decoration: underline; }
+    .article-wrap { max-width: 720px; margin: 0 auto; padding: 48px 24px 80px; }
+    .category-badge { display: inline-block; font-family: var(--font-m); font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: #f43f5e; border: 1px solid rgba(244,63,94,0.2); border-radius: 999px; padding: 4px 12px; margin-bottom: 20px; background: rgba(244,63,94,0.06); }
+    h1 { font-family: var(--font-d); font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 600; line-height: 1.2; margin-bottom: 16px; }
+    .meta { font-family: var(--font-m); font-size: 0.75rem; color: var(--muted); letter-spacing: 0.08em; margin-bottom: 40px; }
+    .divider { height: 1px; background: var(--border); margin: 40px 0; }
+    h2 { font-family: var(--font-d); font-size: 1.4rem; font-weight: 600; margin: 40px 0 16px; }
+    h3 { font-size: 1rem; font-weight: 600; margin: 28px 0 10px; }
+    p { margin-bottom: 18px; color: var(--muted); }
+    ul, ol { padding-left: 24px; margin-bottom: 18px; color: var(--muted); }
+    li { margin-bottom: 8px; line-height: 1.7; }
+    strong { color: var(--text); font-weight: 600; }
+    .callout { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--primary); border-radius: 12px; padding: 20px 24px; margin: 28px 0; }
+    .callout p { margin: 0; font-size: 0.9rem; }
+    .refinery-flow { display: flex; flex-direction: column; gap: 0; margin: 28px 0; }
+    .refinery-step { display: flex; gap: 0; }
+    .step-left { display: flex; flex-direction: column; align-items: center; width: 40px; flex-shrink: 0; }
+    .step-dot { width: 32px; height: 32px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-family: var(--font-m); font-size: 0.75rem; font-weight: 600; flex-shrink: 0; }
+    .step-line { width: 2px; background: var(--border); flex: 1; margin: 4px 0; min-height: 24px; }
+    .refinery-step:last-child .step-line { display: none; }
+    .step-content { padding: 4px 0 28px 16px; flex: 1; }
+    .step-title { font-weight: 600; color: var(--text); margin-bottom: 6px; font-size: 0.95rem; }
+    .step-body { color: var(--muted); font-size: 0.875rem; line-height: 1.65; }
+    .entry-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.875rem; }
+    .entry-table th { font-family: var(--font-m); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); padding: 10px 14px; border-bottom: 1px solid var(--border); text-align: left; }
+    .entry-table td { padding: 12px 14px; border-bottom: 1px solid var(--border); color: var(--muted); }
+    .entry-table td:first-child { color: var(--text); font-weight: 500; }
+    .cta-section { margin-top: 56px; padding: 36px; background: var(--surface); border: 1px solid var(--border); border-radius: 20px; text-align: center; }
+    .cta-section h3 { font-family: var(--font-d); font-size: 1.3rem; margin-bottom: 10px; }
+    .cta-section p { font-size: 0.9rem; margin-bottom: 20px; }
+    .cta-btn { display: inline-block; background: var(--primary); color: #fff; padding: 12px 28px; border-radius: 12px; font-weight: 600; font-size: 0.9rem; text-decoration: none; }
+    .article-footer { border-top: 1px solid var(--border); padding-top: 32px; margin-top: 48px; display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; font-size: 0.8rem; color: var(--muted); font-family: var(--font-m); }
+  </style>
+</head>
+<body>
+<nav style="border-bottom: 1px solid var(--border); padding: 14px 24px;">
+  <div style="max-width: 860px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;">
+    <a href="/index.html" style="font-family: var(--font-m); font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--primary); font-weight: 600;">JM Labs</a>
+    <div style="display: flex; gap: 20px;">
+      <a href="/blog.html" style="font-size: 0.85rem; color: var(--muted); font-weight: 500;">← All guides</a>
+      <a href="/bullion-master.html" style="font-size: 0.85rem; color: var(--primary); font-weight: 600;">Bullion Master</a>
+    </div>
+  </div>
+</nav>
+
+<article class="article-wrap">
+  <span class="category-badge">Refinery</span>
+  <h1>The Refinery Desk: Tracking Gold Refining from Inward to Outward</h1>
+  <p class="meta">April 24, 2026 &nbsp;·&nbsp; 5 min read &nbsp;·&nbsp; By JM Labs</p>
+  <div class="divider"></div>
+
+  <p>Many Indian bullion trading businesses also handle refinery operations — receiving raw or impure gold from customers, processing it, and delivering refined metal back. This workflow creates a distinct set of records that sit completely outside the standard buy/sell ledger.</p>
+  <p>Generic accounting tools and even most gold trading software either ignore refinery operations entirely or force them into purchase/sale entries where they do not fit. This guide explains the actual refinery workflow and what a dedicated Refinery Desk module tracks.</p>
+
+  <h2>Who Uses a Refinery Desk?</h2>
+  <p>Refinery desk operations are relevant to:</p>
+  <ul>
+    <li><strong>Bullion traders with in-house refining</strong> — Larger businesses that melt and refine metal received from customers or from their own purchases</li>
+    <li><strong>Commission refiners</strong> — Businesses that accept raw gold (kachcha sona) from jewellers or smaller traders, refine it, and return pure metal minus processing charges</li>
+    <li><strong>Jewellery manufacturers</strong> — Companies that receive hallmark-grade gold from brands, melt and alloy it to required specifications, and deliver finished jewellery metal</li>
+    <li><strong>Scrap dealers</strong> — Businesses that buy old jewellery, recycle and refine it, and sell the recovered metal</li>
+  </ul>
+
+  <h2>The Refinery Workflow: Step by Step</h2>
+
+  <div class="refinery-flow">
+    <div class="refinery-step">
+      <div class="step-left"><div class="step-dot">1</div><div class="step-line"></div></div>
+      <div class="step-content">
+        <div class="step-title">Inward Receipt</div>
+        <div class="step-body">The customer brings in raw metal — old jewellery, kachcha sona, scrap, or impure bars. You weigh it, assess approximate purity, and issue an inward receipt. The inward record captures: party name, gross weight, approximate purity, and date of receipt.</div>
+      </div>
+    </div>
+    <div class="refinery-step">
+      <div class="step-left"><div class="step-dot">2</div><div class="step-line"></div></div>
+      <div class="step-content">
+        <div class="step-title">Melting</div>
+        <div class="step-body">The received metal is melted down. After melting, the actual weight may differ from the gross weight due to moisture, attached non-gold material, or estimation errors. The post-melt weight is recorded.</div>
+      </div>
+    </div>
+    <div class="refinery-step">
+      <div class="step-left"><div class="step-dot">3</div><div class="step-line"></div></div>
+      <div class="step-content">
+        <div class="step-title">Assaying</div>
+        <div class="step-body">A sample is taken from the melted metal and tested for purity (assayed). The assay result gives the exact fineness — for example, 912 out of 1000. This confirmed purity, applied to the post-melt weight, gives the net fine gold content.</div>
+      </div>
+    </div>
+    <div class="refinery-step">
+      <div class="step-left"><div class="step-dot">4</div><div class="step-line"></div></div>
+      <div class="step-content">
+        <div class="step-title">Refining and Processing</div>
+        <div class="step-body">The metal is refined to the target purity (typically 999 or 999.9). Chemical or electrolytic processes remove base metals and impurities. Processing loss (toofan or wastage) occurs during this stage and must be recorded.</div>
+      </div>
+    </div>
+    <div class="refinery-step">
+      <div class="step-left"><div class="step-dot">5</div><div class="step-line"></div></div>
+      <div class="step-content">
+        <div class="step-title">Outward Delivery</div>
+        <div class="step-body">The refined metal is delivered to the customer. The outward record captures: quantity delivered, final purity, processing charges deducted, and any difference settled in cash or additional metal. A delivery receipt is issued.</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>What a Refinery Desk Entry Records</h2>
+  <table class="entry-table">
+    <thead>
+      <tr><th>Field</th><th>What It Captures</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Party Name</td><td>Customer who sent metal for refining</td></tr>
+      <tr><td>Inward Date</td><td>When metal was received</td></tr>
+      <tr><td>Gross Inward Weight</td><td>Weight of metal as received (before melting)</td></tr>
+      <tr><td>Approximate Purity</td><td>Estimated fineness at receipt</td></tr>
+      <tr><td>Post-Melt Weight</td><td>Weight after melting</td></tr>
+      <tr><td>Assayed Purity</td><td>Confirmed fineness from assay test</td></tr>
+      <tr><td>Fine Gold Content</td><td>Post-melt weight × assayed purity = actual gold</td></tr>
+      <tr><td>Processing Loss</td><td>Weight lost during refining (toofan/wastage)</td></tr>
+      <tr><td>Outward Weight</td><td>Quantity delivered after refining</td></tr>
+      <tr><td>Outward Purity</td><td>Final purity of delivered metal</td></tr>
+      <tr><td>Processing Charges</td><td>Refining fee charged to customer</td></tr>
+      <tr><td>Balance Payable</td><td>Any amount owed to or from customer</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Why Processing Loss (Toofan/Wastage) Must Be Tracked</h2>
+  <p>Every refining operation involves some loss of metal. This is normal and expected — but it must be accurately recorded for two reasons:</p>
+  <ol>
+    <li><strong>Customer settlement:</strong> The customer's final delivery is net of processing loss. If you receive 100g at 916 purity (91.6g fine gold) and lose 1% in refining, you deliver 90.7g of 999 gold. The customer needs to understand and agree to this calculation.</li>
+    <li><strong>Your own reconciliation:</strong> The total metal inward across all refinery jobs must equal total metal outward plus recorded wastage. Any unexplained gap is a serious accounting issue.</li>
+  </ol>
+
+  <div class="callout">
+    <p><strong>Common mistake:</strong> Recording the inward weight as a purchase and the outward weight as a sale in the regular ledger. This inflates your buy/sell volumes and makes your NDP and inventory calculations meaningless. Refinery transactions belong in a separate register — the Refinery Desk.</p>
+  </div>
+
+  <h2>Pending Refinery Jobs and Open Lots</h2>
+  <p>Not all refinery jobs complete in one day. A batch received on Monday may not be delivered until Thursday. Your refinery desk must track open lots — jobs that have been received but not yet delivered. At any time you should be able to answer:</p>
+  <ul>
+    <li>Which customers have metal in process?</li>
+    <li>What is the total fine gold content of all open lots?</li>
+    <li>Which lots are overdue for delivery?</li>
+    <li>What are the pending processing charges across all open jobs?</li>
+  </ul>
+
+  <h2>How Bullion Master's Refinery Desk Works</h2>
+  <p>Bullion Master's Refinery Desk module handles the full inward-to-outward cycle. When metal comes in, you create an inward entry recording party, weight, and approximate purity. As processing progresses, you update the assay result, record processing loss, and enter the outward delivery details.</p>
+  <p>Open refinery lots are visible in a pending list so nothing slips through. The module tracks fine gold content separately from gross weight, ensuring your customer settlement calculations are accurate. Completed jobs close off the record and post any cash or metal balance to the party's main ledger.</p>
+
+  <div class="cta-section">
+    <h3>Manage refinery operations with a dedicated desk</h3>
+    <p>Bullion Master's Refinery Desk tracks every lot from inward receipt to outward delivery — with assay results, wastage, processing charges, and pending job visibility.</p>
+    <a href="/bullion-master.html" class="cta-btn">Try Bullion Master Free</a>
+  </div>
+
+  <div class="article-footer">
+    <a href="/blog.html" style="color: var(--primary); font-size: 0.85rem; font-weight: 500;">← All trading guides</a>
+    <span>© 2026 JM Labs · <a href="/privacy-policy.html">Privacy</a></span>
+  </div>
+</article>
+</body>
+</html>

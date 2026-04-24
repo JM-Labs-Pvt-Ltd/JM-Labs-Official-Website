@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How Gold and Silver Traders Use a Daily Ledger | JM Labs Blog</title>
+  <meta name="description" content="Learn what entries go into a daily ledger for bullion trading — party name, purity, weight, rate, buy/sell, and settlement. How Indian gold traders maintain accurate daily records." />
+  <meta name="keywords" content="gold daily ledger India, bullion daily ledger entries, how to maintain ledger for gold trading, sarafa ledger, sona chandi khata, gold trader records India" />
+  <link rel="canonical" href="https://jm-labs.vercel.app/blog/daily-ledger-guide.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="How Gold and Silver Traders Use a Daily Ledger" />
+  <meta property="og:description" content="What entries go into a daily ledger for bullion trading, and how Indian gold and silver traders maintain accurate daily records." />
+  <meta property="og:url" content="https://jm-labs.vercel.app/blog/daily-ledger-guide.html" />
+  <meta property="og:site_name" content="JM Labs" />
+  <meta property="og:image" content="https://jm-labs.vercel.app/screenshots/daily-ledger.jpg" />
+  <meta property="article:published_time" content="2026-04-24" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How Gold and Silver Traders Use a Daily Ledger",
+    "description": "Learn what entries go into a daily ledger for bullion trading — party name, purity, weight, rate, buy/sell, and settlement. How Indian gold traders maintain accurate daily records.",
+    "datePublished": "2026-04-24",
+    "dateModified": "2026-04-24",
+    "author": { "@type": "Organization", "name": "JM Labs" },
+    "publisher": { "@type": "Organization", "name": "JM Labs", "url": "https://jm-labs.vercel.app" },
+    "url": "https://jm-labs.vercel.app/blog/daily-ledger-guide.html",
+    "mainEntityOfPage": "https://jm-labs.vercel.app/blog/daily-ledger-guide.html",
+    "keywords": "gold daily ledger, bullion trading India, sarafa ledger, gold trader records"
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/jm-labs-icon-final.svg" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #b7865f; --bg: #fdfaf7; --surface: #f5ede3; --text: #1c1510;
+      --muted: #7a6458; --border: rgba(169,137,112,0.2);
+      --font-d: 'Playfair Display', Georgia, serif;
+      --font-b: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      --font-m: 'DM Mono', monospace;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --primary: #f59e0b; --bg: #0a0908; --surface: #151210; --text: #fafaf9; --muted: #a8a29e; --border: rgba(245,158,11,0.14); }
+    }
+    body { font-family: var(--font-b); background: var(--bg); color: var(--text); line-height: 1.75; font-size: 16px; }
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Nav */
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; border-bottom: 1px solid var(--border); max-width: 860px; margin: 0 auto; }
+    .nav-brand { font-family: var(--font-m); font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--primary); font-weight: 600; text-decoration: none; }
+    .nav-links { display: flex; gap: 20px; }
+    .nav-links a { font-size: 0.85rem; color: var(--muted); font-weight: 500; }
+
+    /* Article layout */
+    .article-wrap { max-width: 720px; margin: 0 auto; padding: 48px 24px 80px; }
+    .category-badge { display: inline-block; font-family: var(--font-m); font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--primary); border: 1px solid var(--border); border-radius: 999px; padding: 4px 12px; margin-bottom: 20px; background: var(--surface); }
+    h1 { font-family: var(--font-d); font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 600; line-height: 1.2; margin-bottom: 16px; color: var(--text); }
+    .meta { font-family: var(--font-m); font-size: 0.75rem; color: var(--muted); letter-spacing: 0.08em; margin-bottom: 40px; }
+    .divider { height: 1px; background: var(--border); margin: 40px 0; }
+    h2 { font-family: var(--font-d); font-size: 1.4rem; font-weight: 600; margin: 40px 0 16px; color: var(--text); }
+    h3 { font-size: 1rem; font-weight: 600; margin: 28px 0 10px; color: var(--text); }
+    p { margin-bottom: 18px; color: var(--muted); }
+    ul, ol { padding-left: 24px; margin-bottom: 18px; color: var(--muted); }
+    li { margin-bottom: 8px; line-height: 1.7; }
+    strong { color: var(--text); font-weight: 600; }
+
+    /* Callout box */
+    .callout { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--primary); border-radius: 12px; padding: 20px 24px; margin: 28px 0; }
+    .callout p { margin: 0; font-size: 0.9rem; }
+
+    /* Entry table */
+    .entry-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.875rem; }
+    .entry-table th { font-family: var(--font-m); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); padding: 10px 14px; border-bottom: 1px solid var(--border); text-align: left; }
+    .entry-table td { padding: 12px 14px; border-bottom: 1px solid var(--border); color: var(--muted); }
+    .entry-table td:first-child { color: var(--text); font-weight: 500; }
+
+    /* CTA */
+    .cta-section { margin-top: 56px; padding: 36px; background: var(--surface); border: 1px solid var(--border); border-radius: 20px; text-align: center; }
+    .cta-section h3 { font-family: var(--font-d); font-size: 1.3rem; margin-bottom: 10px; color: var(--text); }
+    .cta-section p { font-size: 0.9rem; margin-bottom: 20px; }
+    .cta-btn { display: inline-block; background: var(--primary); color: #fff; padding: 12px 28px; border-radius: 12px; font-weight: 600; font-size: 0.9rem; text-decoration: none; }
+    .cta-btn:hover { opacity: 0.9; text-decoration: none; }
+
+    /* Footer */
+    .article-footer { border-top: 1px solid var(--border); padding-top: 32px; margin-top: 48px; display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; font-size: 0.8rem; color: var(--muted); font-family: var(--font-m); }
+    .back-link { color: var(--primary); font-size: 0.85rem; font-weight: 500; }
+  </style>
+</head>
+<body>
+
+<nav style="border-bottom: 1px solid var(--border); padding: 14px 24px;">
+  <div style="max-width: 860px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;">
+    <a href="/index.html" class="nav-brand">JM Labs</a>
+    <div style="display: flex; gap: 20px;">
+      <a href="/blog.html" style="font-size: 0.85rem; color: var(--muted); font-weight: 500;">← All guides</a>
+      <a href="/bullion-master.html" style="font-size: 0.85rem; color: var(--primary); font-weight: 600;">Bullion Master</a>
+    </div>
+  </div>
+</nav>
+
+<article class="article-wrap">
+  <span class="category-badge">Ledger</span>
+  <h1>How Gold and Silver Traders Use a Daily Ledger</h1>
+  <p class="meta">April 24, 2026 &nbsp;·&nbsp; 7 min read &nbsp;·&nbsp; By JM Labs</p>
+  <div class="divider"></div>
+
+  <p>The daily ledger is the most fundamental record in any bullion trading business. Every gram of gold or silver that changes hands, every party you deal with, every rate agreed upon — it all starts with a ledger entry. Get this right and your entire business stays in order. Get it wrong and reconciliation becomes a nightmare.</p>
+
+  <p>This guide explains exactly what entries go into a daily ledger for bullion trading, why each field matters, and how Indian gold and silver traders use daily ledger records to settle positions, track party balances, and close the books at end of day.</p>
+
+  <h2>What is a Daily Ledger in Bullion Trading?</h2>
+  <p>A daily ledger records every individual buy and sell transaction that takes place during the trading day. Unlike a master ledger — which tracks cumulative party balances over time — the daily ledger is a snapshot of one day's activity.</p>
+  <p>In a typical sarafa or bullion trading operation, a trader might execute 20–100 transactions in a single day across gold, silver, different purities, and multiple counterparties. The daily ledger captures all of this in one place.</p>
+
+  <div class="callout">
+    <p><strong>Key distinction:</strong> The daily ledger records transactions as they happen. The master ledger tracks running balances per party. Both are essential — daily for settlement, master for credit control.</p>
+  </div>
+
+  <h2>What Goes Into Each Daily Ledger Entry?</h2>
+  <p>Every entry in a gold or silver trading ledger must capture these fields:</p>
+
+  <table class="entry-table">
+    <thead>
+      <tr>
+        <th>Field</th>
+        <th>What It Captures</th>
+        <th>Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Party Name</td><td>The buyer or seller you are dealing with</td><td>Ramesh Jewellers, Mumbai</td></tr>
+      <tr><td>Transaction Type</td><td>Whether you are buying or selling</td><td>Buy / Sell</td></tr>
+      <tr><td>Metal</td><td>Gold or Silver</td><td>Gold</td></tr>
+      <tr><td>Purity</td><td>Fineness of the metal</td><td>999, 995, 916, 750</td></tr>
+      <tr><td>Weight</td><td>Quantity in your preferred unit</td><td>500g, 10 tola, 1 kg bar</td></tr>
+      <tr><td>Rate</td><td>Agreed price per unit</td><td>₹6,850 per gram</td></tr>
+      <tr><td>Amount</td><td>Total transaction value (auto-calculated)</td><td>₹34,25,000</td></tr>
+      <tr><td>Settlement</td><td>Whether the trade is settled or outstanding</td><td>Settled / Pending</td></tr>
+      <tr><td>Remarks</td><td>Any additional context</td><td>Against cheque no. 4421</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Understanding Purity in Ledger Entries</h2>
+  <p>Purity is one of the most critical fields and one where manual ledgers frequently have errors. In Indian bullion markets, gold trades at several standard purities:</p>
+  <ul>
+    <li><strong>999.9 / 24K</strong> — Highest grade, used in bars, coins, and MCX delivery</li>
+    <li><strong>999 / 24K</strong> — Standard bar purity, common in wholesale trading</li>
+    <li><strong>995</strong> — Used in many bullion bar standards</li>
+    <li><strong>916 / 22K</strong> — Hallmark standard for jewellery in India</li>
+    <li><strong>750 / 18K</strong> — Common in export jewellery</li>
+  </ul>
+  <p>When recording a transaction, the purity affects the effective value of the metal. A 916 gold trade is worth less per gram than a 999 trade. Your ledger must capture this accurately or your position and P&L calculations will be wrong.</p>
+
+  <h2>Weight Units Used in Indian Bullion Trading</h2>
+  <p>Indian bullion traders use multiple weight units depending on their market and counterparty:</p>
+  <ul>
+    <li><strong>Grams (g)</strong> — Most common in retail and digital trading</li>
+    <li><strong>Tola</strong> — Traditional Indian unit, 1 tola = 11.664 grams. Still widely used in Zaveri Bazaar, Sarafa Bazaar</li>
+    <li><strong>Kilogram (kg)</strong> — Used for large bar trades</li>
+    <li><strong>Troy Ounce (oz)</strong> — Used in MCX and international trading, 1 oz = 31.1035 grams</li>
+  </ul>
+  <p>A good bullion ledger system converts between these units automatically so you can record in the unit you agree with the counterparty and still compare positions in a single unit at end of day.</p>
+
+  <h2>How Buy and Sell Entries Work Together</h2>
+  <p>In a typical bullion trading day, a trader rarely only buys or only sells. Most positions involve both sides:</p>
+  <ol>
+    <li>You <strong>buy</strong> 1 kg of 999 gold from Party A at ₹6,840/gram</li>
+    <li>You <strong>sell</strong> 800g of 999 gold to Party B at ₹6,855/gram</li>
+    <li>You <strong>sell</strong> 200g of 999 gold to Party C at ₹6,850/gram</li>
+  </ol>
+  <p>Each of these is a separate ledger entry. At end of day, your net position is zero (bought 1 kg, sold 1 kg), but you have three separate party records to settle. This is where the daily ledger feeds directly into your Net Daily Position calculation.</p>
+
+  <div class="callout">
+    <p><strong>Settlement rule in Indian bullion markets:</strong> Most trades in Sarafa Bazaar and Zaveri Bazaar are expected to settle same day. Positions that do not settle carry forward as <em>badla</em> — an outstanding carry-forward position that typically attracts a badla charge.</p>
+  </div>
+
+  <h2>Opening Balance and Day-End Close</h2>
+  <p>Every daily ledger starts with the opening balance — the outstanding position from the previous trading day. This includes:</p>
+  <ul>
+    <li>Unsettled trades from previous day (badla positions)</li>
+    <li>Opening stock of metal held</li>
+    <li>Outstanding receivables from parties</li>
+  </ul>
+  <p>At end of day, you settle what you can, mark outstanding positions, and carry forward what remains. The closing balance of today becomes the opening balance of tomorrow.</p>
+
+  <h2>Why Manual Ledgers Fail Bullion Traders</h2>
+  <p>Many bullion businesses still maintain paper registers or basic spreadsheets. The problems are consistent:</p>
+  <ul>
+    <li><strong>Rate calculation errors</strong> — Manual multiplication of weight × rate leads to frequent mistakes, especially across purities</li>
+    <li><strong>Missing purity adjustments</strong> — A 916 trade recorded as 999 inflates your book value</li>
+    <li><strong>No real-time party balance</strong> — You cannot instantly know how much Party A owes you across multiple trades</li>
+    <li><strong>Settlement tracking</strong> — It is easy to miss which trades are settled and which are outstanding in a busy paper ledger</li>
+    <li><strong>No daily summary</strong> — Getting total buy quantity, total sell quantity, and net position requires manual addition across all entries</li>
+  </ul>
+
+  <h2>How Bullion Master Handles the Daily Ledger</h2>
+  <p>Bullion Master's Daily Ledger module is built around the workflow described above. When you record a trade, you enter the party, metal, purity, weight, and rate. The app calculates the amount, updates the party's running balance, and rolls the transaction into your Net Daily Position automatically.</p>
+  <p>At end of day, you can see a complete summary — total gold bought, total sold, settlement status per party, and outstanding positions that need to carry forward. The ledger closes cleanly and opens fresh tomorrow.</p>
+
+  <div class="cta-section">
+    <h3>See the Daily Ledger in action</h3>
+    <p>Bullion Master includes a full Daily Ledger with party tracking, purity support, unit conversion, and real-time position updates. 30-day free trial on Android.</p>
+    <a href="/bullion-master.html" class="cta-btn">Try Bullion Master Free</a>
+  </div>
+
+  <div class="article-footer">
+    <a href="/blog.html" class="back-link">← All trading guides</a>
+    <span>© 2026 JM Labs · <a href="/privacy-policy.html">Privacy</a></span>
+  </div>
+</article>
+
+</body>
+</html>

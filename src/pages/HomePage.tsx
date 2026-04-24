@@ -444,7 +444,7 @@ export function HomePage() {
                   color: "text-emerald-500",
                   bg: "bg-emerald-500/10",
                   title: "PIN-locked access",
-                  body: "A 6-digit PIN guards every session. Repeated failed attempts trigger an automatic wipe. A separate duress PIN silently clears all data on entry.",
+                  body: "A 6-digit PIN guards every session. Repeated failed attempts trigger an automatic wipe.",
                   proof: "6 independent security layers",
                 },
                 {

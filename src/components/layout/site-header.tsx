@@ -13,6 +13,7 @@ type HeaderProps = {
 const navItems = [
   { label: "Home", href: "./index.html", key: "home" },
   { label: "Products", href: "./index.html#products", key: "products" },
+  { label: "Blog", href: "./blog.html", key: "blog" },
   { label: "About", href: "./about.html", key: "about" },
 ];
 

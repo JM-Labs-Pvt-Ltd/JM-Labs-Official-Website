@@ -41,4 +41,52 @@
     <priority>0.3</priority>
   </url>
 
+  <!-- Blog listing -->
+  <url>
+    <loc>https://jm-labs.vercel.app/blog.html</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blog: Daily Ledger Guide -->
+  <url>
+    <loc>https://jm-labs.vercel.app/blog/daily-ledger-guide.html</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Blog: Net Daily Position -->
+  <url>
+    <loc>https://jm-labs.vercel.app/blog/net-daily-position.html</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Blog: Badla Register Guide -->
+  <url>
+    <loc>https://jm-labs.vercel.app/blog/badla-register-guide.html</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Blog: Gold Inventory Management -->
+  <url>
+    <loc>https://jm-labs.vercel.app/blog/gold-inventory-management.html</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Blog: Refinery Desk Guide -->
+  <url>
+    <loc>https://jm-labs.vercel.app/blog/refinery-desk-guide.html</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
 </urlset>

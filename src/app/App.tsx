@@ -4,6 +4,7 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import LoadingSpinner from "@/components/ui/snow-ball-loading-spinner";
 import { AboutPage } from "@/pages/AboutPage";
+import { BlogPage } from "@/pages/BlogPage";
 import { BullionMasterPage } from "@/pages/BullionMasterPage";
 import { HomePage } from "@/pages/HomePage";
 import { PrivacyPage } from "@/pages/PrivacyPage";
@@ -11,7 +12,7 @@ import { TermsPage } from "@/pages/TermsPage";
 import { UpcomingProductPage } from "@/pages/UpcomingProductPage";
 
 type PageConfig = {
-  key: "home" | "about" | "bullion-master" | "privacy" | "terms" | "upcoming";
+  key: "home" | "about" | "bullion-master" | "privacy" | "terms" | "upcoming" | "blog";
   title: string;
   render: ComponentType;
 };
@@ -56,6 +57,11 @@ const pageMap: Record<string, PageConfig> = {
     key: "upcoming",
     title: "Product in Development | JM Labs",
     render: UpcomingProductPage,
+  },
+  "blog.html": {
+    key: "blog",
+    title: "Bullion Trading Guides | JM Labs Blog",
+    render: BlogPage,
   },
 };
 
