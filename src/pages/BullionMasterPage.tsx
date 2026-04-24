@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { ArrowRight, BarChart3, CalendarDays, CheckCircle2, ChevronDown, Layers, LockKeyhole, Shield, Tag, Users, Wallet, X } from "lucide-react";
 
+
 import { BullionSecurityArchitecture } from "@/components/sections/bullion-security-architecture";
 import { cn } from "@/lib/utils";
 import { StatCounter } from "@/components/ui/stat-counter";
@@ -148,9 +149,9 @@ const faqs = [
 ] as const;
 
 const productStats = [
-  { value: 10, suffix: "+", label: "Core Modules" },
-  { value: 5, suffix: "+", label: "Report Types" },
-  { value: 100, suffix: "%", label: "Local-First" },
+  { value: 12, suffix: "+", label: "Core Modules" },
+  { value: 15, suffix: "+", label: "Report Types" },
+  { value: 30, suffix: "-day", label: "Free Trial" },
 ] as const;
 
 export function BullionMasterPage() {
@@ -177,7 +178,10 @@ export function BullionMasterPage() {
             transition={{ duration: 0.7 }}
             className="space-y-6"
           >
-            <p className="eyebrow">Flagship product</p>
+            <p className="eyebrow">
+              <span className="live-dot" aria-hidden="true" />
+              Live on Android · iOS coming soon
+            </p>
             <h1 className="hero-title">
               Bullion Master is the{" "}
               <em style={{ fontStyle: "italic" }} className="gradient-text">
@@ -584,6 +588,188 @@ export function BullionMasterPage() {
               </div>
               <ArrowRight className="h-5 w-5 text-primary transition group-hover:translate-x-1 flex-shrink-0" />
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Pricing ─── */}
+      <section className="px-4 md:px-6">
+        <div className="mx-auto max-w-4xl space-y-10">
+          <div className="space-y-4 text-center">
+            <p className="eyebrow mx-auto">Simple pricing</p>
+            <h2 className="section-heading mx-auto max-w-2xl">
+              One plan. Every module.{" "}
+              <span className="gradient-text italic">No hidden fees.</span>
+            </h2>
+            <p className="mx-auto max-w-md text-base text-muted-foreground">
+              Start free for 30 days. Then one simple annual fee — with renewal at a significantly lower rate.
+            </p>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.55 }}
+            className="relative overflow-hidden rounded-2xl border"
+            style={{
+              background: "var(--panel-background)",
+              borderColor: "rgba(245,158,11,0.35)",
+              boxShadow: "0 0 0 1px rgba(245,158,11,0.08), 0 24px 70px rgba(245,158,11,0.07)",
+            }}
+          >
+            {/* Gold top hairline */}
+            <div className="absolute inset-x-0 top-0 h-px" style={{ background: "linear-gradient(90deg, transparent, var(--primary), transparent)" }} />
+
+            <div className="grid divide-y divide-border md:grid-cols-3 md:divide-x md:divide-y-0" style={{ "--tw-divide-opacity": 1 } as React.CSSProperties}>
+
+              {/* Step 1 — Free trial */}
+              <div className="flex flex-col gap-5 p-8">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full border border-border text-xs font-bold text-muted-foreground" style={{ fontFamily: "var(--font-mono, monospace)" }}>1</div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground" style={{ fontFamily: "var(--font-mono, monospace)", letterSpacing: "0.2em" }}>First month</p>
+                  <div className="mt-2 flex items-end gap-1.5">
+                    <span className="font-display text-4xl font-bold text-foreground" style={{ letterSpacing: "-0.04em" }}>Free</span>
+                  </div>
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">30 days, every module unlocked. No credit card required.</p>
+                </div>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  {["All 12+ modules", "Full Reports Center", "PIN security & backup"].map(f => (
+                    <li key={f} className="flex items-center gap-2">
+                      <CheckCircle2 className="h-3.5 w-3.5 flex-shrink-0 text-emerald-500" />{f}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Step 2 — Year 1 */}
+              <div className="relative flex flex-col gap-5 p-8">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full border border-primary/40 text-xs font-bold text-primary" style={{ fontFamily: "var(--font-mono, monospace)" }}>2</div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-widest text-primary" style={{ fontFamily: "var(--font-mono, monospace)", letterSpacing: "0.2em" }}>Year 1</p>
+                  <div className="mt-2">
+                    <span className="gradient-text font-display text-2xl font-bold" style={{ letterSpacing: "-0.02em" }}>Reasonably priced</span>
+                  </div>
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">One annual payment. Full access, zero surprises — at a fraction of what generic alternatives charge.</p>
+                </div>
+                <ul className="space-y-2 text-sm text-foreground">
+                  {["Everything from the trial", "Unlimited parties & items", "Cloud backup & restore"].map(f => (
+                    <li key={f} className="flex items-center gap-2">
+                      <CheckCircle2 className="h-3.5 w-3.5 flex-shrink-0 text-primary" />{f}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Step 3 — Renewal */}
+              <div className="flex flex-col gap-5 p-8">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full border border-emerald-500/40 text-xs font-bold text-emerald-500" style={{ fontFamily: "var(--font-mono, monospace)" }}>3</div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-widest text-emerald-500" style={{ fontFamily: "var(--font-mono, monospace)", letterSpacing: "0.2em" }}>Year 2 onwards</p>
+                  <div className="mt-2">
+                    <span className="font-display text-2xl font-bold text-foreground" style={{ letterSpacing: "-0.02em" }}>Significantly lower</span>
+                  </div>
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">Renewal costs a fraction of year one — because loyalty should be rewarded, not penalised.</p>
+                </div>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  {["All updates included", "Same full access", "No price hikes"].map(f => (
+                    <li key={f} className="flex items-center gap-2">
+                      <CheckCircle2 className="h-3.5 w-3.5 flex-shrink-0 text-emerald-500" />{f}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* Bottom CTA strip */}
+            <div
+              className="flex flex-col items-center gap-4 border-t px-8 py-6 text-center sm:flex-row sm:justify-between sm:text-left"
+              style={{ borderColor: "rgba(245,158,11,0.15)", background: "color-mix(in srgb, var(--primary) 3%, var(--panel-background))" }}
+            >
+              <p className="text-sm text-muted-foreground">
+                No modules locked. No per-user fees. Cancel anytime.
+              </p>
+              <a href="#download" className={cn(buttonVariants({ size: "default" }), "flex-shrink-0")}>
+                Start free — no card needed
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ─── Download CTA ─── */}
+      <section className="px-4 md:px-6" id="download">
+        <div className="mx-auto max-w-7xl">
+          <div
+            className="relative overflow-hidden rounded-2xl border border-border p-8 md:p-12"
+            style={{ background: "var(--cta-panel-background)" }}
+          >
+            {/* Gold hairline */}
+            <div
+              className="absolute inset-x-0 top-0 h-px"
+              style={{ background: "linear-gradient(90deg, transparent 0%, var(--primary) 50%, transparent 100%)" }}
+            />
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -right-12 -top-12 h-56 w-56 rounded-full opacity-20"
+              style={{ background: "radial-gradient(circle, var(--primary) 0%, transparent 70%)", filter: "blur(48px)" }}
+            />
+            <div className="relative flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+              <div className="space-y-3">
+                <div className="flex items-center gap-2">
+                  <span className="live-dot" aria-hidden="true" />
+                  <span
+                    className="text-xs font-semibold text-emerald-500"
+                    style={{ fontFamily: "var(--font-mono, monospace)", letterSpacing: "0.12em", textTransform: "uppercase" }}
+                  >
+                    Available now on Android · iOS coming soon
+                  </span>
+                </div>
+                <h2 className="section-heading leading-tight">
+                  Start your{" "}
+                  <span className="gradient-text italic">30-day free trial.</span>
+                </h2>
+                <p className="max-w-md text-base leading-7 text-muted-foreground">
+                  No credit card. No lock-in. Every module unlocked for 30 days.
+                  Your data stays on your device from day one.
+                </p>
+              </div>
+              <div className="flex flex-col items-start gap-3 md:flex-shrink-0 md:items-end">
+                <div className="flex flex-wrap gap-3">
+                  <a
+                    href="#"
+                    className="flex items-center gap-3 rounded-xl border border-primary/30 px-5 py-3 transition-colors hover:bg-primary/5"
+                    style={{ background: "var(--eyebrow-background)", minWidth: "160px" }}
+                  >
+                    <svg className="h-6 w-6 text-primary" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M3.18 23.76c.3.17.65.2.98.1l11.94-6.9-2.58-2.58-10.34 9.38zM.5 1.26C.19 1.58 0 2.07 0 2.72v18.56c0 .65.19 1.14.5 1.46l.08.08 10.39-10.39v-.24L.58 1.18.5 1.26zm16.97 9.59l-2.92-1.69-2.76 2.76 2.76 2.76 2.93-1.7c.84-.48.84-1.27-.01-1.13zM4.16.14L16.1 7.04l-2.58 2.58L3.18.24c.33-.1.68-.07.98.1z"/>
+                    </svg>
+                    <div>
+                      <p className="text-[0.6rem] text-muted-foreground" style={{ fontFamily: "var(--font-mono, monospace)", letterSpacing: "0.08em", textTransform: "uppercase" }}>Get it on</p>
+                      <p className="text-sm font-semibold text-foreground">Google Play</p>
+                    </div>
+                  </a>
+                  <div
+                    className="flex items-center gap-3 rounded-xl border border-border px-5 py-3 opacity-50"
+                    style={{ background: "var(--eyebrow-background)", minWidth: "160px", cursor: "default" }}
+                  >
+                    <svg className="h-6 w-6 text-muted-foreground" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                    </svg>
+                    <div>
+                      <p className="text-[0.6rem] text-muted-foreground" style={{ fontFamily: "var(--font-mono, monospace)", letterSpacing: "0.08em", textTransform: "uppercase" }}>App Store</p>
+                      <p className="text-sm font-semibold text-muted-foreground">Coming Soon</p>
+                    </div>
+                  </div>
+                </div>
+                <p
+                  className="text-right text-xs text-muted-foreground"
+                  style={{ fontFamily: "var(--font-mono, monospace)", letterSpacing: "0.07em" }}
+                >
+                  Free trial · No card · Cancel anytime
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

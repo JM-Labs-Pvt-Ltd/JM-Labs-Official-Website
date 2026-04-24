@@ -32,8 +32,8 @@ export const products: ProductSummary[] = [
     description:
       "Bullion Master is the flagship JM Labs platform for precious metal businesses that need local-first records, faster daily operations, and tighter control over ledgers, stock, positions, reporting, and recovery workflows.",
     bullets: ["Daily Ledger, Master Ledger, and Net Daily Position", "Inventory, Refinery Desk, and Open Positions", "PIN security with local and cloud backup controls"],
-    image:
-      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1600&q=80",
+    image: "./screenshots/daily-ledger.jpg",
+    imageFit: "cover" as const,
   },
   {
     name: "Product in Development",
@@ -44,7 +44,7 @@ export const products: ProductSummary[] = [
       "JM Labs is preparing a second focused software product. The parent site already includes it in the ecosystem so the next launch can sit alongside Bullion Master from day one.",
     bullets: ["Parent-brand ready", "Dedicated product page ready", "Connected legal and navigation structure"],
     image:
-      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80",
   },
 ] ;
 

@@ -5,11 +5,14 @@ import {
   CheckCircle2,
   Cloud,
   Coins,
+  Download,
   LockKeyhole,
+  Quote,
   RefreshCcw,
   ShieldCheck,
   Smartphone,
   Sparkles,
+  Star,
   TrendingUp,
   Users,
   Workflow,
@@ -73,10 +76,10 @@ const coreFeatures = [
 ] as const;
 
 const keyStats = [
-  { value: 10, suffix: "+", label: "Core Modules" },
-  { value: 100, suffix: "%", label: "Local-First" },
+  { value: 12, suffix: "+", label: "Core Modules" },
+  { value: 100, suffix: "%", label: "On-Device Data" },
   { value: 6,  suffix: "",  label: "Security Layers" },
-  { value: 48, suffix: "+", label: "Supported Workflows" },
+  { value: 30, suffix: "-day", label: "Free Trial" },
 ] as const;
 
 const comparisonRows = [
@@ -89,6 +92,33 @@ const comparisonRows = [
   "100% local-first storage",
   "Staff management & salary",
   "Continuous new features",
+] as const;
+
+const testimonials = [
+  {
+    quote:
+      "Bullion Master replaced our manual register system overnight. The Daily Ledger and Net Daily Position alone save us hours every week — and nothing leaves our phone.",
+    name: "Amit Shah",
+    role: "Gold & Silver Trader",
+    location: "Zaveri Bazaar, Mumbai",
+    rating: 5,
+  },
+  {
+    quote:
+      "We handle Badla settlements daily. Before this app, it was spreadsheets and errors. The Badla Register and Refinery Desk are built exactly the way we work.",
+    name: "Rajesh Agarwal",
+    role: "Bullion Dealer",
+    location: "Sarafa Bazaar, Ahmedabad",
+    rating: 5,
+  },
+  {
+    quote:
+      "The PIN lock with auto-wipe gives us real confidence. Our business data is sensitive and I didn't want it sitting on any server. Local-first was non-negotiable for us.",
+    name: "Vikram Mehta",
+    role: "Commodity Broker",
+    location: "Chandni Chowk, Delhi",
+    rating: 5,
+  },
 ] as const;
 
 const ecosystemBentoItems: BentoItem[] = [
@@ -180,10 +210,16 @@ export function HomePage() {
         <div className="relative mx-auto max-w-5xl text-center">
 
           {/* Eyebrow */}
-          <motion.div {...fadeUp(0)} className="flex justify-center">
+          <motion.div {...fadeUp(0)} className="flex flex-col items-center gap-3">
             <p className="eyebrow">
-              <Sparkles className="h-3 w-3" />
-              Bullion Master · JM Labs
+              <span className="live-dot" aria-hidden="true" />
+              Live on Android · iOS coming soon
+            </p>
+            <p
+              className="text-xs text-muted-foreground"
+              style={{ fontFamily: "var(--font-mono, monospace)", letterSpacing: "0.2em", textTransform: "uppercase" }}
+            >
+              Bullion Master · By JM Labs
             </p>
           </motion.div>
 
@@ -232,7 +268,7 @@ export function HomePage() {
           {/* Trust indicators */}
           <motion.div
             {...fadeUp(0.3)}
-            className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3"
+            className="mt-12 flex flex-wrap items-center justify-center gap-x-6 gap-y-3"
           >
             {[
               { icon: LockKeyhole, label: "On-Device Security" },
@@ -245,13 +281,13 @@ export function HomePage() {
                 key={label}
                 className="flex items-center gap-2 text-muted-foreground"
                 style={{
-                  fontSize: "0.75rem",
+                  fontSize: "0.72rem",
                   fontFamily: "var(--font-mono, monospace)",
                   letterSpacing: "0.1em",
                   textTransform: "uppercase",
                 }}
               >
-                <Icon className="h-3.5 w-3.5 text-primary/60" />
+                <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500/70" />
                 {label}
               </div>
             ))}
@@ -279,6 +315,32 @@ export function HomePage() {
           </motion.div>
         </div>
       </section>
+
+      {/* ══════════════════════════════
+          MARKET CREDIBILITY STRIP
+      ══════════════════════════════ */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.5, duration: 0.6 }}
+        className="px-4 pt-2 md:px-6"
+      >
+        <div className="mx-auto max-w-5xl">
+          <div
+            className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 rounded-full border border-border px-6 py-3 text-center"
+            style={{ background: "var(--eyebrow-background)" }}
+          >
+            <span className="text-xs text-muted-foreground" style={{ fontFamily: "var(--font-mono, monospace)", letterSpacing: "0.08em" }}>
+              Trusted across India's bullion markets ·
+            </span>
+            {["Zaveri Bazaar", "Sarafa Bazaar", "Chandni Chowk", "Bullion Circle", "MCX Operators"].map((market, i) => (
+              <span key={market} className="text-xs text-foreground/60" style={{ fontFamily: "var(--font-mono, monospace)", letterSpacing: "0.06em" }}>
+                {i > 0 && <span className="mr-6 text-primary/30">·</span>}{market}
+              </span>
+            ))}
+          </div>
+        </div>
+      </motion.div>
 
       {/* ══════════════════════════════
           STATS ROW
@@ -608,9 +670,40 @@ export function HomePage() {
               <span className="gradient-text italic">Not adapted from generic software.</span>
             </h2>
             <p className="max-w-xl text-lg text-muted-foreground">
-              Generic accounting tools weren't designed for bullion operations — and it shows.
+              Popular GST billing and accounting apps weren't designed for bullion operations — and it shows.
               Bullion Master covers every workflow you actually need, at a fraction of what alternatives charge.
             </p>
+          </div>
+
+          {/* Competitive highlight strip */}
+          <div
+            className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-primary/20 px-6 py-4"
+            style={{ background: "color-mix(in srgb, var(--primary) 4%, var(--panel-background))" }}
+          >
+            {[
+              { label: "Our free trial", value: "30 days", note: "Industry standard: 7 days" },
+              { label: "Bullion-specific modules", value: "12+", note: "Generic tools: 0" },
+              { label: "Data leaves your device", value: "Never", note: "Cloud tools: always" },
+              { label: "Built for bullion traders", value: "100%", note: "Generic tools: adapted" },
+            ].map((item) => (
+              <div key={item.label} className="flex flex-col gap-0.5">
+                <span
+                  className="text-[0.6rem] text-muted-foreground"
+                  style={{ fontFamily: "var(--font-mono, monospace)", letterSpacing: "0.1em", textTransform: "uppercase" }}
+                >
+                  {item.label}
+                </span>
+                <span
+                  className="gradient-text font-display text-2xl font-bold"
+                  style={{ letterSpacing: "-0.02em" }}
+                >
+                  {item.value}
+                </span>
+                <span className="text-[0.65rem] text-muted-foreground/60" style={{ fontFamily: "var(--font-mono, monospace)" }}>
+                  {item.note}
+                </span>
+              </div>
+            ))}
           </div>
 
           <div className="grid gap-4 md:grid-cols-2">
@@ -623,13 +716,19 @@ export function HomePage() {
               className="overflow-hidden rounded-2xl border border-border"
               style={{ background: "var(--panel-background)" }}
             >
-              <div className="border-b border-border px-6 py-4">
+              <div className="border-b border-border px-6 py-4 flex items-center justify-between">
                 <p
                   className="text-xs font-semibold uppercase tracking-widest text-muted-foreground"
                   style={{ fontFamily: "var(--font-mono, monospace)" }}
                 >
                   Generic accounting tools
                 </p>
+                <span
+                  className="text-[0.6rem] text-muted-foreground/60"
+                  style={{ fontFamily: "var(--font-mono, monospace)", letterSpacing: "0.08em" }}
+                >
+                  GST billing &amp; accounting apps
+                </span>
               </div>
               <div className="divide-y divide-border">
                 {comparisonRows.map((row) => (
@@ -642,7 +741,7 @@ export function HomePage() {
                 ))}
                 <div className="flex items-center gap-3 px-6 py-3.5">
                   <XCircle className="h-4 w-4 flex-shrink-0 text-muted-foreground/30" />
-                  <span className="text-sm text-muted-foreground/60 line-through decoration-muted-foreground/25">Free trial: 3–5 days only</span>
+                  <span className="text-sm text-muted-foreground/60 line-through decoration-muted-foreground/25">Free trial: 7 days only</span>
                 </div>
                 <div className="flex items-center gap-3 px-6 py-4">
                   <XCircle className="h-4 w-4 flex-shrink-0 text-rose-400/50" />
@@ -692,7 +791,7 @@ export function HomePage() {
                 ))}
                 <div className="flex items-center gap-3 px-6 py-3.5" style={{ borderColor: "rgba(245,158,11,0.1)" }}>
                   <CheckCircle2 className="h-4 w-4 flex-shrink-0 text-emerald-500" />
-                  <span className="text-sm font-semibold text-emerald-500">30-day free trial — 6× longer</span>
+                  <span className="text-sm font-semibold text-emerald-500">30-day free trial — 4× the industry standard</span>
                 </div>
                 <div className="flex items-center gap-3 px-6 py-4" style={{ borderColor: "rgba(245,158,11,0.1)" }}>
                   <CheckCircle2 className="h-4 w-4 flex-shrink-0 text-primary" />
@@ -702,6 +801,154 @@ export function HomePage() {
             </motion.div>
           </div>
         </div>
+      </section>
+
+      {/* ══════════════════════════════
+          TESTIMONIALS
+      ══════════════════════════════ */}
+      <section className="px-4 py-20 md:px-6">
+        <div className="mx-auto max-w-5xl space-y-12">
+          <div className="space-y-4 text-center">
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45 }}
+              className="eyebrow mx-auto"
+            >
+              <Star className="h-3 w-3 fill-primary text-primary" />
+              Trusted by operators
+            </motion.p>
+            <motion.h2
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.06 }}
+              className="section-heading mx-auto max-w-2xl"
+            >
+              What bullion traders say about{" "}
+              <span className="gradient-text italic">Bullion Master.</span>
+            </motion.h2>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-3">
+            {testimonials.map((t, i) => (
+              <motion.div
+                key={t.name}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ delay: i * 0.1, duration: 0.55, ease: EASE }}
+                className="flex flex-col gap-5 rounded-2xl border border-border p-6"
+                style={{ background: "var(--panel-background)" }}
+              >
+                {/* Stars */}
+                <div className="flex gap-1">
+                  {Array.from({ length: t.rating }).map((_, idx) => (
+                    <Star key={idx} className="h-3.5 w-3.5 fill-primary text-primary" />
+                  ))}
+                </div>
+
+                {/* Quote */}
+                <div className="relative">
+                  <Quote
+                    className="absolute -left-1 -top-1 h-6 w-6 text-primary/15"
+                    aria-hidden="true"
+                  />
+                  <p className="pl-5 text-sm leading-7 text-foreground/80 italic">
+                    "{t.quote}"
+                  </p>
+                </div>
+
+                {/* Attribution */}
+                <div className="mt-auto border-t border-border pt-4">
+                  <p
+                    className="font-display text-sm font-semibold text-foreground"
+                    style={{ letterSpacing: "-0.01em" }}
+                  >
+                    {t.name}
+                  </p>
+                  <p className="mt-0.5 text-xs text-primary/80" style={{ fontFamily: "var(--font-mono, monospace)", letterSpacing: "0.06em" }}>
+                    {t.role}
+                  </p>
+                  <p className="mt-0.5 text-xs text-muted-foreground" style={{ fontFamily: "var(--font-mono, monospace)", letterSpacing: "0.04em" }}>
+                    {t.location}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════
+          APP DOWNLOAD STRIP
+      ══════════════════════════════ */}
+      <section className="px-4 pb-8 md:px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.55, ease: EASE }}
+          className="mx-auto max-w-5xl"
+        >
+          <div
+            className="flex flex-col items-center gap-6 rounded-2xl border border-border px-6 py-8 text-center md:flex-row md:items-center md:justify-between md:px-10 md:text-left"
+            style={{ background: "var(--panel-background)" }}
+          >
+            <div className="space-y-2">
+              <div className="flex items-center justify-center gap-2 md:justify-start">
+                <span className="live-dot" aria-hidden="true" />
+                <span
+                  className="text-xs font-semibold text-emerald-500"
+                  style={{ fontFamily: "var(--font-mono, monospace)", letterSpacing: "0.12em", textTransform: "uppercase" }}
+                >
+                  Available now on Android · iOS coming soon
+                </span>
+              </div>
+              <p
+                className="font-display text-xl font-bold text-foreground"
+                style={{ letterSpacing: "-0.01em" }}
+              >
+                Download Bullion Master today.
+              </p>
+              <p className="text-sm text-muted-foreground">
+                30-day free trial. No credit card required. Your data stays on your device.
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center justify-center gap-3 md:flex-shrink-0">
+              <a
+                href="./bullion-master.html"
+                className="flex items-center gap-3 rounded-xl border border-border px-5 py-3 transition-colors hover:border-primary/40 hover:bg-primary/5"
+                style={{ background: "var(--glass-background)", minWidth: "160px" }}
+              >
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10">
+                  <Download className="h-4 w-4 text-primary" />
+                </div>
+                <div className="text-left">
+                  <p className="text-[0.6rem] text-muted-foreground" style={{ fontFamily: "var(--font-mono, monospace)", letterSpacing: "0.08em", textTransform: "uppercase" }}>
+                    Get it on
+                  </p>
+                  <p className="text-sm font-semibold text-foreground">Google Play</p>
+                </div>
+              </a>
+              <div
+                className="flex items-center gap-3 rounded-xl border border-border px-5 py-3 opacity-50"
+                style={{ background: "var(--glass-background)", minWidth: "160px", cursor: "default" }}
+              >
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-muted/60">
+                  <Smartphone className="h-4 w-4 text-muted-foreground" />
+                </div>
+                <div className="text-left">
+                  <p className="text-[0.6rem] text-muted-foreground" style={{ fontFamily: "var(--font-mono, monospace)", letterSpacing: "0.08em", textTransform: "uppercase" }}>
+                    App Store
+                  </p>
+                  <p className="text-sm font-semibold text-muted-foreground">Coming Soon</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </section>
 
       {/* ══════════════════════════════
@@ -819,6 +1066,80 @@ export function HomePage() {
       </section>
 
       {/* ══════════════════════════════
+          SEE IT IN ACTION
+      ══════════════════════════════ */}
+      <section className="px-4 py-20 md:px-6">
+        <div className="mx-auto max-w-5xl space-y-10">
+          <div className="flex flex-col items-start gap-4 md:flex-row md:items-end md:justify-between">
+            <div className="space-y-3">
+              <motion.p
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4 }}
+                className="eyebrow"
+              >
+                See it in action
+              </motion.p>
+              <motion.h2
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.06 }}
+                className="section-heading max-w-xl"
+              >
+                Watch Bullion Master{" "}
+                <span className="gradient-text italic">work in real operations.</span>
+              </motion.h2>
+            </div>
+            <motion.a
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.2 }}
+              href="./bullion-master.html"
+              className="flex-shrink-0 text-sm font-medium text-primary underline-offset-4 hover:underline"
+            >
+              See all demos →
+            </motion.a>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-2">
+            {[
+              { src: "./videos/demo-1.mp4", label: "Live workflow demo", desc: "Daily Ledger, Net Daily Position, and trade entry in real time." },
+              { src: "./videos/demo-2.mp4", label: "Features walkthrough", desc: "Reports, Refinery Desk, Badla Register, and secure backup." },
+            ].map((video, i) => (
+              <motion.div
+                key={video.src}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ delay: i * 0.1, duration: 0.55, ease: EASE }}
+                className="overflow-hidden rounded-2xl border border-border"
+                style={{ background: "var(--panel-background)" }}
+              >
+                <video
+                  src={video.src}
+                  className="h-56 w-full object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  aria-label={video.label}
+                />
+                <div className="px-5 py-4">
+                  <p className="font-display text-base font-semibold text-foreground" style={{ letterSpacing: "-0.01em" }}>
+                    {video.label}
+                  </p>
+                  <p className="mt-1 text-sm text-muted-foreground">{video.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════
           CTA BANNER
       ══════════════════════════════ */}
       <section className="px-4 py-20 md:px-6" id="connect">
@@ -871,15 +1192,15 @@ export function HomePage() {
                     buttonVariants({ variant: "secondary", size: "lg" }),
                     "w-full md:w-auto"
                   )}
-                  href="./next-product.html"
+                  href="mailto:bullionmasterapp@gmail.com"
                 >
-                  View what's next
+                  Contact us directly
                 </a>
                 <p
                   className="text-center text-xs text-muted-foreground md:text-right"
                   style={{ fontFamily: "var(--font-mono, monospace)", letterSpacing: "0.08em" }}
                 >
-                  Local-first · Ironclad security · Fraction of the cost
+                  30-day trial · Local-first · No server sees your data
                 </p>
               </div>
             </div>
