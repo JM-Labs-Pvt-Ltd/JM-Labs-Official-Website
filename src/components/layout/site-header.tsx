@@ -14,8 +14,6 @@ const navItems = [
   { label: "Home", href: "./index.html", key: "home" },
   { label: "Products", href: "./index.html#products", key: "products" },
   { label: "About", href: "./about.html", key: "about" },
-  { label: "Privacy", href: "./privacy-policy.html", key: "privacy" },
-  { label: "Terms", href: "./terms-and-conditions.html", key: "terms" },
 ];
 
 export function SiteHeader({ currentPage, theme, onToggleTheme }: HeaderProps) {

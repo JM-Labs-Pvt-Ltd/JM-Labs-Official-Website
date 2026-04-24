@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Mail, MapPin, Shield } from "lucide-react";
 import type { ReactNode } from "react";
 
 export function SiteFooter() {
@@ -34,10 +34,65 @@ export function SiteFooter() {
             </div>
           </div>
           <p className="max-w-xl text-sm leading-7 text-muted-foreground">
-            JM Labs builds purpose-built business software. Bullion Master is live today — a
-            complete operating system for bullion traders with ledger control, stock management,
-            and on-device security. The next product is already in development.
+            JM Labs builds purpose-built business software for serious operators. Bullion Master
+            is live today — a complete operating system for bullion traders with ledger control,
+            stock management, and ironclad on-device security.
           </p>
+
+          {/* Contact */}
+          <div className="space-y-2">
+            <a
+              href="mailto:bullionmasterapp@gmail.com"
+              className="group inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+            >
+              <Mail className="h-3.5 w-3.5 text-primary/60" />
+              bullionmasterapp@gmail.com
+            </a>
+            <div className="flex items-center gap-2 text-xs text-muted-foreground">
+              <MapPin className="h-3.5 w-3.5 text-primary/40" />
+              <span style={{ fontFamily: "var(--font-mono, monospace)", letterSpacing: "0.06em" }}>
+                Built for Indian Bullion Markets
+              </span>
+            </div>
+          </div>
+
+          {/* Trust badges row */}
+          <div className="flex flex-wrap gap-2">
+            <div
+              className="inline-flex items-center gap-2 rounded-full border border-border px-3 py-1.5"
+              style={{ background: "var(--eyebrow-background)" }}
+            >
+              <Shield className="h-3 w-3 text-emerald-500" />
+              <span
+                className="text-[0.6rem] font-semibold text-emerald-500"
+                style={{ fontFamily: "var(--font-mono, monospace)", letterSpacing: "0.12em", textTransform: "uppercase" }}
+              >
+                Local-first · 100% On-Device
+              </span>
+            </div>
+            <div
+              className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5"
+              style={{ background: "var(--eyebrow-background)" }}
+            >
+              {/* Indian flag colours */}
+              <span style={{ fontSize: "0.75rem" }}>🇮🇳</span>
+              <span
+                className="text-[0.6rem] font-semibold text-foreground/70"
+                style={{ fontFamily: "var(--font-mono, monospace)", letterSpacing: "0.12em", textTransform: "uppercase" }}
+              >
+                Made in India
+              </span>
+            </div>
+          </div>
+
+          {/* Support hours */}
+          <p
+            className="text-xs text-muted-foreground"
+            style={{ fontFamily: "var(--font-mono, monospace)", letterSpacing: "0.06em" }}
+          >
+            Support: Mon – Sat · 9 AM – 6 PM IST
+          </p>
+
           <p
             className="text-xs text-muted-foreground"
             style={{ fontFamily: "var(--font-mono, monospace)", letterSpacing: "0.08em" }}
@@ -52,13 +107,13 @@ export function SiteFooter() {
             className="text-xs uppercase text-primary/70"
             style={{ fontFamily: "var(--font-mono, monospace)", letterSpacing: "0.28em" }}
           >
-            Pages
+            Products
           </p>
           <div className="grid gap-3">
             <FooterLink href="./index.html">Home</FooterLink>
             <FooterLink href="./about.html">About JM Labs</FooterLink>
             <FooterLink href="./bullion-master.html">Bullion Master</FooterLink>
-            <FooterLink href="./next-product.html">Product in Development</FooterLink>
+            <FooterLink href="./next-product.html">In Development</FooterLink>
           </div>
         </div>
 
@@ -68,12 +123,13 @@ export function SiteFooter() {
             className="text-xs uppercase text-primary/70"
             style={{ fontFamily: "var(--font-mono, monospace)", letterSpacing: "0.28em" }}
           >
-            Legal &amp; Connect
+            Legal &amp; Support
           </p>
           <div className="grid gap-3">
             <FooterLink href="./privacy-policy.html">Privacy Policy</FooterLink>
             <FooterLink href="./terms-and-conditions.html">Terms and Conditions</FooterLink>
             <FooterLink href="./index.html#connect">Request a Demo</FooterLink>
+            <FooterLink href="mailto:bullionmasterapp@gmail.com">Contact Us</FooterLink>
           </div>
         </div>
       </div>

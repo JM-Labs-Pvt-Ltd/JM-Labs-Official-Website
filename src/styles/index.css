@@ -705,6 +705,30 @@ a {
     transition: background 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
   }
 
+  .testimonial-card {
+    @apply rounded-2xl border border-border p-6;
+    background: var(--panel-background);
+    transition: border-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+  }
+
+  .testimonial-card:hover {
+    border-color: color-mix(in srgb, var(--primary) 30%, transparent);
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px color-mix(in srgb, var(--primary) 6%, transparent);
+  }
+
+  .download-badge {
+    @apply flex items-center gap-3 rounded-xl border border-border px-5 py-3;
+    background: var(--glass-background);
+    transition: border-color 180ms ease, background 180ms ease;
+    min-width: 160px;
+  }
+
+  .download-badge:hover {
+    border-color: color-mix(in srgb, var(--primary) 40%, transparent);
+    background: color-mix(in srgb, var(--primary) 4%, var(--glass-background));
+  }
+
   .gold-line {
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--primary), transparent);

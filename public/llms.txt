@@ -1,0 +1,63 @@
+# JM Labs
+
+> JM Labs is an Indian software company that builds purpose-built business software for serious operators. The flagship product is Bullion Master — a complete operating system for Indian gold and silver bullion traders.
+
+## About JM Labs
+
+JM Labs builds focused, domain-specific software for real operators in India. Every product is shaped around how professionals in that industry actually work, not around generic accounting or ERP assumptions. The company is based in India and serves the Indian precious metals market.
+
+- Website: https://jm-labs.vercel.app/index.html
+- Contact: bullionmasterapp@gmail.com
+- Support hours: Monday to Saturday, 9 AM to 6 PM IST
+
+## Bullion Master
+
+Bullion Master is the flagship JM Labs product. It is a mobile application for Android designed specifically for Indian gold and silver bullion traders, including those operating in markets like Zaveri Bazaar (Mumbai), Sarafa Bazaar, Chandni Chowk (Delhi), and MCX-linked operations.
+
+- Product page: https://jm-labs.vercel.app/bullion-master.html
+- Platform: Android (live). iOS coming soon.
+- Trial: 30-day free trial with full feature access. No credit card required.
+- Pricing: Annual subscription. First year at a launch price. Second year onwards at a significantly lower loyalty rate.
+- Data storage: 100% local-first. Business data is stored on the device. Cloud backup is available as an optional, configurable feature.
+
+### What Bullion Master does
+
+Bullion Master replaces manual registers and generic accounting tools used by bullion traders in India. It covers the entire daily workflow of a gold and silver trading business:
+
+- **Daily Ledger**: Records all daily buy and sell transactions with party details, metal type, quantity, rate, and settlement.
+- **Master Ledger**: Tracks running balances and full transaction history for all parties.
+- **Net Daily Position (NDP)**: Calculates the net open position across all trades for the day, giving traders a clear picture of their exposure.
+- **Badla Register**: Tracks outstanding carry-forward positions — a core requirement in India's bullion trade.
+- **Refinery Desk**: Manages refinery transactions including inward receipt, processing, and outward delivery of metal.
+- **Inventory Management**: Tracks gold and silver stock by purity, weight, and form (bars, coins, jewelry).
+- **Open Positions**: Monitors unsettled trades and forward commitments.
+- **Reports Center**: Generates ledger summaries, stock reports, party statements, and daily position reports.
+- **Staff and Payroll**: Manages staff profiles and salary payment history.
+- **PIN Security**: Device-level PIN protection with auto-wipe and duress/emergency wipe options.
+- **Cloud Backup**: Encrypted backup with restore and multi-device continuity support.
+
+### Who uses Bullion Master
+
+- Gold and silver wholesalers and retailers
+- Bullion dealers and commission agents (arahtiya / broker)
+- Sarraf businesses
+- Refinery operators handling gold and silver processing
+- MCX traders managing physical delivery
+- Bullion traders in Zaveri Bazaar, Sarafa Bazaar, Chandni Chowk, Bullion Circle, and similar markets across India
+
+### Key differentiators
+
+- Built exclusively for Indian bullion trading workflows — not adapted from generic accounting software
+- 100% local-first: data never leaves the device unless the user explicitly enables cloud backup
+- Module depth: Daily Ledger, Badla Register, Refinery Desk, and Net Daily Position are all features missing from generic accounting tools
+- Strong security model: PIN lock, auto-wipe, and duress-triggered wipe flows
+- 30-day free trial with no credit card required
+
+## Legal
+
+- Privacy Policy: https://jm-labs.vercel.app/privacy-policy.html
+- Terms and Conditions: https://jm-labs.vercel.app/terms-and-conditions.html
+
+## Optional: Pages not for AI indexing
+
+- https://jm-labs.vercel.app/next-product.html (placeholder, no public product details yet)

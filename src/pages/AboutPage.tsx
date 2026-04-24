@@ -22,10 +22,10 @@ const values = [
 ] as const;
 
 const companyStats = [
-  { value: 1, suffix: "", label: "Live Product", sub: "Bullion Master is live and active" },
-  { value: 1, suffix: "", label: "Next in Development", sub: "Second product already in progress" },
-  { value: 100, suffix: "%", label: "Focused", sub: "Every feature is purpose-built" },
-  { value: 2026, suffix: "", label: "Year Active", sub: "JM Labs is operational today" },
+  { value: 1, suffix: "", label: "Live Product", sub: "Bullion Master is live on Android" },
+  { value: 12, suffix: "+", label: "Core Modules", sub: "Purpose-built for bullion operations" },
+  { value: 100, suffix: "%", label: "Local-First", sub: "Your data never leaves your device" },
+  { value: 30, suffix: "-day", label: "Free Trial", sub: "Try everything, no card required" },
 ] as const;
 
 export function AboutPage() {
@@ -52,14 +52,14 @@ export function AboutPage() {
               </em>
             </h1>
             <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
-              JM Labs is the parent company behind a growing line of focused software products. Bullion Master is live today for bullion businesses, and future releases will sit in the same ecosystem with dedicated product pages, legal context, and company identity.
+              JM Labs builds focused software for real operators. Bullion Master is live today — built specifically for India's bullion trading ecosystem, with every module shaped around how gold and silver traders actually work, not how generic accounting tools expect them to.
             </p>
           </div>
 
           <div className="image-shell relative overflow-hidden rounded-2xl border border-border p-4">
             <img
-              src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80"
-              alt="JM Labs collaborative design and product planning"
+              src="https://images.unsplash.com/photo-1610375461246-83df859d849d?auto=format&fit=crop&w=1600&q=80"
+              alt="Gold bullion bars — the market Bullion Master is built for"
               className="h-[420px] w-full rounded-xl object-cover"
             />
             <div className="glass-card-strong absolute inset-x-6 bottom-6 rounded-2xl border border-border/60 p-5 backdrop-blur-xl">
@@ -72,10 +72,10 @@ export function AboutPage() {
                   textTransform: "uppercase",
                 }}
               >
-                Company posture
+                Built for India's bullion markets
               </p>
               <p className="mt-3 font-display text-lg text-foreground" style={{ fontWeight: 500 }}>
-                A parent-company site built to support live product detail, connected legal pages, and future JM Labs releases without another restructure.
+                Zaveri Bazaar. Sarafa Bazaar. Chandni Chowk. Bullion Master is built for how India's precious metal traders actually operate.
               </p>
             </div>
           </div>
@@ -157,6 +157,54 @@ export function AboutPage() {
             <p>
               That same structure leaves a clean slot for the next JM Labs product, so growth does not require rebuilding the site every time a new release is ready.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Contact / reach out ─── */}
+      <section className="px-4 md:px-6">
+        <div className="mx-auto max-w-7xl">
+          <div
+            className="relative overflow-hidden rounded-2xl border border-border p-8 md:p-12"
+            style={{ background: "var(--cta-panel-background)" }}
+          >
+            {/* Gold hairline */}
+            <div
+              className="absolute inset-x-0 top-0 h-px"
+              style={{ background: "linear-gradient(90deg, transparent 0%, var(--primary) 50%, transparent 100%)" }}
+            />
+            <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+              <div className="space-y-3">
+                <p className="eyebrow">Get in touch</p>
+                <h2 className="section-heading max-w-lg leading-tight">
+                  Have questions about{" "}
+                  <span className="gradient-text italic">Bullion Master?</span>
+                </h2>
+                <p className="max-w-md text-sm leading-7 text-muted-foreground">
+                  We're a small, focused team. Reach us directly — no support ticket queue,
+                  no chatbot. Questions about onboarding, pricing, or features are welcome.
+                </p>
+              </div>
+              <div className="flex flex-col gap-3 md:flex-shrink-0 md:items-end">
+                <a
+                  href="mailto:bullionmasterapp@gmail.com"
+                  className="inline-flex items-center gap-3 rounded-xl border border-primary/30 px-6 py-3.5 font-semibold text-primary transition-colors hover:bg-primary/5"
+                  style={{ background: "var(--eyebrow-background)" }}
+                >
+                  <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <rect width="20" height="16" x="2" y="4" rx="2"/>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                  </svg>
+                  bullionmasterapp@gmail.com
+                </a>
+                <p
+                  className="text-xs text-muted-foreground"
+                  style={{ fontFamily: "var(--font-mono, monospace)", letterSpacing: "0.08em" }}
+                >
+                  Usually responds within 24 hours
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
