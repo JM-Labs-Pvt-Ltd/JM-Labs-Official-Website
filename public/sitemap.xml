@@ -4,7 +4,7 @@
   <!-- Home -->
   <url>
     <loc>https://jm-labs.vercel.app/index.html</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-04-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -12,7 +12,7 @@
   <!-- Bullion Master – highest-value product page -->
   <url>
     <loc>https://jm-labs.vercel.app/bullion-master.html</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-04-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -20,7 +20,7 @@
   <!-- About -->
   <url>
     <loc>https://jm-labs.vercel.app/about.html</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-04-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -28,7 +28,7 @@
   <!-- Privacy Policy -->
   <url>
     <loc>https://jm-labs.vercel.app/privacy-policy.html</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-04-25</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
@@ -36,7 +36,7 @@
   <!-- Terms and Conditions -->
   <url>
     <loc>https://jm-labs.vercel.app/terms-and-conditions.html</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-04-25</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
@@ -44,7 +44,7 @@
   <!-- Blog listing -->
   <url>
     <loc>https://jm-labs.vercel.app/blog.html</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-04-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -52,7 +52,7 @@
   <!-- Blog: Daily Ledger Guide -->
   <url>
     <loc>https://jm-labs.vercel.app/blog/daily-ledger-guide.html</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-04-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -60,7 +60,7 @@
   <!-- Blog: Net Daily Position -->
   <url>
     <loc>https://jm-labs.vercel.app/blog/net-daily-position.html</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-04-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -68,7 +68,7 @@
   <!-- Blog: Badla Register Guide -->
   <url>
     <loc>https://jm-labs.vercel.app/blog/badla-register-guide.html</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-04-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -76,7 +76,7 @@
   <!-- Blog: Gold Inventory Management -->
   <url>
     <loc>https://jm-labs.vercel.app/blog/gold-inventory-management.html</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-04-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -84,7 +84,7 @@
   <!-- Blog: Refinery Desk Guide -->
   <url>
     <loc>https://jm-labs.vercel.app/blog/refinery-desk-guide.html</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-04-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

@@ -25,42 +25,42 @@ type ThemeMode = "light" | "dark";
 const pageMap: Record<string, PageConfig> = {
   "": {
     key: "home",
-    title: "JM Labs | Parent Platform for Focused Software Products",
+    title: "JM Labs - Bullion Software for Indian Traders",
     render: HomePage,
   },
   "index.html": {
     key: "home",
-    title: "JM Labs | Parent Platform for Focused Software Products",
+    title: "JM Labs - Bullion Software for Indian Traders",
     render: HomePage,
   },
   "about.html": {
     key: "about",
-    title: "About JM Labs",
+    title: "About JM Labs - Bullion Software Company in India",
     render: AboutPage,
   },
   "bullion-master.html": {
     key: "bullion-master",
-    title: "Bullion Master | JM Labs",
+    title: "Bullion Master - Gold Trading Software | JM Labs",
     render: BullionMasterPage,
   },
   "privacy-policy.html": {
     key: "privacy",
-    title: "Privacy Policy | JM Labs",
+    title: "Privacy Policy for Bullion Master | JM Labs",
     render: PrivacyPage,
   },
   "terms-and-conditions.html": {
     key: "terms",
-    title: "Terms and Conditions | JM Labs",
+    title: "Terms and Conditions for Bullion Master | JM Labs",
     render: TermsPage,
   },
   "next-product.html": {
     key: "upcoming",
-    title: "Product in Development | JM Labs",
+    title: "Next JM Labs Product in Development",
     render: UpcomingProductPage,
   },
   "blog.html": {
     key: "blog",
-    title: "Bullion Trading Guides | JM Labs Blog",
+    title: "Bullion Trading Guides for Gold Traders | JM Labs",
     render: BlogPage,
   },
 };
