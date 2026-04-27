@@ -1192,7 +1192,7 @@ export function HomePage() {
                     buttonVariants({ variant: "secondary", size: "lg" }),
                     "w-full md:w-auto"
                   )}
-                  href="mailto:bullionmasterapp@gmail.com"
+                  href="mailto:connect@jmlabs.in"
                 >
                   Contact us directly
                 </a>

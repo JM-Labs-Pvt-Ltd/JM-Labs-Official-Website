@@ -174,11 +174,11 @@ export function BlogPage() {
                   <ArrowUpRight className="h-4 w-4" />
                 </a>
                 <a
-                  href="mailto:bullionmasterapp@gmail.com"
+                  href="mailto:connect@jmlabs.in"
                   className="text-xs text-muted-foreground hover:text-foreground transition-colors"
                   style={{ fontFamily: "var(--font-mono, monospace)" }}
                 >
-                  bullionmasterapp@gmail.com
+                  connect@jmlabs.in
                 </a>
               </div>
             </div>

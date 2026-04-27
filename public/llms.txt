@@ -6,15 +6,15 @@
 
 JM Labs builds focused, domain-specific software for real operators in India. Every product is shaped around how professionals in that industry actually work, not around generic accounting or ERP assumptions. The company is based in India and serves the Indian precious metals market.
 
-- Website: https://jm-labs.vercel.app/index.html
-- Contact: bullionmasterapp@gmail.com
+- Website: https://jmlabs.in/index.html
+- Contact: connect@jmlabs.in
 - Support hours: Monday to Saturday, 9 AM to 6 PM IST
 
 ## Bullion Master
 
 Bullion Master is the flagship JM Labs product. It is a mobile application for Android designed specifically for Indian gold and silver bullion traders, including those operating in markets like Zaveri Bazaar (Mumbai), Sarafa Bazaar, Chandni Chowk (Delhi), and MCX-linked operations.
 
-- Product page: https://jm-labs.vercel.app/bullion-master.html
+- Product page: https://jmlabs.in/bullion-master.html
 - Platform: Android (live). iOS coming soon.
 - Trial: 30-day free trial with full feature access. No credit card required.
 - Pricing: Annual subscription. First year at a launch price. Second year onwards at a significantly lower loyalty rate.
@@ -55,9 +55,9 @@ Bullion Master replaces manual registers and generic accounting tools used by bu
 
 ## Legal
 
-- Privacy Policy: https://jm-labs.vercel.app/privacy-policy.html
-- Terms and Conditions: https://jm-labs.vercel.app/terms-and-conditions.html
+- Privacy Policy: https://jmlabs.in/privacy-policy.html
+- Terms and Conditions: https://jmlabs.in/terms-and-conditions.html
 
 ## Optional: Pages not for AI indexing
 
-- https://jm-labs.vercel.app/next-product.html (placeholder, no public product details yet)
+- https://jmlabs.in/next-product.html (placeholder, no public product details yet)

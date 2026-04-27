@@ -42,11 +42,11 @@ export function SiteFooter() {
           {/* Contact */}
           <div className="space-y-2">
             <a
-              href="mailto:bullionmasterapp@gmail.com"
+              href="mailto:connect@jmlabs.in"
               className="group inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
               <Mail className="h-3.5 w-3.5 text-primary/60" />
-              bullionmasterapp@gmail.com
+              connect@jmlabs.in
             </a>
             <div className="flex items-center gap-2 text-xs text-muted-foreground">
               <MapPin className="h-3.5 w-3.5 text-primary/40" />
@@ -130,7 +130,7 @@ export function SiteFooter() {
             <FooterLink href="./privacy-policy.html">Privacy Policy</FooterLink>
             <FooterLink href="./terms-and-conditions.html">Terms and Conditions</FooterLink>
             <FooterLink href="./index.html#connect">Request a Demo</FooterLink>
-            <FooterLink href="mailto:bullionmasterapp@gmail.com">Contact Us</FooterLink>
+            <FooterLink href="mailto:connect@jmlabs.in">Contact Us</FooterLink>
           </div>
         </div>
       </div>

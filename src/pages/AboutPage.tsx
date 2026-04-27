@@ -187,7 +187,7 @@ export function AboutPage() {
               </div>
               <div className="flex flex-col gap-3 md:flex-shrink-0 md:items-end">
                 <a
-                  href="mailto:bullionmasterapp@gmail.com"
+                  href="mailto:connect@jmlabs.in"
                   className="inline-flex items-center gap-3 rounded-xl border border-primary/30 px-6 py-3.5 font-semibold text-primary transition-colors hover:bg-primary/5"
                   style={{ background: "var(--eyebrow-background)" }}
                 >
@@ -195,7 +195,7 @@ export function AboutPage() {
                     <rect width="20" height="16" x="2" y="4" rx="2"/>
                     <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
                   </svg>
-                  bullionmasterapp@gmail.com
+                  connect@jmlabs.in
                 </a>
                 <p
                   className="text-xs text-muted-foreground"

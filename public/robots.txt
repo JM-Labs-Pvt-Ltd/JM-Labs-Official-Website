@@ -3,4 +3,4 @@ Allow: /
 Disallow: /next-product.html
 
 # Sitemap
-Sitemap: https://jm-labs.vercel.app/sitemap.xml
+Sitemap: https://jmlabs.in/sitemap.xml

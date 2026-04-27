@@ -7,7 +7,7 @@ Last updated: 2026-04-25
 ## 🔴 SEO / Search Console
 
 - [ ] Resubmit sitemap in Google Search Console (delete old entry → resubmit `sitemap.xml`)
-- [ ] Submit sitemap to Bing Webmaster Tools → `https://jm-labs.vercel.app/sitemap.xml`
+- [ ] Submit sitemap to Bing Webmaster Tools → `https://jmlabs.in/sitemap.xml`
 - [ ] Verify Google Search Console is showing pages as indexed (check after 3–5 days)
 
 ---
@@ -35,7 +35,7 @@ High domain authority sites that linked to Vyapar. Submit JM Labs / Bullion Mast
 - [ ] **uptodown.com** — Submit Bullion Master APK / Play Store link (Vyapar has 18 links from here)
 - [ ] **filehorse.com** — Submit app
 - [ ] **apkpure.com** — Submit app listing
-- [ ] Update **Google Play Store** listing — set website URL to `https://jm-labs.vercel.app/bullion-master.html`
+- [ ] Update **Google Play Store** listing — set website URL to `https://jmlabs.in/bullion-master.html`
 
 ---
 
@@ -73,7 +73,7 @@ These require traction or a press angle but worth tracking:
 
 ## ✅ Done
 
-- [x] Deploy site on Vercel at `jm-labs.vercel.app`
+- [x] Deploy site at `jmlabs.in`
 - [x] Full SEO overhaul — titles, descriptions, OG tags, JSON-LD across all pages
 - [x] `robots.txt`, `sitemap.xml`, `llms.txt` at domain root
 - [x] Google site verification file in `public/`
