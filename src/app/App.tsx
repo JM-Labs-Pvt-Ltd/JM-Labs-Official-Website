@@ -1,4 +1,5 @@
 import { type ComponentType, useEffect, useState } from "react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
@@ -146,6 +147,7 @@ export default function App() {
         </main>
         <SiteFooter />
       </div>
+      <SpeedInsights />
     </div>
   );
 }
