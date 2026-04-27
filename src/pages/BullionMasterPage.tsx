@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { ArrowRight, BarChart3, CalendarDays, CheckCircle2, ChevronDown, Layers, LockKeyhole, Shield, Tag, Users, Wallet, X } from "lucide-react";
+import { BarChart3, CalendarDays, CheckCircle2, ChevronDown, Layers, LockKeyhole, Shield, Tag, Users, Wallet, X } from "lucide-react";
 
 
 import { BullionSecurityArchitecture } from "@/components/sections/bullion-security-architecture";
@@ -577,17 +577,6 @@ export function BullionMasterPage() {
                 </p>
               </div>
             </div>
-            <a href="./terms-and-conditions.html" className="panel group flex items-center justify-between">
-              <div>
-                <p className="font-display text-lg text-foreground" style={{ fontWeight: 600 }}>
-                  Legal documents stay one click away
-                </p>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  Privacy and terms remain directly connected to Bullion Master inside the same JM Labs ecosystem.
-                </p>
-              </div>
-              <ArrowRight className="h-5 w-5 text-primary transition group-hover:translate-x-1 flex-shrink-0" />
-            </a>
           </div>
         </div>
       </section>
